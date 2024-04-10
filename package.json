@@ -1,0 +1,30 @@
+{
+  "name": "elaborate",
+  "version": "1.0.0",
+  "description": "A project that revolutionize ELA report writing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabiDEvs/elaBorate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sabiDEvs/elaBorate/issues"
+  },
+  "homepage": "https://github.com/sabiDEvs/elaBorate#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
