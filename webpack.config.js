@@ -1,16 +1,9 @@
-const path = require('path');
+const configs = [
+    require.resolve('./dist.config.js'),
+    require.resolve('./sub.config.js'),
+    require.resolve('./report.config.js'),
+];
+
 module.exports = {
-    entry: './src/index.js',
-    output: {
-        filename: 'script.js',
-        path: path.resolve(--dirname, 'dist'),
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
-            },
-        ],
-    },
+    extends: configs,
 };
