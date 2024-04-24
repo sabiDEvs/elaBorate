@@ -33,17 +33,19 @@ module.exports = {
             use: [MiniCssExtractPlugin.loader, 'css-loader'],
           },
           {
-            test: /\.(png|jpg|gif|svg)$/,
-            type: 'asset/resource',
-            generator: {
-              directory: 'asset/images', // Output to dist/asset/images
-            },
-          },
-          {
             test: /\.(ico|eot|ttf|woff|woff2)$/,
             type: 'asset/resource',
             generator: {
-              directory: 'asset/fonts', // Output to dist/asset/fonts
+              filename: 'asset/fonts/[hash][ext][query]',
+              publicPath: './',// Output to dist/asset/fonts
+            },
+          },
+          {
+            test: /\.(png|jpg|gif|svg)$/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'asset/images/[hash][ext][query]',
+              publicPath: './',
             },
           },
         ],
@@ -51,7 +53,7 @@ module.exports = {
       plugins: [
         new HtmlWebpackPlugin(generateHtmlConfig('index.html', 'script')),
         new MiniCssExtractPlugin({
-          filename: 'style.css',
+          filename: '[name].css',
         }),
       ],
 };
