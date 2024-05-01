@@ -17,6 +17,26 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/'),
     filename: '[name].js', // Maintain filename for each entry point
   },
+  module: {
+    rules: [
+      {
+        test: /\.(ico|eot|ttf|woff|woff2)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'asset/fonts/[hash][ext][query]',
+          publicPath: '../',// Output to dist/asset/fonts
+        },
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'asset/images/[hash][ext][query]',
+          publicPath: '../',
+        },
+      },
+    ],
+  },
   plugins: [
     new HtmlWebpackPlugin(generateHtmlConfig('about.html', 'about/about.html', 'about/about')),
     new HtmlWebpackPlugin(generateHtmlConfig('report.html', 'report/report.html', 'report/report')),
