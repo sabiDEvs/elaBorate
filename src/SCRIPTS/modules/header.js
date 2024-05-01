@@ -1,4 +1,4 @@
-import {createNavBar, createBrand} from './landing.js';
+import {createNavBar, createBrand, createMenu} from './landing.js';
 import logo from '../../RESOURCES/images/elaBoratelogo.png';
 import search from '../../RESOURCES/images/search-icon.png';
 const renderHeader = (body) => {
@@ -27,6 +27,8 @@ searchDiv.appendChild(searchIcon);
 header.appendChild(iconDiv);
 header.appendChild(navBox);
 header.appendChild(searchDiv);
+//create menu
+createMenu(header);
 //Add header to body tag
 body.appendChild(header);
 }

@@ -3,7 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    width: 100vw;
+    background-color: #ffffff;
+}
 header{
+    top: 0;
     position: fixed;
     background-color: #ffffff;
     width: 100%;
@@ -14,58 +19,81 @@ header{
     padding: 10px 20px 10px 5px;
     z-index: 4;
 }
+.bars{
+    height: 2px;
+    width: 5vw;
+    background-color: #14213d;
+    border: none;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 /*navBar styling*/
 .nav{
-    display: flex;
+    display: none;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 2vw;
+    padding: 10px;
+    top: 10vh;
+    right: 0;
+    gap: 3vw;
+    position: fixed;
+    background-color: #ffffff;
 }
 .nav a{
     text-decoration: none;
     color: #000000;
-    font-weight: bold;
+    font-weight: normal;
 }
 /*search input styling*/
 #searchBox{
     display: flex;
     align-items: center;
-    gap: 0.5vw;
+    justify-content: flex-start;
+    gap: 0;
 }
 #searchInput{
     background-color: #e5e5e586;
     border: none;
-    border-radius: 0.75vw;
-    height: 1.5vw;
+    border-radius: 1.5vw;
+    height: 4vw;
 }
 #searchBox img{
-    height: 2vw;
-    width: 2vw;
+    height: 4vw;
+    width: 4vw;
+    position: relative;
+    left: -3vw;
 }
 main{
     position: relative;
     top: 10vh;
     margin-bottom: 15vw;
+    width: 100vw;
 }
 /*hero section styling*/
 #hero{
-    height: 70vh;
+    height: 50vh;
     width: 100%;
     padding: 0 20px;
     position: relative;
+    margin-bottom: 5vh;
 }
 .heroSlide{
     height: 100%;
+    top: 20vh;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 0.5fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     justify-content: space-between;
 }
 .outerCircle{
     height: 100%;
     width: 75%;
     border-radius: 50%;
-    grid-column: 2/4;
+    grid-column: 1/3;
     grid-row: 1/2;
     z-index: 0;
     margin: 0 auto;
@@ -74,26 +102,26 @@ main{
     height: 98%;
     width: 73%;
     border-radius: 50%;
-    grid-column: 2/4;
+    grid-column: 1/3;
     grid-row: 1/2;
     z-index: 1;
     margin: 0 auto;
 }
 .group{
-    height: 100%;
+    height: 90%;
     width: 100%;
-    grid-column: 2/4;
+    grid-column: 1/3;
     grid-row: 1/2;
     justify-self: center;
     z-index: 2;
 }
 .single{
-    height: 98%;
-    width: 200%;
-    grid-column: 2/3;
+    height: 90%;
+    width: 100%;
+    grid-column: 1/3;
     grid-row: 1/2;
     justify-self: center;
-    align-self: self-start;
+    align-self: center;
     z-index: 2;
 }
 .textDiv{
@@ -103,23 +131,23 @@ main{
 }
 .container{
     grid-column: 1/2;
-    grid-row: 1/2;
+    grid-row: 2/3;
     align-self: center;
-    justify-self: self-end;
+    justify-self: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    margin-right: 2vw;
+    gap: 5px;
+    width: 100vw;
 }
 .heroText{
-    font-size: 36px;
-    align-self: flex-end;
+    font-size: 18px;
+    align-self: center;
 }
 .span{
-    font-size: 68px;
+    font-size: 28px;
     font-weight: bold;
-    align-self: stretch;
+    align-self: center;
 }
 .callAction{
     padding: 10px 20px;
@@ -129,8 +157,8 @@ main{
 }
 /*icon styling*/
 #iconDiv img{
-    height: 6vw;
-    width: 6vw;
+    height: 10vw;
+    width: 10vw;
 }
 #iconDiv{
     display: flex;
@@ -139,9 +167,9 @@ main{
     position: relative;
 }
 #iconDiv h1{
-    font-size: 24px;
+    font-size: 16px;
     position: relative;
-    left: -1.5vw;
+    left: -2.5vw;
 }
 /*department block styling*/
 #dept{
@@ -157,30 +185,32 @@ main{
 #group{
     position: relative;
     display: flex;
+    flex-direction: column;
     gap: 30px;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
 }
 .deptBox{
-    width: 23%;
-    height: 60vh;
+    width: 90%;
+    border-radius: 5vw 5vw 0 0;
     background-color: #ffffff;
-    border-radius: 0 2vw 0 2vw;
     box-shadow: 4px 3px 2px 1px #e5e5e5;
+    align-self: center;
 }
 .deptText{
     display: flex;
     gap: 10px;
     flex-direction: column;
-    padding: 0.5vw 1.5vw;
+    padding: 3vw;
 }
 .deptText article{
     font-weight: lighter;
+    font-size: 14px;
 }
 .deptBox img{
     width: 100%;
     height: 50%;
-    border-radius: 0 2vw 0 0;
+    border-radius: 5vw 5vw 0 0;
 }
 /*service offers sections*/
 #service{
@@ -190,31 +220,28 @@ main{
     justify-content: space-between;
     position: relative;
     margin-top: 10vw;
-    height: 60vh;
-    gap: 5vw;
-    width: 100%;
+    gap: 10vw;
+    width: 100vw;
 }
 #offers{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    width: 60%;
-    align-items: flex-end;
+    align-items: center;
+    width: 100%;
+    gap: 8vw;
 }
 .serve{
     background-color: #000000;
-    padding: 2vw 1vw;
+    padding: 5vw;
     color: #ffffff;
     display: flex;
-    width: 30%;
-    height: 50vh;
+    width: 60%;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 3vw;
-}
-#middle{
-    height: 55vh;
+    font-size: 12px;
+    gap: 5vw;
 }
 .serveButton{
     background-color: #fca311;
@@ -226,8 +253,7 @@ main{
     background-color: #14213d;
     box-shadow: 3px 3px #fca311;
     color: #ffffff;
-    align-self: flex-end;
-    margin-right: 20vw;
+    align-self: center;
     font-weight: bold;
     padding: 10px 20px;
     position: relative;
@@ -235,63 +261,63 @@ main{
 /*About section styling*/
 #aboutSection{
     position: relative;
-    margin-top: 15vw;
-    width: 100%;
+    margin-top: 20vw;
+    width: 100vw;
 }
+
 #whyUs{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 #whyUs img{
-    grid-column: 1/4;
-    grid-row: 1/5;
+    grid-column: 1/6;
+    grid-row: 1/4;
     width: 100%;
     margin: 0;
     display: inline-grid;
-    height: 80vh;
+    height: 30vh;
 }
 #whyUs h2{
-    grid-column: 3/4;
+    grid-column: 2/5;
     grid-row: 2/3;
     color: #ffffff;
     font-weight: bold;
-    font-size: 60px;
+    font-size: 36px;
 }
 #about{
-    padding: 10vw 25vw;
+    padding: 20vw 15vw;
+    background-color: #000000;
+    color: #ffffff;
 }
 #about p{
-    font-size: 36px;
+    font-size: 16px;
     font-weight: bold;
 }
 /*contact section styling*/
 #contact{
-    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 2vw;
+    margin-bottom: 15vh;
 }
 form{
-    height: 40vh;
-    width: 80%;
+    width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
     gap: 2vw;
 }
-input{
-    justify-self: self-end;
-}
 input, textarea{
-    width: 80%; 
+    width: 70%; 
     background-color: #000000;
     color: #e5e5e5;
     padding: 1vw;
+    margin: 0 auto;
 }
 #userName{
     grid-column: 1/2;
@@ -306,15 +332,12 @@ input, textarea{
     grid-row: 3/4;
 }
 #userMessage{
-    grid-column: 2/3;
-    grid-row: 1/4;
+    grid-column: 1/2;
+    grid-row: 4/5;
 }
 #userSubmit{
-    grid-column: 1/3;
-    grid-row: 4/5;
-    width: 20%;
-    align-self: center;
-    margin: 0 auto;
+    grid-column: 1/2;
+    grid-row: 5/6;
     border: 0;
     font-weight: bold;
     background-color: #fca311;
@@ -327,15 +350,18 @@ footer{
     color: #ffffff;
     width: 94%;
     margin: 0 auto;
+    margin-top: 5vw;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 1vw 3vw;
+    gap: 10vh;
 }
 #footerNav{
     display: flex;
     gap: 2vw;
+    justify-content: space-around;
     margin-bottom: 1vw;
 }
 #subscribe{
@@ -348,11 +374,12 @@ footer{
 #rightFoot{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 1vh;
+    align-items: center;
 }
 footer img{
-    height: 10vw;
-    width: 16vw;
+    height: 60vw;
+    width: 80vw;
 }
 footer a{
     text-decoration: none;
@@ -369,4 +396,302 @@ footer a{
     text-align: center;
     vertical-align: middle;
     padding: 10px 20px;
+}
+/*Ai pop up and button styling*/
+#chatGPT, #geminiAI{
+    width: 80vw;
+    height: 70vh;
+    position: fixed;
+    top: 15vh;
+    left: 10vw;
+    z-index: 4;
+    background-color: #ffffff;
+    border-radius: 1vw;
+    padding: 2vw;
+    display: none;
+}
+.close{
+    border-radius: 50%;
+    background-color: red;
+    padding: 0.5vw 1vw;
+    text-align: center;
+    vertical-align: text-top;
+    margin: 0.5vw;
+    position: relative;
+    float: right;
+    cursor: default;
+    display: inline;
+}
+.frameBox{
+    height: 100%;
+}
+.aiText{
+    display: inline-block;
+    position: relative;
+}
+#chatgpt, #gemini{
+    height: 90%;
+    width: 100%;
+}
+#ai{
+    height: 14vh;
+    width: 10vw;
+    position: fixed;
+    bottom: 10vh;
+    right: 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+.aiDiv{
+    background-color: #14213d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 14vw;
+    width: 14vw;
+    border-radius: 50%;
+}
+#ai img{
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+}
+.popUp{
+    display: none;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 1vw;
+}
+.active{
+    display: flex;
+}
+@media only screen and (min-width:768px){
+    .menu{
+        display: none;
+    }
+    .nav{
+        display: flex;
+        background-color: none;
+        flex-direction: row;
+        gap: 2vw;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+    .nav a{
+        font-weight: bold;
+    }
+    #searchInput{
+        height: 1.5vw;
+    }
+    #searchBox{
+        gap: 0.5vw;
+        justify-content: space-between;
+    }
+    #searchBox img{
+        height: 2vw;
+        width: 2vw;
+        position: unset;
+        left: 0;
+    }
+    #iconDiv img{
+        height: 6vw;
+        width: 6vw;
+    }
+    #iconDiv h1{
+        left: -1.5vw;
+        font-size: 36px;
+    }
+    #hero{
+        height: 70vh;
+        margin-top: 0;
+    }
+    .heroSlide{
+        display: grid;
+        grid-template-columns: 1fr 0.5fr 1fr;
+        grid-template-rows: 1fr;
+        justify-content: space-between;
+    }
+    .outerCircle{
+        grid-column: 2/4;
+    }
+    .innerCircle{
+        grid-column: 2/4;
+    }
+    .group{
+        grid-column: 2/4;
+        grid-row: 1/2;
+        justify-self: center;
+    }
+    .single{
+        width: 200%;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        justify-self: center;
+        align-self: self-start;
+    }
+    .container{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: self-end;
+        gap: 30px;
+        margin-right: 2vw;
+        width: 100%;
+    }
+    .heroText{
+        font-size: 36px;
+        align-self: flex-end;
+    }
+    .span{
+        font-size: 68px;
+        align-self: stretch;
+    }
+    #group{
+        flex-direction: row;
+        gap: 30px;
+        justify-content: space-between;
+        width: 80%;
+    }
+    .deptBox{
+        width: 25%;
+        height: 90vh;
+        border-radius: 0 2vw 0 2vw;
+        box-shadow: 4px 3px 2px 1px #e5e5e5;
+    }
+    .deptText{
+        padding: 1vw 1.5vw;
+    }
+    .deptText article{
+        font-size: 1vw;
+    }
+    .deptBox img{
+        border-radius: 0 2vw 0 0;
+    }
+    #service{
+        height: 50vh;
+        gap: 5vw;
+    }
+    #offers{
+        flex-direction: row;
+        width: 60%;
+        align-items: flex-end;
+        gap: 0;
+    }
+    .serve{
+        width: 30%;
+        height:45vh;
+        border-radius: 3vw;
+        font-size: 1vw;
+        padding: 2vw 1vw;
+        gap: 1.5vw;
+    }
+    #middle{
+        height: 50vh;
+    }
+    #serveAction{
+        align-self: flex-end;
+        margin-right: 20vw;
+    }
+    #whyUS{
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    #whyUs img{
+        grid-row: 1/5;
+        height: 80vh;
+    }
+    #whyUs h2{
+        grid-column: 4/6;
+        font-size: 60px;
+        align-self: self-end;
+    }
+    #about{
+        padding: 10vw 25vw;
+        background-color: #ffffff;
+        color:#000000;
+    }
+    #about p{
+        font-size: 36px;
+    }
+    form{
+        height: 40vh;
+        width: 80%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        align-items: unset;
+    }
+    input{
+        justify-self: self-end;
+    }
+    input, textarea{
+        width: 80%; 
+        margin: 0;
+    }
+    #userName{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    #userEmail{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    #userPhone{
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+    #userMessage{
+        grid-column: 2/3;
+        grid-row: 1/4;
+    }
+    #userSubmit{
+        grid-column: 1/3;
+        grid-row: 4/5;
+        width: 20%;
+        align-self: center;
+        margin: 0 auto;
+    }
+    footer{
+        width: 94%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vw 3vw;
+        gap: 0;
+    }
+    #rightFoot{
+        gap: 5px;
+        align-items: unset;
+    }
+    footer img{
+        height: 10vw;
+        width: 16vw;
+    }
+    #chatGPT, #geminiAI{
+        width: 40vw;
+        height: 90vh;
+        top: 5vh;
+        left: 30vw;
+        padding: 1vw;
+    }
+    #ai{
+        height: 14vh;
+        width: 5vw;
+        bottom: 10vh;
+        right: 1vw;
+        gap: 20px;
+    }
+    .aiDiv{
+        height: 5vw;
+        width: 5vw;
+        border-radius: 0.5vw;
+    }
+    .popUp{
+        width: 3vw;
+        height: 3vw;
+        border-radius: 0.3vw;
+    }
 }

@@ -16,6 +16,21 @@ const createNavLink = (ref, text) => {
     div.appendChild(link);
     return div;
 };
+//function to create menu
+const createMenu = (header) => {
+    const div = document.createElement('div');
+    div.classList.add('menu');
+    let bars = [];
+    for(let i = 0; i < 3; i++){
+        bars[i] = document.createElement('div');
+        bars[i].classList.add('bars');
+        div.appendChild(bars[i]);
+    }
+    div.addEventListener('click', () => {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+    header.appendChild(div);
+}
 const createBrand = (logo, name = 'elaBorate') => {
     const div = document.createElement('div');
     //create logo icon
@@ -42,12 +57,12 @@ const createNavBar = () => {
 }
 const generateHeroSection = (section) =>  {
     const heroContent = [
-    {text: 'ELA made', word: 'Easy!!!',image: img1,class: 'single',inner: '#14213d',outer: '#fca311',call: 'GET STARTED'},
-    {text: 'Lab Days?', word: 'A Breeze!', image: img2, class: 'single', inner: '#000000', outer: '#fca311', call: 'CHOOSE US'},
-    {text: 'Engineering Labs,', word: 'Simplified!!', image: img3,class: 'group', inner: '#000000', outer: '#14213d', call: 'TAP IN'},
-    {text: 'Don\'t Wing It,', word: 'Elaborate It!', image: img4,class: 'single', inner:  '#000000', outer: '#e5e5e5', call: 'UNLEASH  POTENTIAL'},
+    {text: 'ELA made', word: 'Easy!!!',image: img1,class: 'group',inner: '#14213d',outer: '#fca311',call: 'GET STARTED'},
+    {text: 'Lab Days?', word: 'A Breeze!!!', image: img2, class: 'single', inner: '#000000', outer: '#fca311', call: 'CHOOSE US'},
+    {text: 'Engineering Labs,', word: 'Simplified!!!', image: img3,class: 'group', inner: '#000000', outer: '#14213d', call: 'TAP IN'},
+    {text: 'Don\'t Wing It,', word: 'Elaborate It!!!', image: img4,class: 'single', inner:  '#000000', outer: '#e5e5e5', call: 'UNLEASH  POTENTIAL'},
     {text: 'Unlock Lab Secrets with,', word: 'Elaborate!!!', image: img5,class: 'group', inner: '#14213d', outer: '#e5e5e5', call: 'START NOW'},
-    {text: 'Grades Soaring, Elaborate', word: 'Thank You!!', image: img6,class: 'single', inner: '#14213d', outer: '#000000', call: 'DIVE IN'},
+    {text: 'Grades Soaring, Elaborate', word: 'Thank You!!!', image: img6,class: 'single', inner: '#14213d', outer: '#000000', call: 'DIVE IN'},
 ];
     for(let i = 0; i < heroContent.length; i++){
         const heroDiv = document.createElement('div');
@@ -137,4 +152,4 @@ const createService = (heading, body, action) => {
     div.appendChild(button);
     return div;
 }
-export {createNavLink, generateHeroSection, carousel, createDept, createService, createBrand, createNavBar};
+export {createNavLink, generateHeroSection, carousel, createDept, createService, createBrand, createNavBar, createMenu};

@@ -1,7 +1,8 @@
 //import functions from modules
-import {generateHeroSection, carousel, createDept, createService} from './modules/landing.js';
-import {renderHeader} from './modules/header.js';
+import {generateHeroSection, carousel, createDept, createService} from './modules/landing';
+import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
+import {createGemini, createChatGpt, displayAI} from './modules/ai';
 //import css
 import '../CSS/style.css';
 //import images
@@ -36,13 +37,13 @@ deptHeader.textContent = 'Departments We Cover';
 const deptGroup = document.createElement('div');
 deptGroup.id = 'group';
 //computer department div
-const cpeDept = createDept(dept1, 'COMPUTER ENGINEERING', 'Build breadboard and the likes', [300, 400]);
+const cpeDept = createDept(dept1, 'COMPUTER ENGINEERING', 'Computer ELA offers hands-on experience with hardware, software and basic engineering concepts, by solidifying theory through building circuits, programming microcontrollers, and exploring computer networks', [300, 400]);
 //electrical department div
-const eeeDept = createDept(dept2, 'ELECTRICAL ENGINEERING', 'Build transformer and the likes', [200]);
+const eeeDept = createDept(dept2, 'ELECTRICAL ENGINEERING', 'Electrical ELA brings electrical principles to life. Students gain practical experience with circuits, electronics, power systems, and control systems through experiments involving real-world equipment like Transformers, oscilloscopes, and other electrical machines', [200, 300]);
 //mechanical department div
-const meeDept = createDept(dept3, 'MECHANICAL ENGINEERING', 'Stuffs we don\'t understand and the likes', [200]);
+const meeDept = createDept(dept3, 'MECHANICAL ENGINEERING', 'Mechanical ELA focuses on applying theoretical concepts to real-world applications. Students bridge the gap between theory and application by testing mechanical systems through experiments involving Applied Mechanics (AM) and Strength of Materials (SM)', [200]);
 //production department div
-const preDept = createDept(dept4, 'PRODUCTION ENGINEERING', 'Draw this and draw that and the likes', [200]);
+const preDept = createDept(dept4, 'PRODUCTION ENGINEERING', 'Production ELA delves into the practicalities of manufacturing. Students explore efficient production techniques through experiments in areas like machining, welding, casting, forming, and bench-fitting, developing a strong foundation for future industrial success', [200]);
 //append department div
 deptGroup.appendChild(cpeDept);
 deptGroup.appendChild(eeeDept);
@@ -64,18 +65,18 @@ serveHead.textContent = "Services We Offer";
 const serveBox = document.createElement('div');
 serveBox.id = 'offers';
 //create service one
-const serve1 = createService('Examples & Templates', 'see well written materials bla bla bla bla', 'Learn more');
+const serve1 = createService('Grade-A Reports', 'Stop wasting time on information overload. Elaborate equips you with the essential resources and expert tips to craft concise, impactful reports that showcase your understanding. Plus, with our seamless PDF download feature, you can effortlessly save your reports for future reference or easy sharing with instructors.', 'Learn more');
 serve1.classList.add('serve');
 //create service two
-const serve2 = createService('Examples & Templates', 'see well written materials bla bla bla bla', 'Learn more');
+const serve2 = createService('Gain insightful knowledge', 'Don\'t just memorize, truly understand. Elaborate equips you with interactive learning tools and expert insights, transforming passive data into a rich understanding of engineering concepts. This deeper knowledge empowers you to excel in your exams and future endeavors.', 'Learn more');
 serve2.classList.add('serve');
-serve2.id = 'middle';
+serve1.id = 'middle';
 //create service three
-const serve3 = createService('Examples & Templates', 'see well written materials bla bla bla bla', 'Learn more');
+const serve3 = createService('Lab Mastery Made Easy', 'Elaborate sheds light on even the most complex experiments, transforming you from bewildered beginner to confident expert. This newfound understanding empowers you to tackle your ELAs with a winning strategy.', 'Learn more');
 serve3.classList.add('serve');
 //Append services to  serve box
-serveBox.appendChild(serve1);
 serveBox.appendChild(serve2);
+serveBox.appendChild(serve1);
 serveBox.appendChild(serve3);
 //create service call to action
 const serveAction = document.createElement('div');
@@ -168,3 +169,7 @@ carousel();
 
 //display footer
 renderFooter(body);
+
+displayAI(body);
+createGemini(body);
+createChatGpt(body);

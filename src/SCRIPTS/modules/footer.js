@@ -13,6 +13,7 @@ footerNav.id = 'footerNav';
 //append children to leftFooter
 leftFooter.appendChild(footerBrand);
 leftFooter.appendChild(footerNav);
+leftFooter.id = 'leftFoot';
 //Append left footer section to the footer
 footer.appendChild(leftFooter);
 //create right footer section
