@@ -306,7 +306,7 @@ body.appendChild(main);
   \**************************************************/
 /***/ ((module) => {
 
-module.exports = "../../asset/images/0bda107bba626fb52b21.png";
+module.exports = "./asset/images/0bda107bba626fb52b21.png";
 
 /***/ }),
 
@@ -316,7 +316,7 @@ module.exports = "../../asset/images/0bda107bba626fb52b21.png";
   \***********************************************/
 /***/ ((module) => {
 
-module.exports = "../../asset/images/5f6e43892875c978630f.png";
+module.exports = "./asset/images/5f6e43892875c978630f.png";
 
 /***/ }),
 
@@ -326,7 +326,7 @@ module.exports = "../../asset/images/5f6e43892875c978630f.png";
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = "../../asset/images/341f0bd1a4f93bae12e2.png";
+module.exports = "./asset/images/341f0bd1a4f93bae12e2.png";
 
 /***/ }),
 
@@ -336,7 +336,7 @@ module.exports = "../../asset/images/341f0bd1a4f93bae12e2.png";
   \************************************************/
 /***/ ((module) => {
 
-module.exports = "../../asset/images/4c0593225e4235ce4f99.png";
+module.exports = "./asset/images/4c0593225e4235ce4f99.png";
 
 /***/ }),
 
@@ -346,7 +346,7 @@ module.exports = "../../asset/images/4c0593225e4235ce4f99.png";
   \**************************************************/
 /***/ ((module) => {
 
-module.exports = "../../asset/images/64aeffb2733ab0bdedda.png";
+module.exports = "./asset/images/64aeffb2733ab0bdedda.png";
 
 /***/ }),
 
@@ -356,7 +356,7 @@ module.exports = "../../asset/images/64aeffb2733ab0bdedda.png";
   \*****************************************************/
 /***/ ((module) => {
 
-module.exports = "../../asset/images/05509233feb57da9851f.png";
+module.exports = "./asset/images/05509233feb57da9851f.png";
 
 /***/ }),
 
@@ -366,7 +366,7 @@ module.exports = "../../asset/images/05509233feb57da9851f.png";
   \**************************************************/
 /***/ ((module) => {
 
-module.exports = "../../asset/images/5f89313ddb5c3d488187.png";
+module.exports = "./asset/images/5f89313ddb5c3d488187.png";
 
 /***/ }),
 
@@ -376,7 +376,7 @@ module.exports = "../../asset/images/5f89313ddb5c3d488187.png";
   \**************************************************/
 /***/ ((module) => {
 
-module.exports = "../../asset/images/2faf76535355f39d1270.png";
+module.exports = "./asset/images/2faf76535355f39d1270.png";
 
 /***/ })
 
