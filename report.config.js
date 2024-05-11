@@ -27,16 +27,14 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'asset/fonts/[hash][ext][query]',
-          outputPath: 'asset/fonts',
           publicPath: `${public}`,// Output to dist/asset/fonts
         },
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
         type: 'asset/resource',
         generator: {
           filename: 'asset/images/[hash][ext][query]',
-          outputPath: 'asset/images',
           publicPath: `${public}`,
         },
       },

@@ -123,8 +123,12 @@ li{
 main{
     grid-area: main;
     width: 70vw;
+    display: grid;
+    flex-direction: column;
+    gap: 2vh;
     margin-left: 22vw;
     margin-top: 15vh;
+    margin-bottom: 10vh;
 }
 /*footer styling*/
 footer{
@@ -180,7 +184,19 @@ footer a{
     vertical-align: middle;
     padding: 10px 20px;
 }
-
+span{
+    font-weight: bold;
+}
+.appBox img{
+    height: 12.5vw;
+    width: 12.5vw;
+}
+.appBox{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.5vw, 1fr));
+    gap: 5vw;
+    justify-content: center;
+}
 @media only screen and (min-width:768px){
     .menu{
         display: none;
