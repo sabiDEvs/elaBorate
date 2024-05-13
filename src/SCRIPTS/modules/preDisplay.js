@@ -56,6 +56,22 @@ const createDivs = (object) => {
     return div;
 }
 
+
+
+const createVids = (object) => {
+    const div = document.createElement('div');
+    const text = document.createElement('div');
+    text.innerHTML = `<span>• ${object.list}</span>`;
+    div.appendChild(text);
+    if(object.video !== ' '){
+         const box = document.createElement('div');
+         box.innerHTML = object.video;
+         div.appendChild(box);
+    }
+    return div;
+}
+
+
 const displayStarted = () => {
     alert('Who dey breathe');
     const main = document.querySelector('main');
@@ -247,8 +263,233 @@ const displayWW201 = () => {
             });
         main.appendChild(theory);
         const practicals = document.createElement('section');
-        
+        const head1 = document.createElement('h2');
+        head1.textContent = 'PRACTICAL 1 : HOW TO CUT WOOD';
+        practicals.appendChild(head1);
+        const procedure1 = document.createElement('div');
+        const head2 = document.createElement('h3');
+        head2.textContent = 'PROCEDURES';
+        procedure1.appendChild(head2);
+        const parts = [
+            {
+            list: 'Measure wood 600 x 75 x 25mm',
+            video: ''
+            },
+            {
+            list: 'Mark the piece using tape and pencil',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nuEz8TtrfjM?si=317XhtwxAT8UBvLZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            {
+            list: 'Use rip saw to cut 600mm long',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0IsDvh7GR4A?si=iRoHhqI4YNqkoDaw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            {
+            list: 'Use the cross cut saw to the required length',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UmQdaWy3Pw0?si=o0A7GIikOJTJ1uCd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            {
+            list: 'Mark out diagonal line using the sliding bevel',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nzQYd8wxCQE?si=8L3MYpv6SQVbkooR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            {
+            list: 'Use tenon saw to cut the diagonal line',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/au8ejou2VpE?si=ozX0ptTuVx-uyUdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            ];
+            parts.forEach((item) => {
+            procedure1.appendChild(createVids(item));
+            });
+        practicals.appendChild(procedure1);
+        const description1 = document.createElement('p');
+        description1.textContent = 'The link to watch how to perform the butt joint practical is below 👇';
+        practicals.appendChild(description1);
+        const video3 = document.createElement('div');
+        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jxvOepMFtbA?si=UPxGfMvk_uYu0Mud" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video3);
+        const head3 = document.createElement('h2');
+        head3.textContent = 'PRACTICAL 2 : PLANNING OF WOOD';
+        practicals.appendChild(head3);
+        const procedure2 = document.createElement('div');
+        const head4 = document.createElement('h3');
+        head4.textContent = 'PROCEDURES';
+        procedure2.appendChild(head4);
+        const parts1 = [
+            {
+            list: 'Have timber 600mm by 75mm by 25mm thick',
+            video: ''
+            },
+            {
+            list: 'Fix the timber using clamps',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t3v3J1EFrR8?si=9UKoG3eAqFxBVC4F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            {
+            list: 'Use plane in smoothing the surface',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/c65rKk8frhc?si=WzZWCbuzb5Grk_A7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            {
+            list: 'Use the cross cut saw to the required length',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UmQdaWy3Pw0?si=o0A7GIikOJTJ1uCd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            {
+            list: 'Use try square to test the surface for flatness, when flat mark on it',
+            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JxqqVFL_HN0?si=B0LdOsZpFApRrbr_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            },
+            {
+            list: 'Turn the edge and plane and test that it is square to the face and mark edge mark',
+            video: ''
+            },
+            {
+            list: 'Gauge the timber to have uniform thickness using the marking guage and plan off the surplus',
+            video: ''
+            },
+            {
+            list: 'Plane the other edge to give',
+            video: ''
+            },
+            ];
+            parts1.forEach((item) => {
+            procedure2.appendChild(createVids(item));
+            });
+        practicals.appendChild(procedure2);
+        const head5 = document.createElement('h2');
+        head5.textContent = 'PRACTICAL 3 : TEE HALVING JOINTS';
+        practicals.appendChild(head5);
+        const procedure3 = document.createElement('div');
+        const head6 = document.createElement('h3');
+        head6.textContent = 'PROCEDURES';
+        procedure3.appendChild(head6);
+        const parts2 = [
+            {
+            list: 'Mark out the pieces one for socket and the other for pin using tape, marking gauge, pencil and try square',
+            video: ''
+            },
+            {
+            list: 'Cut the marking line as specified using tenon saw',
+            video: ''
+            },
+            {
+            list: 'Remove the waste using chisel and mallet',
+            video: ''
+            },
+            {
+            list: 'Clean the bottom using rasp',
+            video: ''
+            },
+            {
+            list: 'Cut the pin to size the pocket',
+            video: ''
+            },
+            {
+            list: 'Fix the joint by applying light mallet below',
+            video: ''
+            },
+            {
+            list: 'When properly fix test for square-ness using try square',
+            video: ''
+            },
+            ];
+            parts2.forEach((item) => {
+            procedure3.appendChild(createVids(item));
+            });
+        practicals.appendChild(procedure3);
+        const description2 = document.createElement('p');
+        description2.textContent = 'The link to watch how to perform the Tee halving Joint practical is below 👇';
+        practicals.appendChild(description2);
+        const video4 = document.createElement('div');
+        video4.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5xOXRyVJ_1A?si=h5s7a-IHCwNsZdzO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video4);
+        const head7 = document.createElement('h2');
+        head7.textContent = 'PRACTICAL 4: DOVETAIL HALVING JOINT';
+        practicals.appendChild(head7);
+        const procedure4 = document.createElement('div');
+        const head8 = document.createElement('h3');
+        head8.textContent = 'PROCEDURES';
+        procedure4.appendChild(head8);
+        const parts3 = [
+            {
+            list: 'Mark out the two pieces, one having the socket and the other dovetail pin',
+            video: ''
+            },
+            {
+            list: 'Use try square to transfer the marks to the edges',
+            video: ''
+            },
+            {
+            list: 'First cut the socket using dovetail saw',
+            video: ''
+            },
+            {
+            list: 'Scoop out the waste and clean up using chisels',
+            video: ''
+            },
+            {
+            list: 'Cut the pin and the dovetail',
+            video: ''
+            },
+            {
+            list: 'Including the waste portion clean the pin using paring chisel',
+            video: ''
+            },
+            {
+            list: 'Fix and adjust by removing unwanted parts',
+            video: ''
+            },
+            {
+                list: 'Fix finally making sure there is a flush surface',
+                video: ''
+                },
+                {
+                    list: 'Plan the joint and test for square-ness',
+                    video: ''
+                    },
+            ];
+            parts3.forEach((item) => {
+            procedure4.appendChild(createVids(item));
+            });
+        practicals.appendChild(procedure4);
+        const description3 = document.createElement('p');
+        description3.textContent = 'The link to watch how to perform the Dovetail halving Joint practical is below 👇';
+        practicals.appendChild(description3);
+        const video5 = document.createElement('div');
+        video5.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9jgRfef4ZnE?si=QyfCg0XiURVowmfH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video5);
         main.appendChild(practicals);
+        const precaution = document.createElement('section');
+        const cautionHead = document.createElement('h3');
+        cautionHead.textContent = "PRECAUTIONS";
+        precaution.appendChild(cautionHead);
+        const cautionList = document.createElement('ul');
+        const precautions = ["I ensured that I wore my lab coat and personal protective equipment (PPE)","I ensured that proper techniques for cutting, drilling, and sanding to minimize the risk of accidents.","I ensured that I avoided cutting towards yourself and keep your hands and fingers away from blades and moving parts."];
+        let cautionBox = [];
+        for(let i = 0; i < precautions.length; i++){
+            cautionBox[i] = document.createElement('li');
+            cautionBox[i].textContent = precautions[i];
+            cautionList.appendChild(cautionBox[i]);
+        }
+        precaution.appendChild(cautionList);
+        main.appendChild(precaution);
+        const conclusion = document.createElement('section');
+        const concHead = document.createElement('h3');
+        concHead.textContent = "CONCLUSION:";
+        conclusion.appendChild(concHead);
+        const concText = document.createElement('p');
+        concText.textContent = "At the end of this experiment, cutting of wood, planning of wood was understood and also a tee halving joint, dovetail halving joint was developed and was also understood.";
+        conclusion.appendChild(concText);
+        main.appendChild(conclusion);
+        const references = document.createElement('section');
+        const refHead = document.createElement('h3');
+        refHead.textContent = "REFERENCES";
+        references.appendChild(refHead);
+        const refList = document.createElement('ul');
+        const reference = ["Production Engineering Laboratory Manual for ELA201 and ELA202 by Department of Production Engineering, University of Benin.", "Foundations of Woodworking: Essential Joinery Techniques and Building Strategies by Michael Pekovich", "The Complete Manual of Woodworking by Albert Jackson, David Day, and Simon Jennings"];
+        let refBox = [];
+        for(let i = 0; i < reference.length; i++){
+            refBox[i] = document.createElement('li');
+            refBox[i].textContent = reference[i];
+            refList.appendChild(refBox[i]);
+        }
+        references.appendChild(refList);
+        main.appendChild(references);
 };
 
 
