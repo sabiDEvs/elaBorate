@@ -303,6 +303,7 @@ main{
     margin-bottom: 15vh;
 }
 form{
+    
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr;

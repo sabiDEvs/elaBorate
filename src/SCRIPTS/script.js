@@ -4,7 +4,9 @@ import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import {createGemini, createChatGpt, displayAI} from './modules/ai';
 //import css
+
 import '../CSS/style.css';
+
 //import images
 import dept1 from '../RESOURCES/images/computer-dept.png';
 import dept2 from '../RESOURCES/images/electrical-dept.png';
