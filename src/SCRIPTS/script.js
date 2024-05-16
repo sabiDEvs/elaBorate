@@ -13,10 +13,15 @@ import dept2 from '../RESOURCES/images/electrical-dept.png';
 import dept3 from '../RESOURCES/images/mechanical-dept.png';
 import dept4 from '../RESOURCES/images/production-dept.png';
 import aboutPic from '../RESOURCES/images/about_us_man.png';
+
+const hme = "./index.html";
+const rpt = "./report/report.html";
+const abt = "./about/about.html";
+
 //create a reference to body tag
 const body = document.querySelector('body');
 //call header function
-renderHeader(body);
+renderHeader(body, [hme, rpt, abt]);
 
 //create main section
 const main = document.createElement('main');
@@ -170,7 +175,7 @@ body.appendChild(main);
 carousel();
 
 //display footer
-renderFooter(body);
+renderFooter(body, [hme, rpt, abt]);
 
 displayAI(body);
 createGemini(body);

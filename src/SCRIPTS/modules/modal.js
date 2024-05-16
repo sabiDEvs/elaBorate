@@ -1,4 +1,4 @@
-import ImgModal from '../../RESOURCES/images/reportpage/stay.png';
+import ImgModal from '../../RESOURCES/images/stay.png';
 const sectionModal = document.createElement('div');
 sectionModal.id = 'sectionModal';
 import '../../CSS/report.css';
@@ -132,7 +132,7 @@ const createModal= (body) =>{
 function OpenModal(){
     setTimeout(() => {
         sectionModal.style.display = 'block';
-    }, 5000);
+    }, 1200000);
     
     
 }

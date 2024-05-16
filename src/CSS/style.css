@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -6,6 +9,12 @@
 body{
     width: 100vw;
     background-color: #ffffff;
+}
+p{
+    font-family: "Poppins", sans-serif;
+}
+h1,h2, h3, h4, h5, a{
+    font-family: "Michroma", sans-serif;
 }
 header{
     top: 0;
@@ -47,7 +56,6 @@ header{
 .nav a{
     text-decoration: none;
     color: #000000;
-    font-weight: normal;
 }
 /*search input styling*/
 #searchBox{
@@ -91,7 +99,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 5vw;
+    gap: 8vw;
 }
 .outerCircle{
     height: 100%;
@@ -131,12 +139,12 @@ main{
     grid-column: 1/2;
     grid-row: 2/3;
     align-self: center;
-    justify-self: self-end;
+    justify-self: self-start;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    width: 100vw;
+    width: 50vw;
 }
 .heroText{
     font-size: 18px;
@@ -146,6 +154,7 @@ main{
     font-size: 30px;
     font-weight: bold;
     align-self: center;
+    font-family: "Michroma", sans-serif;
 }
 .callAction{
     padding: 10px 20px;
@@ -481,9 +490,6 @@ footer a{
         top: 0;
         right: 0;
         margin-bottom: 0;
-    }
-    .nav a{
-        font-weight: bold;
     }
     #searchInput{
         height: 1.5vw;

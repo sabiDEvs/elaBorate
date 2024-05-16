@@ -5,14 +5,19 @@ import '../CSS/report.css';
 import { createDeptCard } from './modules/report.js';
 import { createModal, OpenModal, CloseModal } from './modules/modal.js';
 
-import reportImg from '../RESOURCES/images/reportpage/labrep.png'
+import reportImg from '../RESOURCES/images/labrep.png'
 //import images for the departmental cards
-import ImgCPE from '../RESOURCES/images/reportpage/dept_cpe.png';
-import ImgMEE from '../RESOURCES/images/reportpage/dept_mee.png';
-import ImgPRE from '../RESOURCES/images/reportpage/dept_pre.png';
-import ImgEEE from '../RESOURCES/images/reportpage/dept_eee.png';
+import ImgCPE from '../RESOURCES/images/dept_cpe.png';
+import ImgMEE from '../RESOURCES/images/dept_mee.png';
+import ImgPRE from '../RESOURCES/images/dept_pre.png';
+import ImgEEE from '../RESOURCES/images/dept_eee.png';
+
+const hme = "../index.html";
+const rpt = "./report.html";
+const abt = "../about/about.html";
+
 const body = document.querySelector('body');
-renderHeader(body);
+renderHeader(body, [hme, rpt, abt]);
 const wrapper = document.createElement('div');
 wrapper.id = 'wrapper';
 body.append(wrapper);
@@ -39,7 +44,7 @@ wrapper.appendChild(cpeDept);
 wrapper.appendChild(eeeDept);
 wrapper.appendChild(meeDept);
 wrapper.appendChild(preDept);
-renderFooter(body);
+renderFooter(body, [hme, rpt, abt]);
 function checkLocalStorage(){
     if(!localStorage.getItem('Subscribed')){
         OpenModal();

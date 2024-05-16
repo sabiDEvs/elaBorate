@@ -10,6 +10,7 @@ const generateHtmlConfig = (template, filename, chunk) => ({
 });
 
 module.exports = {
+
   entry: {
     'about/about': './src/SCRIPTS/about.js', // Entry for about.js
     'report/report': './src/SCRIPTS/report.js', // Entry for report.js
@@ -20,6 +21,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
       {
         test: /\.(ico|eot|ttf|woff|woff2)$/,
         type: 'asset/resource',

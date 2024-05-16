@@ -40,7 +40,7 @@ const createDeptCard =(image, title, description, time, levels, tip, deptShortNa
 
     const deptTime = document.createElement('p');
     deptTime.classList.add('deptTime');
-    deptTime.textContent = `Submision Deadline: ${time}`;
+    deptTime.textContent = `Submission Deadline: ${time}`;
 
     // Levels
     const deptLevels = document.createElement('div');
