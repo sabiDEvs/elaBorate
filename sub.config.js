@@ -24,6 +24,10 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'asset/fonts/[hash][ext][query]',
+<<<<<<< HEAD
+=======
+          outputPath: 'asset/fonts',
+>>>>>>> landing-page
           publicPath: '../',// Output to dist/asset/fonts
         },
       },
@@ -32,6 +36,10 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'asset/images/[hash][ext][query]',
+<<<<<<< HEAD
+=======
+          outputPath: 'asset/images',
+>>>>>>> landing-page
           publicPath: '../',
         },
       },
