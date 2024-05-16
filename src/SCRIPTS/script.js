@@ -3,7 +3,9 @@ import {generateHeroSection, carousel, createDept, createService} from './module
 import {renderHeader} from './modules/header.js';
 import {renderFooter} from './modules/footer';
 //import css
+
 import '../CSS/style.css';
+
 //import images
 import dept1 from '../RESOURCES/images/computer-dept.png';
 import dept2 from '../RESOURCES/images/electrical-dept.png';
@@ -168,3 +170,16 @@ carousel();
 
 //display footer
 renderFooter(body);
+
+
+
+
+
+//to implement the modal, copy to all your pages
+import { createModal, OpenModal, CloseModal } from './modules/modal.js';
+
+createModal(body);
+function checkLocalStorage(){
+    if(!localStorage.getItem('Subscribed')){OpenModal();} else{CloseModal();}
+}
+window.onload = checkLocalStorage;

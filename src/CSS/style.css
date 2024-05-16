@@ -276,7 +276,7 @@ main{
     width: 100%;
 }
 form{
-    height: 40vh;
+    
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr;
