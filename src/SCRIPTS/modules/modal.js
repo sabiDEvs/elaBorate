@@ -132,7 +132,7 @@ const createModal= (body) =>{
 function OpenModal(){
     setTimeout(() => {
         sectionModal.style.display = 'block';
-    }, 10);
+    }, 5000);
     
     
 }

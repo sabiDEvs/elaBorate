@@ -41,6 +41,11 @@ wrapper.appendChild(meeDept);
 wrapper.appendChild(preDept);
 renderFooter(body);
 function checkLocalStorage(){
-    if(!localStorage.getItem('Subscribed')){OpenModal();} else{CloseModal();}
+    if(!localStorage.getItem('Subscribed')){
+        OpenModal();
+    } 
+    else{
+        CloseModal();
+    }
 }
 window.onload = checkLocalStorage;
