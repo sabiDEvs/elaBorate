@@ -602,6 +602,16 @@ body.appendChild(main);
 
 /***/ }),
 
+/***/ "./src/RESOURCES/images/AI-chatbot-icon.png":
+/*!**************************************************!*\
+  !*** ./src/RESOURCES/images/AI-chatbot-icon.png ***!
+  \**************************************************/
+/***/ ((module) => {
+
+module.exports = "./asset/images/0bda107bba626fb52b21.png";
+
+/***/ }),
+
 /***/ "./src/RESOURCES/images/about_us_man.png":
 /*!***********************************************!*\
   !*** ./src/RESOURCES/images/about_us_man.png ***!
@@ -612,12 +622,24 @@ module.exports = "./asset/images/5f6e43892875c978630f.png";
 
 /***/ }),
 
+/***/ "./src/RESOURCES/images/chat-gpt.png":
+/*!*******************************************!*\
+  !*** ./src/RESOURCES/images/chat-gpt.png ***!
+  \*******************************************/
+/***/ ((module) => {
+
+module.exports = "./asset/images/341f0bd1a4f93bae12e2.png";
+module.exports = "./asset/images/5f6e43892875c978630f.png";
+
+/***/ }),
+
 /***/ "./src/RESOURCES/images/computer-dept.png":
 /*!************************************************!*\
   !*** ./src/RESOURCES/images/computer-dept.png ***!
   \************************************************/
 /***/ ((module) => {
 
+module.exports = "./asset/images/4c0593225e4235ce4f99.png";
 module.exports = "./asset/images/4c0593225e4235ce4f99.png";
 
 /***/ }),
@@ -689,6 +711,7 @@ module.exports = "./asset/images/89c7f3e4da4391052d31.png";
 /***/ ((module) => {
 
 module.exports = "./asset/images/64aeffb2733ab0bdedda.png";
+module.exports = "./asset/images/64aeffb2733ab0bdedda.png";
 
 /***/ }),
 
@@ -698,6 +721,7 @@ module.exports = "./asset/images/64aeffb2733ab0bdedda.png";
   \****************************************************/
 /***/ ((module) => {
 
+module.exports = "./asset/images/05509233feb57da9851f.png";
 module.exports = "./asset/images/a7e5b3d68f8dcf41856b.png";
 
 /***/ }),
@@ -708,6 +732,7 @@ module.exports = "./asset/images/a7e5b3d68f8dcf41856b.png";
   \**************************************************/
 /***/ ((module) => {
 
+module.exports = "./asset/images/5f89313ddb5c3d488187.png";
 module.exports = "./asset/images/5f89313ddb5c3d488187.png";
 
 /***/ }),
@@ -728,6 +753,7 @@ module.exports = "./asset/images/a8a01d448238b0fd69d3.png";
   \**************************************************/
 /***/ ((module) => {
 
+module.exports = "./asset/images/2faf76535355f39d1270.png";
 module.exports = "./asset/images/2faf76535355f39d1270.png";
 
 /***/ }),
