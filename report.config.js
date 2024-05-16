@@ -1,4 +1,5 @@
 const path = require('path');
+const public = '../../';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -27,9 +28,16 @@ module.exports = {
         generator: {
           filename: 'asset/fonts/[hash][ext][query]',
 <<<<<<< HEAD
+          publicPath: `${public}`,// Output to dist/asset/fonts
+        },
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'asset/images/[hash][ext][query]',
+          publicPath: `${public}`,
 =======
-          outputPath: 'asset/fonts',
->>>>>>> landing-page
           publicPath: '../../',// Output to dist/asset/fonts
         },
       },
@@ -38,11 +46,8 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'asset/images/[hash][ext][query]',
-<<<<<<< HEAD
-=======
-          outputPath: 'asset/images',
->>>>>>> landing-page
           publicPath: '../../',
+>>>>>>> main
         },
       },
     ],

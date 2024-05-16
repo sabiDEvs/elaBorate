@@ -1,4 +1,5 @@
 const path = require('path');
+const public = './';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const generateHtmlConfig = (template, chunk) => ({
@@ -8,7 +9,7 @@ const generateHtmlConfig = (template, chunk) => ({
   });
 module.exports = {
     entry: {
-      'script':  './src/SCRIPTS/script.js'
+      'index':  './src/SCRIPTS/script.js'
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -37,21 +38,21 @@ module.exports = {
             type: 'asset/resource',
             generator: {
               filename: 'asset/fonts/[hash][ext][query]',
-              publicPath: './',// Output to dist/asset/fonts
+              publicPath: `${public}`,// Output to dist/asset/fonts
             },
           },
           {
-            test: /\.(png|jpg|gif|svg)$/,
+            test: /\.(png|jpg|jpeg|gif|svg)$/,
             type: 'asset/resource',
             generator: {
               filename: 'asset/images/[hash][ext][query]',
-              publicPath: './',
+              publicPath: `${public}`,
             },
           },
         ],
       },
       plugins: [
-        new HtmlWebpackPlugin(generateHtmlConfig('index.html', 'script')),
+        new HtmlWebpackPlugin(generateHtmlConfig('index.html', 'index')),
         new MiniCssExtractPlugin({
           filename: '[name].css',
         }),
