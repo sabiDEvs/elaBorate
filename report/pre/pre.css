@@ -1,7 +1,256 @@
-/*!***********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/mini-css-extract-plugin/dist/loader.js!./node_modules/css-loader/dist/cjs.js!./node_modules/mini-css-extract-plugin/dist/loader.js!./node_modules/css-loader/dist/cjs.js!./src/CSS/pre.css ***!
-  \***********************************************************************************************************************************************************************************************************************************************************/
-// extracted by mini-css-extract-plugin
-export {};
-
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVwb3J0L3ByZS9wcmUuY3NzIiwibWFwcGluZ3MiOiI7OztBQUFBO1FBQ1EsRSIsInNvdXJjZXMiOlsid2VicGFjazovL2VsYWJvcmF0ZS8uL3NyYy9DU1MvcHJlLmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-areas: 
+    'header header header header header'
+    'aside aside main main main'
+    'aside aside main main main'
+    'aside aside main main main'
+    'aside aside main main main'
+    'aside aside main main main'
+    'aside aside footer footer footer';
+    overflow-x: hidden;
+}
+header{
+    top: 0;
+    background-color: #ffffff;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 5px;
+    z-index: 4;
+    grid-area: header;
+    position: fixed;
+}
+.bars{
+    height: 2px;
+    width: 5vw;
+    background-color: #14213d;
+    border: none;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+/*navBar styling*/
+.nav{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    top: 10vh;
+    right: 0;
+    gap: 3vw;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 5;
+}
+.nav a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: normal;
+}
+.active{
+    display: flex;
+}
+/*search input styling*/
+#searchBox{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+}
+#searchInput{
+    background-color: #e5e5e586;
+    border: none;
+    border-radius: 1.5vw;
+    height: 4vw;
+}
+#searchBox img{
+    height: 4vw;
+    width: 4vw;
+    position: relative;
+    left: -3vw;
+}
+/*icon styling*/
+#iconDiv img{
+    height: 10vw;
+    width: 10vw;
+}
+#iconDiv{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    position: relative;
+}
+#iconDiv h1{
+    font-size: 16px;
+    position: relative;
+    left: -2.5vw;
+}
+input{
+    background-color: #000000;
+}
+/*Aside styling*/
+aside{
+    height: 90vh;
+    position: fixed;
+    margin-top: 10vh;
+    background-color: #14213d;
+    color: #ffffff;
+    padding: 2vw 4vw;
+    grid-area: aside;
+    width: 20%;
+    overflow-y: auto;
+}
+aside > div{
+    margin-top: 2vw;
+}
+li{
+    font-size: 14px;
+    margin-top: 2vw;
+}
+/*main styling*/
+main{
+    grid-area: main;
+    width: 70vw;
+    display: grid;
+    flex-direction: column;
+    gap: 2vh;
+    margin-left: 22vw;
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+}
+/*footer styling*/
+footer{
+    background: #000000;
+    color: #ffffff;
+    margin: 0 auto;
+    width: 96%;
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 3vw;
+    gap: 1vh;
+    grid-area: footer;
+}
+#footerNav{
+    display: flex;
+    gap: 1vw;
+    justify-content: space-around;
+    margin-bottom: 1vw;
+}
+#subscribe{
+    display: flex;
+    align-items: stretch;
+}
+#subscribe input{
+    border: 1px solid #fca311;
+}
+#rightFoot{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+}
+footer img{
+    height: 60vw;
+    width: 80vw;
+}
+footer a{
+    text-decoration: none;
+    color:#e5e5e5;
+}
+#contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#subButton{
+    background-color: #fca311;
+    box-sizing: content-box;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 20px;
+}
+span{
+    font-weight: bold;
+}
+.appBox img{
+    height: 12.5vw;
+    width: 12.5vw;
+}
+.appBox{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.5vw, 1fr));
+    gap: 5vw;
+    justify-content: center;
+}
+@media only screen and (min-width:768px){
+    .menu{
+        display: none;
+    }
+    .nav{
+        display: flex;
+        background-color: none;
+        flex-direction: row;
+        gap: 2vw;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+    .nav a{
+        font-weight: bold;
+    }
+    #searchInput{
+        height: 1.5vw;
+    }
+    #searchBox{
+        gap: 0.5vw;
+        justify-content: space-between;
+    }
+    #searchBox img{
+        height: 2vw;
+        width: 2vw;
+        position: unset;
+        left: 0;
+    }
+    #iconDiv img{
+        height: 6vw;
+        width: 6vw;
+    }
+    #iconDiv h1{
+        left: -1.5vw;
+        font-size: 36px;
+    }
+    footer{
+        width: 74vw;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 3vw;
+        gap: 0;
+        margin-left: 20vw;
+    }
+    #rightFoot{
+        gap: 5px;
+        align-items: unset;
+    }
+    footer img{
+        height: 10vw;
+        width: 16vw;
+    }
+}
