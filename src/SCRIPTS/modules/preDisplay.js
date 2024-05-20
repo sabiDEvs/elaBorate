@@ -822,7 +822,7 @@ const displayAS201 = () => {
             refBox[i].textContent = reference[i];
             refList.appendChild(refBox[i]);
         }
-        references.appendChild(refList);
+        reference888s.appendChild(refList);
         main.appendChild(references);
 };
 const displayFS201 = (main) => {
