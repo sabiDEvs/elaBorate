@@ -32,11 +32,10 @@ const createMenu = (header) => {
         document.querySelector('.nav').classList.toggle('active');
     
         if(document.querySelector('.nav').className === 'nav active'){
-            alert('active');
-            document.querySelector('#hero').style.marginTop = '20vh'; 
+            document.querySelector('header').style.marginBottom = '20vh'; 
         }
         else{
-            document.querySelector('#hero').style.marginTop = '0';
+            document.querySelector('header').style.marginBottom = '0';
         }
     });
     header.appendChild(div);

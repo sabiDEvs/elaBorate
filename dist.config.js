@@ -15,14 +15,14 @@ module.exports = {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
     },
-    mode: 'development',
+    mode: 'production',
     optimization: {
         splitChunks: {
             chunks: 'all',
         },
         runtimeChunk: 'single',
     },
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     devServer: {
         static: './dist',
         hot: true,

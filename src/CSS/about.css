@@ -10,7 +10,6 @@ body {
   color: #000;
   background-color: #fff;
   font-family: "Poppins", sans-serif;
-  font-size: 20px;
 }
 
 /* General styles */
@@ -232,10 +231,7 @@ h2 {
 
 /* Breakpoint considerations */
 @media (max-width: 1201px) {
-  body {
-    font-size: 17px;
-  }
-
+  
   h1 {
     font-size: 70px;
   }
@@ -268,8 +264,8 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     background: rgba(0, 0, 0, 0.5);
   }
 
@@ -312,8 +308,8 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     background: rgba(0, 0, 0, 0.5);
   }
 
@@ -375,9 +371,6 @@ h2 {
 }
 
 @media (max-width: 781px) {
-  body {
-    font-size: 12px;
-  }
 
   h1 {
     font-size: 40px;
@@ -483,9 +476,6 @@ h2 {
 }
 
 @media (max-width: 575px) {
-  body {
-    font-size: 9px;
-  }
 
   h1 {
     font-size: 20px;

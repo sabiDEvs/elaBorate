@@ -1,9 +1,9 @@
 import { renderHeader } from "./modules/header.js";
 import { renderFooter } from "./modules/footer";
 
-import missionImg from "../RESOURCES/Images/mission.png";
-import achieveImg from "../RESOURCES/Images/achieve.png";
-import navigateImg from "../RESOURCES/Images/navigate.png";
+import missionImg from "../RESOURCES/images/mission.png";
+import achieveImg from "../RESOURCES/images/achieve.png";
+import navigateImg from "../RESOURCES/images/navigate.png";
 
 import {
   createContent,
@@ -13,8 +13,8 @@ import {
   lineBreak,
 } from "./modules/aboutPage";
 
-import "../CSS/style.css";
 import "../CSS/about.css";
+import "../CSS/style.css";
 
 // Selecting body element
 const body = document.querySelector("body");
