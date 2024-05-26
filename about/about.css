@@ -610,9 +610,10 @@ h2 {
     box-sizing: border-box;
 }
 body{
-    width: 100vw;
+    width: 100%;
     background-color: #ffffff;
     font-size: 16px;
+    position: relative;
 }
 p{
     font-family: "Poppins", sans-serif;
@@ -654,7 +655,7 @@ header{
     right: 0;
     gap: 3vw;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     background-color: #ffffff;
 }
 .nav a{
@@ -678,13 +679,13 @@ header{
     height: 4vw;
     width: 4vw;
     position: relative;
-    left: -3vw;
+    left: -5vw;
 }
 main{
     position: relative;
     top: 10vh;
     margin-bottom: 15vw;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10vh;
@@ -692,7 +693,7 @@ main{
 /*hero section styling*/
 #hero{
     height: 60vh;
-    width: 100vw;
+    width: 100%;
     padding: 0 20px;
     position: relative;
     display: flex;
@@ -703,14 +704,13 @@ main{
     height: 100%;
     top: 20vh;
     width: 100%;
-    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 8vw;
 }
 .outerCircle{
     height: 100%;
-    width: 80%;
+    width: 90%;
     border-radius: 48%;
     grid-column: 1/3;
     grid-row: 1/2;
@@ -719,7 +719,7 @@ main{
 }
 .innerCircle{
     height: 98%;
-    width: 78%;
+    width: 88%;
     border-radius: 48%;
     grid-column: 1/3;
     grid-row: 1/2;
@@ -743,7 +743,7 @@ main{
     z-index:3;
 }
 .container{
-    grid-column: 1/2;
+    grid-column: 1/3;
     grid-row: 2/3;
     align-self: center;
     justify-self: center;
@@ -751,7 +751,7 @@ main{
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    width: 100vw;
+    width: 100%;
 }
 .heroText{
     font-size: 18px;
@@ -835,7 +835,7 @@ main{
     position: relative;
     margin-top: 10vw;
     gap: 10vw;
-    width: 100vw;
+    width: 100%;
 }
 #offers{
     display: flex;
@@ -876,7 +876,7 @@ main{
 #aboutSection{
     position: relative;
     margin-top: 20vw;
-    width: 100vw;
+    width: 100%;
 }
 
 #whyUs{
@@ -923,7 +923,7 @@ main{
 }
 form{
     
-    width: 100vw;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
@@ -972,7 +972,7 @@ footer{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 2vw 3vw;
+    padding: 2vw 3vw 5vh;
     gap: 10vh;
 }
 #footerNav{
@@ -1057,8 +1057,8 @@ footer a{
     height: 14vh;
     width: 10vw;
     position: fixed;
-    bottom: 10vh;
-    right: 3vw;
+    bottom: 5vh;
+    right: 5vw;
     display: flex;
     flex-direction: column;
     gap: 8px;
