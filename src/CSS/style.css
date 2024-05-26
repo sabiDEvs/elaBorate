@@ -531,12 +531,15 @@ footer a{
         grid-template-columns: 1fr 0.5fr 1fr;
         grid-template-rows: 1fr;
         justify-content: space-between;
+        width: 90%;
     }
     .outerCircle{
         grid-column: 2/4;
+        width: 80%;
     }
     .innerCircle{
         grid-column: 2/4;
+        width: 78%;
     }
     .group{
         grid-column: 2/4;
