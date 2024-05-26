@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    width: 100vw;
+    width: 100%;
     background-color: #ffffff;
     display: grid;
     grid-template-areas: 
@@ -15,7 +15,6 @@ body{
     'aside aside main main main'
     'aside aside main main main'
     'aside aside footer footer footer';
-    overflow-x: hidden;
 }
 header{
     top: 0;
