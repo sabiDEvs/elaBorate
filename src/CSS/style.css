@@ -551,7 +551,7 @@ footer a{
         grid-row: 1/2;
         justify-self: self-start;
         gap: 30px;
-        margin-right: 8vw;
+        margin-right: 30vw;
         width: 90%;
     }
     .heroText{
