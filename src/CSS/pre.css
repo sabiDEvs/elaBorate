@@ -187,12 +187,12 @@ span{
     font-weight: bold;
 }
 .appBox img{
-    height: 12.5vw;
-    width: 12.5vw;
+    height: 150px;
+    width: 150px;
 }
 .appBox{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12.5vw, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 5vw;
     justify-content: center;
 }

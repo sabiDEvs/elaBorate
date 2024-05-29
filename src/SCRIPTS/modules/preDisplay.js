@@ -40,7 +40,49 @@ import pic39 from '../../RESOURCES/images/bench vice.jpg';
 import pic40 from '../../RESOURCES/images/work bench.jpg';
 import pic41 from '../../RESOURCES/images/paring chisel.jpg';
 import pic42 from '../../RESOURCES/images/smooth plane.jpg';
-
+import pic43 from '../../RESOURCES/images/steel rulee.jpg';
+import pic44 from '../../RESOURCES/images/steel wire guage.jpg';
+import pic45 from '../../RESOURCES/images/steel micrometre.jpg';
+import pic46 from '../../RESOURCES/images/vernier.jpg';
+import pic47 from '../../RESOURCES/images/steel square.jpg';
+import pic48 from '../../RESOURCES/images/divider.jpg';
+import pic49 from '../../RESOURCES/images/scriber.png';
+import pic50 from '../../RESOURCES/images/trammel point.jpg';
+import pic51 from '../../RESOURCES/images/hand snips.jpg';
+import pic52 from '../../RESOURCES/images/prick punch.jpg';
+import pic53 from '../../RESOURCES/images/centre punches.jpg';
+import pic54 from '../../RESOURCES/images/chissel.jpg';
+import pic55 from '../../RESOURCES/images/pleirs.jpg';
+import pic56 from '../../RESOURCES/images/solidering iron.jpg';
+import pic57 from '../../RESOURCES/images/hammers.jpg';
+import pic58 from '../../RESOURCES/images/files.jpg';
+import pic59 from '../../RESOURCES/images/sheeet mallet.jpg';
+import pic60 from '../../RESOURCES/images/hot rolled sheet.jpg';
+import pic61 from '../../RESOURCES/images/cold rolled sheet.jpg';
+import pic62 from '../../RESOURCES/images/galvanised plain sheet.jpg';
+import pic63 from '../../RESOURCES/images/aluminum sheet.jpg';
+import pic64 from '../../RESOURCES/images/copper sheet.jpg';
+import pic65 from '../../RESOURCES/images/tin sheets.jpg';
+import pic66 from '../../RESOURCES/images/stainless steel sheet.jpg';
+import pic67 from '../../RESOURCES/images/brass sheets.jpg';
+import pic68 from '../../RESOURCES/images/hacksaw.jpeg';
+import pic69 from '../../RESOURCES/images/ball peen hammer.jpg';
+import pic70 from '../../RESOURCES/images/rough file.jpeg';
+import pic71 from '../../RESOURCES/images/protective.jpeg';
+import pic72 from '../../RESOURCES/images/protective clothing.jpeg';
+import pic73 from '../../RESOURCES/images/wire brush.jpeg';
+import pic74 from '../../RESOURCES/images/welding cables.jpeg';
+import pic75 from '../../RESOURCES/images/hand screen.jpeg';
+import pic76 from '../../RESOURCES/images/chipping.jpeg';
+import pic77 from '../../RESOURCES/images/arc welding power source.jpeg';
+import pic78 from '../../RESOURCES/images/electrodes.jpeg';
+import pic79 from '../../RESOURCES/images/electrode holder.jpeg';
+import pic80 from '../../RESOURCES/images/tongs.jpeg';
+import pic81 from '../../RESOURCES/images/hand shield.jpeg';
+import pic82 from '../../RESOURCES/images/earth clamp.jpeg';
+import pic83 from '../../RESOURCES/images/welding table.jpeg';
+import pic84 from '../../RESOURCES/images/smooth file.jpeg';
+import pic85 from '../../RESOURCES/images/welding protractor.jpeg';
 
 
 const createDivs = (object) => {
@@ -493,18 +535,676 @@ const displayWW201 = () => {
 };
 
 
-const displaySM201 = (main) => {
+const displaySM201 = () => {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+        const head = document.createElement('h1');
+        head.textContent  = 'Introduction to sheet metal work{SM201}';
+        main.appendChild(head);
+        const objective = document.createElement('section');
+        const objHead = document.createElement('h2');
+        objHead.textContent = 'OBJECTIVES';
+        objective.appendChild(objHead);
+        const objList = document.createElement('ul');
+        const objectives = ['To know the processes involved in sheet metal practice', 'To know the metals used in sheet metal practice', 'To familiarize with the various hand tools used in sheet metal practice','To know the various sheet metal operations', 'To produce a rectangular plate'];
+        let list = [];
+        for(let i = 0; i < objectives.length; i++){
+            list[i] = document.createElement('li');
+            list[i].textContent = objectives[i];
+            objList.appendChild(list[i]);
+        }
+        objective.appendChild(objList);
+        main.appendChild(objective);
+        const appHead = document.createElement('h2');
+        appHead.textContent = 'Apparatus';
+        main.appendChild(appHead);
+        const section = document.createElement('section');
+        section.classList.add('appBox');
+        const apparatus = [
+            {
+                cap: 'Steel Scale',
+                image: pic43
+            },
+            {
+                cap: 'Wire guage',
+                image: pic44
+            },
+            {
+                cap: 'Micrometer',
+                image: pic45
+            },
+            {
+                cap: 'Vernier Calliper',
+                image: pic46
+            },
+            {
+                cap: 'Steel square',
+                image: pic47
+            },
+            {
+                cap: 'Divider',
+                image: pic48
+            },
+            {
+                cap: 'Scriber',
+                image: pic49
+            },
+            {
+                cap: 'Trammel Point',
+                image: pic50
+            },
+            {
+                cap: 'Hand snips',
+                image: pic51
+            },
+            {
+                cap: 'Punches',
+                image: pic52
+            },
+            {
+                cap: 'Punches',
+                image: pic53
+            },
+            {
+                cap: 'Chisel',
+                image: pic54
+            },
+            {
+                cap: 'Plier',
+                image: pic55
+            },
+            {
+                cap: 'Soldering Iron',
+                image: pic56
+            },
+            {
+                cap: 'Hammer',
+                image: pic57
+            },
+            {
+                cap: 'Files',
+                image: pic58
+            },
+            {
+                cap: 'Mallet',
+                image: pic59
+            },
 
+        ];
+        let appBox = [];
+        let appImage = [];
+        let appCaption = [];
+        for(let i = 0; i < apparatus.length; i++){
+            appBox[i] = document.createElement('div');
+            appImage[i] = document.createElement('img');
+            appCaption[i] = document.createElement('p');
+            appImage[i].src =  apparatus[i].image;
+            appCaption[i].textContent = apparatus[i].cap;
+            appBox[i].appendChild(appImage[i]);
+            appBox[i].appendChild(appCaption[i]);
+            section.appendChild(appBox[i]);
+        }
+        main.appendChild(section);
+        const theory = document.createElement('section');
+        const theoHead = document.createElement('h2');
+        theoHead.textContent = 'THEORY';
+        theory.appendChild(theoHead);
+        const explain = document.createElement('div');
+        explain.textContent = 'Sheet metal refers to thin, flat metal sheets that are typically less than 6mm (0.25 inches) thick. It is a versatile material used in various industries for a wide range of applications due to its strength, durability, and ease of shaping. Sheet metal is commonly made from materials such as steel, aluminum, brass, copper, tin, and nickel. Sheet metal work is the process of creating objects from thin sheets of metal. The metal is typically cut, bent, and shaped into the desired form. ';
+        theory.appendChild(explain);
+        const explain1 = document.createElement('div');
+        explain1.textContent = 'There are different kinds of sheet metal techniques and these techniques or operations include:';
+        theory.appendChild(explain1);
+        const categories = [
+            {
+                title: 'Cutting',
+                text: 'Sheets can be cut using various methods, including shearing, which involves using a cutting tool to trim the metal along a straight line, or laser cutting, which uses a focused laser beam to make precise cuts.',
+                image: ''
+            },
+            {
+                title: 'Bending',
+                text: 'Bending is the process of deforming the sheet metal along a straight axis to create angles or complex shapes. This is usually done using specialized machines like press brakes.',
+                image: ''
+            },
+            {
+                title: 'Forming',
+                text: 'Forming refers to shaping the sheet metal into three-dimensional forms other than flat sheets. This can be achieved through processes like roll forming, where the metal is passed through a series of rollers to create a desired shape.',
+                image: ''
+            },
+            {
+                title: 'Joining',
+                text: 'Sheet metal components are often joined together using various methods such as welding, riveting, or using adhesives. Welding involves melting the metal at the joint to fuse them together, while riveting uses mechanical fasteners to hold the sheets in place.',
+                image: ''
+            },
+            {
+                title: 'Punching',
+                text: 'Creating holes or perforations in metal sheets using a punch and die set, which applies force to penetrate the material etc.',
+                image: ''
+            },
+            {
+                title: 'Metal Forming',
+                text: 'The process of shaping or bending a sheet metal in three dimensions to give it the desired shape and size of the final product is termed as metal forming.',
+                image: ''
+            },
+            {
+                title: 'Soldering',
+                text: 'is a technique for joining metals together using a melted metal alloy with a lower melting point than the parts you are joining. This alloy, called solder, is typically made of tin and lead, but lead-free solders are becoming more common.',
+                image: ''
+            },
+            ];
+            categories.forEach((item) => {
+            theory.appendChild(createDivs(item));
+            });
+        const description = document.createElement('p');
+        description.textContent = 'Common metal sheets used in sheet metal work are:';
+        theory.appendChild(description);
+        const part = [
+            {
+            title: 'Black plain sheet or hot rolled sheet',
+            text: '',
+            image: pic60
+            },
+            {
+            title: 'Cold rolled sheet (0.1 – 0.3% of carbon )',
+            text: '',
+            image: pic61
+            },
+            {
+            title: 'Galvanized plain sheet',
+            text: '',
+            image: pic62
+            },
+            {
+            title: 'Aluminum sheet',
+            text: '',
+            image: pic63
+            },
+            {
+            title: 'Copper sheet',
+            text: '',
+            image: pic64
+            },
+            {
+            title: 'Tin sheet',
+            text: '',
+            image: pic65
+            },
+            {
+            title: 'Stainless steel sheet (contains 18% Chromium, 8% Nickel, less than 1% carbon, rest is iron',
+            text: '',
+            image: pic66
+            },
+            {
+            title: 'Brass sheets',
+            text: '',
+            image: pic67
+            },
+            ];
+            part.forEach((item) => {
+            theory.appendChild(createDivs(item));
+            });
+        main.appendChild(theory);
+        const practicals = document.createElement('section');
+        const step1 = document.createElement('h2');
+        step1.textContent = 'PRACTICAL 1 : HOW TO MAKE RECTANGULAR TRAY.';
+        practicals.appendChild(step1);
+        const step3 = document.createElement('h3');
+        step3.textContent = 'PROCEDURE:';
+        practicals.appendChild(step3);
+        const stepList1 = document.createElement('ul');
+        const steps1 = ["Draw 2D/3D sketches as per scale",'Draw the development considering all the lines must be a “True length”', 'Construct the base of the tray', 'Construct the two sides of the tray', 'Construct the two ends of the tray', 'Set 5mm extra, allowance on the side face for joining the corners by seaming', 'Notch the points to prevent bulging on seaming', 'Cut the development shapes on lines  by using paper cutting scissor', 'Place and fix the development on given G.P sheet by using sticker', 'Punch two points on each bending line', 'Mark the boundary line by using marking pen', 'Remove the paper development join the two punch points by a scriber or marking pen', 'Remove the paper development join the two points by a scriber or marking pen', 'Shear the boundary lines by hand snip', 'Flattering the sheet by using mallet on flatter', 'Always bend the seaming line first and remaining lines to get the desired shape by forming', 'Finish the surface keeping on stake to shape', 'Solder the joint', 'Finish surface finishing and complete the tray.'];
+        let stepBox1 = [];
+        for(let i = 0; i < steps1.length; i++){
+            stepBox1[i] = document.createElement('li');
+            stepBox1[i].textContent = steps1[i];
+            stepList1.appendChild(stepBox1[i]);
+        }
+        practicals.appendChild(stepList1);
+        const text3 = document.createElement('p');
+        text3.textContent = 'The link to watch how to make rectangular tray is below 👇';
+        practicals.appendChild(text3);
+        const video3 = document.createElement('div');
+        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fNB1sunQ66g?si=rTxJW33H8LHtLV_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video3);
+        const step = document.createElement('h2');
+        step.textContent = 'PRACTICAL 2 : HOW TO MAKE DUST PAN';
+        practicals.appendChild(step);
+        const step2 = document.createElement('h3');
+        step2.textContent = 'PROCEDURE:';
+        practicals.appendChild(step2);
+        const stepList = document.createElement('ul');
+        const steps = ['Draw the 2D/3D sketches as per scale', 'Draw the development considering all lines must be a “True length”', 'Construct the base of the tray', 'Construct the two sides of the tray', 'Construct the two ends of the tray', 'Set 5mm extra, allowance on side face for joining the corners by seaming', 'Notch the points to prevent bulging on seaming', 'Cut the development shape on lines using paper cutting scissor', 'Place and fix the development on given G.P sheet by using sticker', 'Punch two points on each bending line', 'Mark the boundary line by using marking pen', 'Remove the paper development join the two punch points by a scriber or marking pen', 'Shear the boundary lines by using hand snip', 'Flattering the sheet by using mallet on flatter', 'Always bend the seaming line first and remaining lines to get the desired shape by forming', 'Finish the surface keeping on stake to shape', 'Solder the joint', 'Finish the surface finishing and complete the tray.'];
+        let stepBox = [];
+        for(let i = 0; i < steps.length; i++){
+            stepBox[i] = document.createElement('li');
+            stepBox[i].textContent = steps[i];
+            stepList.appendChild(stepBox[i]);
+        }
+        practicals.appendChild(stepList);
+        const text2 = document.createElement('p');
+        text2.textContent = 'The link to watch how make dustpan is below 👇';
+        practicals.appendChild(text2);
+        const video2 = document.createElement('div');
+        video2.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ozeOvqsbirM?si=BZdvxrVrL4bBM_Ac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video2);
+        main.appendChild(practicals);
+        const precaution = document.createElement('section');
+        const cautionHead = document.createElement('h3');
+        cautionHead.textContent = "PRECAUTIONS";
+        precaution.appendChild(cautionHead);
+        const cautionList = document.createElement('ul');
+        const precautions = ["I ensured that I wore my lab coat and personal protective equipment (PPE)","I ensured that proper techniques for cutting, drilling, and sanding to minimize the risk of accidents.","I ensured that I checked all tools and machinery for damage or malfunctions before using them and also verified that every guard is present and operating as intended.", "I ensured that I was mindful of where my hands were and avoid reaching under or behind machinery because sheet metal can have very sharp edges that can easily cut someone."];
+        let cautionBox = [];
+        for(let i = 0; i < precautions.length; i++){
+            cautionBox[i] = document.createElement('li');
+            cautionBox[i].textContent = precautions[i];
+            cautionList.appendChild(cautionBox[i]);
+        }
+        precaution.appendChild(cautionList);
+        main.appendChild(precaution);
+        const conclusion = document.createElement('section');
+        const concHead = document.createElement('h3');
+        concHead.textContent = "CONCLUSION:";
+        conclusion.appendChild(concHead);
+        const concText = document.createElement('p');
+        concText.textContent = "At the end of this experiment, we were able to make a rectangular tray, dustpan by using different sheet metal processes, techniques and also used the different materials involved in sheet metal practice.";
+        conclusion.appendChild(concText);
+        main.appendChild(conclusion);
+        const references = document.createElement('section');
+        const refHead = document.createElement('h3');
+        refHead.textContent = "REFERENCES";
+        references.appendChild(refHead);
+        const refList = document.createElement('ul');
+        const reference = ["Production Engineering Laboratory Manual for ELA201 and ELA202 by Department of Production Engineering, University of Benin.", "Sheet Metal Fabrication Basics by Tim Remus", "Sheet Metal Forming Processes and Applications by Taylan Altan, Erman Tekkaya, and Günter Hirt"];
+        let refBox = [];
+        for(let i = 0; i < reference.length; i++){
+            refBox[i] = document.createElement('li');
+            refBox[i].textContent = reference[i];
+            refList.appendChild(refBox[i]);
+        }
+        references.appendChild(refList);
+        main.appendChild(references);
 };
 
 
-const displayBF201 = (main) => {
-
+const displayBF201 = () => {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+        const head = document.createElement('h1');
+        head.textContent  = 'Introduction to fitting shop{BF201}';
+        main.appendChild(head);
+        const objective = document.createElement('section');
+        const objHead = document.createElement('h2');
+        objHead.textContent = 'OBJECTIVES';
+        objective.appendChild(objHead);
+        const objList = document.createElement('ul');
+        const objectives = ['To know the tools used in the fitting shop', 'To know how to mark out', 'To know the methods of filing','To produce a square fit',];
+        let list = [];
+        for(let i = 0; i < objectives.length; i++){
+            list[i] = document.createElement('li');
+            list[i].textContent = objectives[i];
+            objList.appendChild(list[i]);
+        }
+        objective.appendChild(objList);
+        main.appendChild(objective);
+        const appHead = document.createElement('h2');
+        appHead.textContent = 'Apparatus';
+        main.appendChild(appHead);
+        const section = document.createElement('section');
+        section.classList.add('appBox');
+        const apparatus = [
+            {
+                cap: 'Work Bench',
+                image: pic40
+            },
+            {
+                cap: 'Steel Rule',
+                image: pic43
+            },
+            {
+                cap: 'Bench Vice',
+                image: pic39
+            },
+            {
+                cap: 'Scriber',
+                image: pic49
+            },
+            {
+                cap: 'Try square',
+                image: pic38
+            },
+            {
+                cap: 'Vernier Calliper',
+                image: pic46
+            },
+            {
+                cap: 'Hacksaw',
+                image: pic68
+            },
+            {
+                cap: 'Ball peen Hammer',
+                image: pic69
+            },
+            {
+                cap: 'Files(flat files e.t.c)',
+                image: pic70
+            },
+        ];
+        let appBox = [];
+        let appImage = [];
+        let appCaption = [];
+        for(let i = 0; i < apparatus.length; i++){
+            appBox[i] = document.createElement('div');
+            appImage[i] = document.createElement('img');
+            appCaption[i] = document.createElement('p');
+            appImage[i].src =  apparatus[i].image;
+            appCaption[i].textContent = apparatus[i].cap;
+            appBox[i].appendChild(appImage[i]);
+            appBox[i].appendChild(appCaption[i]);
+            section.appendChild(appBox[i]);
+        }
+        main.appendChild(section);
+        const theory = document.createElement('section');
+        const theoHead = document.createElement('h2');
+        theoHead.textContent = 'THEORY';
+        theory.appendChild(theoHead);
+        const explain = document.createElement('div');
+        explain.textContent = 'Bench fitting is the process of shaping and assembling metal components using hand tools and machines.The goal of bench fitting is to create parts that fit together precisely without any gaps or binding. This is achieved by carefully marking out, cutting, filing, and assembling the components.Here are some of the common tasks involved in bench fitting:';
+        theory.appendChild(explain);
+        const categories = [
+            {
+                title: 'Marking out',
+                text: 'This involves using scribers, punches, and other tools to transfer dimensions from a drawing or template to the metal workpiece.',
+                image: ''
+            },
+            {
+                title: 'Cutting',
+                text: 'Hacksaws, bandsaws, and shears are used to cut the metal to the desired shape.',
+                image: ''
+            },
+            {
+                title: 'Filing',
+                text: 'Files are used to smooth and deburr the edges of the metal, and to achieve the required tolerance.There are two common methods of filing which includes:',
+                image: ''
+            },
+            {
+                title: '    -   Cross filing',
+                text: 'Effective removal of maximum amount of metal in the shortest possible time. The file must remain horizontal throughout the stroke.',
+                image: ''
+            },
+            {
+                title: '    -    Draw filing',
+                text: 'This method is used to remove file marks and for finishing operations. The file is gripped as close to the work as possible',
+                image: ''
+            },
+        ];
+        categories.forEach((item) => {
+        theory.appendChild(createDivs(item));
+        }); 
+        const text2 = document.createElement('p');
+        text2.textContent = 'The link to watch how to perform these methods of filing is below 👇';
+        theory.appendChild(text2);
+        const video2 = document.createElement('div');
+        video2.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IVHh4ACI3ak?si=_4fruPQ4_sz4HFdV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        theory.appendChild(video2);
+        const category = [
+            {
+                title: 'Drilling',
+                text: 'Holes are drilled in the metal for pins, screws, and other fasteners.',
+                image: ''
+            },
+            {
+                title: 'Tapping',
+                text: 'Threads are cut into holes so that screws and other fasteners can be inserted.',
+                image: ''
+            },
+            {
+                title: 'Assembly',
+                text: 'The components are fitted together using clamps, and then they are permanently joined using techniques such as welding, brazing, or soldering.',
+                image: ''
+            },
+        ];
+        category.forEach((item) => {
+            theory.appendChild(createDivs(item));
+        });
+        const head1 = document.createElement('h2');
+        head1.textContent = 'APPLICATIONS OF BENCH FITTING';
+        theory.appendChild(head1);
+        const catalog = [
+            {
+                title: 'Machining',
+                text: 'In machine shops, bench fitting is used to prepare parts for final assembly. This may involve filing components for a precise fit, drilling and tapping holes, or creating reference surfaces for other machining processes ',
+                image: ''
+            },
+            {
+                title: 'Metalwork',
+                text: 'Metalworkers like blacksmiths and welders use bench fitting techniques to ensure parts fit together correctly before welding or riveting them permanently',
+                image: ''
+            },
+            {
+                title: 'Auto mechanics',
+                text: 'Mechanics rely on bench fitting to repair and rebuild engines, gearboxes, and other vehicle components. They may use fitting to ensure bearings operate smoothly or that machined parts have the correct clearances.',
+                image: ''
+            },
+            {
+                title: 'Tool and die making',
+                text: 'Craftspeople who design and build tools and dies use bench fitting extensively. They file and machine parts to achieve very precise tolerances for tools used in manufacturing.',
+                image: ''
+            },
+        ];
+        catalog.forEach((item) => {
+        theory.appendChild(createDivs(item));
+        }); 
+        main.appendChild(theory);
+        const practicals = document.createElement('section');
+        const step1 = document.createElement('h2');
+        step1.textContent = 'PRACTICAL 1 : HOW TO MAKE A SQUARE FIT FROM GIVEN MILD STEEL PIECES';
+        practicals.appendChild(step1);
+        const step3 = document.createElement('h3');
+        step3.textContent = 'PROCEDURE:';
+        practicals.appendChild(step3);
+        const stepList1 = document.createElement('ul');
+        const steps1 = ['The given mild steel flat piece is checked for given dimensions', 'One edge of given is filled to straightness with tough and smooth files and checked with adjacent', 'An adjacent is also filled such that is square to the first edge and checked with try square', 'Wet chalk is applied on one side of the flat and dried for marking', 'Lines are marked according to given figure, using odd leg calliper and steel rule', 'Using dot punch are made along the marked lines', 'The excess materials removed from the remaining two edges with the try square level up to half of the marked dots ', 'Finally buts are removed by the filing on the surface of fitted job'];
+        let stepBox1 = [];
+        for(let i = 0; i < steps1.length; i++){
+            stepBox1[i] = document.createElement('li');
+            stepBox1[i].textContent = steps1[i];
+            stepList1.appendChild(stepBox1[i]);
+        }
+        practicals.appendChild(stepList1);
+        const text3 = document.createElement('p');
+        text3.textContent = 'The link to watch how to perform the square fit practical is below 👇';
+        practicals.appendChild(text3);
+        const video3 = document.createElement('div');
+        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NHLpRgLGeEo?si=pzWNtzvkNie563nV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video3);
+        const step = document.createElement('h2');
+        step.textContent = 'PRACTICAL 2 : HOW TO MAKE DOVETAIL JOINT';
+        practicals.appendChild(step);
+        const step2 = document.createElement('h3');
+        step2.textContent = 'PROCEDURE:';
+        practicals.appendChild(step2);
+        const stepList = document.createElement('ul');
+        const steps = ['Place the work pieces on the table and using scriber draw straight lines parallel on it 55mm apart', 'Fix the workpieces firmly in the jaws of the vice', 'Cut along the marked line using a hacksaw', 'The cut out workpieces was now again placed firmly between the jaws of the vice in a such a way that a small portion of one of its edges is above the level of the jaw', 'Now filing is done by using a hand file', 'Using try square, it should be ensured that all the edges of the workpieces are at the right angles to adjacent edges', 'Placed the work on one of the faces on the surface plate and moved it along it’s surface to check the area on the work where strain has accumulated. File them properly '];
+        let stepBox = [];
+        for(let i = 0; i < steps.length; i++){
+            stepBox[i] = document.createElement('li');
+            stepBox[i].textContent = steps[i];
+            stepList.appendChild(stepBox[i]);
+        }
+        practicals.appendChild(stepList);
+        const text4 = document.createElement('p');
+        text4.textContent = 'The link to watch how to perform the Dovetail Joint practical is below 👇';
+        practicals.appendChild(text4);
+        const video4 = document.createElement('div');
+        video4.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZB_gn7cZRfo?si=xrhH2-0Iq3mOrspo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video4);
+        const step5 = document.createElement('h2');
+        step5.textContent = 'PRACTICAL 3 : HOW TO MAKE A V-FITTING';
+        practicals.appendChild(step5);
+        const step6 = document.createElement('h3');
+        step6.textContent = 'PROCEDURE:';
+        practicals.appendChild(step6);
+        const stepList3 = document.createElement('ul');
+        const steps4 = ['The given mild steel flat piece is checked for given dimensions', 'One edge of the given is filed with rough and smooth files and checked with try square for straightness', 'An adjacent edge is also filled such that it is square to first edge and checked with try square', 'Wet chalk is applied on one side of the flat and dried for marking', 'Lines are marked according to given figure, using odd leg calipers and steel rule ', 'Using dot punch, punches are made along the marked lines', 'The excess materials removed from the remaining two edges with try square level up to half of the marked dots', 'Finally buts are removed by the filing on the surface of the  fitted job'];
+        let stepBox2 = [];
+        for(let i = 0; i < steps4.length; i++){
+            stepBox2[i] = document.createElement('li');
+            stepBox2[i].textContent = steps4[i];
+            stepList3.appendChild(stepBox2[i]);
+        }
+        practicals.appendChild(stepList);
+        const text5 = document.createElement('p');
+        text5.textContent = 'The link to watch how to perform the V-fitting practical is below 👇';
+        practicals.appendChild(text5);
+        const video5 = document.createElement('div');
+        video5.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iDJ_sMvXsYs?si=7EmKMZ27IPXjrECL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video5);
+        main.appendChild(practicals)
+        const precaution = document.createElement('section');
+        const cautionHead = document.createElement('h3');
+        cautionHead.textContent = "PRECAUTIONS";
+        precaution.appendChild(cautionHead);
+        const cautionList = document.createElement('ul');
+        const precautions = ["I ensured that I wore my lab coat and personal protective equipment (PPE)","I ensured that I avoided error due to parallax where taking measurements","I Ensured that the workpiece is securely clamped in a vice or using appropriate holding tools before working on it.", ];
+        let cautionBox = [];
+        for(let i = 0; i < precautions.length; i++){
+            cautionBox[i] = document.createElement('li');
+            cautionBox[i].textContent = precautions[i];
+            cautionList.appendChild(cautionBox[i]);
+        }
+        precaution.appendChild(cautionList);
+        main.appendChild(precaution);
+        const conclusion = document.createElement('section');
+        const concHead = document.createElement('h3');
+        concHead.textContent = "CONCLUSION:";
+        conclusion.appendChild(concHead);
+        const concText = document.createElement('p');
+        concText.textContent = "At the end of this experiment, a V- fit, a square fit and dovetail joint was created from mild steel pieces and the methods of filing and the applications of bench fitting.";
+        conclusion.appendChild(concText);
+        main.appendChild(conclusion);
+        const references = document.createElement('section');
+        const refHead = document.createElement('h3');
+        refHead.textContent = "REFERENCES";
+        references.appendChild(refHead);
+        const refList = document.createElement('ul');
+        const reference = ["Production Engineering Laboratory Manual for ELA201 and ELA202 by Department of Production Engineering, University of Benin.", "Benchwork and Fitting by Dr. Hamesh Babu Nanvala", "Bench Work And Fitting by W J Peck"];
+        let refBox = [];
+        for(let i = 0; i < reference.length; i++){
+            refBox[i] = document.createElement('li');
+            refBox[i].textContent = reference[i];
+            refList.appendChild(refBox[i]);
+        }
+        references.appendChild(refList);
+        main.appendChild(references);
 };
 
 
-const displayHS201 = (main) => {
-
+const displayHS201 = () => {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+        const head = document.createElement('h1');
+        head.textContent  = 'Introduction to the welding shop practice{HS201}';
+        main.appendChild(head);
+        const objective = document.createElement('section');
+        const objHead = document.createElement('h2');
+        objHead.textContent = 'OBJECTIVES';
+        objective.appendChild(objHead);
+        const objList = document.createElement('ul');
+        const objectives = [ 'To know how to prepare welding edge before welding', 'To know the different welding joints', 'To know the different welding positions', 'To know the various arc welding processes', 'To know the various arc welding equipments', 'To know the safety recommendations for arc welding processes','To produce a butt joint using arc welding'];
+        let list = [];
+        for(let i = 0; i < objectives.length; i++){
+            list[i] = document.createElement('li');
+            list[i].textContent = objectives[i];
+            objList.appendChild(list[i]);
+        }
+        objective.appendChild(objList);
+        main.appendChild(objective);
+        const appHead = document.createElement('h2');
+        appHead.textContent = 'Apparatus';
+        main.appendChild(appHead);
+        const section = document.createElement('section');
+        section.classList.add('appBox');
+        const apparatus = [
+            {
+                cap: 'Protective Clothing',
+                image: pic71
+            },
+            {
+                cap: 'Protective Equipment',
+                image: pic72
+            },
+            {
+                cap: 'Wire Brush',
+                image: pic73
+            },
+            {
+                cap: 'Welding cables',
+                image: pic74
+            },
+            {
+                cap: 'Hand Screen',
+                image: pic75
+            },
+            {
+                cap: 'Chipping Hammer',
+                image: pic76
+            },
+            {
+                cap: 'Arc welding power source',
+                image: pic77
+            },
+            {
+                cap: 'Electrodes',
+                image: pic78
+            },
+            {
+                cap: 'Electrode holder',
+                image: pic79
+            },
+            {
+                cap: 'Tongs',
+                image: pic80
+            },
+            {
+                cap: 'Hand Shield',
+                image: pic81
+            },
+            {
+                cap: 'Earth clamp',
+                image: pic82
+            },
+            {
+                cap: 'Welding table',
+                image: pic83
+            },
+            {
+                cap: 'Rough file',
+                image: pic70
+            },
+            {
+                cap: 'Smooth file',
+                image: pic84
+            },
+            {
+                cap: 'Protractor',
+                image: pic85
+            },
+        ];
+        let appBox = [];
+        let appImage = [];
+        let appCaption = [];
+        for(let i = 0; i < apparatus.length; i++){
+            appBox[i] = document.createElement('div');
+            appImage[i] = document.createElement('img');
+            appCaption[i] = document.createElement('p');
+            appImage[i].src =  apparatus[i].image;
+            appCaption[i].textContent = apparatus[i].cap;
+            appBox[i].appendChild(appImage[i]);
+            appBox[i].appendChild(appCaption[i]);
+            section.appendChild(appBox[i]);
+        }
+        main.appendChild(section);
 };
 
 
