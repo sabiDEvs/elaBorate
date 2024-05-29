@@ -67,7 +67,7 @@ main.appendChild(sectionWelcome);
 
 // Adding a div element
 const containerWelcome = document.createElement("div");
-containerWelcome.classList.add("container");
+containerWelcome.classList.add("container-welcome");
 containerWelcome.classList.add("welcome");
 sectionWelcome.appendChild(containerWelcome);
 
