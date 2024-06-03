@@ -720,7 +720,7 @@ body {
 }
 
 /* General styles */
-h1 {
+.main-header {
   font-size: 9rem;
   text-align: center;
   font-family: "Michroma", sans-serif;
@@ -963,12 +963,12 @@ h2 {
 /* Breakpoint considerations */
 /* Below 1201px */
 
-@media (max-width: 1201px) {
+@media (max-width: 75em) {
   /* body {
     font-size: 1.7rem;
   } */
 
-  h1 {
+  .main-header {
     font-size: 7rem;
   }
 
@@ -1089,8 +1089,8 @@ h2 {
 /* Below 575px */
 /* Margin of navigate, font sizes, h2 of images, overflow issues, cta section issues */
 
-@media (max-width: 575px) {
-  h1 {
+@media (max-width: 36em) {
+  .main-header {
     font-size: 2rem;
   }
 
