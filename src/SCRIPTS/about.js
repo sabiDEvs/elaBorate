@@ -106,7 +106,7 @@ eventually ace the course with good grades.`;
 
 const sectionMission = document.createElement("section");
 sectionMission.classList.add("section-mission");
-sectionMission.classList.add("container");
+sectionMission.classList.add("container-welcome");
 main.appendChild(sectionMission);
 
 const containerMission = document.createElement("div");
@@ -147,7 +147,7 @@ and like Sir Royce, we shall take the best that exists and make it better!
 
 const sectionHelp = document.createElement("section");
 sectionHelp.classList.add("section-help");
-sectionHelp.classList.add("container");
+sectionHelp.classList.add("container-welcome");
 main.appendChild(sectionHelp);
 
 const containerHelp = document.createElement("div");
@@ -176,7 +176,7 @@ Whatever good thing you wish to achieve as you go about your ELA activities, is 
 
 const sectionAchieve = document.createElement("section");
 sectionAchieve.classList.add("section-achieve");
-sectionAchieve.classList.add("container");
+sectionAchieve.classList.add("container-welcome");
 main.appendChild(sectionAchieve);
 
 const containerAchieve = document.createElement("div");
@@ -235,7 +235,7 @@ const textArr = [
 
 const sectionNavigate = document.createElement("section");
 sectionNavigate.classList.add("section-navigate");
-sectionNavigate.classList.add("container");
+sectionNavigate.classList.add("container-welcome");
 main.appendChild(sectionNavigate);
 
 const containerNavigate = document.createElement("div");
@@ -263,7 +263,7 @@ ado, let's get you started on your Journey.`;
 
 const sectionCTA = document.createElement("section");
 sectionCTA.classList.add("section-cta");
-sectionCTA.classList.add("container");
+sectionCTA.classList.add("container-welcome");
 main.appendChild(sectionCTA);
 
 const containerCTA = document.createElement("div");
