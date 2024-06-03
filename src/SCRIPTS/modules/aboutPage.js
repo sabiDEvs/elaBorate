@@ -1,5 +1,6 @@
 export const createHeaderPrimary = function (element, text) {
-  const header = document.createElement("h1");
+  const header = document.createElement("h2");
+  header.classList.add("main-header");
   element.appendChild(header);
 
   header.textContent = text;
