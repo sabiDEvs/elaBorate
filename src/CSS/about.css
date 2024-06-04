@@ -23,7 +23,7 @@ body {
 }
 
 /* General styles */
-h1 {
+.main-header {
   font-size: 9rem;
   text-align: center;
   font-family: "Michroma", sans-serif;
@@ -266,12 +266,12 @@ h2 {
 /* Breakpoint considerations */
 /* Below 1201px */
 
-@media (max-width: 1201px) {
-  /* body {
-    font-size: 1.7rem;
-  } */
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
 
-  h1 {
+  .main-header {
     font-size: 7rem;
   }
 
@@ -390,10 +390,13 @@ h2 {
 }
 
 /* Below 575px */
-/* Margin of navigate, font sizes, h2 of images, overflow issues, cta section issues */
 
-@media (max-width: 575px) {
-  h1 {
+@media (max-width: 36em) {
+  html {
+    font-size: 50%;
+  }
+
+  .main-header {
     font-size: 2rem;
   }
 
@@ -401,16 +404,15 @@ h2 {
     font-size: 1.5rem;
   }
 
-  .container {
+  p {
+    font-size: 1.5rem;
+  }
+
+  .container-welcome {
     max-width: 80rem;
     margin: 0 5rem;
     padding: 0 0.32rem;
   }
-
-  /* Welcome section */
-  /* .container-welcome {
-    font-size: 0.9rem;
-  } */
 
   /* Mission section */
   .section-mission {
@@ -488,11 +490,13 @@ h2 {
   .first-list-item {
     margin-top: 2rem;
     margin-left: 2.5rem;
+    font-size: 1.5rem;
   }
 
   .second-list-item {
     margin-top: 1rem;
     margin-left: 2rem;
+    font-size: 1.5rem;
   }
 
   /* CTA section */
@@ -502,13 +506,17 @@ h2 {
   }
 
   .container-cta {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     row-gap: 1rem;
-    padding: 0.5rem 3rem;
+    padding: 2rem 0;
   }
 
   .container-cta h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+  }
+
+  .container-cta p {
+    font-size: 1rem;
   }
 
   .container-cta-text {
