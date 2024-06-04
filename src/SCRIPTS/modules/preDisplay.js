@@ -83,6 +83,18 @@ import pic82 from '../../RESOURCES/images/earth clamp.jpeg';
 import pic83 from '../../RESOURCES/images/welding table.jpeg';
 import pic84 from '../../RESOURCES/images/smooth file.jpeg';
 import pic85 from '../../RESOURCES/images/welding protractor.jpeg';
+import pic86 from '../../RESOURCES/images/flatposition.png';
+import pic87 from '../../RESOURCES/images/horizontal position.png';
+import pic88 from '../../RESOURCES/images/vertical position.jpeg';
+import pic89 from '../../RESOURCES/images/overhead.png';
+import pic90 from '../../RESOURCES/images/parts of lathe machine.jpeg';
+import pic91 from '../../RESOURCES/images/chuck spanners.jpeg';
+import pic92 from '../../RESOURCES/images/hss.jpeg';
+import pic93 from '../../RESOURCES/images/single point cutting tool.jpeg';
+import pic94 from '../../RESOURCES/images/bed of a lathe.jpeg';
+import pic95 from '../../RESOURCES/images/headstock of a lathe machine.jpeg';
+import pic96 from '../../RESOURCES/images/tailstock of lathe.jpeg';
+import pic97 from '../../RESOURCES/images/carriage of lathe.jpeg';
 
 
 const createDivs = (object) => {
@@ -1101,8 +1113,8 @@ const displayBF201 = () => {
 
 
 const displayHS201 = () => {
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+        const main = document.querySelector('main');
+        main.innerHTML = '';
         const head = document.createElement('h1');
         head.textContent  = 'Introduction to the welding shop practice{HS201}';
         main.appendChild(head);
@@ -1205,11 +1217,461 @@ const displayHS201 = () => {
             section.appendChild(appBox[i]);
         }
         main.appendChild(section);
+        const theory = document.createElement('section');
+        const theoHead = document.createElement('h2');
+        theoHead.textContent = 'THEORY';
+        theory.appendChild(theoHead);
+        const explain = document.createElement('div');
+        explain.textContent = 'Welding is a fabrication process that joins materials, typically metals or thermoplastics, together by causing fusion. This process involves melting the base metals and adding a filler material to form a weld pool, which cools to become a strong joint. Welding is basically a metalworking superpower that lets you permanently join pieces of metal together. Welding is used in different aspects which includes:';
+        theory.appendChild(explain);
+        const categories = [
+            {
+                title: 'Construction',
+                text: 'Welding is essential for combining steel beams, pipes, and other metal structures that constitute the framework of our buildings and infrastructure, from complex bridges to tall skyscrapers.',
+                image: ''
+            },
+            {
+                title: 'Automotive Industry',
+                text: 'Welding is essential for a sturdy and secure assembly of car frames, engines, and body parts.',
+                image: ''
+            },
+            {
+                title: 'Manufacturing',
+                text: 'Welding is essential to fabrication in a variety of manufacturing areas, including electronics, appliances, and industrial machinery.',
+                image: ''
+            },
+            {
+                title: 'Shipbuilding',
+                text: 'Welds are frequently used to hold together the robust seams and waterproof compartments of ships.',
+                image: ''
+            },
+            {
+                title: 'Repair and Maintenance',
+                text: 'Welding techniques can be used to repair broken pipelines, damaged machinery, or corroded metal components',
+                image: ''
+            },
+        ];
+        categories.forEach((item) => {
+        theory.appendChild(createDivs(item));
+        }); 
+        const text2 = document.createElement('p');
+        text2.textContent = 'Welding is applied in various fields which include:';
+        theory.appendChild(text2);
+        const category = [
+            {
+                title: 'Construction Projects',
+                text: 'Welding is fundamental in assembling the steel frames that form the skeleton of these structures.',
+                image: ''
+            },
+            {
+                title: 'Automotive Repair and Maintenance',
+                text: "Whether it's fixing a cracked exhaust pipe or patching a hole in a car frame, welders play a crucial role in keeping vehicles on the road.",
+                image: ''
+            },
+            {
+                title: 'Industrial Manufacturing',
+                text: 'Manufacturing plants heavily rely on welding for everything from creating complex machinery to constructing pipelines.',
+                image: ''
+            },
+        ];
+        category.forEach((item) => {
+            theory.appendChild(createDivs(item));
+        });
+        const text1 = document.createElement('p');
+        text1.textContent = 'In welding, there are four (4) main different types of welding positions which include:';
+        theory.appendChild(text1);
+        const catalog = [
+            {
+                title: 'Flat position',
+                text: 'This is the most basic and easiest welding position. The welder welds on a flat surface, with the workpiece positioned horizontally below the torch. Gravity assists the welder in controlling the molten metal weld pool.',
+                image: pic86
+            },
+            {
+                title: 'Horizontal position',
+                text: 'In this setup, the welder is positioned below the horizontal weld joint. In order to prevent the molten metal from leaking or sagging, the welder must resist gravity. Although they are less prevalent than flat welds, horizontal welds are more difficult to perform.',
+                image: pic87
+            },
+            {
+                title: 'Vertical position',
+                text: 'A vertical surface is used to make vertical welds. Either uphill (from bottom to top) or downhill (from top to bottom) welding is possible. Welds uphill are more challenging because the molten metal has a tendency to flow downward. Although they are simpler to manage, downward welds may produce weaker welds.',
+                image: pic88
+            },
+            {
+                title: 'Overhead position',
+                text: 'The most challenging position to weld in is above. The surface that the welder welds on is above them. It is extremely difficult to produce high-quality welds since the welder is unable to control the molten metal pool except by using their welding method.',
+                image: pic89
+            },
+        ];
+        catalog.forEach((item) => {
+        theory.appendChild(createDivs(item));
+        });
+        const explain1 = document.createElement('div');
+        explain1.textContent = 'There are different types of welding processes but in this experiment we are dealing with arc welding process.';
+        theory.appendChild(explain1);
+        const explain2 = document.createElement('div');
+        explain2.textContent = "Arc welding is the most common type of welding process, and it uses an electric current to create an arc that melts the metal. Arc welding is a metal joining process that utilizes the intense heat generated by an electric arc to melt the metals at the joint, fusing them together once they cool. Here's a breakdown of the core aspects of the process:";
+        theory.appendChild(explain2);
+        const catalogs = [
+            {
+                title: 'Heat Source',
+                text: 'To form the arc, direct current (DC) or alternating current (AC) are supplied by an electric power source. The particular welding procedure and the metals being connected determine the kind of current that is employed.',
+                image: ''
+            },
+            {
+                title: 'The electrode',
+                text: 'In arc welding, there are primarily two kinds of electrodes used:',
+                image: ''
+            },
+            {
+                title: ' - Consumable electrode',
+                text: 'To create the weld, this electrode melts and fuses with the base metal. MIG welding wires and stick welding electrodes are two examples.',
+                image: ''
+            },
+            {
+                title: ' - Non-consumable electrode',
+                text: 'This electrode does not melt on its own; instead, it conducts electricity to form an arc. To form the weld, filler metal is applied separately. A tungsten electrode is used as an example in TIG welding.',
+                image: ''
+            },
+        ];
+        catalogs.forEach((item) => {
+        theory.appendChild(createDivs(item));
+        });
+        main.appendChild(theory);
+        const practicals = document.createElement('section');
+        const step1 = document.createElement('h2');
+        step1.textContent = 'PRACTICAL 1 : HOW TO MAKE A BUTT JOINT';
+        practicals.appendChild(step1);
+        const step3 = document.createElement('h3');
+        step3.textContent = 'PROCEDURE:';
+        practicals.appendChild(step3);
+        const stepList1 = document.createElement('ul');
+        const steps1 = ['The given mild steel are thoroughly cleaned of rust and scale', 'One edge of each piece is believed, to an angle of 300, leaving nearly ¼ th of the flat thickness, at one end.', 'The two pieces are positioned on the welding table such that, they are separated slightly for better penetration of the weld', 'The electrode is fitted in the electrode holder and the welding current is set to be a proper value', 'The ground clamp is fastened to the welding table.', 'Wearing the apron and using the face shield, the arc is stuck and holding the two pieces together, first run of the weld is done to fill the root gap', 'Second run of the weld is done with proper weaving and the uniform movement. During the process of welding, the electrode is kept at 150 to 250 from vertical and in the direction of welding.', 'The scale formation on the welds is removed by using the chipping hammer.', 'Filing is done to remove any spanner around the weld'];
+        let stepBox1 = [];
+        for(let i = 0; i < steps1.length; i++){
+            stepBox1[i] = document.createElement('li');
+            stepBox1[i].textContent = steps1[i];
+            stepList1.appendChild(stepBox1[i]);
+        }
+        practicals.appendChild(stepList1);
+        const text3 = document.createElement('p');
+        text3.textContent = 'Watch how to perform the butt joint practical below 👇';
+        practicals.appendChild(text3);
+        const video3 = document.createElement('div');
+        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2axZupLAQ_U?si=rQGboM88VzTYHp_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video3);
+        const step = document.createElement('h2');
+        step.textContent = 'PRACTICAL 2 : HOW TO MAKE LAP JOINT';
+        practicals.appendChild(step);
+        const step2 = document.createElement('h3');
+        step2.textContent = 'PROCEDURE:';
+        practicals.appendChild(step2);
+        const stepList = document.createElement('ul');
+        const steps = ['The given mild steel pieces are thoroughly cleaned of rust and scale', 'The two pieces are positioned on the welding table such that, the two pieces overlapped one over the other as shown in drawing', 'The electrode is fitted in the electrode holder and the welding current is set to be proper value', 'The ground clamp is fastened to the welding table', 'Wearing the apron and using the face shield, the arc is struck and the work pieces are tack-welded at both the ends and the centre of the joint', 'The alignment of the lap joint is checked and the tack welded pieces are required', 'The scale information of the welds is removed by using chipping hammer', 'Filing is done to remove any spanner around the weld'];
+        let stepBox = [];
+        for(let i = 0; i < steps.length; i++){
+            stepBox[i] = document.createElement('li');
+            stepBox[i].textContent = steps[i];
+            stepList.appendChild(stepBox[i]);
+        }
+        practicals.appendChild(stepList);
+        const text4 = document.createElement('p');
+        text4.textContent = 'Watch how to perform the Dovetail Joint practical is below 👇';
+        practicals.appendChild(text4);
+        const video4 = document.createElement('div');
+        video4.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uT9dSDwoueM?si=rmFr3C78xzlYucdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video4);
+        main.appendChild(practicals);
+        const precaution = document.createElement('section');
+        const cautionHead = document.createElement('h3');
+        cautionHead.textContent = "PRECAUTIONS";
+        precaution.appendChild(cautionHead);
+        const cautionList = document.createElement('ul');
+        const precautions = ["I ensured that I wore my lab coat and personal protective equipment (PPE)","I ensured that the welding machine was properly grounded to prevent electrical shock.","I Ensured that the welding machine and cables are in good condition before starting.", ];
+        let cautionBox = [];
+        for(let i = 0; i < precautions.length; i++){
+            cautionBox[i] = document.createElement('li');
+            cautionBox[i].textContent = precautions[i];
+            cautionList.appendChild(cautionBox[i]);
+        }
+        precaution.appendChild(cautionList);
+        main.appendChild(precaution);
+        const conclusion = document.createElement('section');
+        const concHead = document.createElement('h3');
+        concHead.textContent = "CONCLUSION:";
+        conclusion.appendChild(concHead);
+        const concText = document.createElement('p');
+        concText.textContent = "At the end of this experiment, a butt joint, lap joint was created from mild steel pieces by arc welding using the necessary equipments and also using different welding positions.";
+        conclusion.appendChild(concText);
+        main.appendChild(conclusion);
+        const references = document.createElement('section');
+        const refHead = document.createElement('h3');
+        refHead.textContent = "REFERENCES";
+        references.appendChild(refHead);
+        const refList = document.createElement('ul');
+        const reference = ["Production Engineering Laboratory Manual for ELA201 and ELA202 by Department of Production Engineering, University of Benin.", "The TIG Welding Book by Todd Bridigum", "Welding for Dummies by Steven Robert Farnsworth"];
+        let refBox = [];
+        for(let i = 0; i < reference.length; i++){
+            refBox[i] = document.createElement('li');
+            refBox[i].textContent = reference[i];
+            refList.appendChild(refBox[i]);
+        }
+        references.appendChild(refList);
+        main.appendChild(references);
 };
 
 
-const displayMS201 = (main) => {
-
+const displayMS201 = () => {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    const head = document.createElement('h1');
+    head.textContent  = 'Introduction to lathe and machining operations{MS201}';
+    main.appendChild(head);
+    const objective = document.createElement('section');
+    const objHead = document.createElement('h2');
+    objHead.textContent = 'OBJECTIVES';
+    objective.appendChild(objHead);
+    const objList = document.createElement('ul');
+    const objectives = ['To study the characteristics features of lathe', 'To study types of lathe operations', 'To produce shaft using straight turning'];
+    let list = [];
+    for(let i = 0; i < objectives.length; i++){
+        list[i] = document.createElement('li');
+        list[i].textContent = objectives[i];
+        objList.appendChild(list[i]);
+    }
+    objective.appendChild(objList);
+    main.appendChild(objective);
+    const appHead = document.createElement('h2');
+    appHead.textContent = 'Apparatus';
+    main.appendChild(appHead);
+    const section = document.createElement('section');
+        section.classList.add('appBox');
+        const apparatus = [
+            {
+                cap: 'Lathe Machine',
+                image: pic90
+            },
+            {
+                cap: 'Vernier caliper',
+                image: pic46
+            },
+            {
+                cap: 'Steel rule',
+                image: pic43
+            },
+            {
+                cap: 'Spanner',
+                image: pic16
+            },
+            {
+                cap: 'Chuck spanner',
+                image: pic91
+            },
+            {
+                cap: 'High speed steel (HSS)',
+                image: pic92
+            },
+            {
+                cap: 'Single point cutting tool',
+                image: pic93
+            },
+        ];
+        let appBox = [];
+        let appImage = [];
+        let appCaption = [];
+        for(let i = 0; i < apparatus.length; i++){
+            appBox[i] = document.createElement('div');
+            appImage[i] = document.createElement('img');
+            appCaption[i] = document.createElement('p');
+            appImage[i].src =  apparatus[i].image;
+            appCaption[i].textContent = apparatus[i].cap;
+            appBox[i].appendChild(appImage[i]);
+            appBox[i].appendChild(appCaption[i]);
+            section.appendChild(appBox[i]);
+        }
+        main.appendChild(section);
+        const theory = document.createElement('section');
+        const theoHead = document.createElement('h2');
+        theoHead.textContent = 'THEORY';
+        theory.appendChild(theoHead);
+        const explain = document.createElement('div');
+        explain.textContent = 'A lathe is a type of machine tool that rotates a workpiece on its axis to shape metal or wood. To remove material from the workpiece—which may be composed of glass, metal, or wood, a fixed cutting tool is utilised. The most common apparatus used in this experiment is the lathe machine. There are different types of lathe machine and the lathe machines have the same features or parts which include:';
+        theory.appendChild(explain);
+        const categories = [
+            {
+                title: 'Bed',
+                text: 'The bed is the base of the lathe and provides support for the other components of the machine.',
+                image: pic94
+            },
+            {
+                title: 'Headstock',
+                text: 'The headstock is located at one end of the bed and houses the spindle. The spindle is a shaft that rotates the workpiece.',
+                image: pic95
+            },
+            {
+                title: 'Tailstock',
+                text: 'The tailstock is located at the other end of the bed and can be used to support the end of the workpiece.',
+                image: pic96
+            },
+            {
+                title: 'Carriage',
+                text: 'The carriage is a movable slide that holds the cutting tool. The carriage can be moved along the bed in order to position the cutting tool relative to the workpiece and comprises of the compound rest, tool post, cross slide and etc as shown below.',
+                image: pic97
+            },
+        ];
+        categories.forEach((item) => {
+        theory.appendChild(createDivs(item));
+        });
+        const text2 = document.createElement('p');
+        text2.textContent = 'The lathe machine is applied in different aspects in our everyday world, which include:';
+        theory.appendChild(text2);
+        const category = [
+            {
+                title: 'Manufacturing',
+                text: 'Lathes are used to create a wide variety of parts, such as gears, shafts, and bearings.',
+                image: ''
+            },
+            {
+                title: 'Construction',
+                text: "Lathes are used to create parts for machines and tools used in construction.",
+                image: ''
+            },
+            {
+                title: 'Repair',
+                text: 'Lathes are used to repair damaged parts.',
+                image: ''
+            },
+        ];
+        category.forEach((item) => {
+            theory.appendChild(createDivs(item));
+        });
+        const text1 = document.createElement('p');
+        text1.textContent = 'Sequence of operations are performed by the lathe machine which includes:';
+        theory.appendChild(text1);
+        const catalog = [
+            {
+                title: 'Facing',
+                text: 'The facing operation involves cutting a flat surface perpendicular to the axis of rotation of the workpiece. This creates a smooth surface on the end of the workpiece.',
+                image: ''
+            },
+            {
+                title: 'Turning',
+                text: 'Turning is the process of removing material from the outer diameter of the workpiece to create a cylindrical shape. This is done by moving a cutting tool parallel to the axis of rotation.',
+                image: ''
+            },
+            {
+                title: 'Grooving',
+                text: 'Grooving involves cutting a groove or channel into the surface of the workpiece. This can be used for creating features like threads or for other purposes.',
+                image: ''
+            },
+            {
+                title: 'Threading',
+                text: 'Threading is the process of cutting threads onto the cylindrical surface of the workpiece. This can be done internally (tapping) or externally (die cutting).',
+                image: ''
+            },
+            {
+                title: 'Drilling',
+                text: "Some lathe machines are equipped with attachments for drilling holes in the workpiece. This can be done using a drill chuck mounted on the lathe's tailstock.",
+                image: ''
+            },
+            {
+                title: 'Boring',
+                text: "Boring is the process of enlarging an existing hole in the workpiece to a precise diameter. This is typically done using a boring bar mounted on the lathe's toolpost.",
+                image: ''
+            },
+            {
+                title: 'Finishing',
+                text: "After the desired machining operations are complete, finishing operations such as polishing or deburring may be performed to improve the surface finish of the workpiece etc.",
+                image: ''
+            },
+            {
+                title: 'Chamfering',
+                text: "Chamfering is a machining operation commonly performed on a lathe machine, although it can also be done using other tools such as milling machines or hand tools. Chamfering involves cutting or grinding away material from the edge of a workpiece to create a beveled edge or a chamfer.",
+                image: ''
+            },
+            {
+                title: 'Grooving',
+                text: "Grooving refers to a specific machining operation used to create narrow channels or cuts on the surface of a workpiece. It involves cutting a narrow, elongated recess or groove into the surface of a workpiece.",
+                image: ''
+            },
+        ];
+        catalog.forEach((item) => {
+        theory.appendChild(createDivs(item));
+        });
+        const head1 = document.createElement('h3');
+        head1.textContent = 'Watch the operations performed on the lathe machine and even more';
+        theory.appendChild(head1);
+        const video4 = document.createElement('div');
+        video4.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SvlZHHDXCZs?si=TCK5E9hveatatgPy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        theory.appendChild(video4);
+        const video3 = document.createElement('div');
+        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/km6ickQglVY?si=BPw-eCbc0RAe1VjX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        theory.appendChild(video3);
+        main.appendChild(theory);
+        const practicals = document.createElement('section');
+        const step1 = document.createElement('h2');
+        step1.textContent = 'PRACTICAL : HOW TO PERFORM STEP TURNING AND TAPER TURNING ON LATHE MACHINE';
+        practicals.appendChild(step1);
+        const step3 = document.createElement('h3');
+        step3.textContent = 'PROCEDURE:';
+        practicals.appendChild(step3);
+        const stepList1 = document.createElement('ul');
+        const steps1 = ['The work piece is fixed in a 3-jaw chuck with sufficient overhang', 'Adjust the machine to run the job to a required cutting speed', 'Fix the cutting tool in the tool post and centering operation is performed so that the axis of the job coincides with the lathe axis', 'Give the feed and depth of the cut to the cutting tool', 'Facing operation is performed from the center of the job towards outward or from the circumference towards the center', 'Plain turning operation is performed until the diameter of the workpiece reduces to 23mm', 'Check the dimensions by using Vernier calipers', 'Then chamfering is done on the 23mm diameter surface', 'Reverse the work piece in the chuck and facing operation is performed to reduce the length of work piece to the required dimensions', 'Again plain turning operation is performed until the diameter of the work piece reduces to 18mm', 'Using the v-cutting tool grooving operation is performed according to the given dimensions and finish the groove using parting tool', 'Swivel the compound slide to the required angle and taper turning operation by rotating the compound slide wheel.', 'Finally, check the dimensions by using Vernier calipers.'];
+        let stepBox1 = [];
+        for(let i = 0; i < steps1.length; i++){
+            stepBox1[i] = document.createElement('li');
+            stepBox1[i].textContent = steps1[i];
+            stepList1.appendChild(stepBox1[i]);
+        }
+        practicals.appendChild(stepList1);
+        const text3 = document.createElement('p');
+        text3.textContent = 'The link to watch how to perform the taper turning operation on lathe machine practical is below 👇';
+        practicals.appendChild(text3);
+        const video5 = document.createElement('div');
+        video5.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dksI7FC8iZQ?si=UPv4G_C7wKhGc8Ue" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video5);
+        const text4 = document.createElement('p');
+        text4.textContent = 'The link to watch how to perform the step turning operation on lathe machine practical is below 👇';
+        practicals.appendChild(text4);
+        const video6 = document.createElement('div');
+        video6.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3Cy1yStc93w?si=QxRQfI3O_uJ2jxJT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video6);
+        main.appendChild(practicals);
+        const precaution = document.createElement('section');
+        const cautionHead = document.createElement('h3');
+        cautionHead.textContent = "PRECAUTIONS";
+        precaution.appendChild(cautionHead);
+        const cautionList = document.createElement('ul');
+        const precautions = ["I ensured that I wore my lab coat and personal protective equipment (PPE)","I ensured that I kept hands clear of moving parts ","I Ensured that I used coolant or lubrication to reduce friction, dissipate heat, and improve surface finish", ];
+        let cautionBox = [];
+        for(let i = 0; i < precautions.length; i++){
+            cautionBox[i] = document.createElement('li');
+            cautionBox[i].textContent = precautions[i];
+            cautionList.appendChild(cautionBox[i]);
+        }
+        precaution.appendChild(cautionList);
+        main.appendChild(precaution);
+        const conclusion = document.createElement('section');
+        const concHead = document.createElement('h3');
+        concHead.textContent = "CONCLUSION:";
+        conclusion.appendChild(concHead);
+        const concText = document.createElement('p');
+        concText.textContent = "At the end of this experiment, the lathe machine was used to perform step turning and taper turning on the given workpiece and understood sequence of operations of the lathe machine.";
+        conclusion.appendChild(concText);
+        main.appendChild(conclusion);
+        const references = document.createElement('section');
+        const refHead = document.createElement('h3');
+        refHead.textContent = "REFERENCES";
+        references.appendChild(refHead);
+        const refList = document.createElement('ul');
+        const reference = ["Production Engineering Laboratory Manual for ELA201 and ELA202 by Department of Production Engineering, University of Benin.", "Machine Shop Practice by Karl Moltrecht", "Lathe Operation and Maintenance by John D. Lawson"];
+        let refBox = [];
+        for(let i = 0; i < reference.length; i++){
+            refBox[i] = document.createElement('li');
+            refBox[i].textContent = reference[i];
+            refList.appendChild(refBox[i]);
+        }
+        references.appendChild(refList);
+        main.appendChild(references);
 };
 
 
