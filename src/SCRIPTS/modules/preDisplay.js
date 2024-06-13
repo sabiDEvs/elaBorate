@@ -6,12 +6,12 @@ import pic5 from '../../RESOURCES/images/piston.jpeg';
 import pic6 from '../../RESOURCES/images/connecting rods.jpeg';
 import pic7 from '../../RESOURCES/images/camshaft.jpeg';
 import pic8 from '../../RESOURCES/images/crankshaft.jpeg';
-import pic9 from '../../RESOURCES/images/spark plug.jpeg';
 import pic10 from '../../RESOURCES/images/valves.jpeg';
 import pic11 from '../../RESOURCES/images/screw drivers.png';
 import pic12 from '../../RESOURCES/images/mallet hammer.jpeg';
 import pic13 from '../../RESOURCES/images/torque wrench.jpeg';
 import pic14 from '../../RESOURCES/images/pliers.jpeg';
+import pic9 from '../../RESOURCES/images/spark plug.jpeg';
 import pic15 from '../../RESOURCES/images/funnel.jpeg';
 import pic16 from '../../RESOURCES/images/spannerr.jpeg';
 import pic17 from '../../RESOURCES/images/car jack.jpeg';
@@ -95,6 +95,21 @@ import pic94 from '../../RESOURCES/images/bed of a lathe.jpeg';
 import pic95 from '../../RESOURCES/images/headstock of a lathe machine.jpeg';
 import pic96 from '../../RESOURCES/images/tailstock of lathe.jpeg';
 import pic97 from '../../RESOURCES/images/carriage of lathe.jpeg';
+import pic98 from '../../RESOURCES/images/moulding box.jpeg';
+import pic99 from '../../RESOURCES/images/draw spikes.png';
+import pic100 from '../../RESOURCES/images/swab.jpeg';
+import pic101 from '../../RESOURCES/images/slicks.jpeg';
+import pic102 from '../../RESOURCES/images/rammers.jpeg';
+import pic103 from '../../RESOURCES/images/shovel.jpeg';
+import pic104 from '../../RESOURCES/images/hand riddle.jpeg';
+import pic105 from '../../RESOURCES/images/drag and cope boxes.png';
+import pic106 from '../../RESOURCES/images/strike off bar.jpeg';
+import pic107 from '../../RESOURCES/images/moulding sand.jpeg';
+import pic108 from '../../RESOURCES/images/sprue pins.jpeg';
+import pic109 from '../../RESOURCES/images/vent wire.jpeg';
+import pic110 from '../../RESOURCES/images/trowel.jpeg';
+
+
 
 
 const createDivs = (object) => {
@@ -1987,7 +2002,273 @@ const displayAS201 = () => {
         references.appendChild(refList);
         main.appendChild(references);
 };
-const displayFS201 = (main) => {
-
+const displayFS201 = () => {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    const head = document.createElement('h1');
+    head.textContent  = 'Introduction to Foundry Shop{FS201}';
+    main.appendChild(head);
+    const objective = document.createElement('section');
+    const objHead = document.createElement('h2');
+    objHead.textContent = 'OBJECTIVES';
+    objective.appendChild(objHead);
+    const objList = document.createElement('ul');
+    const objectives = ['To understand what patterns are', 'To know what moulding sands are', 'To familiarize with the tools and materials used in foundry shop', 'To produce a simple cast'];
+    let list = [];
+    for(let i = 0; i < objectives.length; i++){
+        list[i] = document.createElement('li');
+        list[i].textContent = objectives[i];
+        objList.appendChild(list[i]);
+    }
+    objective.appendChild(objList);
+    main.appendChild(objective);
+    const appHead = document.createElement('h2');
+    appHead.textContent = 'Apparatus';
+    main.appendChild(appHead);
+    const section = document.createElement('section');
+        section.classList.add('appBox');
+        const apparatus = [
+            {
+                cap: 'Moulding Box',
+                image: pic98
+            },
+            {
+                cap: 'Draw spikes',
+                image: pic99
+            },
+            {
+                cap: 'Swab',
+                image: pic100
+            },
+            {
+                cap: 'Slicks',
+                image: pic101
+            },
+            {
+                cap: 'Rammers',
+                image: pic102
+            },
+            {
+                cap: 'Shovel',
+                image: pic103
+            },
+            {
+                cap: 'Hand Riddle',
+                image: pic104
+            },
+            {
+                cap: 'Wire Brush',
+                image: pic73
+            },
+            {
+                cap: 'Drag and cope boxes',
+                image: pic105
+            },
+            {
+                cap: 'Strike off bar',
+                image: pic106
+            },
+            {
+                cap: 'Moulding Sand',
+                image: pic107
+            },
+            {
+                cap: 'Sprue Pins',
+                image: pic108
+            },
+            {
+                cap: 'Vent Wire',
+                image: pic109
+            },
+            {
+                cap: 'Trowel',
+                image: pic110
+            },
+        ];
+        let appBox = [];
+        let appImage = [];
+        let appCaption = [];
+        for(let i = 0; i < apparatus.length; i++){
+            appBox[i] = document.createElement('div');
+            appImage[i] = document.createElement('img');
+            appCaption[i] = document.createElement('p');
+            appImage[i].src =  apparatus[i].image;
+            appCaption[i].textContent = apparatus[i].cap;
+            appBox[i].appendChild(appImage[i]);
+            appBox[i].appendChild(appCaption[i]);
+            section.appendChild(appBox[i]);
+        }
+        main.appendChild(section);
+        const theory = document.createElement('section');
+        const theoHead = document.createElement('h2');
+        theoHead.textContent = 'THEORY';
+        theory.appendChild(theoHead);
+        const explain = document.createElement('div');
+        explain.textContent = 'In general, a foundry shop is a place where metal casting operations are conducted. Metal is heated in a foundry and then poured into molds to make a variety of components or things. These items might be anything from complex sculptures to pieces of industrial technology. Foundries are essential to the industrial sector because they offer the tools needed to precisely form intricate metal structures. There may be pouring, molding, melting, and finishing procedures involved. Because of the high temperatures and possibly dangerous materials involved, safety precautions are important. Foundry shops are vital to many industries, such as manufacturing, construction, aerospace, and automotive, since they offer the tools necessary to precisely fabricate intricate metal components. Because of the extreme temperatures and potential hazards associated with the casting process, these facilities require highly skilled personnel, state-of-the-art equipment, and rigorous adherence to safety regulations.';
+        theory.appendChild(explain);
+        const explain2 = document.createElement('div');
+        const expHead = document.createElement('h3');
+        expHead.textContent = 'Patterns:';
+        explain2.appendChild(expHead);
+        const expText = document.createElement('div');
+        expText.textContent = "In foundry shop, there are are patterns and a pattern is essentially a mold-maker's master copy i.e a replica of the final metal object they want to create. This pattern is used to create a negative cavity in the sand mold, which is then filled with molten metal. Once the metal cools and solidifies, the sand mold is broken away, leaving behind the finished casting.    Patterns are templates or models that are used to create the molds into which molten metal is poured."
+        explain2.appendChild(expText);
+        theory.appendChild(explain2);
+        const head1 = document.createElement('h2');
+        head1.textContent = 'Types of Patterns:';
+        theory.appendChild(head1);
+        const text2 = document.createElement('p');
+        text2.textContent = 'There are several different types of foundry patterns, each suited for different applications. Some common types include:';
+        theory.appendChild(text2);
+        const div = document.createElement('div');
+        const text = document.createElement('div');
+        text.innerHTML = `<span>• Single-piece pattern:</span>  This is the simplest type of pattern, suitable for simple castings. The youtube link illustrating this is shown below`;
+        div.appendChild(text);
+        const box = document.createElement('div');
+        box.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Uv28tqCOtAg?si=LuG3xBJHOySzcRIn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        div.appendChild(box);
+        theory.appendChild(div);
+        const div1 = document.createElement('div');
+        const text1 = document.createElement('div');
+        text1.innerHTML = `<span>• Split pattern:</span>  This pattern is split into two or more sections, allowing for the creation of more complex castings with undercuts or interior features. The youtube link illustrating this is shown below`;
+        div1.appendChild(text1);
+        theory.appendChild(div1);
+        const box1 = document.createElement('div');
+        box1.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cFcSJMRSz1c?si=lCMAs06oYQQL90tX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        div1.appendChild(box1);
+        const div2 = document.createElement('div');
+        const text3 = document.createElement('div');
+        text3.innerHTML = `<span>• Match-plate pattern:</span>  This type of pattern is mounted on a plate, with one half forming the cope (upper) mold section and the other half forming the drag (lower) mold section. Match-plate patterns are efficient for high-volume production runs.`;
+        div2.appendChild(text3);
+        theory.appendChild(div2);
+        const explain3 = document.createElement('div');
+        const expHead1 = document.createElement('h3');
+        expHead1.textContent = 'MOULDING SAND:';
+        explain3.appendChild(expHead1);
+        const expText1 = document.createElement('div');
+        expText1.textContent = "Foundry sand, sometimes referred to as molding sand, is a specially prepared substance that foundry shops utilize during the casting process. It is used as a medium to make molds that are filled with molten metal to create castings. A specially formulated mixture, typically consisting of:"
+        explain3.appendChild(expText1);
+        theory.appendChild(explain3);
+        const categories = [
+            {
+            title: 'Silica sand',
+            text: 'The main ingredient, usually silica-based but sometimes olivine.',
+            image: ''
+            },
+            {
+            title: 'Binder',
+            text: 'Clay (bentonite clay is common) or other materials that act like glue to hold the sand together.',
+            image: ''
+            },
+            {
+            title: 'Water',
+            text: 'Provides moisture to activate the binder and improve moldability.',
+            image: ''
+            },
+            {
+            title: 'Additives',
+            text: 'Optional ingredients like coal dust can enhance certain properties.',
+            image: ''
+            },
+            ];
+            categories.forEach((item) => {
+            theory.appendChild(createDivs(item));
+            });
+        const expHead2 = document.createElement('h3');
+        expHead2.textContent = 'KINDS OF MOULDING SAND:';
+        theory.appendChild(expHead2);
+        const strokes = [
+            {
+            title: 'Green Sand',
+            text: 'Green sand is the most widely used molding sand in foundries due to its availability, low cost, and versatility. It consists of silica sand mixed with clay (bentonite) and water. Green sand molds are typically used for casting ferrous and non-ferrous metals. The term "green" refers to the fact that the sand is moist and has not been subjected to high temperatures to cure or harden.',
+            image: ''
+            },
+            {
+            title: 'Facing sand',
+            text: 'A special type of sand used as the top layer of a mold, directly in contact with the molten metal. Facing sand needs to withstand high temperatures and resist erosion from the molten metal. It is usually made of silica sand with a higher refractoriness (heat resistance) and finer grain size compared to green sand.',
+            image: ''
+            },
+            {
+            title: 'Parting sand',
+            text: 'A dry, fine-grained sand used to prevent the cope and drag (upper and lower mold sections) from sticking together. It is sprinkled along the parting line of the mold where the two halves meet. Parting sand should be easy to separate from both the cope and drag after casting.',
+            image: ''
+            },
+            {
+            title: 'Loamy sand',
+            text: 'A mixture of sand, clay (around 50% content), and water. Due to the high clay content, loam sand is very plastic and has excellent moldability. It is often used for large and intricate castings where a finer surface finish is desired. However, loam sand has lower strength compared to other types and requires drying before pouring.',
+            image: ''
+            },
+            {
+                title: 'Dry sand',
+                text: 'Made from silica sand and a binder, but unlike green sand, the moisture is removed by drying or baking the mold after it is shaped. This process strengthens the mold and improves its heat resistance, making it suitable for larger and heavier castings. Dry sand molds produce castings with better dimensional accuracy and surface finish compared to green sand. The drying process adds time and energy consumption to the casting process.',
+                image: ''
+            },
+            ];
+            strokes.forEach((item) => {
+            theory.appendChild(createDivs(item));
+            });
+        main.appendChild(theory);
+        const practicals = document.createElement('section');
+        const step1 = document.createElement('h2');
+        step1.textContent = 'PRACTICAL 1 : HOW TO MAKE A MOULD/MOULD MAKING';
+        practicals.appendChild(step1);
+        const step3 = document.createElement('h3');
+        step3.textContent = 'PROCEDURE:';
+        practicals.appendChild(step3);
+        const stepList1 = document.createElement('ul');
+        const steps1 = ['First a bottom board is placed either on the molding platform or on the floor making the surface even', 'The drag moulding flask is kept upside down on the bottom board along with the drag part of the pattern at the centre of the flask on the board', 'Dry facing sand is sprinkled over the board and pattern to provide a non sticky layer', 'Freshly prepared moulding sand of requisite quality is now poured into the drag and on the pattern to a thickness of 30 to 50mm.', 'Rest of the drag flask is completely filled with the backup sand and uniformly rammed to compact the sand', 'After the ramming is over, the excess sand in the flask is completely scraped using a flat bar to the level of the flask edges', 'Now with a vent wire which is of 1 to 2 mm diameter with a pointed end, vent holes are in the drag to the full depth of the flask as well as to the pattern to facilitate the removal of gases during casting solidification. This completes the preparation of the drag.', 'Now the finished drag flask is rolled over to the bottom board exposing the pattern', 'Using a slick, the edges of the sand around the pattern is repaired.', 'The cope flask on the top of the drag is located aligning again with the help of the pins of the drag box.', 'Sprue of the gating system for making the sprue passage is located at a small distance of about 50mm from the pattern. The sprue base, runners and the in-gates are also located as shown risers are also placed. Freshly prepared facing sand is poured around the pattern', 'The moulding sand is then poured in the cope box. The sand is adequately rammed, excess sand is scraped and vent holes are made all over in the cope as in the rag', 'The sprue and the riser are carefully withdrawn from the flask', 'Later the pouring basin is cut near the top of the sprue.', 'The cope is separated from the drag any loose sand on the cope and drag interface is blown off with the help of the bellows', 'Now the cope and drag pattern halves are withdrawn by using the draw spikes and rapping the pattern all around to slightly enlarge the mould cavity so that the walls are not spoiled by the withdrawing pattern.', 'The runners and gates are to be removed or to be cut in the mould carefully without spoiling the mould.', 'Any excess or loose sand is applied in the runners and mould cavity is blown away using the bellows', 'Now the facing paste is applied all over the mould cavity and the runners which would give the finished casting a good surface finish', 'A dry sand core is prepared using a core box. After suitable baking, it is places in the mould cavity', 'The cope is placed back on the drag taking care of the alignment of the two by means of the pins', 'The mould is ready for pouring molten metal. The liquid metal is allowed to cool and become solid which is the casting desired.'];
+        let stepBox1 = [];
+        for(let i = 0; i < steps1.length; i++){
+            stepBox1[i] = document.createElement('li');
+            stepBox1[i].textContent = steps1[i];
+            stepList1.appendChild(stepBox1[i]);
+        }
+        practicals.appendChild(stepList1);
+        const text5 = document.createElement('p');
+        text5.textContent = 'Watch how to perform the mould using solid pattern practical is below 👇';
+        practicals.appendChild(text5);
+        const video5 = document.createElement('div');
+        video5.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6Y2IxLg6OZs?si=ngnIrgbfUFneLPKS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video5);
+        const video6 = document.createElement('div');
+        video6.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/88stYwHbIzY?si=29xMhp9-JpkdITmD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        practicals.appendChild(video6);
+        main.appendChild(practicals);
+        const precaution = document.createElement('section');
+        const cautionHead = document.createElement('h3');
+        cautionHead.textContent = "PRECAUTIONS";
+        precaution.appendChild(cautionHead);
+        const cautionList = document.createElement('ul');
+        const precautions = ["I ensured that I wore my lab coat and personal protective equipment (PPE)","I ensured that proper tool handling to avoid injuries.","I Ensured that the procedures were duely followed to avoid errors", ];
+        let cautionBox = [];
+        for(let i = 0; i < precautions.length; i++){
+            cautionBox[i] = document.createElement('li');
+            cautionBox[i].textContent = precautions[i];
+            cautionList.appendChild(cautionBox[i]);
+        }
+        precaution.appendChild(cautionList);
+        main.appendChild(precaution);
+        const conclusion = document.createElement('section');
+        const concHead = document.createElement('h3');
+        concHead.textContent = "CONCLUSION:";
+        conclusion.appendChild(concHead);
+        const concText = document.createElement('p');
+        concText.textContent = "At the end of this experiment, a mould was created using the appropriate apparatus and also using the single/solid pattern";
+        conclusion.appendChild(concText);
+        main.appendChild(conclusion);
+        const references = document.createElement('section');
+        const refHead = document.createElement('h3');
+        refHead.textContent = "REFERENCES";
+        references.appendChild(refHead);
+        const refList = document.createElement('ul');
+        const reference = ["Production Engineering Laboratory Manual for ELA201 and ELA202 by Department of Production Engineering, University of Benin.", "Foundry Technology by K P Sinha & D B Goel", "Foundry Technology by P R Beeley"];
+        let refBox = [];
+        for(let i = 0; i < reference.length; i++){
+            refBox[i] = document.createElement('li');
+            refBox[i].textContent = reference[i];
+            refList.appendChild(refBox[i]);
+        }
+        references.appendChild(refList);
+        main.appendChild(references);
 };
 export {displayStarted,displayWW201, displaySM201, displayBF201, displayHS201, displayMS201 ,displayAS201, displayFS201};
