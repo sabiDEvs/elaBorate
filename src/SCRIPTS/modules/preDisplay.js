@@ -108,8 +108,9 @@ import pic107 from '../../RESOURCES/images/moulding sand.jpeg';
 import pic108 from '../../RESOURCES/images/sprue pins.jpeg';
 import pic109 from '../../RESOURCES/images/vent wire.jpeg';
 import pic110 from '../../RESOURCES/images/trowel.jpeg';
-
-
+import pic111 from '../../RESOURCES/images/Photo of ela students.jpg';
+import pic112 from '../../RESOURCES/images/download-icon.png';
+import pic113 from '../../RESOURCES/images/download.png';
 
 
 const createDivs = (object) => {
@@ -140,17 +141,150 @@ const createVids = (object) => {
     return div;
 }
 
+const displayTask = (num, name, lists) => {
+    const div = document.createElement('div');
+    const head = document.createElement('h3');
+    head.textContent = `${num}. ${name}`;
+    div.appendChild(head);
+    const tasks = document.createElement('ul');
+    let listItems = [];
+    for(let i = 0; i < lists.length; i++){
+        listItems[i] = document.createElement('li');
+        listItems[i].textContent = lists[i];
+        tasks.appendChild(listItems[i]);
+    }
+    div.appendChild(tasks);
+    return div;
+}
 
-const displayStarted = () => {
-    alert('Who dey breathe');
+const reset = () => {
+    window.scrollTo(0, 0);
     const main = document.querySelector('main');
     main.innerHTML = '';
+    return main;
+}
+
+const createDownload = (url) => {
+    const div = document.createElement('div');
+    div.classList.add('download');
+    const container = document.createElement('div');
+    container.classList.add('downloadcta');
+    const button = document.createElement('div');
+    button.classList.add('downloadBox');
+    const link = document.createElement('a');
+    link.href = url;
+    button.textContent = 'DOWNLOAD'; 
+    const icon = document.createElement('img');
+    icon.src = pic112;
+    button.appendChild(icon);
+    link.appendChild(button);
+    div.appendChild(container);
+    div.appendChild(link);
+    return div
+}
+
+const createHover = (url) => {
+    const div = document.createElement('div');
+    const view = document.createElement('div');
+    view.textContent = 'view reports >';
+    view.classList.add('viewText');
+    view.addEventListener('click', () => {
+        document.querySelector('aside').style.display = 'block';
+    });
+    const download =   document.createElement('div');
+    const link = document.createElement('a');
+    link.href = url;
+    const icon = document.createElement('img');
+    icon.src = pic113;
+    icon.classList.add('hoverIcon');
+    link.appendChild(icon);
+    download.appendChild(link);
+    div.appendChild(view);
+    div.appendChild(download);
+    div.classList.add('hover');
+    return div;
+}
+
+const displayStarted = () => {
+    const main = reset();
+    
+    const divImgAchieve = document.createElement("div");
+    divImgAchieve.classList.add("div-img-achieve");
+    
+
+    const imgAchieve = document.createElement("img");
+    divImgAchieve.appendChild(imgAchieve);
+    imgAchieve.src = pic111;
+    imgAchieve.classList.add('fullImg');
+    imgAchieve.id = 'getStartImg';
+    
+    const startingHeader = document.createElement('h2');
+    startingHeader.textContent = 'GETTING STARTED WITH PRODUCTION ELA';
+    startingHeader.id = 'getStartHead';
+    divImgAchieve.appendChild(startingHeader);
+    main.appendChild(divImgAchieve);
+    
+    const genSection = document.createElement('section');
+    const genHead = document.createElement('h3');
+    genHead.textContent = 'General Instructions';
+    genSection.appendChild(genHead);
+    const genDesc = document.createElement('p');
+    genDesc.textContent = 'Follow these instructions when preparing for any Production ELA...';
+    genSection.appendChild(genDesc);
+    const report = displayTask('1', 'Report Format:', ['Use A4 paper or full-scalp sheets for writing your reports.', 'The instructor will specify the preferred format; if necessary.']);
+    genSection.appendChild(report);
+    const attend = displayTask('2', 'Attendance:', ['Punctuality is crucial for all Production ELA sessions.', 'Ensure you do not miss any session.']);
+    genSection.appendChild(attend);
+    main.appendChild(genSection);
+
+    const repSection = document.createElement('section');
+    const repHead = document.createElement('h3');
+    repHead.textContent = 'Report Structure';
+    repSection.appendChild(repHead);
+    const repDesc = document.createElement('p');
+    repDesc.textContent = 'It is most expedient that you follow the structure given below, when writing your reports.';
+    repSection.appendChild(repDesc);
+    const id = displayTask('1', 'Identification:', ['Name: [Your full name]', 'Matriculation Number: [Your Matriculation Number]', 'Department: [Your department]', 'Serial Number: [Your ELA Serial number Upon registration]', 'Section: []', 'Title of Experiment: [e.g “Bench fitting”]', 'Experiment Code: [e.g “AM201”]']);
+    repSection.appendChild(id);
+    const objective = displayTask('2', 'Objectives:', ['State the aim of the experiment as listed in the manual. Write down all the objectives provided.']);
+    repSection.appendChild(objective);
+    const tools = displayTask('3', 'Apparatus/Tools:', ['List all tools used in the experiment.', 'Include diagrams of the tools and ensure they are well-labeled and neatly drawn.']);
+    repSection.appendChild(tools);
+    const theory = displayTask('4', 'Theory:', ['Provide a theoretical background relevant to the practical.', 'Discuss the applications and sequence of operations, supplemented with diagrams where necessary.', 'Ensure the content is focused and does not deviate from the topic.']);
+    repSection.appendChild(theory);
+    const procedures = displayTask('5', 'Procedures:', ['Document the procedure exactly as written in the manual.', 'Use diagrams to explain the steps, if possible.']);
+    repSection.appendChild(procedures);
+    const precautions = displayTask('6', 'Precautions:', ['List the precautions taken during the experiment in past tense.', '~Example: “I ensured that I...”']);
+    repSection.appendChild(precautions);
+    const conclusions = displayTask('7', 'Conclusion:', ['Summarize the outcomes of the experiment.', '~Example: “At the end of this experiment, we were able to develop a lap joint, understand the sequence of operations involved, and achieve a comprehensive understanding of the process.”']);
+    repSection.appendChild(conclusions);
+    const references = displayTask('8', 'References:', ['Cite books and manuals relevant to the experiment. Do not include web links.', '~Example:', '~~“Production Engineering Laboratory Manual for ELA201 and ELA202’’ by the Department of Production Engineering, University of Benin.', '~~”The TIG Welding Book” by Todd Bridigum.', '~~”Welding for Dummies” by Steven Robert Farnsworth.']);
+    repSection.appendChild(references);
+    main.appendChild(repSection);
+
+    const addSection = document.createElement('section');
+    const addHead = document.createElement('h2');
+    addHead.textContent = 'Additional Notes';
+    addSection.appendChild(addHead);
+    const para1 = document.createElement('p');
+    para1.textContent = "Always follow the instructor's specific guidelines regarding report format and content to ensure good marks.";
+    addSection.appendChild(para1);
+    const para2 = document.createElement('p');
+    para2.textContent = "Submit your report on time. The report submission time is usually given by the instructor.";
+    addSection.appendChild(para2);
+    const good = document.createElement('div');
+    good.textContent = 'GOOD LUCK!!!';
+    addSection.appendChild(good);
+    main.appendChild(addSection);
+    const hover = createHover('#');
+    main.appendChild(hover);
+    const download = createDownload('#');
+    main.appendChild(download);
 };
 
 
 const displayWW201 = () => {
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+    const main = reset();
         const head = document.createElement('h1');
         head.textContent  = 'Introduction to Wood Work practice{WW201}';
         main.appendChild(head);
@@ -346,23 +480,23 @@ const displayWW201 = () => {
             },
             {
             list: 'Mark the piece using tape and pencil',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nuEz8TtrfjM?si=317XhtwxAT8UBvLZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/nuEz8TtrfjM?si=317XhtwxAT8UBvLZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             {
             list: 'Use rip saw to cut 600mm long',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0IsDvh7GR4A?si=iRoHhqI4YNqkoDaw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/0IsDvh7GR4A?si=iRoHhqI4YNqkoDaw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             {
             list: 'Use the cross cut saw to the required length',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UmQdaWy3Pw0?si=o0A7GIikOJTJ1uCd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/UmQdaWy3Pw0?si=o0A7GIikOJTJ1uCd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             {
             list: 'Mark out diagonal line using the sliding bevel',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nzQYd8wxCQE?si=8L3MYpv6SQVbkooR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/nzQYd8wxCQE?si=8L3MYpv6SQVbkooR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             {
             list: 'Use tenon saw to cut the diagonal line',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/au8ejou2VpE?si=ozX0ptTuVx-uyUdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/au8ejou2VpE?si=ozX0ptTuVx-uyUdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             ];
             parts.forEach((item) => {
@@ -373,7 +507,7 @@ const displayWW201 = () => {
         description1.textContent = 'The link to watch how to perform the butt joint practical is below 👇';
         practicals.appendChild(description1);
         const video3 = document.createElement('div');
-        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jxvOepMFtbA?si=UPxGfMvk_uYu0Mud" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/jxvOepMFtbA?si=UPxGfMvk_uYu0Mud" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video3);
         const head3 = document.createElement('h2');
         head3.textContent = 'PRACTICAL 2 : PLANNING OF WOOD';
@@ -389,19 +523,19 @@ const displayWW201 = () => {
             },
             {
             list: 'Fix the timber using clamps',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/t3v3J1EFrR8?si=9UKoG3eAqFxBVC4F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/t3v3J1EFrR8?si=9UKoG3eAqFxBVC4F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             {
             list: 'Use plane in smoothing the surface',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/c65rKk8frhc?si=WzZWCbuzb5Grk_A7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/c65rKk8frhc?si=WzZWCbuzb5Grk_A7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             {
             list: 'Use the cross cut saw to the required length',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UmQdaWy3Pw0?si=o0A7GIikOJTJ1uCd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/UmQdaWy3Pw0?si=o0A7GIikOJTJ1uCd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             {
             list: 'Use try square to test the surface for flatness, when flat mark on it',
-            video: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JxqqVFL_HN0?si=B0LdOsZpFApRrbr_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+            video: '<iframe src="https://www.youtube-nocookie.com/embed/JxqqVFL_HN0?si=B0LdOsZpFApRrbr_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
             },
             {
             list: 'Turn the edge and plane and test that it is square to the face and mark edge mark',
@@ -465,7 +599,7 @@ const displayWW201 = () => {
         description2.textContent = 'The link to watch how to perform the Tee halving Joint practical is below 👇';
         practicals.appendChild(description2);
         const video4 = document.createElement('div');
-        video4.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5xOXRyVJ_1A?si=h5s7a-IHCwNsZdzO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video4.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/5xOXRyVJ_1A?si=h5s7a-IHCwNsZdzO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video4);
         const head7 = document.createElement('h2');
         head7.textContent = 'PRACTICAL 4: DOVETAIL HALVING JOINT';
@@ -520,7 +654,7 @@ const displayWW201 = () => {
         description3.textContent = 'The link to watch how to perform the Dovetail halving Joint practical is below 👇';
         practicals.appendChild(description3);
         const video5 = document.createElement('div');
-        video5.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9jgRfef4ZnE?si=QyfCg0XiURVowmfH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video5.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/9jgRfef4ZnE?si=QyfCg0XiURVowmfH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video5);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -559,12 +693,15 @@ const displayWW201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
+        const hover = createHover('#');
+        main.appendChild(hover); 
+        const download = createDownload('#');
+        main.appendChild(download);
 };
 
 
 const displaySM201 = () => {
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+    const main = reset();
         const head = document.createElement('h1');
         head.textContent  = 'Introduction to sheet metal work{SM201}';
         main.appendChild(head);
@@ -791,7 +928,7 @@ const displaySM201 = () => {
         text3.textContent = 'The link to watch how to make rectangular tray is below 👇';
         practicals.appendChild(text3);
         const video3 = document.createElement('div');
-        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fNB1sunQ66g?si=rTxJW33H8LHtLV_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/fNB1sunQ66g?si=rTxJW33H8LHtLV_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video3);
         const step = document.createElement('h2');
         step.textContent = 'PRACTICAL 2 : HOW TO MAKE DUST PAN';
@@ -812,7 +949,7 @@ const displaySM201 = () => {
         text2.textContent = 'The link to watch how make dustpan is below 👇';
         practicals.appendChild(text2);
         const video2 = document.createElement('div');
-        video2.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ozeOvqsbirM?si=BZdvxrVrL4bBM_Ac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video2.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/ozeOvqsbirM?si=BZdvxrVrL4bBM_Ac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video2);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -851,12 +988,15 @@ const displaySM201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
+        const hover = createHover('#');
+        main.appendChild(hover);
+        const download = createDownload('#');
+        main.appendChild(download);
 };
 
 
 const displayBF201 = () => {
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+    const main = reset();
         const head = document.createElement('h1');
         head.textContent  = 'Introduction to fitting shop{BF201}';
         main.appendChild(head);
@@ -972,7 +1112,7 @@ const displayBF201 = () => {
         text2.textContent = 'The link to watch how to perform these methods of filing is below 👇';
         theory.appendChild(text2);
         const video2 = document.createElement('div');
-        video2.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IVHh4ACI3ak?si=_4fruPQ4_sz4HFdV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video2.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/IVHh4ACI3ak?si=_4fruPQ4_sz4HFdV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         theory.appendChild(video2);
         const category = [
             {
@@ -1043,7 +1183,7 @@ const displayBF201 = () => {
         text3.textContent = 'The link to watch how to perform the square fit practical is below 👇';
         practicals.appendChild(text3);
         const video3 = document.createElement('div');
-        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NHLpRgLGeEo?si=pzWNtzvkNie563nV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/NHLpRgLGeEo?si=pzWNtzvkNie563nV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video3);
         const step = document.createElement('h2');
         step.textContent = 'PRACTICAL 2 : HOW TO MAKE DOVETAIL JOINT';
@@ -1064,7 +1204,7 @@ const displayBF201 = () => {
         text4.textContent = 'The link to watch how to perform the Dovetail Joint practical is below 👇';
         practicals.appendChild(text4);
         const video4 = document.createElement('div');
-        video4.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZB_gn7cZRfo?si=xrhH2-0Iq3mOrspo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video4.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/ZB_gn7cZRfo?si=xrhH2-0Iq3mOrspo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video4);
         const step5 = document.createElement('h2');
         step5.textContent = 'PRACTICAL 3 : HOW TO MAKE A V-FITTING';
@@ -1085,7 +1225,7 @@ const displayBF201 = () => {
         text5.textContent = 'The link to watch how to perform the V-fitting practical is below 👇';
         practicals.appendChild(text5);
         const video5 = document.createElement('div');
-        video5.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iDJ_sMvXsYs?si=7EmKMZ27IPXjrECL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video5.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/iDJ_sMvXsYs?si=7EmKMZ27IPXjrECL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video5);
         main.appendChild(practicals)
         const precaution = document.createElement('section');
@@ -1124,12 +1264,15 @@ const displayBF201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
+        const hover = createHover('#');
+        main.appendChild(hover);
+        const download = createDownload('#');
+        main.appendChild(download);
 };
 
 
 const displayHS201 = () => {
-        const main = document.querySelector('main');
-        main.innerHTML = '';
+        const main = reset();
         const head = document.createElement('h1');
         head.textContent  = 'Introduction to the welding shop practice{HS201}';
         main.appendChild(head);
@@ -1372,7 +1515,7 @@ const displayHS201 = () => {
         text3.textContent = 'Watch how to perform the butt joint practical below 👇';
         practicals.appendChild(text3);
         const video3 = document.createElement('div');
-        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2axZupLAQ_U?si=rQGboM88VzTYHp_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/2axZupLAQ_U?si=rQGboM88VzTYHp_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video3);
         const step = document.createElement('h2');
         step.textContent = 'PRACTICAL 2 : HOW TO MAKE LAP JOINT';
@@ -1393,7 +1536,7 @@ const displayHS201 = () => {
         text4.textContent = 'Watch how to perform the Dovetail Joint practical is below 👇';
         practicals.appendChild(text4);
         const video4 = document.createElement('div');
-        video4.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uT9dSDwoueM?si=rmFr3C78xzlYucdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video4.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/uT9dSDwoueM?si=rmFr3C78xzlYucdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video4);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -1432,12 +1575,15 @@ const displayHS201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
+        const hover = createHover('#');
+        main.appendChild(hover);
+        const download = createDownload('#');
+        main.appendChild(download);
 };
 
 
 const displayMS201 = () => {
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+    const main = reset();
     const head = document.createElement('h1');
     head.textContent  = 'Introduction to lathe and machining operations{MS201}';
     main.appendChild(head);
@@ -1616,10 +1762,10 @@ const displayMS201 = () => {
         head1.textContent = 'Watch the operations performed on the lathe machine and even more';
         theory.appendChild(head1);
         const video4 = document.createElement('div');
-        video4.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SvlZHHDXCZs?si=TCK5E9hveatatgPy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video4.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/SvlZHHDXCZs?si=TCK5E9hveatatgPy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         theory.appendChild(video4);
         const video3 = document.createElement('div');
-        video3.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/km6ickQglVY?si=BPw-eCbc0RAe1VjX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/km6ickQglVY?si=BPw-eCbc0RAe1VjX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         theory.appendChild(video3);
         main.appendChild(theory);
         const practicals = document.createElement('section');
@@ -1642,13 +1788,13 @@ const displayMS201 = () => {
         text3.textContent = 'The link to watch how to perform the taper turning operation on lathe machine practical is below 👇';
         practicals.appendChild(text3);
         const video5 = document.createElement('div');
-        video5.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dksI7FC8iZQ?si=UPv4G_C7wKhGc8Ue" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video5.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/dksI7FC8iZQ?si=UPv4G_C7wKhGc8Ue" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video5);
         const text4 = document.createElement('p');
         text4.textContent = 'The link to watch how to perform the step turning operation on lathe machine practical is below 👇';
         practicals.appendChild(text4);
         const video6 = document.createElement('div');
-        video6.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3Cy1yStc93w?si=QxRQfI3O_uJ2jxJT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video6.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/3Cy1yStc93w?si=QxRQfI3O_uJ2jxJT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video6);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -1687,12 +1833,15 @@ const displayMS201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
+        const hover = createHover('#');
+        main.appendChild(hover);
+        const download = createDownload('#');
+        main.appendChild(download);
 };
 
 
 const displayAS201 = () => {
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+    const main = reset();
         const head = document.createElement('h1');
         head.textContent  = 'The Internal Combustion Engine{AS201}';
         main.appendChild(head);
@@ -1843,7 +1992,7 @@ const displayAS201 = () => {
         text1.textContent = 'Watch how the four cycle stroke works and how the internal combustion engine works';
         theory.appendChild(text1);
         const video1 = document.createElement('div');
-        video1.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZQvfHyfgBtA?si=OEHS2Tg6ckvlpaGJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video1.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/ZQvfHyfgBtA?si=OEHS2Tg6ckvlpaGJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         theory.appendChild(video1);
         
         const head1 = document.createElement('h3');
@@ -1962,7 +2111,7 @@ const displayAS201 = () => {
         text2.textContent = 'Watch how to change the oil of an internal combustion engine of a car';
         theory.appendChild(text2);
         const video2 = document.createElement('div');
-        video2.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/O1hF25Cowv8?si=3x-n7uQOPEgDEK4q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video2.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/O1hF25Cowv8?si=3x-n7uQOPEgDEK4q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         theory.appendChild(video2);
         main.appendChild(theory);
         const precaution = document.createElement('section');
@@ -2001,10 +2150,13 @@ const displayAS201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
+        const hover = createHover('#');
+        main.appendChild(hover);
+        const download = createDownload('#');
+        main.appendChild(download);
 };
 const displayFS201 = () => {
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+    const main = reset();
     const head = document.createElement('h1');
     head.textContent  = 'Introduction to Foundry Shop{FS201}';
     main.appendChild(head);
@@ -2125,7 +2277,7 @@ const displayFS201 = () => {
         text.innerHTML = `<span>• Single-piece pattern:</span>  This is the simplest type of pattern, suitable for simple castings. The youtube link illustrating this is shown below`;
         div.appendChild(text);
         const box = document.createElement('div');
-        box.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Uv28tqCOtAg?si=LuG3xBJHOySzcRIn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/Uv28tqCOtAg?si=LuG3xBJHOySzcRIn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         div.appendChild(box);
         theory.appendChild(div);
         const div1 = document.createElement('div');
@@ -2134,7 +2286,7 @@ const displayFS201 = () => {
         div1.appendChild(text1);
         theory.appendChild(div1);
         const box1 = document.createElement('div');
-        box1.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cFcSJMRSz1c?si=lCMAs06oYQQL90tX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        box1.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/cFcSJMRSz1c?si=lCMAs06oYQQL90tX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         div1.appendChild(box1);
         const div2 = document.createElement('div');
         const text3 = document.createElement('div');
@@ -2228,10 +2380,10 @@ const displayFS201 = () => {
         text5.textContent = 'Watch how to perform the mould using solid pattern practical is below 👇';
         practicals.appendChild(text5);
         const video5 = document.createElement('div');
-        video5.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6Y2IxLg6OZs?si=ngnIrgbfUFneLPKS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video5.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/6Y2IxLg6OZs?si=ngnIrgbfUFneLPKS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video5);
         const video6 = document.createElement('div');
-        video6.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/88stYwHbIzY?si=29xMhp9-JpkdITmD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video6.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/88stYwHbIzY?si=29xMhp9-JpkdITmD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         practicals.appendChild(video6);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -2270,5 +2422,9 @@ const displayFS201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
+        const hover = createHover('#');
+        main.appendChild(hover);
+        const download = createDownload('#');
+        main.appendChild(download);
 };
 export {displayStarted,displayWW201, displaySM201, displayBF201, displayHS201, displayMS201 ,displayAS201, displayFS201};
