@@ -1,45 +1,4 @@
-import pic1 from '../../RESOURCES/images/combus.jpeg';
-import pic2 from '../../RESOURCES/images/engine.jpeg';
-import pic3 from '../../RESOURCES/images/main engine block.jpeg';
-import pic4 from '../../RESOURCES/images/cylinders.jpeg';
-import pic5 from '../../RESOURCES/images/piston.jpeg';
-import pic6 from '../../RESOURCES/images/connecting rods.jpeg';
-import pic7 from '../../RESOURCES/images/camshaft.jpeg';
-import pic8 from '../../RESOURCES/images/crankshaft.jpeg';
-import pic9 from '../../RESOURCES/images/spark plug.jpeg';
-import pic10 from '../../RESOURCES/images/valves.jpeg';
-import pic11 from '../../RESOURCES/images/screw drivers.png';
-import pic12 from '../../RESOURCES/images/mallet hammer.jpeg';
-import pic13 from '../../RESOURCES/images/torque wrench.jpeg';
-import pic14 from '../../RESOURCES/images/pliers.jpeg';
-import pic15 from '../../RESOURCES/images/funnel.jpeg';
-import pic16 from '../../RESOURCES/images/spannerr.jpeg';
-import pic17 from '../../RESOURCES/images/car jack.jpeg';
-import pic18 from '../../RESOURCES/images/timbs.jpg';
-import pic19 from '../../RESOURCES/images/metre rule.jpeg';
-import pic20 from '../../RESOURCES/images/measuring steel tapes.jpg';
-import pic21 from '../../RESOURCES/images/guage.jpg';
-import pic22 from '../../RESOURCES/images/marking knife scriber.jpg';
-import pic23 from '../../RESOURCES/images/bevel square.jpg';
-import pic24 from '../../RESOURCES/images/c clamp.jpg';
-import pic25 from '../../RESOURCES/images/t clamp.jpg';
-import pic26 from '../../RESOURCES/images/saw.jpg';
-import pic27 from '../../RESOURCES/images/chisel.jpg';
-import pic28 from '../../RESOURCES/images/wooden jack plane.jpg';
-import pic29 from '../../RESOURCES/images/bradawl.jpg';
-import pic30 from '../../RESOURCES/images/brace.jpg';
-import pic31 from '../../RESOURCES/images/auger bitt.png';
-import pic32 from '../../RESOURCES/images/hand drill.jpg';
-import pic33 from '../../RESOURCES/images/mallet.jpg';
-import pic34 from '../../RESOURCES/images/claw hammer.jpg';
-import pic35 from '../../RESOURCES/images/pincers.jpg';
-import pic36 from '../../RESOURCES/images/screw driver.jpg';
-import pic37 from '../../RESOURCES/images/wood rasp files.jpg';
-import pic38 from '../../RESOURCES/images/try square.png';
-import pic39 from '../../RESOURCES/images/bench vice.jpg';
-import pic40 from '../../RESOURCES/images/work bench.jpg';
-import pic41 from '../../RESOURCES/images/paring chisel.jpg';
-import pic42 from '../../RESOURCES/images/smooth plane.jpg';
+
 
 
 
