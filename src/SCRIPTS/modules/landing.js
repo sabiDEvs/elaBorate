@@ -1,10 +1,10 @@
 //import images
-import img1 from '../../RESOURCES/images/cpe200-students.png';
-import img2 from '../../RESOURCES/images/persis-engr.png';
-import img3 from '../../RESOURCES/images/engr-student-200L.png';
-import img4 from '../../RESOURCES/images/dontekk-engr.png';
-import img5 from '../../RESOURCES/images/cpe180-females.png';
-import img6 from '../../RESOURCES/images/eee210-girls.png';
+import img1 from '../../RESOURCES/images/female-engr.jpg';
+import img2 from '../../RESOURCES/images/eee-engr-girls.jpg';
+import img3 from '../../RESOURCES/images/eee-male-engr.jpg';
+import img4 from '../../RESOURCES/images/cpe-engr-group.jpg';
+import img5 from '../../RESOURCES/images/mte-male-engr.jpg';
+import img6 from '../../RESOURCES/images/cpe-engr-girls.jpg';
 //A function that creates nav links and returns the div
 const createNavLink = (ref, text) => {
     const div = document.createElement('div');
@@ -28,6 +28,14 @@ const createMenu = (header) => {
     }
     div.addEventListener('click', () => {
         document.querySelector('.nav').classList.toggle('active');
+    
+        if(document.querySelector('.nav').className === 'nav active'){
+            alert('active');
+            document.querySelector('#hero').style.marginTop = '20vh'; 
+        }
+        else{
+            document.querySelector('#hero').style.marginTop = '0';
+        }
     });
     header.appendChild(div);
 }
@@ -46,10 +54,12 @@ const createBrand = (logo, name = 'elaBorate') => {
 const createNavBar = () => {
     const div = document.createElement('nav');
     //create individual navLinks with imported function
+    const homeNav = createNavLink("#", "Home")
     const aboutNav = createNavLink("#", "About");
     const reportNav = createNavLink("#", "Reports");
     const contactNav = createNavLink("#", "Contact Us");
     //Append navLinks to navBar
+    div.appendChild(homeNav);
     div.appendChild(aboutNav);
     div.appendChild(reportNav);
     div.appendChild(contactNav);
@@ -58,11 +68,11 @@ const createNavBar = () => {
 const generateHeroSection = (section) =>  {
     const heroContent = [
     {text: 'ELA made', word: 'Easy!!!',image: img1,class: 'group',inner: '#14213d',outer: '#fca311',call: 'GET STARTED'},
-    {text: 'Lab Days?', word: 'A Breeze!!!', image: img2, class: 'single', inner: '#000000', outer: '#fca311', call: 'CHOOSE US'},
+    {text: 'Lab Days?', word: 'A Breeze!!!', image: img2, class: 'group', inner: '#000000', outer: '#fca311', call: 'CHOOSE US'},
     {text: 'Engineering Labs,', word: 'Simplified!!!', image: img3,class: 'group', inner: '#000000', outer: '#14213d', call: 'TAP IN'},
-    {text: 'Don\'t Wing It,', word: 'Elaborate It!!!', image: img4,class: 'single', inner:  '#000000', outer: '#e5e5e5', call: 'UNLEASH  POTENTIAL'},
+    {text: 'Don\'t Wing It,', word: 'Elaborate It!!!', image: img4,class: 'group', inner:  '#000000', outer: '#e5e5e5', call: 'UNLEASH  POTENTIAL'},
     {text: 'Unlock Lab Secrets with,', word: 'Elaborate!!!', image: img5,class: 'group', inner: '#14213d', outer: '#e5e5e5', call: 'START NOW'},
-    {text: 'Grades Soaring, Elaborate', word: 'Thank You!!!', image: img6,class: 'single', inner: '#14213d', outer: '#000000', call: 'DIVE IN'},
+    {text: 'Grades Soaring, Elaborate', word: 'Thank You!!!', image: img6,class: 'group', inner: '#14213d', outer: '#000000', call: 'DIVE IN'},
 ];
     for(let i = 0; i < heroContent.length; i++){
         const heroDiv = document.createElement('div');

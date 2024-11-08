@@ -35,7 +35,7 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'asset/images/[hash][ext][query]',
-          publicPath: `${public}`,
+          publicPath: `${public}`,// Output to dist/asset/fonts
         },
       },
     ],
