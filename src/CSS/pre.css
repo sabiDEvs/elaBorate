@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
 body{
     width: 100%;
     background-color: #ffffff;
@@ -139,10 +144,22 @@ main{
     padding: 2vw 6vw;
     display: flex;
 }
-.fullImg{
-    width: 98%;
+.videos{
+    width: 90vw;
+    height: 315px;
     align-self: center;
     justify-self: center;
+    margin: 1vw auto;
+}
+.halfImg{
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
+}
+.startImg{
+    width: 90%;
+    align-self: center;
+    margin: 0 auto;
 }
 .div-img-achieve{
     display: grid;
@@ -155,7 +172,8 @@ main{
     content: '';
     position: absolute;
     top: 0;
-    width: 100%;
+    left: 5%;
+    width: 90%;
     margin: 0 auto;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -285,6 +303,9 @@ span{
     .menu{
         display: none;
     }
+    .videos{
+        width: 50vw;
+    }
     .nav{
         display: flex;
         background-color: none;
@@ -338,7 +359,7 @@ span{
         width: 75%;
         margin-left: 25%;
         margin-bottom: 10vh;
-        padding: 0;
+        padding-left: 1vw;
     }
     footer{
         width: 75%;
@@ -349,7 +370,7 @@ span{
         align-items: center;
         padding: 0 3vw;
         gap: 0;
-        margin-left: 22.5%;
+        margin-left: 23.5%;
     }
     #rightFoot{
         gap: 5px;
@@ -368,7 +389,7 @@ span{
         display: block;
         padding: 2vw 4vw;
         grid-area: aside;
-        width: 25%;
+        width: 22.5%;
         overflow-y: auto;
     }
     aside > div{
