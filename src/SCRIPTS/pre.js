@@ -46,6 +46,14 @@ let reports = [
 renderHeader(body, [hme, rpt, abt]);
 //create aside side menu
 const aside = document.createElement('aside');
+//create button to close side menu
+const close = document.createElement('div');
+close.textContent = 'x';
+close.addEventListener('click', () => {
+    document.querySelector('aside').style.display = 'none';
+});
+close.id = 'closeButton';
+aside.appendChild(close);
 //create aside header
 const heading = document.createElement('h3');
 heading.textContent = 'PRE ELA TOPICS';
@@ -67,4 +75,5 @@ body.appendChild(aside);
 //create main div where content would be generated to
 const main = document.createElement('main');
 body.appendChild(main);
-renderFooter(body, [hme, rpt, abt]);
+displayStarted();
+renderFooter(body);
