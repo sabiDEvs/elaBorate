@@ -11,9 +11,9 @@ import pic9 from '../../RESOURCES/images/pic9.png';
 import pic10 from '../../RESOURCES/images/pic10.png';
 import pic11 from '../../RESOURCES/images/pic11.png';
 import ee2031 from '../../RESOURCES/images/ee203-1.png';
-import ee2032 from '../../RESOURCES/images/ee203-2.png';
-import ee2033 from '../../RESOURCES/images/ee203-3.png';
-import ee2034 from '../../RESOURCES/images/ee203-4.png';
+import ee2032 from '../../RESOURCES/images/ee203-1.png';
+import ee2033 from '../../RESOURCES/images/ee203-1.png';
+import ee2034 from '../../RESOURCES/images/ee203-1.png';
 
 
 
