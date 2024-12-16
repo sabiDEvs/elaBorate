@@ -1,7 +1,7 @@
 import '../CSS/pre.css';
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
-import { displayStarted, displayWW201, displayEE206, displayBF201, displayHS201, displayMS201, displayAS201, displayFS201} from './modules/eeeDisplay';
+import { displayStarted, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, } from './modules/eeeDisplay';
 const body = document.querySelector('body');
 let reports = [
     {
@@ -9,33 +9,28 @@ let reports = [
         func: displayStarted
     },
     {
-        title: 'Introduction to WoodWork {EE201}',
-        func: displayWW201
+        title: 'Measurement of Capacitance {EE202}',
+        func: displayEE202
     },
     {
-        title: 'single Phase Transformer {EE206}',
+        title: 'Measurement of Inductance {EE203}',
+        func: displayEE203
+    },
+    {
+        title: 'The Oscilloscope {EE 205}',
+        func: displayEE205
+    },
+    {
+        title: 'Single Phase Transformer {EE206}',
         func: displayEE206
     },
     {
-        title: 'Introduction to Fitting Shop {BF201}',
-        func: displayBF201
+        title: 'D.C Generator {EE 205}',
+        func: displayEE207
     },
-    {
-        title: 'Introduction to Welding Shop Practice {HS201}',
-        func: displayHS201
-    },
-    {
-        title: 'Introduction to the Lathe and Machining Operations {MS201}',
-        func: displayMS201
-    },
-    {
-        title: 'The Internal Combustion Engine {AS201}',
-        func: displayAS201
-    },
-    {
-        title: 'Foundry Shop {FS201}',
-        func: displayFS201
-    }
+    
+
+    
 ];
 //display  header
 renderHeader(body);
