@@ -1,6 +1,6 @@
 import {createNavBar, createBrand} from './landing.js';
 import logo1 from '../../RESOURCES/images/elaborate-footer-logo.png';
-const renderFooter = (body) => {
+const renderFooter = (body, array) => {
 //create footer
 const footer = document.createElement('footer');
 //create left footer section
@@ -8,7 +8,7 @@ const leftFooter = document.createElement('section');
 //create footer brand
 const footerBrand = createBrand(logo1, '');
 //create footer navigation links
-const footerNav = createNavBar();
+const footerNav = createNavBar(array);
 footerNav.id = 'footerNav';
 //append children to leftFooter
 leftFooter.appendChild(footerBrand);

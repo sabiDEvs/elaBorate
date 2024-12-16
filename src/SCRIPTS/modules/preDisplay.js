@@ -11,8 +11,9 @@ const createDivs = (object) => {
     div.appendChild(text);
     if(object.image !== ' '){
          const image = document.createElement('img');
-          image.src = object.image;
-          div.appendChild(image);
+         image.classList.add('halfImg');
+         image.src = object.image
+         div.appendChild(image);
     }
     return div;
 }
@@ -27,6 +28,7 @@ const createVids = (object) => {
     if(object.video !== ' '){
          const box = document.createElement('div');
          box.innerHTML = object.video;
+         box.classList.add('videos');
          div.appendChild(box);
     }
     return div;
@@ -105,8 +107,13 @@ const displayStarted = () => {
 
     const imgAchieve = document.createElement("img");
     divImgAchieve.appendChild(imgAchieve);
+
     imgAchieve.src = pic1;
     imgAchieve.classList.add('fullImg');
+
+    imgAchieve.src = pic111;
+    imgAchieve.classList.add('startImg');
+
     imgAchieve.id = 'getStartImg';
     
     const startingHeader = document.createElement('h2');
@@ -399,6 +406,7 @@ const displayWW201 = () => {
         practicals.appendChild(description1);
         const video3 = document.createElement('div');
         video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/jxvOepMFtbA?si=UPxGfMvk_uYu0Mud" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.classList.add('videos');
         practicals.appendChild(video3);
         const head3 = document.createElement('h2');
         head3.textContent = 'PRACTICAL 2 : PLANNING OF WOOD';
@@ -491,6 +499,7 @@ const displayWW201 = () => {
         practicals.appendChild(description2);
         const video4 = document.createElement('div');
         video4.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/5xOXRyVJ_1A?si=h5s7a-IHCwNsZdzO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video4.classList.add('videos');
         practicals.appendChild(video4);
         const head7 = document.createElement('h2');
         head7.textContent = 'PRACTICAL 4: DOVETAIL HALVING JOINT';
@@ -546,6 +555,7 @@ const displayWW201 = () => {
         practicals.appendChild(description3);
         const video5 = document.createElement('div');
         video5.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/9jgRfef4ZnE?si=QyfCg0XiURVowmfH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video5.classList.add('videos');
         practicals.appendChild(video5);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -820,6 +830,7 @@ const displaySM201 = () => {
         practicals.appendChild(text3);
         const video3 = document.createElement('div');
         video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/fNB1sunQ66g?si=rTxJW33H8LHtLV_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.classList.add('videos');
         practicals.appendChild(video3);
         const step = document.createElement('h2');
         step.textContent = 'PRACTICAL 2 : HOW TO MAKE DUST PAN';
@@ -841,6 +852,7 @@ const displaySM201 = () => {
         practicals.appendChild(text2);
         const video2 = document.createElement('div');
         video2.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/ozeOvqsbirM?si=BZdvxrVrL4bBM_Ac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video2.classList.add('videos');
         practicals.appendChild(video2);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -1004,6 +1016,7 @@ const displayBF201 = () => {
         theory.appendChild(text2);
         const video2 = document.createElement('div');
         video2.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/IVHh4ACI3ak?si=_4fruPQ4_sz4HFdV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video2.classList.add('videos');
         theory.appendChild(video2);
         const category = [
             {
@@ -1075,6 +1088,7 @@ const displayBF201 = () => {
         practicals.appendChild(text3);
         const video3 = document.createElement('div');
         video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/NHLpRgLGeEo?si=pzWNtzvkNie563nV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.classList.add('videos');
         practicals.appendChild(video3);
         const step = document.createElement('h2');
         step.textContent = 'PRACTICAL 2 : HOW TO MAKE DOVETAIL JOINT';
@@ -1096,6 +1110,7 @@ const displayBF201 = () => {
         practicals.appendChild(text4);
         const video4 = document.createElement('div');
         video4.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/ZB_gn7cZRfo?si=xrhH2-0Iq3mOrspo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video4.classList.add('videos');
         practicals.appendChild(video4);
         const step5 = document.createElement('h2');
         step5.textContent = 'PRACTICAL 3 : HOW TO MAKE A V-FITTING';
@@ -1117,6 +1132,7 @@ const displayBF201 = () => {
         practicals.appendChild(text5);
         const video5 = document.createElement('div');
         video5.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/iDJ_sMvXsYs?si=7EmKMZ27IPXjrECL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video5.classList.add('videos');
         practicals.appendChild(video5);
         main.appendChild(practicals)
         const precaution = document.createElement('section');
@@ -1407,6 +1423,7 @@ const displayHS201 = () => {
         practicals.appendChild(text3);
         const video3 = document.createElement('div');
         video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/2axZupLAQ_U?si=rQGboM88VzTYHp_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.classList.add('videos');
         practicals.appendChild(video3);
         const step = document.createElement('h2');
         step.textContent = 'PRACTICAL 2 : HOW TO MAKE LAP JOINT';
@@ -1428,6 +1445,7 @@ const displayHS201 = () => {
         practicals.appendChild(text4);
         const video4 = document.createElement('div');
         video4.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/uT9dSDwoueM?si=rmFr3C78xzlYucdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video4.classList.add('videos');
         practicals.appendChild(video4);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -1654,9 +1672,11 @@ const displayMS201 = () => {
         theory.appendChild(head1);
         const video4 = document.createElement('div');
         video4.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/SvlZHHDXCZs?si=TCK5E9hveatatgPy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video4.classList.add('videos');
         theory.appendChild(video4);
         const video3 = document.createElement('div');
         video3.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/km6ickQglVY?si=BPw-eCbc0RAe1VjX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video3.classList.add('videos');
         theory.appendChild(video3);
         main.appendChild(theory);
         const practicals = document.createElement('section');
@@ -1680,12 +1700,14 @@ const displayMS201 = () => {
         practicals.appendChild(text3);
         const video5 = document.createElement('div');
         video5.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/dksI7FC8iZQ?si=UPv4G_C7wKhGc8Ue" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video5.classList.add('videos');
         practicals.appendChild(video5);
         const text4 = document.createElement('p');
         text4.textContent = 'The link to watch how to perform the step turning operation on lathe machine practical is below 👇';
         practicals.appendChild(text4);
         const video6 = document.createElement('div');
         video6.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/3Cy1yStc93w?si=QxRQfI3O_uJ2jxJT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video6.classList.add('videos');
         practicals.appendChild(video6);
         main.appendChild(practicals);
         const precaution = document.createElement('section');
@@ -1756,11 +1778,13 @@ const displayAS201 = () => {
         engineDiv.appendChild(engineHead);
         const enginePic = document.createElement('div');
         const img1 = document.createElement('img');
-        img1.src =pic1;
+        img1.src = pic1;
+        img1.classList.add('halfImg');
         img1.alt = '';
         enginePic.appendChild(img1);
         const img2 = document.createElement('img');
         img2.src = pic2;
+        img2.classList.add('halfImg');
         img2.alt = '';
         enginePic.appendChild(img2);
         engineDiv.appendChild(enginePic);
@@ -1884,6 +1908,7 @@ const displayAS201 = () => {
         theory.appendChild(text1);
         const video1 = document.createElement('div');
         video1.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/ZQvfHyfgBtA?si=OEHS2Tg6ckvlpaGJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video1.classList.add('videos');
         theory.appendChild(video1);
         
         const head1 = document.createElement('h3');
@@ -2003,6 +2028,7 @@ const displayAS201 = () => {
         theory.appendChild(text2);
         const video2 = document.createElement('div');
         video2.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/O1hF25Cowv8?si=3x-n7uQOPEgDEK4q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video2.classList.add('videos');
         theory.appendChild(video2);
         main.appendChild(theory);
         const precaution = document.createElement('section');
@@ -2039,7 +2065,7 @@ const displayAS201 = () => {
             refBox[i].textContent = reference[i];
             refList.appendChild(refBox[i]);
         }
-        references.appendChild(refList);
+        reference888s.appendChild(refList);
         main.appendChild(references);
         const hover = createHover('#');
         main.appendChild(hover);
@@ -2169,6 +2195,7 @@ const displayFS201 = () => {
         div.appendChild(text);
         const box = document.createElement('div');
         box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/Uv28tqCOtAg?si=LuG3xBJHOySzcRIn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        box.classList.add('videos');
         div.appendChild(box);
         theory.appendChild(div);
         const div1 = document.createElement('div');
@@ -2178,6 +2205,7 @@ const displayFS201 = () => {
         theory.appendChild(div1);
         const box1 = document.createElement('div');
         box1.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/cFcSJMRSz1c?si=lCMAs06oYQQL90tX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        box1.classList.add('videos');
         div1.appendChild(box1);
         const div2 = document.createElement('div');
         const text3 = document.createElement('div');
@@ -2272,9 +2300,11 @@ const displayFS201 = () => {
         practicals.appendChild(text5);
         const video5 = document.createElement('div');
         video5.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/6Y2IxLg6OZs?si=ngnIrgbfUFneLPKS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video5.classList.add('videos');
         practicals.appendChild(video5);
         const video6 = document.createElement('div');
         video6.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/88stYwHbIzY?si=29xMhp9-JpkdITmD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        video6.classList.add('videos');
         practicals.appendChild(video6);
         main.appendChild(practicals);
         const precaution = document.createElement('section');

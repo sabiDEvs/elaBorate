@@ -23,6 +23,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
         test: /\.(ico|eot|ttf|woff|woff2)$/,
         type: 'asset/resource',
         generator: {

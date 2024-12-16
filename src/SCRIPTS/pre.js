@@ -2,6 +2,11 @@ import '../CSS/pre.css';
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import { displayStarted, displayWW201, displaySM201, displayBF201, displayHS201, displayMS201, displayAS201, displayFS201} from './modules/preDisplay';
+
+const hme = "./index.html";
+const rpt = "./report/report.html";
+const abt = "./about/about.html";
+
 const body = document.querySelector('body');
 let reports = [
     {
@@ -38,7 +43,7 @@ let reports = [
     }
 ];
 //display  header
-renderHeader(body);
+renderHeader(body, [hme, rpt, abt]);
 //create aside side menu
 const aside = document.createElement('aside');
 //create button to close side menu

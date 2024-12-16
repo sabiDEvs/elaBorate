@@ -5,6 +5,8 @@ import img3 from '../../RESOURCES/images/eee-male-engr.jpg';
 import img4 from '../../RESOURCES/images/cpe-engr-group.jpg';
 import img5 from '../../RESOURCES/images/mte-male-engr.jpg';
 import img6 from '../../RESOURCES/images/cpe-engr-girls.jpg';
+
+
 //A function that creates nav links and returns the div
 const createNavLink = (ref, text) => {
     const div = document.createElement('div');
@@ -30,11 +32,10 @@ const createMenu = (header) => {
         document.querySelector('.nav').classList.toggle('active');
     
         if(document.querySelector('.nav').className === 'nav active'){
-            alert('active');
-            document.querySelector('#hero').style.marginTop = '20vh'; 
+            document.querySelector('header').style.marginBottom = '20vh'; 
         }
         else{
-            document.querySelector('#hero').style.marginTop = '0';
+            document.querySelector('header').style.marginBottom = '0';
         }
     });
     header.appendChild(div);
@@ -51,13 +52,13 @@ const createBrand = (logo, name = 'elaBorate') => {
     div.appendChild(brand);
     return div;
 }
-const createNavBar = () => {
+const createNavBar = (array) => {
     const div = document.createElement('nav');
     //create individual navLinks with imported function
-    const homeNav = createNavLink("#", "Home")
-    const aboutNav = createNavLink("#", "About");
-    const reportNav = createNavLink("#", "Reports");
-    const contactNav = createNavLink("#", "Contact Us");
+    const homeNav = createNavLink(array[0], "Home")
+    const aboutNav = createNavLink(array[2], "About");
+    const reportNav = createNavLink(array[1], "Reports");
+    const contactNav = createNavLink("mailto:info.sabidevs@gmail.com", "Contact Us");
     //Append navLinks to navBar
     div.appendChild(homeNav);
     div.appendChild(aboutNav);

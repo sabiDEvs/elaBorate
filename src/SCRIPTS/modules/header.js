@@ -1,14 +1,14 @@
 import {createNavBar, createBrand, createMenu} from './landing.js';
 import logo from '../../RESOURCES/images/elaBoratelogo.png';
 import search from '../../RESOURCES/images/search-icon.png';
-const renderHeader = (body) => {
+const renderHeader = (body, array) => {
 //create header element
 const header = document.createElement('header');
 //create icon div
 const iconDiv = createBrand(logo);
 iconDiv.id = 'iconDiv';
 //create navBar
-const navBox = createNavBar();
+const navBox = createNavBar(array);
 navBox.classList.add('nav'); 
 //create search Box div
 const searchDiv = document.createElement('div');
