@@ -1,6 +1,7 @@
 import {createNavBar, createBrand, createMenu} from './landing.js';
 import logo from '../../RESOURCES/images/elaBoratelogo.png';
 import search from '../../RESOURCES/images/search-icon.png';
+import '../../CSS/header.css'
 const renderHeader = (body, array) => {
 //create header element
 const header = document.createElement('header');

@@ -2176,6 +2176,7 @@ const displayAS201 = () => {
         const download = createDownload('#');
         main.appendChild(download);
 };
+
 const displayFS201 = () => {
     const main = reset();
     const head = document.createElement('h1');
@@ -2452,4 +2453,5 @@ const displayFS201 = () => {
         const download = createDownload('#');
         main.appendChild(download);
 };
+
 export {displayStarted,displayWW201, displaySM201, displayBF201, displayHS201, displayMS201 ,displayAS201, displayFS201};

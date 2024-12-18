@@ -14,6 +14,7 @@ module.exports = {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
+      clean: true,
     },
     mode: 'development',
     optimization: {
