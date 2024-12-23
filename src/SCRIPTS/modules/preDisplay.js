@@ -1,116 +1,7 @@
-import pic1 from '../../RESOURCES/images/combus.jpeg';
-import pic2 from '../../RESOURCES/images/engine.jpeg';
-import pic3 from '../../RESOURCES/images/main engine block.jpeg';
-import pic4 from '../../RESOURCES/images/cylinders.jpeg';
-import pic5 from '../../RESOURCES/images/piston.jpeg';
-import pic6 from '../../RESOURCES/images/connecting rods.jpeg';
-import pic7 from '../../RESOURCES/images/camshaft.jpeg';
-import pic8 from '../../RESOURCES/images/crankshaft.jpeg';
-import pic10 from '../../RESOURCES/images/valves.jpeg';
-import pic11 from '../../RESOURCES/images/screw drivers.png';
-import pic12 from '../../RESOURCES/images/mallet hammer.jpeg';
-import pic13 from '../../RESOURCES/images/torque wrench.jpeg';
-import pic14 from '../../RESOURCES/images/pliers.jpeg';
-import pic9 from '../../RESOURCES/images/spark plug.jpeg';
-import pic15 from '../../RESOURCES/images/funnel.jpeg';
-import pic16 from '../../RESOURCES/images/spannerr.jpeg';
-import pic17 from '../../RESOURCES/images/car jack.jpeg';
-import pic18 from '../../RESOURCES/images/timbs.jpg';
-import pic19 from '../../RESOURCES/images/metre rule.jpeg';
-import pic20 from '../../RESOURCES/images/measuring steel tapes.jpg';
-import pic21 from '../../RESOURCES/images/guage.jpg';
-import pic22 from '../../RESOURCES/images/marking knife scriber.jpg';
-import pic23 from '../../RESOURCES/images/bevel square.jpg';
-import pic24 from '../../RESOURCES/images/c clamp.jpg';
-import pic25 from '../../RESOURCES/images/t clamp.jpg';
-import pic26 from '../../RESOURCES/images/saw.jpg';
-import pic27 from '../../RESOURCES/images/chisel.jpg';
-import pic28 from '../../RESOURCES/images/wooden jack plane.jpg';
-import pic29 from '../../RESOURCES/images/bradawl.jpg';
-import pic30 from '../../RESOURCES/images/brace.jpg';
-import pic31 from '../../RESOURCES/images/auger bitt.png';
-import pic32 from '../../RESOURCES/images/hand drill.jpg';
-import pic33 from '../../RESOURCES/images/mallet.jpg';
-import pic34 from '../../RESOURCES/images/claw hammer.jpg';
-import pic35 from '../../RESOURCES/images/pincers.jpg';
-import pic36 from '../../RESOURCES/images/screw driver.jpg';
-import pic37 from '../../RESOURCES/images/wood rasp files.jpg';
-import pic38 from '../../RESOURCES/images/try square.png';
-import pic39 from '../../RESOURCES/images/bench vice.jpg';
-import pic40 from '../../RESOURCES/images/work bench.jpg';
-import pic41 from '../../RESOURCES/images/paring chisel.jpg';
-import pic42 from '../../RESOURCES/images/smooth plane.jpg';
-import pic43 from '../../RESOURCES/images/steel rulee.jpg';
-import pic44 from '../../RESOURCES/images/steel wire guage.jpg';
-import pic45 from '../../RESOURCES/images/steel micrometre.jpg';
-import pic46 from '../../RESOURCES/images/vernier.jpg';
-import pic47 from '../../RESOURCES/images/steel square.jpg';
-import pic48 from '../../RESOURCES/images/divider.jpg';
-import pic49 from '../../RESOURCES/images/scriber.png';
-import pic50 from '../../RESOURCES/images/trammel point.jpg';
-import pic51 from '../../RESOURCES/images/hand snips.jpg';
-import pic52 from '../../RESOURCES/images/prick punch.jpg';
-import pic53 from '../../RESOURCES/images/centre punches.jpg';
-import pic54 from '../../RESOURCES/images/chissel.jpg';
-import pic55 from '../../RESOURCES/images/pleirs.jpg';
-import pic56 from '../../RESOURCES/images/solidering iron.jpg';
-import pic57 from '../../RESOURCES/images/hammers.jpg';
-import pic58 from '../../RESOURCES/images/files.jpg';
-import pic59 from '../../RESOURCES/images/sheeet mallet.jpg';
-import pic60 from '../../RESOURCES/images/hot rolled sheet.jpg';
-import pic61 from '../../RESOURCES/images/cold rolled sheet.jpg';
-import pic62 from '../../RESOURCES/images/galvanised plain sheet.jpg';
-import pic63 from '../../RESOURCES/images/aluminum sheet.jpg';
-import pic64 from '../../RESOURCES/images/copper sheet.jpg';
-import pic65 from '../../RESOURCES/images/tin sheets.jpg';
-import pic66 from '../../RESOURCES/images/stainless steel sheet.jpg';
-import pic67 from '../../RESOURCES/images/brass sheets.jpg';
-import pic68 from '../../RESOURCES/images/hacksaw.jpeg';
-import pic69 from '../../RESOURCES/images/ball peen hammer.jpg';
-import pic70 from '../../RESOURCES/images/rough file.jpeg';
-import pic71 from '../../RESOURCES/images/protective.jpeg';
-import pic72 from '../../RESOURCES/images/protective clothing.jpeg';
-import pic73 from '../../RESOURCES/images/wire brush.jpeg';
-import pic74 from '../../RESOURCES/images/welding cables.jpeg';
-import pic75 from '../../RESOURCES/images/hand screen.jpeg';
-import pic76 from '../../RESOURCES/images/chipping.jpeg';
-import pic77 from '../../RESOURCES/images/arc welding power source.jpeg';
-import pic78 from '../../RESOURCES/images/electrodes.jpeg';
-import pic79 from '../../RESOURCES/images/electrode holder.jpeg';
-import pic80 from '../../RESOURCES/images/tongs.jpeg';
-import pic81 from '../../RESOURCES/images/hand shield.jpeg';
-import pic82 from '../../RESOURCES/images/earth clamp.jpeg';
-import pic83 from '../../RESOURCES/images/welding table.jpeg';
-import pic84 from '../../RESOURCES/images/smooth file.jpeg';
-import pic85 from '../../RESOURCES/images/welding protractor.jpeg';
-import pic86 from '../../RESOURCES/images/flatposition.png';
-import pic87 from '../../RESOURCES/images/horizontal position.png';
-import pic88 from '../../RESOURCES/images/vertical position.jpeg';
-import pic89 from '../../RESOURCES/images/overhead.png';
-import pic90 from '../../RESOURCES/images/parts of lathe machine.jpeg';
-import pic91 from '../../RESOURCES/images/chuck spanners.jpeg';
-import pic92 from '../../RESOURCES/images/hss.jpeg';
-import pic93 from '../../RESOURCES/images/single point cutting tool.jpeg';
-import pic94 from '../../RESOURCES/images/bed of a lathe.jpeg';
-import pic95 from '../../RESOURCES/images/headstock of a lathe machine.jpeg';
-import pic96 from '../../RESOURCES/images/tailstock of lathe.jpeg';
-import pic97 from '../../RESOURCES/images/carriage of lathe.jpeg';
-import pic98 from '../../RESOURCES/images/moulding box.jpeg';
-import pic99 from '../../RESOURCES/images/draw spikes.png';
-import pic100 from '../../RESOURCES/images/swab.jpeg';
-import pic101 from '../../RESOURCES/images/slicks.jpeg';
-import pic102 from '../../RESOURCES/images/rammers.jpeg';
-import pic103 from '../../RESOURCES/images/shovel.jpeg';
-import pic104 from '../../RESOURCES/images/hand riddle.jpeg';
-import pic105 from '../../RESOURCES/images/drag and cope boxes.png';
-import pic106 from '../../RESOURCES/images/strike off bar.jpeg';
-import pic107 from '../../RESOURCES/images/moulding sand.jpeg';
-import pic108 from '../../RESOURCES/images/sprue pins.jpeg';
-import pic109 from '../../RESOURCES/images/vent wire.jpeg';
-import pic110 from '../../RESOURCES/images/trowel.jpeg';
-import pic111 from '../../RESOURCES/images/Photo of ela students.jpg';
-import pic112 from '../../RESOURCES/images/download-icon.png';
-import pic113 from '../../RESOURCES/images/download.png';
+
+import pic1 from '../../RESOURCES/images/achieve.png';
+
+
 
 
 const createDivs = (object) => {
@@ -177,7 +68,7 @@ const createDownload = (url) => {
     link.href = url;
     button.textContent = 'DOWNLOAD'; 
     const icon = document.createElement('img');
-    icon.src = pic112;
+    icon.src = pic1;
     button.appendChild(icon);
     link.appendChild(button);
     div.appendChild(container);
@@ -197,7 +88,7 @@ const createHover = (url) => {
     const link = document.createElement('a');
     link.href = url;
     const icon = document.createElement('img');
-    icon.src = pic113;
+    icon.src = pic1;
     icon.classList.add('hoverIcon');
     link.appendChild(icon);
     download.appendChild(link);
@@ -216,8 +107,13 @@ const displayStarted = () => {
 
     const imgAchieve = document.createElement("img");
     divImgAchieve.appendChild(imgAchieve);
+
+    imgAchieve.src = pic1;
+    imgAchieve.classList.add('fullImg');
+
     imgAchieve.src = pic111;
     imgAchieve.classList.add('startImg');
+
     imgAchieve.id = 'getStartImg';
     
     const startingHeader = document.createElement('h2');
@@ -312,19 +208,19 @@ const displayWW201 = () => {
         const apparatus = [
             {
                 cap: 'Timber',
-                image: pic18
+                image: pic1
             },
             {
                 cap: 'Metre Rule',
-                image: pic19
+                image: pic1
             },
             {
                 cap: 'Measuring Steel Tape',
-                image: pic20
+                image: pic1
             },
             {
                 cap: 'Gauges',
-                image: pic21
+                image: pic1
             },
             {
                 cap: 'Marking Knife Scribers',
@@ -732,71 +628,71 @@ const displaySM201 = () => {
         const apparatus = [
             {
                 cap: 'Steel Scale',
-                image: pic43
+                image: pic1
             },
             {
                 cap: 'Wire guage',
-                image: pic44
+                image: pic1
             },
             {
                 cap: 'Micrometer',
-                image: pic45
+                image: pic1
             },
             {
                 cap: 'Vernier Calliper',
-                image: pic46
+                image: pic1
             },
             {
                 cap: 'Steel square',
-                image: pic47
+                image: pic1
             },
             {
                 cap: 'Divider',
-                image: pic48
+                image: pic1
             },
             {
                 cap: 'Scriber',
-                image: pic49
+                image: pic1
             },
             {
                 cap: 'Trammel Point',
-                image: pic50
+                image: pic1
             },
             {
                 cap: 'Hand snips',
-                image: pic51
+                image: pic1
             },
             {
                 cap: 'Punches',
-                image: pic52
+                image: pic1
             },
             {
                 cap: 'Punches',
-                image: pic53
+                image: pic1
             },
             {
                 cap: 'Chisel',
-                image: pic54
+                image: pic1
             },
             {
                 cap: 'Plier',
-                image: pic55
+                image: pic1
             },
             {
                 cap: 'Soldering Iron',
-                image: pic56
+                image: pic1
             },
             {
                 cap: 'Hammer',
-                image: pic57
+                image: pic1
             },
             {
                 cap: 'Files',
-                image: pic58
+                image: pic1
             },
             {
                 cap: 'Mallet',
-                image: pic59
+                image: pic1
             },
 
         ];
@@ -871,42 +767,42 @@ const displaySM201 = () => {
             {
             title: 'Black plain sheet or hot rolled sheet',
             text: '',
-            image: pic60
+            image: pic1
             },
             {
             title: 'Cold rolled sheet (0.1 – 0.3% of carbon )',
             text: '',
-            image: pic61
+            image: pic1
             },
             {
             title: 'Galvanized plain sheet',
             text: '',
-            image: pic62
+            image: pic1
             },
             {
             title: 'Aluminum sheet',
             text: '',
-            image: pic63
+            image: pic1
             },
             {
             title: 'Copper sheet',
             text: '',
-            image: pic64
+            image: pic1
             },
             {
             title: 'Tin sheet',
             text: '',
-            image: pic65
+            image: pic1
             },
             {
             title: 'Stainless steel sheet (contains 18% Chromium, 8% Nickel, less than 1% carbon, rest is iron',
             text: '',
-            image: pic66
+            image: pic1
             },
             {
             title: 'Brass sheets',
             text: '',
-            image: pic67
+            image: pic1
             },
             ];
             part.forEach((item) => {

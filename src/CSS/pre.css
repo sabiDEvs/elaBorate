@@ -164,6 +164,12 @@ span{
     gap: 5vw;
 }
 
+<<<<<<< HEAD
+=======
+.stepboxlist{
+    list-style: decimal;
+}
+>>>>>>> 9c82dd0d7c708fd5608399edfea394352d3d775c
 @media only screen and (min-width:768px){
     .menu{
         display: none;
