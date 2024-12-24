@@ -1,7 +1,7 @@
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import '../CSS/mee.css';
-import { displaySimplePendulum, displayShearForceExperiment} from './modules/meeDisplay';
+import { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum} from './modules/meeDisplay';
 
 const hme = "./index.html";
 const rpt = "./report/report.html";
@@ -16,6 +16,14 @@ let reports = [
     {
         title: 'Shear Force in a Beam {SM212}',
         func: displayShearForceExperiment
+    },
+    {
+        title: 'Radial Cam and Follower {AM221}',
+        func: displayCamFollower
+    },
+    {
+        title: 'The Conical Pendulum {AM225}',
+        func: displayConicalPendulum
     },
 ];
 //display  header

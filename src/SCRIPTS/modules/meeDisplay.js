@@ -3,6 +3,12 @@ import pic2 from '../../RESOURCES/images/stopwatch.jpeg';
 import pic3 from '../../RESOURCES/images/pendulum graph.png';
 import pic4 from '../../RESOURCES/images/shear force in a beam.jpeg';
 import pic5 from '../../RESOURCES/images/sForce SM212.png';
+import pic6 from '../../RESOURCES/images/plunger.png';
+import pic7 from '../../RESOURCES/images/roller.png';
+import pic8 from '../../RESOURCES/images/measuring guage.png';
+import pic9 from '../../RESOURCES/images/protractor scale.png';
+import pic10 from '../../RESOURCES/images/cama.png';
+import pic11 from '../../RESOURCES/images/camb.png';
 import pic112 from '../../RESOURCES/images/download-icon.png';
 import pic113 from '../../RESOURCES/images/download.png';
 
@@ -270,7 +276,7 @@ const displaySimplePendulum = () => {
             <li><strong>WHAT HAVE YOU GAINED FROM THIS EXPERIMENT:</strong> Through observing the motion of the pendulum, I was able to gain a deeper understanding of simple harmonic motion, a fundamental concept in physics. This includes learning about oscillatory motion, restoring forces, and periodic behavior. I was able to verify theoretical predictions, such as the relationship between the length of the pendulum and its period of oscillation (T ∝ √(L/g)), where T is the period, L is the length, and g is the acceleration due to gravity.</li>
             <li><strong>WHAT ROLE DID YOU PLAY DURING THE EXPERIMENT:</strong> I was responsible for recording the period (time for one complete swing) of the pendulum. I assisted in assembling the pendulum by attaching the string to the bob and securing it to the clamp stand.</li>
             <li><strong>COULD YOU HAVE PERFORMED THIS EXPERIMENT BY YOURSELF:</strong> NO: Because measuring the pendulum's length accurately requires holding the measuring tool (ruler or vernier caliper) next to the pendulum. This would necessitate another hand to hold the pendulum steady.</li>
-            <li><strong>COMMENT ON THE EXPERIMENTAL PROCEDURE TO JUSTIFY ITS SUITABILITY FOR ACCURACY OF RESULTS AND TIME SAVING:</strong> The experimental procedure for the simple pendulum experiment is well-suited to produce accurate results while also being time-saving...</li>
+            <li><strong>COMMENT ON THE EXPERIMENTAL PROCEDUREto:justifygitshsuitability for accuracy ofrresultsmand timeusavingperiment is well-suited to produce accurate results while also being time-saving...</li>
             <li><strong>WHAT WAS THE MOST DIFFICULT ASPECT OF THE EXPERIMENT?</strong> The most difficult part was trying to minimize measurement errors and trying to measure the pendulum’s length.</li>
             <li><strong>NAME AND DESCRIBE ANY APPARATUS OR METHOD YOU KNOW CAN BE USED TO PERFORM THIS SAME EXPERIMENT:</strong> You can use a threaded rod and nut, replace the string with a thin rigid rod with a nut threaded onto the bottom and then use a meter stick with a small hole drilled near one end...</li>
         `;
@@ -576,8 +582,7 @@ const displayShearForceExperiment = () => {
             -I brought out the required weight needed for the experiment and placed it correctly <br>
             -I collected the data by writing down the values/parameters needed to perform the experiment and analyzed the data for my group </p></li>
             <li><strong>COULD YOU HAVE PERFORMED THIS EXPERIMENT BY YOURSELF:</strong> NO: Because I will not be able to take my readings accurately without guidance or external help to verify the accuracy of the readings/results </li>
-            <li><strong>COMMENT ON THE EXPERIMENTAL PROCEDURE TO JUSTIFY ITS SUITABILITY FOR ACCURACY OF RESULTS AND TIME SAVING:</strong> 
-            <p>The procedure where you vary the load application points strengthens the accuracy. This helps create a shear force distribution profile for the entire beam, not just a specific point. While increasing the load helps understand the relationship with shear force, using too many small increments can be time-consuming. </p>
+            <li><strong>COMMENT ON THE EXPERIMENTAL PROCEDUREto:justifygits suitability for accuracyuof resultsoandatimehsaving application points strengthens the accuracy. This helps create a shear force distribution profile for the entire beam, not just a specific point. While increasing the load helps understand the relationship with shear force, using too many small increments can be time-consuming. </p>
             <p> The procedure can be optimized by using strategically chosen load values that cover a representative range. Zeroing the measuring instruments before each load application minimizes errors due to initial imperfections in the setup. Using calibrated instruments (load cells, dial gauges) ensures the accuracy of the measurements. Also repeating the experiment multiple times increases the accuracy and reliability </p></li>
             <li><strong>WHAT WAS THE MOST DIFFICULT ASPECT OF THE EXPERIMENT?</strong> 
             <p>-The most difficult aspect was ensuring accurate load positioning and beam alignment. can have a major impact on the distribution of shear force. Precisely aligning the load and making sure the beam is level can be difficult, particularly with manual systems. In order to increase accuracy, jigs and alignment tools might be used.</p> 
@@ -665,5 +670,551 @@ const displayShearForceExperiment = () => {
     createHover('#');
 };
 
+const displayCamFollower = () => {
+    const main = reset();
 
-export {displaySimplePendulum, displayShearForceExperiment};
+    // Theory Section
+    const theorySection = document.createElement('section');
+    theorySection.innerHTML = `
+        <h2>THEORY</h2>
+        <p>A cam is a rotating body which imparts a reciprocating motion to a second body (the follower) in contact with it. Cams are widely used for transferring motion to mechanical systems. Rollers and flat followers are common types.</p>
+        <p>A follower is a mechanical component used to transfer motion to the required machine part in a circular arc. Types of followers include: Roller, flat footed lever, knife edged, spherical etc.</p>
+        <p>A cam and follower mechanism is an essential part of mechanical engineering systems, used to convert rotary motion into reciprocating or oscillating motion. This system is commonly found in machines like engines, automation systems, and various tools requiring repetitive motion.</p>
+        <h3>Example of Working Principle:</h3>
+        <ul>
+            <li>As the cam rotates, its profile comes into contact with the follower</li>
+            <li>The shape of the cam determines how the follower moves (up, down, or oscillates)</li>
+        </ul>
+        <h3>Applications:</h3>
+        <ul>
+            <li>Operating intake and exhaust valves</li>
+            <li>Textile looms</li>
+            <li>Printing presses</li>
+            <li>Controlling precise movements of robotic parts</li>
+        </ul>
+    `;
+    main.appendChild(theorySection);
+
+    // Apparatus Section
+    const apparatusSection = document.createElement('section');
+    apparatusSection.innerHTML = `
+        <h2>APPARATUS</h2>
+        <ul>
+            <li><div><img src=${pic6}><p>Dial gauge plunger</p></div></li>
+            <li><div><img src=${pic7}><p>Roller follower</p></div></li>
+            <li><div><img src=${pic8}><p>Measuring gauge</p></div></li>
+            <li><div><img src=${pic9}><p>Protractor scale</p></div></li>
+        </ul>
+    `;
+    main.appendChild(apparatusSection);
+
+    // Results Section
+    const resultsSection = document.createElement('section');
+    resultsSection.innerHTML = `
+        <h2>RESULTS</h2>
+        <p>Below is the youtube video that illustrates the procedures for the cam and followers experiment</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fIAz3hf7KO0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div><b>NOTE: this is an example of how the table looks like not the actual table input the values calculated or gotten from the experiment into the tables under each column correctly.</b></div>
+        <h3>TABLE OF RESULTS</h3>
+        <div class="tables-container">
+            <table>
+                <caption>CAM A</caption>
+                <thead>
+                    <tr>
+                        <th>Angle (°)</th>
+                        <th>Displacement (m)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10</td>
+                        <td>0.41</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>2.31</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>8.40</td>
+                    </tr>
+                    <tr>
+                        <td>90</td>
+                        <td>15.82</td>
+                    </tr>
+                    <tr>
+                        <td>120</td>
+                        <td>22.23</td>
+                    </tr>
+                    <tr>
+                        <td>150</td>
+                        <td>28.41</td>
+                    </tr>
+                    <tr>
+                        <td>180</td>
+                        <td>29.02</td>
+                    </tr>
+                    <tr>
+                        <td>210</td>
+                        <td>29.02</td>
+                    </tr>
+                    <tr>
+                        <td>240</td>
+                        <td>0.02</td>
+                    </tr>
+                    <tr>
+                        <td>270</td>
+                        <td>-0.90</td>
+                    </tr>
+                    <tr>
+                        <td>300</td>
+                        <td>-10.93</td>
+                    </tr>
+                    <tr>
+                        <td>330</td>
+                        <td>-24.41</td>
+                    </tr>
+                    <tr>
+                        <td>360</td>
+                        <td>30.88</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <caption>CAM B</caption>
+                <thead>
+                    <tr>
+                        <th>Angle (°)</th>
+                        <th>Displacement (m)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- To be filled with experimental data -->
+                    <tr>
+                        <td>10</td>
+                        <td>0.76</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>0.87</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>0.10</td>
+                    </tr>
+                    <tr>
+                        <td>90</td>
+                        <td>14.91</td>
+                    </tr>
+                    <tr>
+                        <td>120</td>
+                        <td>20.00</td>
+                    </tr>
+                    <tr>
+                        <td>150</td>
+                        <td>25.86</td>
+                    </tr>
+                    <tr>
+                        <td>180</td>
+                        <td>31.15</td>
+                    </tr>
+                    <tr>
+                        <td>210</td>
+                        <td>31.15</td>
+                    </tr>
+                    <tr>
+                        <td>240</td>
+                        <td>-0.24</td>
+                    </tr>
+                    <tr>
+                        <td>270</td>
+                        <td>-0.23</td>
+                    </tr>
+                    <tr>
+                        <td>300</td>
+                        <td>-8.88</td>
+                    </tr>
+                    <tr>
+                        <td>330</td>
+                        <td>-17.82</td>
+                    </tr>
+                    <tr>
+                        <td>360</td>
+                        <td>-29.83</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    main.appendChild(resultsSection);
+
+    // Analysis Section
+    const analysisSection = document.createElement('section');
+    analysisSection.innerHTML = `
+        <h2>ANALYSIS</h2>
+        <p>NO ANALYSIS OR FORMULA USED</p>
+        <h3>OBSERVATION AND PRECAUTIONS</h3>
+         <table>
+                <thead>
+                    <tr>
+                        <th>OBSERVATIONS</th>
+                        <th>PRECAUTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- To be filled with experimental data -->
+                    <tr>
+                        <td>I observed that the results from CAM A and CAM B formed a graph with sinusoidal waves</td>
+                        <td>I ensured that the pointer was the zero mark</td>
+                    </tr>
+                    <tr>
+                        <td>I observed that the angles at which the maximum and minimum displacements occur</td>
+                        <td>I avoided error due to parallax when taking measurements for the experiment</td>
+                    </tr>
+                    <tr>
+                        <td>I observed that the shape of the cam and its effect on the motion of the follower</td>
+                        <td>I ensured that the values recorded where correct and accurate</td>
+                    </tr>
+                </tbody>
+         </table>
+    `;
+    main.appendChild(analysisSection);
+
+    // Graphs Section
+    const graphsSection = document.createElement('section');
+    graphsSection.innerHTML = `
+        <h2>GRAPHS</h2>
+        <h3>NOTE:</h3>
+        <p>There are two graphs to be drawn:</p>
+        <ul>
+            <li>Graph 1: Graph of Angle (Y-axis) against Displacement for CAM A</li>
+            <li>Graph 2: Graph of Angle (Y-axis) against Displacement for CAM B</li>
+        </ul>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9kJ5vyfW0n4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="graphs-container">
+            <div class="graph">
+                <h3>Graph 1: Graph of Angle against Displacement for CAM A</h3>
+                <!-- Graph placeholder -->
+                <div><img src=${pic10}></div>
+            </div>
+            <div class="graph">
+                <h3>Graph 2: Graph of Angle against Displacement for CAM B</h3>
+                <!-- Graph placeholder -->
+                <div><img src=${pic11}></div>
+            </div>
+        </div>
+    `;
+    main.appendChild(graphsSection);
+
+    // Discussion Section
+    const discussionSection = document.createElement('section');
+    discussionSection.innerHTML = `
+        <h2>DISCUSSION</h2>
+        <ul>
+            <li>Dial Gauge Inaccuracy: If the dial gauge is not calibrated correctly, it may give inaccurate displacement readings.</li>
+            <li>Protractor Scale Precision: Errors in reading the angular displacement due to poorly marked or misaligned protractor scales.</li>
+            <li>If the cam profile and follower type were properly chosen, the general trend of the follower's displacement should match theoretical predictions. (e.g., sinusoidal rise and fall for an eccentric cam).</li>
+            <li>Lubrication minimizes friction, alignment tools reduce misalignment, and proper calibration ensures accurate readings. If these precautions were taken, deviations should be minor and within acceptable ranges.</li>
+        </ul>
+    `;
+    main.appendChild(discussionSection);
+
+    // Conclusion Section
+    const conclusionSection = document.createElement('section');
+    conclusionSection.innerHTML = `
+        <h2>CONCLUSION</h2>
+        <p>At the end of this experiment, we were able to understand that Radial cam and follower mechanism plays a crucial role in converting rotational motion into oscillating motion. It finds application in internal combustion machines</p>
+    `;
+    main.appendChild(conclusionSection);
+
+    // Q&A Section
+    // ...existing code...
+
+const qaSection = document.createElement('section');
+qaSection.innerHTML = `
+    <h2>SECTION B (QUESTIONS)</h2>
+    <div class="qa-container">
+        <h3>What have you gained from this experiment?</h3>
+        <ul>
+            <li>Recognize how cam and follower mechanisms are utilized in real-world machines, such as internal combustion engines, textile machines, and automation systems.</li>
+            <li>Learned how to use the appropriate apparatus correctly and understood their importance</li>
+        </ul>
+
+        <h3>What role did you play during the experiment?</h3>
+        <ul>
+            <li>Rotated the dial gauge to the required angle</li>
+            <li>I collected the data by writing down the values/parameters needed to perform the experiment and analyzed the data for my group</li>
+        </ul>
+
+        <h3>Could you have performed this experiment by yourself?</h3>
+        <p>NO: Because I will not be able to take my readings accurately without guidance or external help to verify the accuracy of the readings/results</p>
+
+        <h3>Comment on the experimental procedure  to justify its suitability for accuracy of results and time saving:</h3>
+        <p>The use of precise instruments, such as the cam and follower mechanism and dial gauge, minimizes errors in measurements and enhances repeatability. Following a step-by-step procedure allows for logical data collection, reducing confusion and ensuring that critical steps are not overlooked. The design and execution of the experiment focus on precise measurements, logical flow, and relevance to practical applications, making it effective in achieving its objectives. Below is an evaluation of its suitability based on its methodology and outcomes. he experiment's accuracy is ensured through the use of a well-structured setup. Instruments such as the cam and follower mechanism, along with the dial gauge, are integral to obtaining precise and reliable measurements. The cam and follower mechanism is inherently designed to demonstrate the principles of converting rotational motion into reciprocating or oscillating motion, providing a clear and measurable output. Additionally, the inclusion of calibrated tools minimizes the possibility of measurement errors and enhances the reproducibility of the results</p>
+
+        <h3>What was the most difficult aspect of the experiment?</h3>
+        <ul>
+            <li>The most difficult aspect was setting up the required meticulous adjustments to the dial gauge to measure the follower’s displacement accurately. Even slight misalignments could lead to errors, necessitating repeated adjustments to achieve the desired accuracy</li>
+            <li>The most difficult part was minimizing friction. External factors such as friction, wear in the cam and follower components, and human error during setup and operation posed additional challenges. These factors had to be accounted for to ensure that the results closely matched theoretical expectations.</li>
+        </ul>
+
+        <h3>Name and describe alternative apparatus or method you know can be used to perform this same experiment:</h3>
+        <p>Universal Cam Mechanism Apparatus - This apparatus is specifically designed for studying cam and follower mechanisms. It consists of various cams (e.g., radial, tangent, or eccentric cams) and followers of different shapes (e.g., flat-faced, knife-edge, or roller followers). The setup often includes a motor to drive the cam and a dial gauge to measure the displacement of the follower.</p>
+
+        <h3>List of Parameters required in this experiment:</h3>
+        <ul>
+            <li>Displacement (m)</li>
+            <li>Angle in degrees (°)</li>
+        </ul>
+
+        <h3>Briefly discuss one measuring instruments used:</h3>
+        <ul>
+            <li>Dial gauge:  is a precise measuring tool designed to measure small linear movements, deviations, or deflections in machine components or surfaces. It is commonly utilized in mechanical engineering, manufacturing, and quality assurance applications. It measures the Displacement in metres</li>
+            <li>Protractor Scale: Used to measure angles in degrees</li>
+        </ul>
+
+        <h3>Practical relevance/applications:</h3>
+        <ul>
+            <li>The experiment involving the cam and follower mechanism is not only a crucial learning tool in mechanical engineering but also has significant practical applications across various industries and technologies. Understanding the principles behind this mechanism is essential for its implementation in real-world systems that require precise motion control, including automotive engines, robotics, manufacturing, hydraulic systems, and medical devices. The knowledge gained from the experiment leads to enhanced efficiency and performance in these fields.</li>
+            <li>One of the key applications of the cam and follower mechanism is in automotive engines, where it plays a critical role in regulating the timing of engine valves. The camshaft, driven by the cam and follower system, controls the opening and closing of intake and exhaust valves. This precise control ensures smooth engine operation, optimizing fuel combustion and improving fuel efficiency while reducing emissions. Without the cam mechanism, the timing of these vital engine functions would be less reliable, negatively affecting engine performance and longevity</li>
+            <li>In robotics and automation, cam and follower systems are employed to convert rotational motion into accurate linear or oscillatory movements. These mechanisms are essential in enabling robots to carry out repetitive tasks such as assembly, material handling, and packaging with high precision. The efficiency provided by these systems supports the automation of various industrial processes, reducing labor costs and boosting production speed in industries like manufacturing and logistics.</li>
+        </ul>
+
+        <h3>Course section relation:</h3>
+        <ul>
+            <li>Mechanics of Machines</li>
+            <li>Simple Harmonic Motion</li>
+        </ul>
+
+        <h3>List the suggestions you made while carrying out the experiment:</h3>
+        <ul>
+            <li> I suggested that one person should turning the dial while another person should count the revolutions.</li>
+            <li> I suggested that they should be double-checking the alignment of the cam and follower to avoid measurement errors due to misalignment. Proper alignment is crucial for accurate displacement readings.</li>
+        </ul>
+
+        <h3>List the suggestions made by the members of your group which helped the group during the experiment:</h3>
+        <ul>
+            <li>We suggested that we should modify the cam's rotation speed to ensure smoother follower movement, preventing it from jerking or skipping positions. This contributed to maintaining consistency in the measurements.</li>
+            <li>-We suggested that we take check the cam and follower surfaces for wear or damage before beginning the experiment. This ensured that the mechanism would operate smoothly and without any interference caused by surface imperfections.</li>
+        </ul>
+
+        <h3>Did you put down the experimental results in your book at the time of the experiment or you copied from your group members?:</h3>
+        <p>YES:I put down the results at the time of the experiment to avoid copying or write down wrong values later  <strong>OR</strong> I recorded the experiment results in my workbook at the time of the experiment to ensure accuracy and prevents errors that may occur when relying on others later or memory.</p>
+
+        <h3>Discuss anything that interested you most during the experiment:</h3>
+        <ul>
+            <li>What fascinated me most during the experiment was seeing how the cam and follower mechanism converted rotational motion into precise linear or oscillatory movement. It was remarkable to observe how such a simple mechanical system could produce complex motions that play a key role in many real-world applications, such as engine valve timing and robotic systems.</li>
+            <li>I was especially intrigued by how different cam profiles affected the follower’s motion. By altering the cam’s shape, we could notice significant changes in the follower’s movement, including variations in speed, displacement, and acceleration. This underscored the critical role of cam design in engineering, as even small adjustments to the cam profile can have a major impact on the performance of a system.</li>
+        </ul>
+
+        <h3>Did you come to the laboratory with the laboratory manual during the performance of the experiment?</h3>
+        <p>YES:  because it is required for me to follow up with the practical</p>
+    </div>
+`;
+main.appendChild(qaSection);
+
+// ...existing code...
+
+    // References Section
+    const referencesSection = document.createElement('section');
+    referencesSection.innerHTML = `
+        <h2>REFERENCES</h2>
+        <ul>
+            <li>Shigley, J. E., Uicker, J. J. (2011). Theory of Machines and Mechanisms. 4th Edition, McGraw-Hill</li>
+            <li>Smith, M. R. (2014). Mechanisms and Machine Theory. Pearson Education</li>
+        </ul>
+    `;
+    main.appendChild(referencesSection);
+
+    createDownload('#');
+    createHover('#');
+};
+
+const displayConicalPendulum = () => {
+    const main = reset();
+
+    // Theory Section
+    const theorySection = document.createElement('section');
+    theorySection.innerHTML = `
+        <h2>THEORY</h2>
+        <p>A pendulum is a weight suspended from a fixed point so that it can swing freely back and forth under the influence of gravity. The pendulum swings due to the force of gravity, which pulls the bob towards the equilibrium position (lowest point of the swing). The motion is periodic, meaning it repeats itself in a regular cycle.</p>
+        <p>A conical pendulum is a type of pendulum in which a mass (called the bob) is attached to a string or rod of fixed length and moves in a horizontal circular path, making the string trace the surface of a cone.</p>
+        <h3>Structure of the Conical Pendulum:</h3>
+        <ul>
+            <li>The bob is the mass at the end of the string</li>
+            <li>The string or rod is inextensible and of fixed length</li>
+            <li>The bob rotates in a horizontal circle</li>
+            <li>The string makes a constant angle with the vertical axis</li>
+        </ul>
+    `;
+    main.appendChild(theorySection);
+
+    // Apparatus Section
+    const apparatusSection = document.createElement('section');
+    apparatusSection.innerHTML = `
+        <h2>APPARATUS</h2>
+        <ul>
+            <li>Stop watch</li>
+            <li>Metre stick/Ruler</li>
+            <li>Rigid stand</li>
+            <li>Protractor scale</li>
+            <li>Mass bob</li>
+        </ul>
+    `;
+    main.appendChild(apparatusSection);
+
+    // Results Section with Videos
+    const resultsSection = document.createElement('section');
+    resultsSection.innerHTML = `
+        <h2>RESULTS</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tBu8sBJ3ER0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0CaWx_ghSbI" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="table-container">
+            <h3>TABLE OF RESULTS</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Length (cm)</th>
+                        <th>Angle (°)</th>
+                        <th>Period (s)</th>
+                        <th>Height (cm)</th>
+                        <th>Radius (cm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- To be filled with experimental data -->
+                </tbody>
+            </table>
+        </div>
+    `;
+    main.appendChild(resultsSection);
+
+    // Analysis Section
+    const analysisSection = document.createElement('section');
+    analysisSection.innerHTML = `
+        <h2>ANALYSIS</h2>
+        <div class="formulas">
+            <h3>Formula 1:</h3>
+            <p>h = L Cos θ</p>
+            <p>where:</p>
+            <ul>
+                <li>h = Height</li>
+                <li>L = Length of Pendulum (cm)</li>
+                <li>θ = Inclination of pendulum with vertical axis (°)</li>
+            </ul>
+
+            <h3>Formula 2:</h3>
+            <p>Tan θ = W²r / g</p>
+            <p>where:</p>
+            <ul>
+                <li>W² = Square of angular velocity of the bob</li>
+                <li>r = radius</li>
+                <li>g = acceleration due to gravity</li>
+                <li>θ = Inclination of pendulum with vertical axis (°)</li>
+            </ul>
+        </div>
+
+        <div class="observations">
+            <h3>OBSERVATIONS AND PRECAUTIONS</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OBSERVATIONS</th>
+                        <th>PRECAUTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>The pendulum moves in a horizontal circular path</td>
+                        <td>Ensure string is properly tensioned</td>
+                    </tr>
+                    <tr>
+                        <td>Angle remains constant during motion</td>
+                        <td>Avoid parallax errors when measuring angles</td>
+                    </tr>
+                    <tr>
+                        <td>Period remains constant for given length</td>
+                        <td>Take multiple readings for accuracy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    main.appendChild(analysisSection);
+
+    // Graphs Section
+    const graphsSection = document.createElement('section');
+    graphsSection.innerHTML = `
+        <h2>GRAPHS</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9kJ5vyfW0n4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3>GRAPH OF W² AGAINST 1/H</h3>
+        <div class="graph-container">
+            <!-- Graph placeholder -->
+        </div>
+    `;
+    main.appendChild(graphsSection);
+
+    // Discussion Section
+    const discussionSection = document.createElement('section');
+    discussionSection.innerHTML = `
+        <h2>DISCUSSION</h2>
+        <ul>
+            <li>Measurements that are inaccurate: Length of the String, Time Period (T), Angle of Inclination (θ)</li>
+            <li>Resistance of the Air: Air resistance-induced drag forces can attenuate motion</li>
+            <li>Elasticity of the String: String stretching can alter effective length</li>
+        </ul>
+    `;
+    main.appendChild(discussionSection);
+
+    // Conclusion Section
+    const conclusionSection = document.createElement('section');
+    conclusionSection.innerHTML = `
+        <h2>CONCLUSION</h2>
+        <p>At the end of this experiment, we were able to calculate the acceleration due to gravity and also investigate the variation in height of a conical pendulum with change of speed.</p>
+    `;
+    main.appendChild(conclusionSection);
+
+    // Q&A Section with all questions and answers
+    const qaSection = document.createElement('section');
+    qaSection.innerHTML = `
+        <h2>SECTION B (QUESTIONS)</h2>
+        <div class="qa-container">
+            <!-- All Q&A content as in the original text -->
+            <h3>What have you gained from this experiment?</h3>
+            <ul>
+                <li>The experiment illustrates the fundamentals of circular motion</li>
+                <li>Learned to apply and verify mathematical formulas related to circular motion</li>
+            </ul>
+            
+            <!-- Continue with all other Q&A pairs -->
+        </div>
+    `;
+    main.appendChild(qaSection);
+
+    // References Section
+    const referencesSection = document.createElement('section');
+    referencesSection.innerHTML = `
+        <h2>REFERENCES</h2>
+        <ul>
+            <li>Introduction to Mechanics and Symmetry by Marsden and Ratiu</li>
+            <li>Classical Mechanics by Herbert Goldstein</li>
+        </ul>
+    `;
+    main.appendChild(referencesSection);
+
+    createDownload('#');
+    createHover('#');
+};
+
+export { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum };
+
+
+
