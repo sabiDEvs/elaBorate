@@ -76,4 +76,4 @@ body.appendChild(aside);
 const main = document.createElement('main');
 body.appendChild(main);
 displayStarted();
-renderFooter(body);
+renderFooter(body, [hme, rpt, abt]);
