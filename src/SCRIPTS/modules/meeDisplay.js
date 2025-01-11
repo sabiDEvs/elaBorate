@@ -9,6 +9,14 @@ import pic8 from '../../RESOURCES/images/measuring guage.png';
 import pic9 from '../../RESOURCES/images/protractor scale.png';
 import pic10 from '../../RESOURCES/images/cama.png';
 import pic11 from '../../RESOURCES/images/camb.png';
+import pic12 from '../../RESOURCES/images/stopwatch.png';
+import pic13 from '../../RESOURCES/images/metreStick.png';
+import pic14 from '../../RESOURCES/images/rigidStand.png';
+import pic15 from '../../RESOURCES/images/bobMass.png';
+import pic16 from '../../RESOURCES/images/conicalGraph.png';
+import pic17 from '../../RESOURCES/images/hangar.png';
+import pic18 from '../../RESOURCES/images/mee_weights.png';
+import pic19 from '../../RESOURCES/images/pulley.png';
 import pic112 from '../../RESOURCES/images/download-icon.png';
 import pic113 from '../../RESOURCES/images/download.png';
 
@@ -673,6 +681,11 @@ const displayShearForceExperiment = () => {
 const displayCamFollower = () => {
     const main = reset();
 
+    // Header
+    const header = document.createElement('h1');
+    header.textContent = 'Radial Cam and Follower {AM221}';
+    main.appendChild(header);
+
     // Theory Section
     const theorySection = document.createElement('section');
     theorySection.innerHTML = `
@@ -700,10 +713,10 @@ const displayCamFollower = () => {
     apparatusSection.innerHTML = `
         <h2>APPARATUS</h2>
         <ul>
-            <li><div><img src=${pic6}><p>Dial gauge plunger</p></div></li>
-            <li><div><img src=${pic7}><p>Roller follower</p></div></li>
-            <li><div><img src=${pic8}><p>Measuring gauge</p></div></li>
-            <li><div><img src=${pic9}><p>Protractor scale</p></div></li>
+            <li><div><p>Dial gauge plunger</p><img src=${pic6}></div></li>
+            <li><div><p>Roller follower</p><img src=${pic7}></div></li>
+            <li><div><p>Measuring gauge</p><img src=${pic8}></div></li>
+            <li><div><p>Protractor scale</p><img src=${pic9}></div></li>
         </ul>
     `;
     main.appendChild(apparatusSection);
@@ -1037,12 +1050,17 @@ main.appendChild(qaSection);
 const displayConicalPendulum = () => {
     const main = reset();
 
+    // Header
+    const header = document.createElement('h1');
+    header.textContent = 'The Conical Pendulum {AM225}';
+    main.appendChild(header);
+
     // Theory Section
     const theorySection = document.createElement('section');
     theorySection.innerHTML = `
         <h2>THEORY</h2>
-        <p>A pendulum is a weight suspended from a fixed point so that it can swing freely back and forth under the influence of gravity. The pendulum swings due to the force of gravity, which pulls the bob towards the equilibrium position (lowest point of the swing). The motion is periodic, meaning it repeats itself in a regular cycle.</p>
-        <p>A conical pendulum is a type of pendulum in which a mass (called the bob) is attached to a string or rod of fixed length and moves in a horizontal circular path, making the string trace the surface of a cone.</p>
+        <p>A pendulum is a weight suspended from a fixed point so that it can swing freely back and forth under the influence of gravity. The pendulum swings due to the force of gravity, which pulls the bob towards the equilibrium position (lowest point of the swing). The motion is periodic, meaning it repeats itself in a regular cycle. The time period of a pendulum is the time it takes for the bob to complete one full swing back and forth.</p>
+        <p>A conical pendulum is a type of pendulum in which a mass (called the bob) is attached to a string or rod of fixed length and moves in a horizontal circular path, making the string trace the surface of a cone. Structure of the Conical Pendulum includes : The bob is the mass at the end of the string, the string or rod is inextensible and of fixed length, the bob rotates in a horizontal circle, and the string makes a constant angle with the vertical axis. They are used in clocks and other timing devices, and also used to demonstrate the principles of circular motion and dynamics. The essence of this conical pendulum experiment is that it is a practical way to study uniform circular motion, centripetal force, and the relationship between various physical quantities such as tension, radius, and angular velocity.</p>
         <h3>Structure of the Conical Pendulum:</h3>
         <ul>
             <li>The bob is the mass at the end of the string</li>
@@ -1058,11 +1076,11 @@ const displayConicalPendulum = () => {
     apparatusSection.innerHTML = `
         <h2>APPARATUS</h2>
         <ul>
-            <li>Stop watch</li>
-            <li>Metre stick/Ruler</li>
-            <li>Rigid stand</li>
-            <li>Protractor scale</li>
-            <li>Mass bob</li>
+            <li><div><p>Stop watch</p><img src=${pic12}></div></li>
+            <li><div><p>Metre stick/Ruler</p><img src=${pic13}></div></li>
+            <li><div><p>Rigid stand</p><img src=${pic14}></div></li>
+            <li><div><p>Protractor Scale</p><img src=${pic9}></div></li>
+            <li><div><p>Mass bob</p><img src=${pic15}></div></li>
         </ul>
     `;
     main.appendChild(apparatusSection);
@@ -1071,24 +1089,79 @@ const displayConicalPendulum = () => {
     const resultsSection = document.createElement('section');
     resultsSection.innerHTML = `
         <h2>RESULTS</h2>
+        <p>Below are youtube videos that illustrate the procedures for the conical pendulum experiment</p>
         <div class="video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/tBu8sBJ3ER0" frameborder="0" allowfullscreen></iframe>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/0CaWx_ghSbI" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="table-container">
+            <div><strong>NOTE: this is an example of how the table looks like not the actual table input the values calculated or gotten from the experiment into the tables under each column correctly</strong></div>
             <h3>TABLE OF RESULTS</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Length (cm)</th>
-                        <th>Angle (°)</th>
-                        <th>Period (s)</th>
-                        <th>Height (cm)</th>
-                        <th>Radius (cm)</th>
+                        <th>S/N</th>
+                        <th>θ</th>
+                        <th>L (mm)</th>
+                        <th>h (m)</th>
+                        <th>1/h (m)</th>
+                        <th>N</th>
+                        <th>W</th>
+                        <th>W<sup>2</sup></th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- To be filled with experimental data -->
+                    <tr>
+                        <td>1</td>
+                        <td>40<sup>o</sup></td>
+                        <td>230</td>
+                        <td>0.1761</td>
+                        <td>5.675</td>
+                        <td>70</td>
+                        <td>7.331</td>
+                        <td>53.94</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>50<sup>o</sup></td>
+                        <td>230</td>
+                        <td>0.1478</td>
+                        <td>6.705</td>
+                        <td>80</td>
+                        <td>8.378</td>
+                        <td>70.19</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>60<sup>o</sup></td>
+                        <td>230</td>
+                        <td>0.1159</td>
+                        <td>8.694</td>
+                        <td>90</td>
+                        <td>9.426</td>
+                        <td>88.849</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>70<sup>o</sup></td>
+                        <td>230</td>
+                        <td>0.0786</td>
+                        <td>12.427</td>
+                        <td>105</td>
+                        <td>10.997</td>
+                        <td>120.494</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>80<sup>o</sup></td>
+                        <td>230</td>
+                        <td>0.0384</td>
+                        <td>25.062</td>
+                        <td>145</td>
+                        <td>15.186</td>
+                        <td>230.484</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -1131,16 +1204,16 @@ const displayConicalPendulum = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>The pendulum moves in a horizontal circular path</td>
-                        <td>Ensure string is properly tensioned</td>
+                        <td>I observed that the pendulum's bob travels at a steady speed in a horizontal circular path</td>
+                        <td>I ensured that the angle of elevation between the string and the vertical was measured precisely so that the calculation of forces won't be wrong</td>
                     </tr>
                     <tr>
-                        <td>Angle remains constant during motion</td>
-                        <td>Avoid parallax errors when measuring angles</td>
+                        <td>I observed that as the pendulum swings, the angle between the string and the vertical axis stays constant, indicating a consistent circular motion</td>
+                        <td>I ensured that the length of the string remained constant and was measured accurately before the experiment</td>
                     </tr>
                     <tr>
-                        <td>Period remains constant for given length</td>
-                        <td>Take multiple readings for accuracy</td>
+                        <td>I observed that the length of the string and the gravitational acceleration determine how long it takes for one full revolution, or period, which is measured by the duration of a whole rotation</td>
+                        <td>I ensured that the point of attachment of the pendulum was stable to prevent any wobbling or shifting during the experiment</td>
                     </tr>
                 </tbody>
             </table>
@@ -1152,12 +1225,14 @@ const displayConicalPendulum = () => {
     const graphsSection = document.createElement('section');
     graphsSection.innerHTML = `
         <h2>GRAPHS</h2>
+        <p>Below is a youtube video on how to draw a graph</p>
         <div class="video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/9kJ5vyfW0n4" frameborder="0" allowfullscreen></iframe>
         </div>
         <h3>GRAPH OF W² AGAINST 1/H</h3>
         <div class="graph-container">
             <!-- Graph placeholder -->
+            <img src=${pic16}>
         </div>
     `;
     main.appendChild(graphsSection);
@@ -1167,9 +1242,9 @@ const displayConicalPendulum = () => {
     discussionSection.innerHTML = `
         <h2>DISCUSSION</h2>
         <ul>
-            <li>Measurements that are inaccurate: Length of the String, Time Period (T), Angle of Inclination (θ)</li>
-            <li>Resistance of the Air: Air resistance-induced drag forces can attenuate motion</li>
-            <li>Elasticity of the String: String stretching can alter effective length</li>
+            <li>Measurements that are inaccurate: Length of the String: Inaccurate measurements of the pendulum string's length will result in inaccurate calculations of the centripetal force and the radius of the circular path. Time Period (T): The derived frequency and angular velocity are impacted by inaccurate oscillation timing, which can be caused by human reaction time or counting errors. Angle of Inclination (θ): If the observer is not at eye level, parallax errors may be introduced while estimating the angle between the string and the vertical axis.</li>
+            <li>Resistance of the Air: Air resistance-induced drag forces have the potential to attenuate motion and lower tangential velocity, deviating from theoretical predictions</li>
+            <li>-Elasticity of the String: If the string stretches during the experiment, the effective length varies, altering the radius and the tension force</li>
         </ul>
     `;
     main.appendChild(discussionSection);
@@ -1178,7 +1253,7 @@ const displayConicalPendulum = () => {
     const conclusionSection = document.createElement('section');
     conclusionSection.innerHTML = `
         <h2>CONCLUSION</h2>
-        <p>At the end of this experiment, we were able to calculate the acceleration due to gravity and also investigate the variation in height of a conical pendulum with change of speed.</p>
+        <p>At the end of this experiment, we were able to calculate the acceleration due to gravity and also investigate the variation in height of a conical pendulum with change of speed.At the end of this experiment, we were able to calculate the acceleration due to gravity and also investigate the variation in height of a conical pendulum with change of speed.</p>
     `;
     main.appendChild(conclusionSection);
 
@@ -1190,11 +1265,91 @@ const displayConicalPendulum = () => {
             <!-- All Q&A content as in the original text -->
             <h3>What have you gained from this experiment?</h3>
             <ul>
-                <li>The experiment illustrates the fundamentals of circular motion</li>
-                <li>Learned to apply and verify mathematical formulas related to circular motion</li>
+                <li>The experiment illustrates the fundamentals of circular motion, specifically the connection between the pendulum's forces, radius, and angular velocity. It facilitates comprehension of how the string stays at an angle as the object travels in a horizontal circle.</li>
+                <li>I learnt the experiment provides an opportunity to apply and verify mathematical formulas related to circular motion, such as the tension in the string, the angle of inclination, and the period of revolution.</li>
             </ul>
-            
+            <h3>What Role Did You Play During The Experiment:</h3>
+            <ul>
+                <li>I took the measurement of the length of the string</li>
+                <li>I was responsible for adjusting or controlling the motion of the pendulum, ensuring that it moves steadily in a horizontal circle without significant oscillations or deviation.</li>
+            </ul>
+            <h3> Could You Have Performed This Experiment By Yourself:</h3>
+            <p>NO: Because I will not be able to take my readings accurately without guidance or external help to verify the accuracy of the readings/result</p>
+            <h3>Comment On The Experimental Procedure To Justify Its Suitability For Accuracy Of Results And Time Saving:</h3>
+            <p>The conical pendulum experiment is a tried-and-true technique that provides accurate findings and efficient time management, making it a useful tool for researching forces and circular motion. From setup to data collection and analysis, the experiment's process is crucial to guaranteeing accurate results while cutting down on the amount of time needed to complete the experiment. A key factor in achieving accurate results is the precise setup of the apparatus. The pendulum is securely fixed at a stable point, and the string's length is measured with precision, minimizing errors due to instability or inconsistencies. By ensuring that the pendulum moves in a consistent and controlled manner, the experiment effectively isolates critical variables, such as the angle of inclination and the period of one complete revolution. This well-structured setup reduces the impact of external factors like air resistance or surface irregularities, which might otherwise distort the results. The experimental procedure for the conical pendulum is well-suited for both accuracy and time efficiency. Its straightforward setup, use of simple measurement tools, and controlled variables ensure reliable results. Additionally, the process of collecting and analyzing data is quick and efficient, making it a practical choice for obtaining accurate results within a limited timeframe.</p>
             <!-- Continue with all other Q&A pairs -->
+            <h3>What Was The Most Difficult Aspect Of The Experiment?</h3>
+            <ul>
+                <li>One of the key variables in the experiment is the angle of inclination of the string. Ensuring that the angle remains constant throughout the motion of the pendulum can be tricky. Small disturbances, such as air currents or slight adjustments in the string's length, can cause variations in the angle, which may lead to inaccurate measurements.</li>
+                <li>One of the most difficult part of the experiment was to yield accurate results, and to do that, the pendulum must move in a consistent horizontal circle. This requires precise control of the string's tension and the pendulum's speed. Even minor variations in the force acting on the pendulum or slight changes in the bob's position can disturb the circular motion, complicating the accurate measurement of the radius and period</li>
+            </ul>
+            <h3>What Was The Most Difficult Aspect Of The Experiment?</h3>
+            <ul>
+                <li>One of the key variables in the experiment is the angle of inclination of the string. Ensuring that the angle remains constant throughout the motion of the pendulum can be tricky. Small disturbances, such as air currents or slight adjustments in the string's length, can cause variations in the angle, which may lead to inaccurate measurements.</li>
+                <li>One of the most difficult part of the experiment was to yield accurate results, and to do that, the pendulum must move in a consistent horizontal circle. This requires precise control of the string's tension and the pendulum's speed. Even minor variations in the force acting on the pendulum or slight changes in the bob's position can disturb the circular motion, complicating the accurate measurement of the radius and period.</li>
+            </ul>
+
+            <h3>Name And Describe Any Apparatus Or Method You Know Can Be Used To Perform This Same Experiment:</h3>
+            <h4>Traditional Conical Pendulum Setup (Standard Method)</h4>
+            <h4>Apparatus Used:</h4>
+            <ul>
+                <li>String: A lightweight and durable material, such as nylon or cotton thread, is used to suspend the pendulum bob.</li>
+                <li>Pendulum Bob: A small mass, often a spherical object like a metal or plastic ball, is attached to the string.</li>
+                <li>Support Stand: A stable fixture, such as a rod or clamp, holds the string securely. The stand is typically mounted on a sturdy base to reduce vibrations</li>
+                <li>Protractor: Used to measure the angle between the string and the vertical axis.</li>
+                <li>Stopwatch: A precise timing device is used to record the duration of one complete revolution (the period).</li>
+                <li>Ruler or Measuring Tape: Used to determine the radius of the pendulum's circular path.</li>
+            </ul>
+            <h4>Method:</h4>
+            <p>The pendulum is set in motion to trace a horizontal circular path. The angle between the string and the vertical is measured using a protractor, and the period of the pendulum's motion is recorded with a stopwatch. Additionally, the radius of the circular trajectory is measured for further calculations.</p>
+
+            <h3>List The Parameters Required In This Experiment:</h3>
+            <ul>
+                <li>Length (mm)</li>
+                <li>Angle in degrees (°)</li>
+                <li>Mass (kg)</li>
+                <li>Period (s)</li>
+                <li>Acceleration due to gravity (g)</li>
+            </ul>
+
+            <h3>Briefly Discuss One Measuring Instrument Used In This Experiment:</h3>
+            <ul>
+                <li>Protractor Scale: is used to measure the angle of inclination in degrees</li>
+                <li>Meter rule: use to calculate the length of the string.</li>
+            </ul>
+
+            <h3>Discuss Briefly The Practical Relevance/Application Of The Experiment:</h3>
+            <p>The conical pendulum experiment is most directly applicable in studying rotational motion and the forces acting on objects in circular motion. It offers a practical understanding of the need for centripetal force to sustain circular movement. This knowledge is vital in designing various mechanical systems. For instance, centrifuges in laboratories and industries use rotational motion to separate substances by density. Similarly, the principles learned from the conical pendulum are applied in flywheels and gears, which are essential components in engines and machinery, to determine the forces required for maintaining stability and ensuring efficient operation. the conical pendulum experiment has widespread practical applications across a range of disciplines. It is essential for understanding rotational motion, centripetal forces, and the dynamics of circular paths. The experiment's principles are applied in designing rotating machinery, satellite orbits, amusement rides, and gyroscopic systems, all of which play significant roles in technology and industry. Additionally, it serves as a valuable educational tool, helping students grasp complex physics concepts in a hands-on and interactive way. Through its diverse applications, the conical pendulum experiment continues to offer insights that are fundamental to both scientific research and practical engineering</p>
+
+            <h3>State The Section Of The Course That The Experiment Best Relates:</h3>
+            <ul>
+                <li>Rotational Dynamics/Circular Motion</li>
+                <li>Mechanics</li>
+            </ul>
+
+            <h3>List The Suggestions You Made While Carrying Out The Experiment:</h3>
+            <ul>
+                <li>I suggested that the String is tensioned Properly to ensure the string is taut before starting the experiment to avoid any slack, which could lead to inaccuracies in the measurements of the angle or radius.</li>
+                <li>I suggested that the angle should be measures accurately to make sure to use a precise instrument like a protractor or a digital inclinometer to measure the angle of inclination (θ) accurately. Small variations in the angle can lead to significant errors in calculating the radius or centripetal force.</li>
+            </ul>
+
+            <h3>List The Suggestions Made By The Members Of Your Group:</h3>
+            <ul>
+                <li>We suggested that we measure the period multiple times to ensure accuracy, and calculate the average. This helps eliminate any inconsistencies or timing errors.</li>
+                <li>We suggested that two of the members of the group should take the results of the readings to avoid wrong values.</li>
+            </ul>
+
+            <h3>Did You Put Down The Experimental Results In Your Book At The Time Of The Experiment?:</h3>
+            <p>YES: I put down the results at the time of the experiment to avoid copying or write down wrong values later OR I recorded the experiment results in my workbook at the time of the experiment to ensure accuracy and prevents errors that may occur when relying on others later or memory.</p>
+
+            <h3>Discuss Anything That Interested You Most During The Experiment:</h3>
+            <ul>
+                <li>One of the most captivating parts of the conical pendulum experiment was witnessing how centripetal and gravitational forces work together to sustain circular motion. It was intriguing to see how these forces counterbalance each other, with the tension in the string having both vertical and horizontal components. The way the pendulum bob followed a smooth, circular path, while the string remained at a fixed angle, was visually impressive and helped clarify the abstract concept of forces in circular motion.</li>
+                <li>Another fascinating aspect of the experiment was exploring the connection between the string length and the radius of the circular path. It was interesting to observe how altering the string length directly influenced the radius of the pendulum's motion and, in turn, affected the force calculations. The mathematical relationship between these physical variables highlighted the importance of precision in measuring angles, length, and time to achieve accurate results.</li>
+            </ul>
+
+            <h3>Did You Come To The Laboratory With The Laboratory Manual?:</h3>
+            <p>YES: because it is required for me to follow up with the practical</p>
         </div>
     `;
     main.appendChild(qaSection);
@@ -1213,8 +1368,345 @@ const displayConicalPendulum = () => {
     createDownload('#');
     createHover('#');
 };
+const displayFlywheel = () => {
+    const main = reset();
 
-export { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum };
+    // Header
+    const header = document.createElement('h1');
+    header.textContent = 'Flywheels and Falling Weight {AM229}';
+    main.appendChild(header);
+
+    // Theory Section
+    const theorySection = document.createElement('section');
+    theorySection.innerHTML = `
+        <h2>THEORY</h2>
+        <p>A flywheel is a rotating mechanical device designed to store rotational energy. It usually consists of a heavy wheel or disc that rotates on an axle. The energy is stored as kinetic energy, which depends on both the rotational speed and the flywheel's mass</p>
+        <p>Flywheels are often used in systems that need a consistent, steady energy supply, such as in engines, power plants, and certain energy storage applications. A falling weight system utilizes the potential energy of a weight that descends due to gravity. As the weight drops, it transfers energy via a mechanical connection, commonly winding a rope or moving a lever. This system can be employed for lifting, performing mechanical tasks, or generating power.</p>
+        <p>A flywheel and falling weight experiment can be designed to study the conversion of potential energy (from the falling weight) into rotational kinetic energy (in the flywheel) and the efficiency of the energy transfer.</p>
+    `;
+    main.appendChild(theorySection);
+
+    // Apparatus Section
+    const apparatusSection = document.createElement('section');
+    apparatusSection.innerHTML = `
+        <h2>APPARATUS</h2>
+        <ul>
+            <li><div><p>Hanger</p><img src=${pic17}></div></li>
+            <li><div><p>Weights</p><img src=${pic18}></div></li>
+            <li><div><p>Stop watch</p><img src=${pic12}></div></li>
+            <li><div><p>Protractor scale</p><img src=${pic9}></div></li>
+            <li><div><p>Metre rule</p><img src=${pic13}></div></li>
+            <li><div><p>Pulley</p><img src=${pic19}></div></li>
+        </ul>
+    `;
+    main.appendChild(apparatusSection);
+
+    // Results Section with Video
+    const resultsSection = document.createElement('section');
+    resultsSection.innerHTML = `
+        <h2>RESULTS</h2>
+        <p>Below is a youtube video that illustrates the procedures for the Flywheels and falling weight experiment</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/BfttOey8n2E" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div><strong>NOTE: this is an example of how the table looks like not the actual table input the values calculated or gotten from the experiment into the tables under each column correctly.</strong></div>
+        <h3>TABLE OF RESULTS</h3>
+        <div class="tables-container">
+            <table>
+                <caption>Flywheel Table</caption>
+                <thead>
+                    <tr>
+                        <th>Mass (kg)</th>
+                        <th>Ascending Time (sec)</th>
+                        <th>Descending Time (sec)</th>
+                        <th>No of rev ascending</th>
+                        <th>No of rev descending</th>
+                        <th>Acceleration (m/s²)</th>
+                        <th>K</th>
+                        <th>Height (m)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- To be filled with experimental data -->
+                    <tr>
+                        <td>1kg</td>
+                        <td>8.96</th>
+                        <td>9.93</td>
+                        <td>4</td>
+                        <td>7</td>
+                        <td>0.02</td>
+                        <td> </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>2kg</td>
+                        <td>6.64</th>
+                        <td>6.38</td>
+                        <td>6</td>
+                        <td>8</td>
+                        <td>0.049</td>
+                        <td> </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>3kg</td>
+                        <td>5.24</th>
+                        <td>5.53</td>
+                        <td>6</td>
+                        <td>8</td>
+                        <td>0.065</td>
+                        <td> </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>4kg</td>
+                        <td>5.50</th>
+                        <td>4.60</td>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>0.095</td>
+                        <td> </td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>5kg</td>
+                        <td>4.70</th>
+                        <td>4.25</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>0.11</td>
+                        <td> </td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <caption>Falling Weight Table</caption>
+                <thead>
+                    <tr>
+                        <th>Mass</th>
+                        <th>Time (s)</th>
+                        <th>No of Revolutions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- To be filled with experimental data -->
+                    <tr>
+                        <td>1kg</td>
+                        <td>8.29</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>2kg</td>
+                        <td>5.68</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>3kg</td>
+                        <td>4.55</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>4kg</td>
+                        <td>3.95</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>5kg</td>
+                        <td>3.52</td>
+                        <td>6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    main.appendChild(resultsSection);
+
+    const analysisSection = document.createElement('section');
+    analysisSection.innerHTML = `
+        <h2>ANALYSIS</h2>
+        <div class="formulas">
+            <p>a = 2 * h/t<sup>2</sup></p>
+            <p>where:</p>
+            <ul>
+                <li>h = Height</li>
+                <li>a = Acceleration</li>
+                <li>t = Descending time</li>
+            </ul>
+        </div>
+
+        <div class="observations">
+            <h3>OBSERVATIONS AND PRECAUTIONS</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OBSERVATIONS</th>
+                        <th>PRECAUTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>I observed that the number of revolutions for the falling weight remained constant</td>
+                        <td>I ensured that the axil was lubricated</td>
+                    </tr>
+                    <tr>
+                        <td>I observed that as the weight falls, its potential energy decreases while the flywheel's rotational kinetic energy increases</td>
+                        <td>I ensured that the cord is well arranged on the axil when rotating</td>
+                    </tr>
+                    <tr>
+                        <td>I observed that when increasing the mass of the falling weight increases the potential energy, leading to a faster rotation of the flywheel</td>
+                        <td>I ensured that I avoided error due to parallax when taking the readings</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    main.appendChild(analysisSection);
+
+    // Graphs Section
+    const graphsSection = document.createElement('section');
+    graphsSection.innerHTML = `
+        <h2>GRAPHS</h2>
+        <p><strong>NOTE: Graph of Acceleration against weight</strong></p>
+        <p>Below is a youtube video on how to draw a graph</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/9kJ5vyfW0n4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+    `;
+    main.appendChild(graphsSection);
+
+
+    // Discussion Section
+    const discussionSection = document.createElement('section');
+    discussionSection.innerHTML = `
+        <h2>DISCUSSION</h2>
+        <p>Friction can cause errors. Energy losses due to friction at the flywheel's axle, the pulley, and the contact between the string and the pulley reduce the amount of energy transferred to the flywheel. As a result, the rotational kinetic energy of the flywheel is less than the potential energy initially calculated for the falling weight. Even with energy losses from friction and other sources, the outcomes should adhere to the principle of energy conservation. The total of the flywheel’s rotational kinetic energy plus the energy lost (for example, to friction) should roughly equal the potential energy of the falling weight.</p>
+        <p>Inaccurate measurements can cause errors. Inaccuracies in measuring the height of the falling weight, its mass, or the angular velocity (ω) of the flywheel can result in errors in energy calculations. Additionally, timing errors, particularly when using manual tools such as a stopwatch, can further compromise the reliability of the data. Although the theoretical energy values may differ from the experimental results due to losses and assumptions, the observed trends—such as increased energy input resulting in higher angular velocity—should match theoretical expectations, validating the experiment's findings</p>
+    `;
+    main.appendChild(discussionSection);
+
+    // Conclusion Section
+    const conclusionSection = document.createElement('section');
+    conclusionSection.innerHTML = `
+        <h2>CONCLUSION</h2>
+        <p>At the end of this experiment, we determined the moment of inertia of a flywheel and to use this to verify Newton’s laws as applied in this case. This experiment demonstrates the principle of energy conservation, where the potential energy of the falling weight is converted into the rotational kinetic energy of the flywheel and energy lost due to friction and other factors</p>
+    `;
+    main.appendChild(conclusionSection);
+
+    // Q&A Section with all questions and answers
+    const qaSection = document.createElement('section');
+    qaSection.innerHTML = `
+        <h2>SECTION B (QUESTIONS)</h2>
+        <div class="qa-container">
+            <!-- All Q&A content as in the original text -->
+            <h3>What have you gained from this experiment?</h3>
+            <ul>
+                <li>I have gained a deeper understanding of the principle of energy conservation and how potential energy is transformed into rotational kinetic energy</li>
+                <li>I have also learned about the effects of friction and other losses on energy transfer, as well as the challenges associated with accurate measurements</li>
+                <li>I have also acquired knowledge about how flywheels are used in practical scenarios, such as energy storage, mechanical clocks, and automotive systems, enhancing an appreciation for the engineering significance of such devices.</li>
+            </ul>
+            <h3>What Role Did You Play During The Experiment:</h3>
+            <ul>
+                <li>I Observed if there are any irregularities or issues (e.g., friction, rope slippage, or air resistance) that might have affected the accuracy of the results.</li>
+                <li>I collected the data by writing down the values/parameters needed to perform the experiment and analyzed the data for my group </li>
+            </ul>
+            <h3> Could You Have Performed This Experiment By Yourself:</h3>
+            <p>NO: Because I will not be able to take my readings accurately without guidance or external help to verify the accuracy of the readings/results</p>
+            <p><strong>NOTE:</strong> if you feel otherwise you can answer yes.</p>
+            <h3>Comment On The Experimental Procedure To Justify Its Suitability For Accuracy Of Results And Time Saving:</h3>
+            <p>The use of proper measurement tools plays a crucial role in ensuring the accuracy of the experiment. The procedure suggests using a protractor or angular velocity sensor to measure the flywheel's rotational speed, minimizing human error and ensuring precise data collection. Additionally, tools such as a scale for measuring weight and a ruler for determining height provide the necessary accuracy for reliable energy calculations. A stopwatch is also included to accurately time the fall of the weight, which is essential for determining accurate energy transfer rates. The experimental procedure is also well-suited for time efficiency. The setup is relatively simple and does not require complex or specialized equipment. Basic components, such as a pulley, flywheel, and weight, are sufficient for conducting the experiment. This simplicity allows the experiment to be set up quickly, minimizing the time required for preparation. Moreover, the clear guidelines provided in the procedure reduce the likelihood of errors during setup, ensuring that the experiment can proceed smoothly without unnecessary delays. Furthermore, the analysis phase is simple and efficient. Comparing potential energy with rotational kinetic energy involves basic calculations, and the results can be quickly interpreted to evaluate the system's efficiency. The experiment avoids complex or time-consuming analysis, allowing more time for meaningful interpretation rather than extensive data processing.</p>
+            <!-- Continue with all other Q&A pairs -->
+            <h3>What Was The Most Difficult Aspect Of The Experiment?</h3>
+            <ul>
+                <li>One of the key variables in the experiment is the angle of inclination of the string. Ensuring that the angle remains constant throughout the motion of the pendulum can be tricky. Small disturbances, such as air currents or slight adjustments in the string's length, can cause variations in the angle, which may lead to inaccurate measurements.</li>
+                <li>One of the most difficult part of the experiment was to yield accurate results, and to do that, the pendulum must move in a consistent horizontal circle. This requires precise control of the string's tension and the pendulum's speed. Even minor variations in the force acting on the pendulum or slight changes in the bob's position can disturb the circular motion, complicating the accurate measurement of the radius and period</li>
+            </ul>
+            <h3>What Was The Most Difficult Aspect Of The Experiment?</h3>
+            <ul>
+                <li>The most difficult aspect was managing the measurement inaccuracies, particularly with timing and the potential for friction losses</li>
+                <li>The most difficult part was accurately timing the fall of the weight using a stopwatch was challenging, as even slight delays could impact the results.</li>
+            </ul>
+            <p><strong>In conclusion:</strong> the most challenging aspect of the experiment is controlling external factors, particularly friction and air resistance, as well as ensuring precise measurements of angular velocity and rope dynamics. These sources of error add complexity to the experiment and make it difficult to obtain results that perfectly match theoretical predictions. Nonetheless, recognizing and managing these challenges is crucial for conducting accurate experiments in real-world scenarios.</p>
+            <h3>Name And Describe Any Apparatus Or Method You Know Can Be Used To Perform This Same Experiment:</h3>
+            <ul>
+                <li>Ballistic Pendulum, brake dynometer, strain gauge etc</li>
+                <li>Rotational Apparatus with a Flywheel: A rotational apparatus generally includes a flywheel mounted on a stationary axle, with a pulley system attached. The flywheel may take various forms, such as a disk or ring, and its mass distribution can differ. This setup facilitates the conversion of potential energy from a falling weight into rotational kinetic energy, simulating the intended system. The flywheel is linked to a rope that wraps around a pulley. A mass is attached to the free end of the rope, and the weight is released from a predetermined height. As the weight descends, it causes the flywheel to rotate. The motion is then monitored to determine the angular velocity, and the energy transfer between the falling weight and the rotating flywheel is analyzed.</li>
+                <li>One apparatus that can be used to perform this experiment is a rotational motion sensor or angular velocity sensor. This device provides precise measurements of the flywheel's rotational speed, eliminating human error that can arise from manual methods such as using a protractor. Additionally, laser tachometers or optical encoders can be used to measure the flywheel's angular velocity with high accuracy.</li>
+                
+
+            <h3>List The Parameters Required In This Experiment:</h3>
+            <ul>
+                <li>Mass (kg)</li>
+                <li>Radius of flywheel (m)</li>
+                <li>Height of falling weight (m)</li>
+                <li>Moment of Inertia</li>
+            </ul>
+
+            <h3>Briefly Discuss One Measuring Instrument Used In This Experiment:</h3>
+            <ul>
+                <li>Stop Watch: is used to measure the period/ time taken for the falling weight to descend and flywheel to rotate.</li>
+            </ul>
+
+            <h3>Discuss Briefly The Practical Relevance/Application Of The Experiment:</h3>
+            <ul>
+                <li>Flywheels are widely used for energy storage in modern systems, such as flywheel energy storage systems (FESS). In these systems, energy is stored in the form of rotational kinetic energy, which can later be converted back into electrical energy when needed. The experiment demonstrates the fundamental principles of how a falling weight (potential energy) can be converted into rotational energy, which is a concept used in flywheel energy storage applications</li>
+                <li>Flywheels are commonly used in machinery and vehicles, including automobile engines and industrial machinery, to smooth out fluctuations in power delivery. The ability of a flywheel to store and release energy helps maintain consistent performance</li>
+                <li>-The experiment helps illustrate key principles in rotational dynamics, such as the relationship between angular velocity, moment of inertia, and rotational kinetic energy. This understanding is applicable in fields ranging from mechanical engineering to robotics and aerospace engineering, where the precise control of rotational motion is crucial.</li>
+            </ul>
+
+            <h3>State The Section Of The Course That The Experiment Best Relates:</h3>
+            <ul>
+                <li>Work and Energy</li>
+                <li>Rotational Dynamics</li>
+                <li>-Mechanical Energy</li>
+                <li>Conservation of Energy</li>
+            </ul>
+
+            <h3>List The Suggestions You Made While Carrying Out The Experiment:</h3>
+            <ul>
+                <li> I suggested that experiment be repeated more than once to minimize errors</li>
+                <li>I suggested that the axle and pulley should be lubricated to reduce frictional losses, ensuring that as much of the potential energy as possible is converted into rotational kinetic energy rather than heat</li>
+            </ul>
+
+            <h3>List The Suggestions Made By The Members Of Your Group:</h3>
+            <ul>
+                <li>We suggested that the calculations should be cross checked if there are errors or not</li>
+                <li>We suggested that we take check the equipment for wear or damage before beginning the experiment. This ensured that the mechanism would operate smoothly and without any interference caused by surface imperfections.</li>
+            </ul>
+
+            <h3>Did You Put Down The Experimental Results In Your Book At The Time Of The Experiment?:</h3>
+            <p>YES:  I put down the results at the time of the experiment to avoid copying or write down wrong values later OR I recorded the experiment results in my workbook at the time of the experiment to ensure accuracy and prevents errors that may occur when relying on others later or memory.</p>
+
+            <h3>Discuss Anything That Interested You Most During The Experiment:</h3>
+            <ul>
+                <li>What fascinated me most during the experiment was observing the conversion of potential energy of the falling weight into kinetic energy</li>
+            </ul>
+
+            <h3>Did You Come To The Laboratory With The Laboratory Manual?:</h3>
+            <p>YES: because it is required for me to follow up with the practical</p>
+        </div>
+    `;
+    main.appendChild(qaSection);
+    
+    
+    // References Section
+    const referencesSection = document.createElement('section');
+    referencesSection.innerHTML = `
+        <h2>REFERENCES</h2>
+        <ul>
+            <li>Introduction to Classical Mechanics by David Morin</li>
+            <li>Engineering Mechanics: Dynamics by J.L. Meriam and L.G. Kraige</li>
+        </ul>
+    `;
+    main.appendChild(referencesSection);
+    createDownload('#');
+    createHover('#');
+};
+
+export { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel };
+
+
 
 
 

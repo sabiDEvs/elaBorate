@@ -1,7 +1,7 @@
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import '../CSS/mee.css';
-import { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum} from './modules/meeDisplay';
+import { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel} from './modules/meeDisplay';
 
 const hme = "./index.html";
 const rpt = "./report/report.html";
@@ -25,6 +25,10 @@ let reports = [
         title: 'The Conical Pendulum {AM225}',
         func: displayConicalPendulum
     },
+    {
+        title: 'Flywheels and Falling Weight {AM229}',
+        func: displayFlywheel
+    },
 ];
 //display  header
 renderHeader(body, [hme, rpt, abt]);
@@ -40,7 +44,7 @@ close.id = 'closeButton';
 aside.appendChild(close);
 //create aside header
 const heading = document.createElement('h3');
-heading.textContent = 'PRE ELA TOPICS';
+heading.textContent = 'MEE ELA TOPICS';
 aside.appendChild(heading);
 //create div to store reports list
 const reportDiv = document.createElement('div');
