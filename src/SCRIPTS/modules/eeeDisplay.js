@@ -212,7 +212,7 @@ const displayStarted = () => {
   repSection.appendChild(precautions);
   const conclusions = displayTask("7", "Conclusion:", [
     "Summarize the outcomes of the experiment.",
-    "~Example: “At the end of this experiment, we were able to develop a lap joint, understand the sequence of operations involved, and achieve a comprehensive understanding of the process.”",
+    "Example: “At the end of this experiment, we were able to develop a lap joint, understand the sequence of operations involved, and achieve a comprehensive understanding of the process.”",
   ]);
   repSection.appendChild(conclusions);
   const references = displayTask("8", "References:", [
@@ -1908,6 +1908,327 @@ const displayEE203 = () => {
         const download = createDownload('#');
         main.appendChild(download);
 };
+
+const displayEE204 = () => {
+  const main = reset();
+      const head = document.createElement('h1');
+      head.textContent  = 'VERIFICATION OF NETWORK THEOREMS';
+      main.appendChild(head);
+
+      const aim = document.createElement('section');
+      const aimHead = document.createElement('h2');
+      aimHead.textContent = 'AIMS';
+      aim.appendChild(aimHead);
+      const aimList = document.createElement('ul');
+      const aims = ['To verify Superposition Theorem using resistance circuit (204.A)', 'To verify Thevenin’s Theorem using resistance circuit (204.B)']
+      let list2 = [];
+      for(let i = 0; i < aims.length; i++){
+          list2[i] = document.createElement('li');
+          list2[i].textContent = aims[i];
+          aimList.appendChild(list2[i]);
+      }
+      aim.appendChild(aimList);
+
+      const objective = document.createElement('section');
+      const objHead = document.createElement('h2');
+      objHead.textContent = 'OBJECTIVES';
+      objective.appendChild(objHead);
+      const objList = document.createElement('ul');
+      const objectives = ['To demonstrate that the total response of a circuit with multiple input sources is the sum of the individual responses to each source acting alone.', 'To determine the Thevenin equivalent circuit parameters (Thevenin voltage and Thevenin resistance) of a given network and verify that the equivalent circuit accurately represents the original network.', 'To practicalize applying the principles of superposition and Thevenin’s theorem to analyze and solve complex circuits.', 'To develop the ability of simplifying circuits using these theorems which can be useful in various applications such as power systems, electronic circuits and communication networks.'];
+      let list = [];
+      for(let i = 0; i < objectives.length; i++){
+          list[i] = document.createElement('li');
+          list[i].textContent = objectives[i];
+          objList.appendChild(list[i]);
+      }
+      objective.appendChild(objList);
+      main.appendChild(aim);
+      main.appendChild(objective);
+      const appHead = document.createElement('h2');
+      appHead.textContent = 'Apparatus';
+      main.appendChild(appHead);
+      const section = document.createElement('section');
+      section.classList.add('appBox');
+      const apparatus = [
+          {
+              cap: 'D. C. Power Sources (2 - No)',
+              image: ee2031
+          },
+          {
+              cap: 'Decade Resistance Boxes (4 - No)',
+              image: ee2031
+          },
+          {
+              cap: 'AVO Meter (1 - No)',
+              image: ee2031
+          },
+          {
+              cap: 'Male-Male Connecting Wires',
+              image: ee2031
+          },
+          {
+              cap: 'Oscilloscope (Optional)',
+              image: ee2031
+          }
+          
+
+      ];
+      let appBox = [];
+      let appImage = [];
+      let appCaption = [];
+      for(let i = 0; i < apparatus.length; i++){
+          appBox[i] = document.createElement('div');
+          appImage[i] = document.createElement('img');
+          appCaption[i] = document.createElement('p');
+          appImage[i].src =  apparatus[i].image;
+          appCaption[i].textContent = apparatus[i].cap;
+          appBox[i].appendChild(appImage[i]);
+          appBox[i].appendChild(appCaption[i]);
+          section.appendChild(appBox[i]);
+      }
+      main.appendChild(section);
+      const theory = document.createElement('section');
+
+// Add the heading for the THEORY section
+const theoHead = document.createElement('h2');
+theoHead.textContent = 'THEORY';
+theory.appendChild(theoHead);
+
+// Add the first explanatory paragraph
+const explain = document.createElement('div');
+explain.textContent =
+  "Without electrical circuits modern technology would not exist. In fact, the whole pursuit of electrical engineering largely dies off, becoming almost a vacuum— to say the least, electrical circuits are all around us and life as we know it is impossible without them. We have Ohm’s Law (for relating the voltage and current of circuits, and therein uncovered the concept of resistance) and Kirchhoff's Laws at our disposal when we are about to construct a desired circuit or analyze a prototype, ascertaining whether it meets design/application requirements. However, as circuits become more intricate, complex, and advanced, using these basic laws alone introduces a lot more problems than it is able to solve.";
+theory.appendChild(explain);
+
+// Add the paragraph introducing Network Theorems
+const explain1 = document.createElement('div');
+explain1.textContent =
+  "The additional set of principles used to navigate these major problems are called Network Theorems. Network theorems, a set of foundational principles in electrical engineering, simplify and analyze complex circuits, allowing engineers to break down systems into manageable components. These fundamental theorems include Superposition theorem, Tellegen’s theorem, Norton’s theorem, Maximum power transfer theorem, Thevenin’s theorem, and others.";
+theory.appendChild(explain1);
+
+// Add practical purposes and focus of the study
+const explain2 = document.createElement('div');
+explain2.textContent =
+  "The central purpose of this investigation is to use a resistance circuit to verify some of these network theorems, namely Superposition and Thevenin’s theorems. Exploring practical applications and step-by-step methodologies of these theorems, this experiment addresses challenges of analyzing circuits with multiple sources and simplifies complex networks for easier computation.";
+theory.appendChild(explain2);
+
+// Add categories for theorems
+const categories = [
+  {
+    title: 'Superposition Theorem',
+    text: "In a linear circuit with multiple independent sources, the total current or voltage at any point can be determined by summing contributions from each source individually, calculated by activating one source at a time.",
+    image: ''
+  },
+  {
+    title: 'Thevenin’s Theorem',
+    text: "Any linear circuit containing several voltages and resistances can be replaced by a single voltage in series with a resistance connected across the load.",
+    image: ''
+  },
+];
+
+categories.forEach((item) => {
+  theory.appendChild(createDivs(item));
+});
+const equations = document.createElement('div');
+equations.textContent =
+  "Superposition Theorem: IT = I1 + I2 + … + In (Sum of currents calculated by evaluating one source at a time). Thevenin's Theorem: VTh = Voc (Open-circuit voltage), RTh = Req (Equivalent resistance with all sources deactivated).";
+theory.appendChild(equations);
+
+// Add section for Computer Simulations
+const simulation = document.createElement('div');
+simulation.textContent =
+  "To validate theoretical analysis, numerical simulations can be employed using tools like SPICE or MATLAB. These tools model circuit behavior under various conditions, providing insights into practical applications.";
+theory.appendChild(simulation);
+
+// Add the conclusion
+const theoryConclusion = document.createElement('p');
+conclusion.textContent =
+  "The theoretical analysis of network theorems, particularly the Superposition and Thevenin's Theorems, provides a firm foundation for understanding and analyzing electrical circuits. By combining physical explanations, governing equations, and computer simulations, engineers can effectively tackle complex circuit designs and analyses.";
+theory.appendChild(theoryConclusion);
+
+// Append the THEORY section to the main content
+main.appendChild(theory);
+
+
+
+      const diagramsSection = document.createElement('section');
+      const diagramHead = document.createElement('h2');
+      diagramHead.innerText = "DIAGRAMS";
+
+      diagramsSection.appendChild(diagramHead);
+
+
+      const diagrams = [
+          {
+              cap: 'Fig.1 ',
+              image: pic9
+          },
+          {
+              cap: 'WORKING DIAGRAM SHOWING TRANSFORMER NO – LOAD TEST',
+              image: pic10
+          },
+          {
+              cap: 'WORKING DIAGRAM SHOWING TRANSFORMER LOAD TEST',
+              image: pic11
+          },
+         
+          
+
+      ];
+      let diagramBox = [];
+      let diagramImage = [];
+      let diagramCaption = [];
+      for(let i = 0; i < diagrams.length; i++){
+          diagramBox[i] = document.createElement('div');
+          diagramImage[i] = document.createElement('img');
+          diagramCaption[i] = document.createElement('p');
+          diagramImage[i].src =  diagrams[i].image;
+          diagramCaption[i].textContent = diagrams[i].cap;
+          diagramBox[i].appendChild(diagramImage[i]);
+          diagramBox[i].appendChild(diagramCaption[i]);
+          diagramsSection.appendChild(diagramBox[i]);
+      }
+
+
+
+
+
+
+
+      main.appendChild(diagramsSection);
+      const practicals = document.createElement('section');
+      const step1 = document.createElement('h2');
+      step1.textContent = 'PROCEDURE';
+
+      practicals.appendChild(step1);
+      const step4 = document.createElement('h3');
+      step4.textContent = 'TRANSFER RATIO TEST';
+      practicals.appendChild(step4);
+      const stepList2 = document.createElement('ul');
+      stepList2.classList.add('stepboxlist');
+      const steps2 = [
+          'Set Variac control dial to zero (0) position',
+          'Connect up the variac, the voltmeter V₁ (0-220), the amimeter (0-1A), and the transformer. as in the working diagram fig 22-1-1', 
+          'Connect the voltmeter V₂ (0-100V) across the secondary terminals a₁-a₂.',
+          '(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.', 
+          'Record on table 206-1 the values of V₁, V₂ and the primary and secondary turns (as marked on transformer).', 
+          'Connect voltmeter V₂ in turn across terminals (a₁-a₂) (a₁-a₃) (a₁-a₄) (a₁-a₅) and repeat (5)',
+          'Fill-up table 206-1.'];
+      let stepBox2 = [];
+      for(let i = 0; i < steps2.length; i++){
+          stepBox2[i] = document.createElement('li');
+          
+          stepBox2[i].textContent = steps2[i];
+          stepList2.appendChild(stepBox2[i]);
+      }
+      practicals.appendChild(stepList2);
+
+      const step3 = document.createElement('h3');
+      step3.textContent = 'NO-LOAD TEST';
+      practicals.appendChild(step3);
+      const stepList1 = document.createElement('ul');
+      stepList1.classList.add('stepboxlist');
+      const steps1 = [
+          'Reduce variac output to zero (0) and switch-OFF mains',
+          '(i) Connect up the circuit of Fig. 22-1-2 leaving the secondary terminals open circuit. Use the wattmeter (0-12W). \n (ii) Get the supervisor to check the circuit (you may also need the help of a supervisor to connect up the wattmeter).', 
+          'Switch-ON mains to variac and turn variac control to obtain 40V on voltmeter V₁.',
+          '(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.', 
+          'Take ammeter and wattmeter readings and record on table 206-2 as I₁ and W₁, respectively.', 
+          ' Vary variac control to obtain 80, 120, 160, 200, and 220V in turn on voltmeter V₁, and repeat (11) at each setting. \n(i) Fill up table 206-2. \n(ii) Plot graph of primary voltage (V₁) vs loss (W).',
+];
+      let stepBox1 = [];
+      for(let i = 0; i < steps1.length; i++){
+          stepBox1[i] = document.createElement('li');
+          stepBox1[i].textContent = steps1[i];
+          stepList1.appendChild(stepBox1[i]);
+      }
+      practicals.appendChild(stepList1);
+
+      const step5 = document.createElement('h3');
+      step5.textContent = 'LOAD TEST';
+      practicals.appendChild(step5);
+      const stepList3 = document.createElement('ul');
+      stepList3.classList.add('stepboxlist');
+      const steps4 = [
+          'Turn variac dial to "0" position, and switch-OFF mains from the variac.',
+          'Connect up the circuit of Load test ', 
+          'Connect mains to load bank and switch ON fan. (Do not use load bank itif fan is not working)',
+          'Switch ON mains to variac and vary dial to obtain 220V in voltmeter V₁.', 
+          'Switch one of load bank dials to position 400 and use its associated TRIMMER control to set the current on A₂ to 2A.', 
+          'Record the readings of V₂, V₂, A₁, A₂, and wattmeter on table 206-4.',
+          'Use the load bank dial switches and trimmers, set the reading of A₁ to 4, 6, 8, and 10A respectively, and repeat (19) at each setting.',
+          'Turn variac dial to "0" position and switch-OFF mains to variac.',
+          'Fill-up table 206-3'
+];
+      let stepBox3 = [];
+      for(let i = 0; i < steps4.length; i++){
+          stepBox3[i] = document.createElement('li');
+          stepBox3[i].textContent = steps4[i];
+          stepList3.appendChild(stepBox3[i]);
+      }
+      practicals.appendChild(stepList3);
+     
+      
+
+// i am supposed to implemetnresults and tables her but e npo make sense
+
+
+
+
+      main.appendChild(practicals);
+      const precaution = document.createElement('section');
+      const cautionHead = document.createElement('h3');
+      cautionHead.textContent = "PRECAUTIONS";
+      precaution.appendChild(cautionHead);
+      const cautionList = document.createElement('ul');
+      const precautions = 
+          [
+          "I avoided error due to parallax when taking the readings ",
+          "I ensured all measuring instruments (voltmeters, ammeters etc) were calibrated and were in good working condition for accurate measurements",
+          "I ensured that I didn’t  touch live circuits to avoid getting electrocuted", 
+          ];
+      let cautionBox = [];
+      for(let i = 0; i < precautions.length; i++){
+          cautionBox[i] = document.createElement('li');
+          cautionBox[i].textContent = precautions[i];
+          cautionList.appendChild(cautionBox[i]);
+      }
+      precaution.appendChild(cautionList);
+      main.appendChild(precaution);
+      const conclusion = document.createElement('section');
+      const concHead = document.createElement('h3');
+      concHead.textContent = "CONCLUSION:";
+      conclusion.appendChild(concHead);
+      const concText = document.createElement('p');
+      concText.textContent = "At the end of this experiment, we were able to verify that the voltage ratio between the primary voltage and secondary voltage and secondary voltage of a transformer is equal to the turns winding ratio and also able to understand the characteristics of a transformer on No-load and on load and also draw the graphs required";
+      conclusion.appendChild(concText);
+      main.appendChild(conclusion);
+      const references = document.createElement('section');
+      const refHead = document.createElement('h3');
+      refHead.textContent = "REFERENCES";
+      references.appendChild(refHead);
+      const refList = document.createElement('ul');
+      refList.classList.add('stepboxlist');
+      const reference = 
+          [
+              "Electric Machinery Fundamentals by Stephen J. Chapman",
+              "Electrical Engineering Laboratory Manual by the Department of Electrical Engineering, University of Benin.",
+              "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku"
+          ];
+      let refBox = [];
+      for(let i = 0; i < reference.length; i++){
+          refBox[i] = document.createElement('li');
+          refBox[i].textContent = reference[i];
+          refList.appendChild(refBox[i]);
+      }
+      references.appendChild(refList);
+      main.appendChild(references);
+      const hover = createHover('#');
+      main.appendChild(hover);
+      const download = createDownload('#');
+      main.appendChild(download);
+};
+
 
 
 const displayEE202 = () => {
