@@ -3,6 +3,11 @@ import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import { displayStarted, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, } from './modules/eeeDisplay';
 const body = document.querySelector('body');
+
+const hme = "../../index.html";
+const rpt = "../../report/report.html";
+const abt = "../../about/about.html";
+
 let reports = [
     {
         title: 'Getting Started',
@@ -33,7 +38,7 @@ let reports = [
     
 ];
 //display  header
-renderHeader(body);
+renderHeader(body, [hme, rpt, abt]);
 //create aside side menu
 const aside = document.createElement('aside');
 //create button to close side menu
@@ -66,4 +71,4 @@ body.appendChild(aside);
 const main = document.createElement('main');
 body.appendChild(main);
 displayStarted();
-renderFooter(body);
+renderFooter(body, [hme, rpt, abt]);
