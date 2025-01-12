@@ -50,7 +50,7 @@ const createDeptCard =(image, title, description, time, levels, tip, deptShortNa
 
     levels.forEach(level => {
         const levelLink = document.createElement('a');
-        levelLink.href = `/report/${deptShortName}/${level}.html`;
+        levelLink.href = `./${deptShortName}.html`;
         levelLink.textContent = `${level}L REPORT`;
         levelLink.classList.add('levelLink');
 

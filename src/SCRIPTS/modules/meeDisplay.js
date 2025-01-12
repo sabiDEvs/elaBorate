@@ -17,6 +17,13 @@ import pic16 from '../../RESOURCES/images/conicalGraph.png';
 import pic17 from '../../RESOURCES/images/hangar.png';
 import pic18 from '../../RESOURCES/images/mee_weights.png';
 import pic19 from '../../RESOURCES/images/pulley.png';
+import pic20 from '../../RESOURCES/images/single stage.png';
+import pic21 from '../../RESOURCES/images/idler gear.png';
+import pic22 from '../../RESOURCES/images/compound gear.png';
+import pic23 from '../../RESOURCES/images/worm gear.png';
+import pic24 from '../../RESOURCES/images/bevel gear.png';
+import pic25 from '../../RESOURCES/images/diagram 1.png';
+import pic26 from '../../RESOURCES/images/diagram 2.png';
 import pic112 from '../../RESOURCES/images/download-icon.png';
 import pic113 from '../../RESOURCES/images/download.png';
 
@@ -304,8 +311,10 @@ const displaySimplePendulum = () => {
     `;
     referencesSection.appendChild(referencesList);
     main.appendChild(referencesSection);
-    createDownload('#');
-    createHover('#');
+    const hover = createHover('#');
+    main.appendChild(hover);
+    const download = createDownload('#');
+    main.appendChild(download);
 };
     
 const displayShearForceExperiment = () => {
@@ -674,8 +683,10 @@ const displayShearForceExperiment = () => {
     `;
     referencesSection.appendChild(referencesList);
     main.appendChild(referencesSection);
-    createDownload('#');
-    createHover('#');
+    const hover = createHover('#');
+    main.appendChild(hover);
+    const download = createDownload('#');
+    main.appendChild(download);
 };
 
 const displayCamFollower = () => {
@@ -1043,8 +1054,10 @@ main.appendChild(qaSection);
     `;
     main.appendChild(referencesSection);
 
-    createDownload('#');
-    createHover('#');
+    const hover = createHover('#');
+    main.appendChild(hover);
+    const download = createDownload('#');
+    main.appendChild(download);
 };
 
 const displayConicalPendulum = () => {
@@ -1365,8 +1378,10 @@ const displayConicalPendulum = () => {
     `;
     main.appendChild(referencesSection);
 
-    createDownload('#');
-    createHover('#');
+    const hover = createHover('#');
+    main.appendChild(hover);
+    const download = createDownload('#');
+    main.appendChild(download);
 };
 const displayFlywheel = () => {
     const main = reset();
@@ -1700,11 +1715,269 @@ const displayFlywheel = () => {
         </ul>
     `;
     main.appendChild(referencesSection);
-    createDownload('#');
-    createHover('#');
+    const hover = createHover('#');
+    main.appendChild(hover);
+    const download = createDownload('#');
+    main.appendChild(download);
 };
 
-export { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel };
+const displayGears = () => {
+    const main = reset();
+
+    // Header
+    const header = document.createElement('h1');
+    header.textContent = 'Spur Gear Analysis {AM229}';
+    main.appendChild(header);
+
+    // Theory Section  
+    const theorySection = document.createElement('section');
+    theorySection.innerHTML = `
+        <h2>THEORY</h2>
+        <p>A gear is a revolving piece of machinery with cogs or teeth that mesh with another gear or toothed element to transfer motion and torque. A power source's speed, direction, and torque can be altered using gears, which are essential parts of mechanical systems. The teeth is precisely machined to ensure proper meshing with other gears. The gears are typically made of metal (e.g., steel, brass) or plastic, depending on application and load requirements. This experiment typically involves studying the operation, characteristics, and design of spur gears using pre-fabricated models (labelled A1 to A5). What this experiment entail is to study the design and functionality of spur gears, to analyse the gear ratio, speed ratio, torque transmission, and efficiency of the gear system, to understand different gear arrangements and their applications etc.</p>
+        <p>It produces the change in torque, speed and duration of the power source. The gears in transmission are analogous to the wheels is a crossed, belt pulley system. When two gears mesh, if one gear is bigger than the other, a mechanical advantage is produced, with the relational speeds and the torques of the two gears differing in proportion to their diameters. Common types of gears include:</p>
+        <ul>
+            <li>Spur Gears: Straight teeth and parallel axes</li>
+            <li>Helical Gears: Angled teeth for smoother motion and less noise</li>
+            <li>Bevel Gears: Conical shape for transferring motion between perpendicular shafts</li>
+            <li>Worm Gears: A Screw-like gear that engages with a toothed wheel for high torque reduction</li>
+            <li>Rack and Pinion: Converts rotational motion to linear motion</li>
+        </ul>
+    `;
+    main.appendChild(theorySection);
+
+    // Apparatus Section
+    const apparatusSection = document.createElement('section'); 
+    apparatusSection.innerHTML = `
+        <h2>APPARATUS</h2>
+        <ul>
+            <li><div><p>Single stage spur gear</p><img src=${pic20}></div></li>
+            <li><div><p>Spur gear with idler</p><img src=${pic21}></div></li>
+            <li><div><p>Compound gear</p><img src=${pic22}></div></li>
+            <li><div><p>Worm gear</p><img src=${pic23}></div></li>
+            <li><div><p>Bevel gear</p><img src=${pic24}></div></li>
+        </ul>
+        <>
+          <img src=${pic25}>
+          <img src=${pic26}>  
+        </div>
+    `;
+    main.appendChild(apparatusSection);
+
+    // Results Section
+    const resultsSection = document.createElement('section');
+    resultsSection.innerHTML = `
+        <h2>RESULTS</h2>
+        <p>Video demonstration on how the Automat Spur Gear Model experiment works</p>
+        <div class="video-container">
+            <iframe src="https://youtu.be/BfttOey8n2E" allowfullscreen></iframe>
+        </div>
+    `;
+    main.appendChild(resultsSection);
+
+    // Analysis Section
+    const analysisSection = document.createElement('section');
+    analysisSection.innerHTML = `
+        <div>USING THE TABLE PROVIDED,APPLY THE FORMULA BELOW TO CALCULATE THEIR RESPECTIVE GEAR RATIO</div>
+        <h2>ANALYSIS</h2>
+        <p>Gear Ratio Formulas:</p>
+        <ul>
+            <li>Single stage spur gear: D1/D2</li>
+            <li>Spur gear with idler: D1*D2/I1</li>
+            <li>Compound gear: (D1/D2) * (I1/I2)</li>
+            <li>Worm gear: D1/D2</li>
+            <li>Bevel gear: D1/D2</li>
+        </ul>
+    `;
+    main.appendChild(analysisSection);
+
+    // ...existing code...
+
+// Observations Section
+const observationsSection = document.createElement('section');
+observationsSection.innerHTML = `
+    <h2>OBSERVATION AND PRECAUTIONS</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Observation</th>
+                    <th>Procedure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>I observed that the torque of the gear is related to the number of teeth on the gear</td>
+                    <td>I ensured that I handled the gear with care because of the sharp edges of the gear</td>
+                </tr>
+                <tr>
+                    <td>I observed that the direction of rotation of the gear depends on the arrangement of the teeth</td>
+                    <td>I ensured that the gears are in alignment to avoid excessive wear and tear</td>
+                </tr>
+                <tr>
+                    <td>I observed that the friction between the gear teeth causes energy loss</td>
+                    <td>I ensured that I didn't apply too much force to the gears so that the gears don't get damaged</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+`;
+main.appendChild(observationsSection);
+
+// ...existing code...
+
+// Graphs Section
+const graphsSection = document.createElement('section');
+graphsSection.innerHTML = `
+    <h2>GRAPHS</h2>
+    <p>Tutorial on graph drawing:</p>
+    <div class="video-container">
+        <iframe src="https://youtu.be/9kJ5vyfW0n4" allowfullscreen></iframe>
+    </div>
+`;
+main.appendChild(graphsSection);
+
+// Discussion Section 
+const discussionSection = document.createElement('section');
+discussionSection.innerHTML = `
+    <h2>DISCUSSION</h2>
+    <h3>Sources of Error:</h3>
+    <div class="error-sources">
+        <h4>Misalignment of Shaft</h4>
+        <p>can cause uneven load distribution, increased friction, and noise, leading to incorrect results. The driving and driven gears must be precisely aligned for gear systems to function. Any misalignment, whether brought on by setup problems or manufacturing flaws, might result in an unequal load distribution and more friction between the teeth. Higher wear rates, inefficiencies, and inaccurate performance metrics like torque and power transmission might arise from this. Additionally, misalignment can cause noise and vibrations, which can make interpreting data even more difficult.</p>
+
+        <h4>Frictional Losses</h4>
+        <p> Insufficient or excessive lubrication can alter the frictional forces between the gear teeth, affecting efficiency and wear results. In the spur gear experiment, the lubrication system is essential for lowering friction between the gear teeth. But too much or too little lubrication might have a big effect on the outcome. The results of the experiment may be distorted if there is insufficient lubrication since the increased friction could cause greater temperatures, more wear, and decreased efficiency. On the other hand, excessive lubrication may cause the system to behave unexpectedly, changing power losses and influencing how torque is transmitted between the gears.</p>
+
+        <h4>Gear Manufacturing Defects</h4>
+        <p>Inaccurate gear tooth profiles, surface roughness, or improper dimensions can affect meshing and performance. Manufacturing Defects in the gears themselves can also introduce errors in the experiment. Even slight imperfections in the gear teeth, such as incorrect tooth profiles, rough surfaces, or dimensional inaccuracies, can affect the meshing between gears. These defects can lead to increased friction, noise, and wear, which in turn can alter the performance characteristics being measured. Gear defects may also accelerate wear during testing, causing performance degradation over time and potentially skewing long-term observations.</p>
+    </div>
+`;
+main.appendChild(discussionSection);
+
+// Conclusion Section
+const conclusionSection = document.createElement('section');
+conclusionSection.innerHTML = `
+    <h2>CONCLUSION</h2>
+    <p>At the end of this experiment, we determined that the fundamental system principles including gear ratio, efficiency and torque speed relationships. The autonomous spur gear experiment offers important information about how gear systems behave and perform under various operating circumstances. Important variables like torque transmission, efficiency, vibration, noise, and wear patterns were tracked during the experiment, demonstrating how elements like backlash, lubrication, misalignment, and temperature impacts affect the gears' overall performance. The experiment provides vital information for enhancing operating procedures, lubrication systems, and gear design in practical applications by comprehending these behaviors.</p>
+`;
+main.appendChild(conclusionSection);
+
+// Questions Section (Expanded)
+const questionsSection = document.createElement('section');
+questionsSection.innerHTML = `
+    <h2>SECTION B (QUESTIONS)</h2>
+    <div class="qa-container">
+        <div class="question">
+            <h3>What have you gained from this experiment?</h3>
+            <ul>
+                <li>I have gained a deeper understanding of how the spur gears transmit power, the relationship between input and output parameters, and the influence of gear design factors such as tooth profiles, material, and lubrication on efficiency and performance.</li>
+                <li>I have also learned about how crucial it is for gear systems to have adequate alignment and little backlash. The longevity and performance of the gear train can be impacted by misalignment or excessive backlash, which can result in inefficiencies, higher wear, and unequal load distribution.</li>
+                <li>I have also acquired knowledge about the working principles of the gear</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>What role did you play during the experiment?</h3>
+            <p>I counted the number of teeth the gears had manually</p>
+        </div>
+
+        <div class="question">
+            <h3>Could you have performed this experiment by yourself?</h3>
+            <p>NO: Because I will not be able to take my readings accurately without guidance or external help to verify the accuracy of the readings/results.</p>
+        </div>
+
+        <div class="question">
+            <h3>Comment on experimental procedure's suitability for accuracy and time saving:</h3>
+            <p>A crucial step in the process is verifying that all instruments and equipment are properly calibrated before beginning the experiment. This includes torque sensors, tachometers, and load cells. Calibration is vital for obtaining precise measurements, and the procedure should allocate enough time for this setup to ensure the instruments deliver reliable data throughout the experiment. Accuracy Justification: Proper calibration guarantees the reliability of the data, allowing for precise calculations of gear efficiency, torque transmission, and wear. Time Saving: While calibration may take some time initially, it prevents data collection errors that could necessitate repeating the experiment, ultimately saving time by reducing the chances of invalid results. It is a long procedure but the experiment require we count the teeth of the gear and for the Accuracy, there might be errors due to human tendencies.</p>
+        </div>
+
+        <div class="question">
+            <h3>What was the most difficult aspect of the experiment?</h3>
+            <ul>
+                <li>The most difficult aspect of the automatic spur gear experiment likely revolves around ensuring precise alignment and minimizing gear backlash. This step is critical for the accuracy of the results, as even small misalignments or excessive backlash can introduce significant errors in torque measurement, gear efficiency, and wear patterns.</li>
+                <li>Precise gear alignment is crucial for the success of the automatic spur gear experiment. The alignment of the gears impacts how their teeth mesh, which directly affects the efficiency of power transmission. Even slight misalignments can result in uneven load distribution, excessive wear, and increased friction, leading to inaccuracies in torque measurements and ultimately flawed conclusions about the gear's performance.</li>
+                <li>The challenge arises from the fact that even minor misalignments—whether axial, angular, or radial—can significantly impact the experimental outcomes. Ensuring and maintaining precision throughout the experiment can be difficult, especially since the alignment must be checked and adjusted frequently. This process requires specialized tools, such as laser alignment devices, which must be used with care to avoid mistakes. Moreover, external factors like vibrations or temperature changes can alter the alignment over time, making it difficult to maintain the level of precision necessary for accurate data collection.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>Name and Describe any Apparatus or Methods you know can be used to perform this same experiment:</h3>
+            <p>It can be done with the Flywheel experiment</p>
+        </div>
+
+        <div class="question">
+            <h3>List the Parameters Required in this Experiment:</h3>
+            <p>None were used</p>
+        </div>
+
+        <div class="question">
+            <h3>Briefly Discuss one Measuring Instruments Used in this Experiment:</h3>
+            <p>None were used</p>
+        </div>
+
+        <div class="question">
+            <h3>Discuss Briefly the Practical relevance/applications of this Experiment:</h3>
+            <ul>
+                <li>In the automotive industry, spur gears are used in various components such as gearboxes, differential systems, and steering mechanisms. The results of the experiment help improve the efficiency and durability of automotive gear systems. Understanding the impact of alignment, backlash, and lubrication in spur gears can lead to better designs that reduce wear and energy loss, ultimately improving vehicle performance and fuel efficiency. </li>
+                <li>Robotic systems frequently depend on gears for accurate movement and control. The automatic spur gear experiment offers valuable insights into the performance of gear systems under various load and operational conditions, helping engineers design more efficient and reliable robotic actuators and drive systems. This understanding is essential for applications that demand precise positioning and force control, such as robotic arms, drones, and automated manufacturing processes.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>State the section of the Course that the Experiment best relates:</h3>
+            <p>Mechanics of Machines</p>
+        </div>
+
+        <div class="question">
+            <h3>List the Suggestions You Made while Carrying out the Experiment:</h3>
+            <ul>
+                <li> I suggested that we draw the front view of the gear to avoid having multiple sides to deal with</li>
+                <li>To prevent inaccuracies, I suggested that make sure the gears are correctly aligned (axially, radially, and angularly) before starting the experiment.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>List the Suggestions made by the Members of your Group which helped the Group during the Experiment:</h3>
+            <ul>
+                <li>We suggested that we examine the gears for signs of wear before starting the experiment to avoid potential inaccuracies due to damaged components.</li>
+                <li>We suggested that we divide the tasks, such as checking the alignment and monitoring the data collection, to ensure efficient use of time and accurate results.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>Recording of Results:</h3>
+            <p>YES: I recorded the experiment results in my workbook at the time of the experiment to ensure accuracy and prevents errors that may occur when relying on others later or memory.</p>
+        </div>
+
+        <div class="question">
+            <h3>Discuss Anything that Interested you most during the Experiment:</h3>
+            <p>One of the most fascinating discoveries during the experiment was the crucial impact of alignment on the performance of spur gears. It became clear that even small misalignments could cause significant issues, such as uneven load distribution, increased friction, and premature wear. Watching the gears in operation, I observed how even slight adjustments in alignment affected torque transmission and overall system efficiency. This was especially enlightening, as it highlighted the precision required in gear alignment for optimal performance. The need for careful alignment to prevent frictional losses and ensure smooth rotation underscored the complex relationship between design and performance in mechanical engineering.</p>
+        </div>
+
+        <div class="question">
+            <h3>Laboratory Manual:</h3>
+            <p>YES: because it is required for me to follow up with the practical</p>
+        </div>
+    </div>
+`;
+main.appendChild(questionsSection);
+    // References Section
+    const referencesSection = document.createElement('section');
+    referencesSection.innerHTML = `
+        <h2>REFERENCES</h2>
+        <ul>
+            <li>Shigley, J. E., & Mischke, C. R. (2001). Mechanical Engineering Design</li>
+            <li>Khurmi, R. S., & Gupta, J. K. (2005). A Textbook of Machine Design</li>
+        </ul>
+    `;
+    main.appendChild(referencesSection);
+    const hover = createHover('#');
+    main.appendChild(hover);
+    const download = createDownload('#');
+    main.appendChild(download);
+};
+
+export { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel, displayGears };
 
 
 

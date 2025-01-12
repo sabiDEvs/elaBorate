@@ -3,9 +3,9 @@ import {renderFooter} from './modules/footer';
 import '../CSS/pre.css';
 import { displayStarted, displayWW201, displaySM201, displayBF201, displayHS201, displayMS201, displayAS201, displayFS201} from './modules/preDisplay';
 
-const hme = "./index.html";
-const rpt = "./report/report.html";
-const abt = "./about/about.html";
+const hme = "../../index.html";
+const rpt = "../../report/report.html";
+const abt = "../../about/about.html";
 
 const body = document.querySelector('body');
 let reports = [

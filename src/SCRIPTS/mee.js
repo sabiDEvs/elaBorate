@@ -1,11 +1,11 @@
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import '../CSS/mee.css';
-import { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel} from './modules/meeDisplay';
+import { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel, displayGears} from './modules/meeDisplay';
 
-const hme = "./index.html";
-const rpt = "./report/report.html";
-const abt = "./about/about.html";
+const hme = "../../index.html";
+const rpt = "../../report/report.html";
+const abt = "../../about/about.html";
 
 const body = document.querySelector('body');
 let reports = [
@@ -28,6 +28,10 @@ let reports = [
     {
         title: 'Flywheels and Falling Weight {AM229}',
         func: displayFlywheel
+    },
+    {
+        title: 'Automat Spur Gear Models[A1 - A5] {AM231}',
+        func: displayGears
     },
 ];
 //display  header
@@ -64,4 +68,4 @@ body.appendChild(aside);
 const main = document.createElement('main');
 body.appendChild(main);
 displaySimplePendulum();
-renderFooter(body);
+renderFooter(body, [hme, rpt, abt]);
