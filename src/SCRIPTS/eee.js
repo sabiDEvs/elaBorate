@@ -1,7 +1,7 @@
 import '../CSS/pre.css';
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
-import { displayStarted, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, } from './modules/eeeDisplay';
+import { displayStarted, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, displayEE204 } from './modules/eeeDisplay';
 const body = document.querySelector('body');
 
 const hme = "../../index.html";
@@ -21,6 +21,11 @@ let reports = [
         title: 'Measurement of Inductance {EE203}',
         func: displayEE203
     },
+    {
+        title: 'Verification of Network Theorems{EE204}',
+        func: displayEE204
+    },
+
     {
         title: 'The Oscilloscope {EE 205}',
         func: displayEE205

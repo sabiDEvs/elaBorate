@@ -9,6 +9,7 @@ import pic8 from "../../RESOURCES/images/pic8.png";
 import pic9 from "../../RESOURCES/images/pic9.png";
 import pic10 from "../../RESOURCES/images/pic10.png";
 import pic11 from "../../RESOURCES/images/pic11.png";
+import ee2041 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/204/1.png";
 import ee2031 from "../../RESOURCES/images/ee203-1.png";
 import ee2032 from "../../RESOURCES/images/ee203-1.png";
 import ee2033 from "../../RESOURCES/images/ee203-1.png";
@@ -1986,69 +1987,59 @@ const displayEE204 = () => {
           appBox[i].appendChild(appCaption[i]);
           section.appendChild(appBox[i]);
       }
+
       main.appendChild(section);
       const theory = document.createElement('section');
+      const theoHead = document.createElement('h2');
+      theoHead.textContent = 'THEORY';
+      theory.appendChild(theoHead);
 
-// Add the heading for the THEORY section
-const theoHead = document.createElement('h2');
-theoHead.textContent = 'THEORY';
-theory.appendChild(theoHead);
+      const explain = document.createElement('div');
+      explain.textContent =
+        "Without electrical circuits modern technology would not exist. In fact, the whole pursuit of electrical engineering largely dies off, becoming almost a vacuum— to say the least, electrical circuits are all around us and life as we know it is impossible without them. We have Ohm’s Law (for relating the voltage and current of circuits, and therein uncovered the concept of resistance) and Kirchhoff's Laws at our disposal when we are about to construct a desired circuit or analyze a prototype, ascertaining whether it meets design/application requirements. However, as circuits become more intricate, complex, and advanced, using these basic laws alone introduces a lot more problems than it is able to solve.";
+      theory.appendChild(explain);
 
-// Add the first explanatory paragraph
-const explain = document.createElement('div');
-explain.textContent =
-  "Without electrical circuits modern technology would not exist. In fact, the whole pursuit of electrical engineering largely dies off, becoming almost a vacuum— to say the least, electrical circuits are all around us and life as we know it is impossible without them. We have Ohm’s Law (for relating the voltage and current of circuits, and therein uncovered the concept of resistance) and Kirchhoff's Laws at our disposal when we are about to construct a desired circuit or analyze a prototype, ascertaining whether it meets design/application requirements. However, as circuits become more intricate, complex, and advanced, using these basic laws alone introduces a lot more problems than it is able to solve.";
-theory.appendChild(explain);
+      const explain1 = document.createElement('div');
+      explain1.textContent =
+        "The additional set of principles used to navigate these major problems are called Network Theorems. Network theorems, a set of foundational principles in electrical engineering, simplify and analyze complex circuits, allowing engineers to break down systems into manageable components. These fundamental theorems include Superposition theorem, Tellegen’s theorem, Norton’s theorem, Maximum power transfer theorem, Thevenin’s theorem, and others.";
+      theory.appendChild(explain1);
 
-// Add the paragraph introducing Network Theorems
-const explain1 = document.createElement('div');
-explain1.textContent =
-  "The additional set of principles used to navigate these major problems are called Network Theorems. Network theorems, a set of foundational principles in electrical engineering, simplify and analyze complex circuits, allowing engineers to break down systems into manageable components. These fundamental theorems include Superposition theorem, Tellegen’s theorem, Norton’s theorem, Maximum power transfer theorem, Thevenin’s theorem, and others.";
-theory.appendChild(explain1);
+      const explain2 = document.createElement('div');
+      explain2.textContent =
+        "The central purpose of this investigation is to use a resistance circuit to verify some of these network theorems, namely Superposition and Thevenin’s theorems. Exploring practical applications and step-by-step methodologies of these theorems, this experiment addresses challenges of analyzing circuits with multiple sources and simplifies complex networks for easier computation.";
+      theory.appendChild(explain2);
+      const categories = [
+        {
+          title: 'Superposition Theorem',
+          text: "In a linear circuit with multiple independent sources, the total current or voltage at any point can be determined by summing contributions from each source individually, calculated by activating one source at a time.",
+          image: ''
+        },
+        {
+          title: 'Thevenin’s Theorem',
+          text: "Any linear circuit containing several voltages and resistances can be replaced by a single voltage in series with a resistance connected across the load.",
+          image: ''
+        },
+      ];
 
-// Add practical purposes and focus of the study
-const explain2 = document.createElement('div');
-explain2.textContent =
-  "The central purpose of this investigation is to use a resistance circuit to verify some of these network theorems, namely Superposition and Thevenin’s theorems. Exploring practical applications and step-by-step methodologies of these theorems, this experiment addresses challenges of analyzing circuits with multiple sources and simplifies complex networks for easier computation.";
-theory.appendChild(explain2);
+      categories.forEach((item) => {
+        theory.appendChild(createDivs(item));
+      });
+      const equations = document.createElement('div');
+      equations.textContent =
+        "Superposition Theorem: IT = I1 + I2 + … + In (Sum of currents calculated by evaluating one source at a time). Thevenin's Theorem: VTh = Voc (Open-circuit voltage), RTh = Req (Equivalent resistance with all sources deactivated).";
+      theory.appendChild(equations);
 
-// Add categories for theorems
-const categories = [
-  {
-    title: 'Superposition Theorem',
-    text: "In a linear circuit with multiple independent sources, the total current or voltage at any point can be determined by summing contributions from each source individually, calculated by activating one source at a time.",
-    image: ''
-  },
-  {
-    title: 'Thevenin’s Theorem',
-    text: "Any linear circuit containing several voltages and resistances can be replaced by a single voltage in series with a resistance connected across the load.",
-    image: ''
-  },
-];
-
-categories.forEach((item) => {
-  theory.appendChild(createDivs(item));
-});
-const equations = document.createElement('div');
-equations.textContent =
-  "Superposition Theorem: IT = I1 + I2 + … + In (Sum of currents calculated by evaluating one source at a time). Thevenin's Theorem: VTh = Voc (Open-circuit voltage), RTh = Req (Equivalent resistance with all sources deactivated).";
-theory.appendChild(equations);
-
-// Add section for Computer Simulations
 const simulation = document.createElement('div');
 simulation.textContent =
   "To validate theoretical analysis, numerical simulations can be employed using tools like SPICE or MATLAB. These tools model circuit behavior under various conditions, providing insights into practical applications.";
 theory.appendChild(simulation);
 
-// Add the conclusion
 const theoryConclusion = document.createElement('p');
-conclusion.textContent =
+theoryConclusion.textContent =
   "The theoretical analysis of network theorems, particularly the Superposition and Thevenin's Theorems, provides a firm foundation for understanding and analyzing electrical circuits. By combining physical explanations, governing equations, and computer simulations, engineers can effectively tackle complex circuit designs and analyses.";
 theory.appendChild(theoryConclusion);
 
-// Append the THEORY section to the main content
 main.appendChild(theory);
-
 
 
       const diagramsSection = document.createElement('section');
@@ -2061,17 +2052,8 @@ main.appendChild(theory);
       const diagrams = [
           {
               cap: 'Fig.1 ',
-              image: pic9
-          },
-          {
-              cap: 'WORKING DIAGRAM SHOWING TRANSFORMER NO – LOAD TEST',
-              image: pic10
-          },
-          {
-              cap: 'WORKING DIAGRAM SHOWING TRANSFORMER LOAD TEST',
-              image: pic11
-          },
-         
+              image: ee2041
+          }
           
 
       ];
@@ -2096,24 +2078,231 @@ main.appendChild(theory);
 
 
       main.appendChild(diagramsSection);
+
+
+
+      const results = document.createElement('section');
+      const resultHeader = document.createElement('h2');
+      resultHeader.textContent = "Results";
+      results.appendChild(resultHeader);
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+      const resultsTable4 = document.createElement("table");
+      resultsTable4.style.borderCollapse = "collapse";
+      resultsTable4.style.width = "100%";
+      resultsTable4.style.marginTop = "20px";
+      
+      const thead4 = document.createElement("thead");
+      const headerRow4 = document.createElement("tr");
+      
+      const headers4 = ["Measurement Type", "E1", "E2"];
+      headers4.forEach(text => {
+          const th = document.createElement("th");
+          th.textContent = text;
+          th.style.border = "1px solid black";
+          th.style.padding = "8px";
+          th.style.backgroundColor = "#f2f2f2"; 
+          headerRow4.appendChild(th);
+      });
+      
+      thead4.appendChild(headerRow4);
+      resultsTable4.appendChild(thead4);
+      
+      const tbody4 = document.createElement("tbody");
+      
+      const tableData4 = [
+          ["Out-of-circuit", "6v", "6v"],
+          ["In-circuit", "6v", "6v"],
+      ];
+      
+      tableData4.forEach(row => {
+          const tr = document.createElement("tr");
+      
+          row.forEach(cellData => {
+              const td = document.createElement("td");
+              td.textContent = cellData;
+              td.style.border = "1px solid black";
+              td.style.padding = "8px";
+              tr.appendChild(td);
+          });
+      
+          tbody4.appendChild(tr);
+      });
+      
+      resultsTable4.appendChild(tbody4);
+      
+      const titleText4 = document.createElement("p");
+      titleText4.textContent = "Table of Values";
+      titleText4.style.fontWeight = "bold";
+      titleText4.style.marginBottom = "10px";
+      
+      results.appendChild(titleText4);
+      results.appendChild(resultsTable4);
+      
+
+
+
+    
+      const resultsTable = document.createElement("table");
+      resultsTable.style.borderCollapse = "collapse";
+      resultsTable.style.width = "100%";
+      resultsTable.style.marginTop = "20px";
+      
+      const thead = document.createElement("thead");
+      const headerRow = document.createElement("tr");
+      
+      const headers = ["Circuit Condition", "Voltage Response 1", "Voltage Response 2", "Voltage Response 3", "Current Response 1", "Current Response 2", "Current Response 3"];
+      headers.forEach(text => {
+          const th = document.createElement("th");
+          th.textContent = text;
+          th.style.border = "1px solid black";
+          th.style.padding = "8px";
+          th.style.backgroundColor = "#f2f2f2"; 
+          headerRow.appendChild(th);
+      });
+      
+      thead.appendChild(headerRow);
+      resultsTable.appendChild(thead);
+      const tbody = document.createElement("tbody");
+      
+      const tableData = [
+          ["DC Source in", "VR1= V1", "VR2 = V2", "VR3= V3", "I1 = V1/R1", "I2 = V2/R2", "I3 = V3/R3"],
+          ["E1 & E2", "-2", "2", "4", "-0.07", "0.07", "0.13"],
+          ["E1 alone", "2", "4", "2", "0.07", "0.13", "0.07"],
+          ["E2 alone", "-4", "-2", "2", "-0.13", "-0.07", "0.07"],
+      ];
+      
+      tableData.forEach(row => {
+          const tr = document.createElement("tr");
+      
+          row.forEach(cellData => {
+              const td = document.createElement("td");
+              td.textContent = cellData;
+              td.style.border = "1px solid black";
+              td.style.padding = "8px";
+              tr.appendChild(td);
+          });
+      
+          tbody.appendChild(tr);
+      });
+      
+      resultsTable.appendChild(tbody);
+      
+      const titleText = document.createElement("p");
+      titleText.textContent = "Table of Values";
+      titleText.style.fontWeight = "bold";
+      titleText.style.marginBottom = "10px";
+      
+      results.appendChild(titleText);
+      results.appendChild(resultsTable);
+      
+
+
+
+
+
+    
+      const resultsTable5 = document.createElement("table");
+      resultsTable5.style.borderCollapse = "collapse";
+      resultsTable5.style.width = "100%";
+      resultsTable5.style.marginTop = "20px";
+      
+      const thead5 = document.createElement("thead");
+      const headerRow5 = document.createElement("tr");
+      const headers5 = ["Equation", "Result"]; 
+      headers5.forEach(text => {
+          const th = document.createElement("th");
+          th.textContent = text;
+          th.style.border = "1px solid black";
+          th.style.padding = "8px";
+          th.style.backgroundColor = "#f2f2f2"; 
+          headerRow5.appendChild(th);
+      });
+      thead5.appendChild(headerRow5);
+      resultsTable5.appendChild(thead5);
+      
+      const tbody5 = document.createElement("tbody");
+      
+      const tableData5 = [
+          ["V1a = V1b + V1c", "V1a = -4V + 2V = -2V"],
+          ["V2a = V2b + V2c", "V2a = -2V + 4V = 2V"],
+          ["V3a = V3b + V3c", "V3a = 2V + 2V = 4V"],
+          ["", ""],
+          ["Current Response", ""],
+          ["I1a = I1b + I1c", "I1a = -0.13A + 0.07A = -0.06A"],
+          ["I2a = I2b + I2c", "I2a = -0.07A + 0.13A = 0.06A"],
+          ["I3a = I3b + I3c", "I3a = 0.07A + 0.07A = 0.14A"],
+      ];
+      
+      tableData5.forEach(row => {
+          const tr = document.createElement("tr");
+      
+          row.forEach(cellData => {
+              const td = document.createElement("td");
+              td.textContent = cellData;
+              td.style.border = "1px solid black";
+              td.style.padding = "8px";
+              tr.appendChild(td);
+          });
+      
+          tbody5.appendChild(tr);
+      });
+      
+      resultsTable5.appendChild(tbody5);
+      
+      const titleText5 = document.createElement("p");
+      titleText5.textContent = "Table of Values";
+      titleText5.style.fontWeight = "bold";
+      titleText5.style.marginBottom = "10px";
+      results.appendChild(titleText5);
+      results.appendChild(resultsTable5);
+      
+    
+    main.appendChild(results);
+
+
+
+
+
       const practicals = document.createElement('section');
       const step1 = document.createElement('h2');
       step1.textContent = 'PROCEDURE';
 
       practicals.appendChild(step1);
       const step4 = document.createElement('h3');
-      step4.textContent = 'TRANSFER RATIO TEST';
+      step4.textContent = 'Superposition Theorem';
       practicals.appendChild(step4);
       const stepList2 = document.createElement('ul');
       stepList2.classList.add('stepboxlist');
       const steps2 = [
-          'Set Variac control dial to zero (0) position',
-          'Connect up the variac, the voltmeter V₁ (0-220), the amimeter (0-1A), and the transformer. as in the working diagram fig 22-1-1', 
-          'Connect the voltmeter V₂ (0-100V) across the secondary terminals a₁-a₂.',
-          '(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.', 
-          'Record on table 206-1 the values of V₁, V₂ and the primary and secondary turns (as marked on transformer).', 
-          'Connect voltmeter V₂ in turn across terminals (a₁-a₂) (a₁-a₃) (a₁-a₄) (a₁-a₅) and repeat (5)',
-          'Fill-up table 206-1.'];
+        "All measurements must be recorded on Table 204.1.",
+        "Use the Avometer (Set D.C. 10V range) for all voltage measurements.",
+        "Connect mains to the d.c. voltage sources E₁ and E₂ and switch ON.",
+        "Using the voltage adjust controls, set the d.c. output voltage of E₁ and E₂ to 6V (no-load or open-circuit value).",
+        "Switch off mains to the d.c. sources and connect the decade resistors R₁, R₂, and R₃ and the d.c. sources E₁ and E₂ as per the circuit diagram of Fig. 204.1 (note the polarities of the sources).",
+        "Select resistance values between 10-100 ohms for R₁ + R₂ and R₃ and switch ON mains (recheck the circuit).",
+        "Measure the e.m.f across the terminals of the d.c. source E₁ and E₂, record as V₁ and V₂ respectively. Note: (Since voltage is a vector quantity, it is important you also note the direction of V₁ and V₂ and use those as your reference (+) direction for subsequent measurements.)",
+        "Measure the voltages (i.e. potential differences) across R₁, R₂, and R₃ and record.",
+        "Disconnect the d.c. source E₁ from the circuit and short-circuit terminals A-B (make a sketch of the resultant circuit and use space A). Note: (Where the voltage direction has changed from the direction in step 6, record it as a negative (-) value.)",
+        "Measure voltage (d.c.) across R₁, R₂, and R₃ and record.",
+        "Reconnect the d.c. source E₁ into the circuit and disconnect source E₂; short-circuit the resultant circuit (figure Space A).",
+        "Measure voltages V₁, V₂, and V₃ across R₁, R₂, and R₃ respectively and record.",
+        "Switch off all mains supply to E₁ and E₂."
+      ];
+      
       let stepBox2 = [];
       for(let i = 0; i < steps2.length; i++){
           stepBox2[i] = document.createElement('li');
@@ -2124,18 +2313,28 @@ main.appendChild(theory);
       practicals.appendChild(stepList2);
 
       const step3 = document.createElement('h3');
-      step3.textContent = 'NO-LOAD TEST';
+      step3.textContent = "Thevenin's Theorem";
       practicals.appendChild(step3);
       const stepList1 = document.createElement('ul');
       stepList1.classList.add('stepboxlist');
       const steps1 = [
-          'Reduce variac output to zero (0) and switch-OFF mains',
-          '(i) Connect up the circuit of Fig. 22-1-2 leaving the secondary terminals open circuit. Use the wattmeter (0-12W). \n (ii) Get the supervisor to check the circuit (you may also need the help of a supervisor to connect up the wattmeter).', 
-          'Switch-ON mains to variac and turn variac control to obtain 40V on voltmeter V₁.',
-          '(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.', 
-          'Take ammeter and wattmeter readings and record on table 206-2 as I₁ and W₁, respectively.', 
-          ' Vary variac control to obtain 80, 120, 160, 200, and 220V in turn on voltmeter V₁, and repeat (11) at each setting. \n(i) Fill up table 206-2. \n(ii) Plot graph of primary voltage (V₁) vs loss (W).',
-];
+        "Read through each procedure step before acting.",
+        "All measurements must be recorded in Table T.1.",
+        "Use the Avometer (Set D.C. 10V range) for all voltage and current measurements.",
+        "Connect mains to the d.c. voltage source EE and switch ON.",
+        "Using the voltage adjust controls, set the d.c. output voltage of EE to 6V (no-load or open-circuit value).",
+        "Connect the circuit as shown in Fig. T.1, including the voltage source EE, the resistors R1, R2, and the load resistor RL.",
+        "Measure and record the open-circuit voltage across the terminals AA-BB (i.e., across RL) as Vth.",
+        "Disconnect RL from the circuit.",
+        "Measure the equivalent resistance of the circuit as seen from terminals AA-BB. To do this:",
+        "Switch off the voltage source EE and replace it with its internal resistance (short circuit if the source is ideal).",
+        "Measure the equivalent resistance across terminals AA-BB using the Avometer and record this as Rth.",
+        "Reconnect RL to the circuit.",
+        "Measure the voltage across RL and the current through RL, recording them as VL and IL respectively.",
+        "Verify IL using IL = Vth / (Rth + RL).",
+        "Switch off all mains supply to the voltage source EE."
+      ];
+      
       let stepBox1 = [];
       for(let i = 0; i < steps1.length; i++){
           stepBox1[i] = document.createElement('li');
@@ -2144,29 +2343,7 @@ main.appendChild(theory);
       }
       practicals.appendChild(stepList1);
 
-      const step5 = document.createElement('h3');
-      step5.textContent = 'LOAD TEST';
-      practicals.appendChild(step5);
-      const stepList3 = document.createElement('ul');
-      stepList3.classList.add('stepboxlist');
-      const steps4 = [
-          'Turn variac dial to "0" position, and switch-OFF mains from the variac.',
-          'Connect up the circuit of Load test ', 
-          'Connect mains to load bank and switch ON fan. (Do not use load bank itif fan is not working)',
-          'Switch ON mains to variac and vary dial to obtain 220V in voltmeter V₁.', 
-          'Switch one of load bank dials to position 400 and use its associated TRIMMER control to set the current on A₂ to 2A.', 
-          'Record the readings of V₂, V₂, A₁, A₂, and wattmeter on table 206-4.',
-          'Use the load bank dial switches and trimmers, set the reading of A₁ to 4, 6, 8, and 10A respectively, and repeat (19) at each setting.',
-          'Turn variac dial to "0" position and switch-OFF mains to variac.',
-          'Fill-up table 206-3'
-];
-      let stepBox3 = [];
-      for(let i = 0; i < steps4.length; i++){
-          stepBox3[i] = document.createElement('li');
-          stepBox3[i].textContent = steps4[i];
-          stepList3.appendChild(stepBox3[i]);
-      }
-      practicals.appendChild(stepList3);
+      
      
       
 
@@ -2181,12 +2358,24 @@ main.appendChild(theory);
       cautionHead.textContent = "PRECAUTIONS";
       precaution.appendChild(cautionHead);
       const cautionList = document.createElement('ul');
-      const precautions = 
-          [
-          "I avoided error due to parallax when taking the readings ",
-          "I ensured all measuring instruments (voltmeters, ammeters etc) were calibrated and were in good working condition for accurate measurements",
-          "I ensured that I didn’t  touch live circuits to avoid getting electrocuted", 
-          ];
+      const precautions = [
+        "All circuit connections were double-checked before powering on the circuit to ensure there are no loose or incorrect connections that could cause short circuits or damage components.",
+        "Switched off the power supply when adding, removing, or changing components in the circuit to avoid electric shocks or damage to the equipment.",
+        "Ensured that all components, such as resistors, are rated to handle the applied voltage and current to prevent component failure or overheating.",
+        "Confirmed the correct polarity of power supplies (positive and negative terminals) to avoid reverse polarity issues that could damage the circuit or components.",
+        "Handled the resistors, wires, and other components carefully to avoid damaging them or introducing errors due to poor connections.",
+        "Properly used the correct range on multimeters and oscilloscopes when measuring voltage, current, or resistance to prevent instrument damage or inaccurate readings.",
+        "Ensured the power supply and measuring equipment are not overloaded beyond their specified limits to avoid equipment failure.",
+        "Ensured that the circuit and power supply are properly grounded to avoid noise interference or potential electrical hazards.",
+        "Measured the values of resistors and other components with a multimeter before assembling the circuit to ensure they match the design specifications.",
+        "Performed the experiment on a clean, dry, and non-conductive surface to avoid accidental short circuits or electrical hazards.",
+        "Clearly labeled nodes and components to avoid confusion and ensure accurate assembly and analysis.",
+        "Avoided contact with live circuits to prevent electric shocks.",
+        "Ensured the simulated results align with theoretical expectations to avoid mistakes in the physical circuit.",
+        "Ensured that all measuring instruments, such as multimeters and oscilloscopes, are properly calibrated before use for accurate measurements.",
+        "Recorded all measurements and observations during the experiment in real time to avoid forgetting or misinterpreting results later."
+      ];
+      
       let cautionBox = [];
       for(let i = 0; i < precautions.length; i++){
           cautionBox[i] = document.createElement('li');
@@ -2195,6 +2384,7 @@ main.appendChild(theory);
       }
       precaution.appendChild(cautionList);
       main.appendChild(precaution);
+
       const conclusion = document.createElement('section');
       const concHead = document.createElement('h3');
       concHead.textContent = "CONCLUSION:";
@@ -2203,18 +2393,92 @@ main.appendChild(theory);
       concText.textContent = "At the end of this experiment, we were able to verify that the voltage ratio between the primary voltage and secondary voltage and secondary voltage of a transformer is equal to the turns winding ratio and also able to understand the characteristics of a transformer on No-load and on load and also draw the graphs required";
       conclusion.appendChild(concText);
       main.appendChild(conclusion);
+
+
+      //Summary by Osaze
+
+      const summarySection = document.createElement('section');
+      summarySection.classList.add('summary-section');
+    
+      const heading = document.createElement('h2');
+      heading.textContent = 'Summary of Key Learning Outcomes';
+      summarySection.appendChild(heading);
+    
+      const content = [
+        {
+          title: 'Superposition Theorem:',
+          points: [
+            'It was demonstrated that in a linear circuit with multiple independent sources, the total response (voltage or current) can be determined by summing the effects of each individual source, with all other sources turned off (replaced by their internal impedance).',
+            'Through systematic analysis, we calculated and measured the contributions of each source, then verified that the sum matched the total circuit response.',
+          ],
+        },
+        {
+          title: "Thevenin's Theorem:",
+          points: [
+            'It was learned how to simplify a complex linear circuit into an equivalent circuit consisting of a single voltage source (Thevenin voltage) and a single series resistance (Thevenin resistance), as seen from the load terminals.',
+            'By calculating the open-circuit voltage and the equivalent resistance, we successfully derived the Thevenin equivalent and verified its accuracy through circuit simulation and measurements.',
+          ],
+        },
+        {
+          title: 'Practical Circuit Analysis:',
+          points: [
+            'The experiment reinforced the importance of these theorems in analyzing and simplifying circuits, particularly in situations where individual components, such as loads, need to be analyzed or replaced.',
+          ],
+        },
+        {
+          title: 'Practical Skills Acquired:',
+          points: [
+            'Circuit Analysis Techniques: Developed proficiency in applying systematic methods for network theorem calculations, including turning off sources for superposition and determining open-circuit voltage and equivalent resistance for Thevenin.',
+            'Measurement Techniques: Gained experience using tools such as multimeters and oscilloscopes to measure voltages and currents, and verify theoretical predictions.',
+            'Simulation and Validation: Used circuit simulation software (such as LTspice, Multisim, or equivalent) to validate experimental results and compare them with theoretical calculations.',
+          ],
+        },
+        {
+          title: 'Future Applications:',
+          points: [
+            'The Superposition and Thevenin theorems are integral in the design and analysis of electrical and electronic systems. These theorems are particularly useful in simplifying circuits for troubleshooting, designing power systems, and optimizing circuit performance.',
+            'The practical understanding gained from this experiment will be crucial in addressing real-world challenges requiring such skillset, for example, designing efficient power delivery systems for residential areas.',
+            'In conclusion, this experiment provided hands-on experience in applying two cornerstone network theorems. By bridging theory and practice, this experiment has formed a strong foundation for more advanced studies in circuit theory and electrical engineering.',
+          ],
+        },
+      ];
+    
+      content.forEach((section) => {
+        const sectionTitle = document.createElement('h3');
+        sectionTitle.textContent = section.title;
+        summarySection.appendChild(sectionTitle);
+    
+        const list = document.createElement('ul');
+        section.points.forEach((point) => {
+          const listItem = document.createElement('li');
+          listItem.textContent = point;
+          list.appendChild(listItem);
+        });
+    
+        summarySection.appendChild(list);
+      });
+    
+      main.appendChild(summarySection);
+
+
+
+
+
+
       const references = document.createElement('section');
       const refHead = document.createElement('h3');
       refHead.textContent = "REFERENCES";
       references.appendChild(refHead);
       const refList = document.createElement('ul');
       refList.classList.add('stepboxlist');
-      const reference = 
-          [
-              "Electric Machinery Fundamentals by Stephen J. Chapman",
-              "Electrical Engineering Laboratory Manual by the Department of Electrical Engineering, University of Benin.",
-              "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku"
-          ];
+      const reference = [
+        "Alexander, C. K., & Sadiku, M. N. O. (2017). Fundamentals of electric circuits (6th ed.). McGraw-Hill Education.",
+        "Hayt, W. H., & Kemmerly, J. E. (2018). Engineering circuit analysis (8th ed.). McGraw-Hill Education.",
+        "Nilsson, J. W., & Riedel, S. A. (2019). Electric circuits (11th ed.). Pearson.",
+        "All About Circuits. (2022, August 5). Superposition theorem explained. All About Circuits. https://www.allaboutcircuits.com/textbook/direct-current/chpt-6/superposition-theorem/",
+        "Smith, J. (2023, April 10). Understanding Thevenin's theorem in electrical circuits. Electronics Tutorials. https://www.electronicstutorials.com/thevenins-theorem/"
+      ];
+      
       let refBox = [];
       for(let i = 0; i < reference.length; i++){
           refBox[i] = document.createElement('li');
@@ -2819,5 +3083,6 @@ export {
   displayEE206,
  displayEE205,
  displayEE207,
- displayEE203
+ displayEE203,
+ displayEE204
 };
