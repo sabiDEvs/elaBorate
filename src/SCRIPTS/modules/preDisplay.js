@@ -2169,7 +2169,7 @@ const displayAS201 = () => {
             refBox[i].textContent = reference[i];
             refList.appendChild(refBox[i]);
         }
-        reference888s.appendChild(refList);
+        references.appendChild(refList);
         main.appendChild(references);
         const hover = createHover('#');
         main.appendChild(hover);

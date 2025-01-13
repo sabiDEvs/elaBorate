@@ -11,11 +11,12 @@ footer{
     align-items: center;
     padding: 2vw 3vw 5vh;
     gap: 10vh;
+    z-index: 3;
 }
 #footerNav{
     display: flex;
     flex-direction: column;
-    gap: 2vw;
+    gap: 0.1vw;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 1vw;

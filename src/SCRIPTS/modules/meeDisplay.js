@@ -291,7 +291,7 @@ const displaySimplePendulum = () => {
             <li><strong>WHAT HAVE YOU GAINED FROM THIS EXPERIMENT:</strong> Through observing the motion of the pendulum, I was able to gain a deeper understanding of simple harmonic motion, a fundamental concept in physics. This includes learning about oscillatory motion, restoring forces, and periodic behavior. I was able to verify theoretical predictions, such as the relationship between the length of the pendulum and its period of oscillation (T ∝ √(L/g)), where T is the period, L is the length, and g is the acceleration due to gravity.</li>
             <li><strong>WHAT ROLE DID YOU PLAY DURING THE EXPERIMENT:</strong> I was responsible for recording the period (time for one complete swing) of the pendulum. I assisted in assembling the pendulum by attaching the string to the bob and securing it to the clamp stand.</li>
             <li><strong>COULD YOU HAVE PERFORMED THIS EXPERIMENT BY YOURSELF:</strong> NO: Because measuring the pendulum's length accurately requires holding the measuring tool (ruler or vernier caliper) next to the pendulum. This would necessitate another hand to hold the pendulum steady.</li>
-            <li><strong>COMMENT ON THE EXPERIMENTAL PROCEDUREto:justifygitshsuitability for accuracy ofrresultsmand timeusavingperiment is well-suited to produce accurate results while also being time-saving...</li>
+            <li><strong>COMMENT ON THE EXPERIMENTAL PROCEDURE TO JUSTIFY IT'S SUITABILITY FOR ACCURACY RESULTS AND TIME SAVING: </strong> This experiment is well-suited to produce accurate results while also being time-saving...</li>
             <li><strong>WHAT WAS THE MOST DIFFICULT ASPECT OF THE EXPERIMENT?</strong> The most difficult part was trying to minimize measurement errors and trying to measure the pendulum’s length.</li>
             <li><strong>NAME AND DESCRIBE ANY APPARATUS OR METHOD YOU KNOW CAN BE USED TO PERFORM THIS SAME EXPERIMENT:</strong> You can use a threaded rod and nut, replace the string with a thin rigid rod with a nut threaded onto the bottom and then use a meter stick with a small hole drilled near one end...</li>
         `;
@@ -599,7 +599,7 @@ const displayShearForceExperiment = () => {
             -I brought out the required weight needed for the experiment and placed it correctly <br>
             -I collected the data by writing down the values/parameters needed to perform the experiment and analyzed the data for my group </p></li>
             <li><strong>COULD YOU HAVE PERFORMED THIS EXPERIMENT BY YOURSELF:</strong> NO: Because I will not be able to take my readings accurately without guidance or external help to verify the accuracy of the readings/results </li>
-            <li><strong>COMMENT ON THE EXPERIMENTAL PROCEDUREto:justifygits suitability for accuracyuof resultsoandatimehsaving application points strengthens the accuracy. This helps create a shear force distribution profile for the entire beam, not just a specific point. While increasing the load helps understand the relationship with shear force, using too many small increments can be time-consuming. </p>
+            <li><strong>COMMENT ON THE EXPERIMENTAL PROCEDURE:</strong> to justify its suitability for accuracy of results and time saving application points strengthens the accuracy. This helps create a shear force distribution profile for the entire beam, not just a specific point. While increasing the load helps understand the relationship with shear force, using too many small increments can be time-consuming. </p>
             <p> The procedure can be optimized by using strategically chosen load values that cover a representative range. Zeroing the measuring instruments before each load application minimizes errors due to initial imperfections in the setup. Using calibrated instruments (load cells, dial gauges) ensures the accuracy of the measurements. Also repeating the experiment multiple times increases the accuracy and reliability </p></li>
             <li><strong>WHAT WAS THE MOST DIFFICULT ASPECT OF THE EXPERIMENT?</strong> 
             <p>-The most difficult aspect was ensuring accurate load positioning and beam alignment. can have a major impact on the distribution of shear force. Precisely aligning the load and making sure the beam is level can be difficult, particularly with manual systems. In order to increase accuracy, jigs and alignment tools might be used.</p> 
@@ -738,7 +738,7 @@ const displayCamFollower = () => {
         <h2>RESULTS</h2>
         <p>Below is the youtube video that illustrates the procedures for the cam and followers experiment</p>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/fIAz3hf7KO0" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/fIAz3hf7KO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div><b>NOTE: this is an example of how the table looks like not the actual table input the values calculated or gotten from the experiment into the tables under each column correctly.</b></div>
         <h3>TABLE OF RESULTS</h3>
@@ -917,7 +917,7 @@ const displayCamFollower = () => {
             <li>Graph 2: Graph of Angle (Y-axis) against Displacement for CAM B</li>
         </ul>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/9kJ5vyfW0n4" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/9kJ5vyfW0n4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="graphs-container">
             <div class="graph">
@@ -1104,8 +1104,8 @@ const displayConicalPendulum = () => {
         <h2>RESULTS</h2>
         <p>Below are youtube videos that illustrate the procedures for the conical pendulum experiment</p>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/tBu8sBJ3ER0" frameborder="0" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/0CaWx_ghSbI" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/tBu8sBJ3ER0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/0CaWx_ghSbI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="table-container">
             <div><strong>NOTE: this is an example of how the table looks like not the actual table input the values calculated or gotten from the experiment into the tables under each column correctly</strong></div>
@@ -1240,7 +1240,7 @@ const displayConicalPendulum = () => {
         <h2>GRAPHS</h2>
         <p>Below is a youtube video on how to draw a graph</p>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/9kJ5vyfW0n4" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/9kJ5vyfW0n4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <h3>GRAPH OF W² AGAINST 1/H</h3>
         <div class="graph-container">
@@ -1257,7 +1257,7 @@ const displayConicalPendulum = () => {
         <ul>
             <li>Measurements that are inaccurate: Length of the String: Inaccurate measurements of the pendulum string's length will result in inaccurate calculations of the centripetal force and the radius of the circular path. Time Period (T): The derived frequency and angular velocity are impacted by inaccurate oscillation timing, which can be caused by human reaction time or counting errors. Angle of Inclination (θ): If the observer is not at eye level, parallax errors may be introduced while estimating the angle between the string and the vertical axis.</li>
             <li>Resistance of the Air: Air resistance-induced drag forces have the potential to attenuate motion and lower tangential velocity, deviating from theoretical predictions</li>
-            <li>-Elasticity of the String: If the string stretches during the experiment, the effective length varies, altering the radius and the tension force</li>
+            <li>Elasticity of the String: If the string stretches during the experiment, the effective length varies, altering the radius and the tension force</li>
         </ul>
     `;
     main.appendChild(discussionSection);
@@ -1422,7 +1422,7 @@ const displayFlywheel = () => {
         <h2>RESULTS</h2>
         <p>Below is a youtube video that illustrates the procedures for the Flywheels and falling weight experiment</p>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/BfttOey8n2E" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/BfttOey8n2E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div><strong>NOTE: this is an example of how the table looks like not the actual table input the values calculated or gotten from the experiment into the tables under each column correctly.</strong></div>
         <h3>TABLE OF RESULTS</h3>
@@ -1581,11 +1581,11 @@ const displayFlywheel = () => {
     // Graphs Section
     const graphsSection = document.createElement('section');
     graphsSection.innerHTML = `
-        <h2>GRAPHS</h2>
+        <h2>GRAPHS</h2>title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
         <p><strong>NOTE: Graph of Acceleration against weight</strong></p>
         <p>Below is a youtube video on how to draw a graph</p>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/9kJ5vyfW0n4" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/9kJ5vyfW0n4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         
     `;
@@ -1769,7 +1769,7 @@ const displayGears = () => {
         <h2>RESULTS</h2>
         <p>Video demonstration on how the Automat Spur Gear Model experiment works</p>
         <div class="video-container">
-            <iframe src="https://youtu.be/BfttOey8n2E" allowfullscreen></iframe>
+            <iframe src="https://youtu.be/BfttOey8n2E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     `;
     main.appendChild(resultsSection);
@@ -1831,9 +1831,10 @@ graphsSection.innerHTML = `
     <h2>GRAPHS</h2>
     <p>Tutorial on graph drawing:</p>
     <div class="video-container">
-        <iframe src="https://youtu.be/9kJ5vyfW0n4" allowfullscreen></iframe>
+        <iframe src="https://youtu.be/9kJ5vyfW0n4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 `;
+
 main.appendChild(graphsSection);
 
 // Discussion Section 

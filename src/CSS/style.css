@@ -170,11 +170,11 @@ main{
     padding: 5vw;
     color: #ffffff;
     display: flex;
-    width: 60%;
+    width: 75%;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 14px;
     gap: 5vw;
 }
 .serveButton{
