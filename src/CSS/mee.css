@@ -12,6 +12,9 @@ footer{
 table, tr, td, th{
     border: 1px solid black;
 }
+.selected {
+    background-color: #a96c0a;
+}
 body{
     width: 100%;
     background-color: #ffffff;

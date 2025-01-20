@@ -3,6 +3,12 @@ import {renderFooter} from './modules/footer';
 import '../CSS/mee.css';
 import { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel, displayGears} from './modules/meeDisplay';
 
+const deselect = (list) => {
+    for(let i = 0; i <= list.length; i++) {
+        list[i].classList.remove('selected');
+    }
+}
+
 const hme = "../../index.html";
 const rpt = "../../report/report.html";
 const abt = "../../about/about.html";
@@ -58,7 +64,11 @@ let list = [];
 for(let i = 0; i < reports.length; i++){
     list[i] = document.createElement('li');
     list[i].textContent = `${reports[i].title}`;
-    list[i].addEventListener('click', reports[i].func);
+    list[i].addEventListener('click', (e) => {
+        reports[i].func;
+        deselect(list);
+        e.target.classList.add('selected');
+    });
     reportList.appendChild(list[i]);
 }
 reportDiv.appendChild(reportList);

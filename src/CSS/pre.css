@@ -53,8 +53,8 @@ aside > div li{
     float: right;
     display: block;
     background-color: #ffffff;
-    border-radius: 1vw;
-    padding: 1vw;
+    border-radius: 50%;
+    padding: 0.5vw;
     color:#000000;
 }
 /*main styling*/
@@ -72,12 +72,12 @@ main{
     height: 315px;
     align-self: center;
     justify-self: center;
-    margin: 2vw auto;
+    margin: 3vw auto;
 }
 .halfImg{
     width: 90%;
     height: auto;
-    margin: 1vw auto;
+    margin: 3vw auto;
     object-fit: contain;
 }
 .startImg{
@@ -146,9 +146,9 @@ main{
     vertical-align: middle;
 }
 iframe{
-    width: 90%;
+    width: 100%;
     height: 315px;
-    margin: 1vw auto;
+    margin: 3vw auto;
 }
 .download{
     display: none;
@@ -159,26 +159,49 @@ span{
     font-weight: bold;
 }
 .appBox img{
-     height: 100px;
-     width: 100px;
+     height: 150px;
+     width: 150px;
 }
 .appBox p{
     border-left: 3px solid #fca311;
     padding-left: 0.5vw;
 }
 .appBox{
+    margin: 0;
+    padding: 0;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    justify-items: center;
-    gap: 5vw;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items: space-between;
+    gap: 6vw;
+}
+/* General styling */
+.selected {
+    background-color: #a96c0a;
+}
+div, li, h1, h2, h3, h4, p{
+    padding: 0.05vw;
+    margin: 0.5vw 0.25vw;
+}
+ul{
+    margin-left: 6vw;
+}
+aside ul{
+    margin-left: 0;
+}
+header div, header li, header h1, header p, header h2, header h3, footer div, footer li, footer h1, footer h2, footer p, footer h3 {
+    margin: 0;
+    padding: 0;
 }
 @media only screen and (min-width:768px){
+    ul{
+        margin-left: 3vw;
+    }    
     .menu{
         display: none;
     }
     .videos{
-        width: 70%;
+        width: 100%;
         height: 400px;
     }
     
@@ -204,7 +227,7 @@ span{
     aside{
         height: 90vh;
         position: fixed;
-        margin-top: 10vh;
+        margin-top: 13vh;
         background-color: #14213d;
         color: #ffffff;
         display: block;
@@ -239,7 +262,7 @@ span{
         display: none;
     }
     iframe{
-        width: 70%;
+        width: 80%;
         height: 400px;
     }
     .download{
@@ -277,5 +300,9 @@ span{
         width: 12vw;
         height: 5vh;
         z-index: 1;
+    }
+    footer {
+        width: 75%;
+        margin-left: 23.5%;
     }
 }

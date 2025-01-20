@@ -16,7 +16,7 @@ footer{
 #footerNav{
     display: flex;
     flex-direction: column;
-    gap: 0.1vw;
+    gap: 4vw;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 1vw;
@@ -73,6 +73,7 @@ footer a{
     }
     #footerNav{
         flex-direction: row;
+        gap: 0;
     }
     footer img{
         height: 10vw;

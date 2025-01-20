@@ -10,6 +10,8 @@ header{
     padding: 5px 10px 5px 2px;
     z-index: 4;
 }
+
+
 .bars{
     height: 2px;
     width: 5vw;
@@ -41,7 +43,7 @@ header{
 }
 /*search input styling*/
 #searchBox{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: flex-start;
 }
@@ -94,6 +96,7 @@ header{
         height: 1.5vw;
     }
     #searchBox{
+        display: flex;
         gap: 0.5vw;
         justify-content: space-between;
     }
