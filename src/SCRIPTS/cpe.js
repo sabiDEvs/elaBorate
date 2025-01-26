@@ -1,51 +1,89 @@
-import '../CSS/pre.css';
-import {renderHeader} from './modules/header';
-import {renderFooter} from './modules/footer';
-import { displayStarted, displayCPE402} from './modules/cpe400Display';
-const body = document.querySelector('body');
+import "../CSS/cpe.css";
+import { renderHeader } from "./modules/header";
+import { renderFooter } from "./modules/footer";
+import {
+  displayStarted,
+  displayComparators,
+  displayLogicGatesExperiment,
+  displaySequentialCircuits,
+  displayAddersAndSubtractors,
+  displaySevenSegmentDecoder,
+} from "./modules/cpeDisplay";
+
+const hme = "./index.html";
+const rpt = "./report/report.html";
+const abt = "./about/about.html";
+
+const body = document.querySelector("body");
+
 let reports = [
-    {
-        title: 'Getting Started',
-        func: displayStarted
-    },
-    
-    {
-        title: 'SEVEN SEGMENT DISPLAY DECODER{CPE 402}',
-        func: displayCPE402
-    },
+  {
+    title: "Getting Started",
+    func: displayStarted,
+  },
+  {
+    title: "EXPERIMENT 3.9",
+    func: displayComparators,
+  },
+  {
+    title: "EXPERIMENT 303",
+    func: displayLogicGatesExperiment,
+  },
+
+  // 400l
+  {
+    title: "EXPERIMENT 401",
+    func: displayAddersAndSubtractors,
+  },
+  {
+    title: "EXPERIMENT 402",
+    func: displaySevenSegmentDecoder,
+  },
+  {
+    title: "EXPERIMENT 404",
+    func: displaySequentialCircuits,
+  },
 ];
+
 //display  header
-renderHeader(body);
+renderHeader(body, [hme, rpt, abt]);
+
 //create aside side menu
-const aside = document.createElement('aside');
+const aside = document.createElement("aside");
+
 //create button to close side menu
-const close = document.createElement('div');
-close.textContent = 'x';
-close.addEventListener('click', () => {
-    document.querySelector('aside').style.display = 'none';
+const close = document.createElement("div");
+close.textContent = "x";
+close.addEventListener("click", () => {
+  document.querySelector("aside").style.display = "none";
 });
-close.id = 'closeButton';
+close.id = "closeButton";
 aside.appendChild(close);
+
 //create aside header
-const heading = document.createElement('h3');
-heading.textContent = 'CPE 400 LEVEL ELA TOPICS';
+const heading = document.createElement("h3");
+heading.textContent = "CPE ELA TOPICS";
 aside.appendChild(heading);
+
 //create div to store reports list
-const reportDiv = document.createElement('div');
+const reportDiv = document.createElement("div");
+
 //create list of report topic
-const reportList = document.createElement('ul');
+const reportList = document.createElement("ul");
 let list = [];
-for(let i = 0; i < reports.length; i++){
-    list[i] = document.createElement('li');
-    list[i].textContent = `${reports[i].title}`;
-    list[i].addEventListener('click', reports[i].func);
-    reportList.appendChild(list[i]);
+for (let i = 0; i < reports.length; i++) {
+  list[i] = document.createElement("li");
+  list[i].textContent = `${reports[i].title}`;
+  list[i].addEventListener("click", reports[i].func);
+  reportList.appendChild(list[i]);
 }
 reportDiv.appendChild(reportList);
 aside.appendChild(reportDiv);
 body.appendChild(aside);
+
 //create main div where content would be generated to
-const main = document.createElement('main');
+const main = document.createElement("main");
 body.appendChild(main);
-displayStarted();
-renderFooter(body);
+
+// displayStarted();
+renderFooter(body, [hme, rpt, abt]);
