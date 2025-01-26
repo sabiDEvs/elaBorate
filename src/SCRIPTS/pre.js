@@ -2,7 +2,14 @@ import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import '../CSS/pre.css';
 import { displayStarted, displayWW201, displaySM201, displayBF201, displayHS201, displayMS201, displayAS201, displayFS201} from './modules/preDisplay';
+import favLogo from '../RESOURCES/images/footer-logo.png'
 
+const faviconAny = document.querySelector('link[sizes="any"]');
+const faviconSvg = document.querySelector('link[type="image/svg+xml"]');
+    
+    
+faviconAny.href = favLogo;
+faviconSvg.href = favLogo;
 const deselect = (list) => {
     for(let i = 0; i <= list.length; i++) {
         list[i].classList.remove('selected');

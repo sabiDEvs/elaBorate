@@ -13,6 +13,14 @@ import dept2 from '../RESOURCES/images/electrical-dept.png';
 import dept3 from '../RESOURCES/images/mechanical-dept.png';
 import dept4 from '../RESOURCES/images/production-dept.png';
 import aboutPic from '../RESOURCES/images/about_us_man.png';
+import favLogo from '../RESOURCES/images/footer-logo.png'
+
+const faviconAny = document.querySelector('link[sizes="any"]');
+const faviconSvg = document.querySelector('link[type="image/svg+xml"]');
+    
+    
+faviconAny.href = favLogo;
+faviconSvg.href = favLogo;
 
 const hme = "./index.html";
 const rpt = "./report/report.html";

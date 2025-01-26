@@ -69,13 +69,13 @@ main{
 }
 
 .halfImg{
-    width: 90%;
+    width: 80%;
     height: auto;
     margin: 3vw auto;
     object-fit: contain;
 }
 .startImg{
-    width: 90%;
+    width: 95%;
     align-self: center;
     margin: 0 auto;
 }
@@ -194,11 +194,6 @@ header div, header li, header h1, header p, header h2, header h3, footer div, fo
     .menu{
         display: none;
     }
-    .videos{
-        width: 100%;
-        height: 400px;
-    }
-    
     body{
         width: 100%;
         background-color: #ffffff;
@@ -270,6 +265,9 @@ header div, header li, header h1, header p, header h2, header h3, footer div, fo
     .download a{
         text-decoration: none;
     }
+    .halfImg{
+        width: 50%;
+    }
     .downloadBox{
         background: #fca311;
         color: #ffffff;
@@ -288,7 +286,7 @@ header div, header li, header h1, header p, header h2, header h3, footer div, fo
     .downloadcta{
         background: #ffffff;
         border: 1px solid #fca311;
-        top: 6vh;
+        top: 7vh;
         position: relative;
         left: 0.5vw;
         width: 12vw;

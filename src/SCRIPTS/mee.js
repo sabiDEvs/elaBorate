@@ -1,13 +1,15 @@
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import '../CSS/mee.css';
-import { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel, displayGears} from './modules/meeDisplay';
+import { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel, displayGears, displayScrewJack, displayWheelAndAxle, displayFriction, displayStarted} from './modules/meeDisplay';
+import favLogo from '../RESOURCES/images/footer-logo.png'
 
-const deselect = (list) => {
-    for(let i = 0; i <= list.length; i++) {
-        list[i].classList.remove('selected');
-    }
-}
+const faviconAny = document.querySelector('link[sizes="any"]');
+const faviconSvg = document.querySelector('link[type="image/svg+xml"]');
+    
+    
+faviconAny.href = favLogo;
+faviconSvg.href = favLogo;
 
 const hme = "../../index.html";
 const rpt = "../../report/report.html";
@@ -15,6 +17,10 @@ const abt = "../../about/about.html";
 
 const body = document.querySelector('body');
 let reports = [
+    {
+        title: 'Getting Started',
+        func: displayStarted
+    },
     {
         title: 'Simple Pendulum {AM226a}',
         func: displaySimplePendulum
@@ -39,6 +45,18 @@ let reports = [
         title: 'Automat Spur Gear Models[A1 - A5] {AM231}',
         func: displayGears
     },
+    {
+        title: 'Screw Jack {AM 214}',
+        func: displayScrewJack
+    },
+    {
+        title: 'Simple Wheel and Axle {AM 218(A)}',
+        func: displayWheelAndAxle
+    },
+    {
+        title: 'Friction {AM 211}',
+        func: displayFriction
+    }
 ];
 //display  header
 renderHeader(body, [hme, rpt, abt]);
@@ -64,11 +82,7 @@ let list = [];
 for(let i = 0; i < reports.length; i++){
     list[i] = document.createElement('li');
     list[i].textContent = `${reports[i].title}`;
-    list[i].addEventListener('click', (e) => {
-        reports[i].func;
-        deselect(list);
-        e.target.classList.add('selected');
-    });
+    list[i].addEventListener('click', reports[i].func);
     reportList.appendChild(list[i]);
 }
 reportDiv.appendChild(reportList);
@@ -77,5 +91,5 @@ body.appendChild(aside);
 //create main div where content would be generated to
 const main = document.createElement('main');
 body.appendChild(main);
-displaySimplePendulum();
+displayStarted();
 renderFooter(body, [hme, rpt, abt]);

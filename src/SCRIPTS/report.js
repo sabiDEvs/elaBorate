@@ -11,6 +11,14 @@ import ImgCPE from '../RESOURCES/images/dept_cpe.png';
 import ImgMEE from '../RESOURCES/images/dept_mee.png';
 import ImgPRE from '../RESOURCES/images/dept_pre.png';
 import ImgEEE from '../RESOURCES/images/dept_eee.png';
+import favLogo from '../RESOURCES/images/footer-logo.png'
+
+const faviconAny = document.querySelector('link[sizes="any"]');
+const faviconSvg = document.querySelector('link[type="image/svg+xml"]');
+    
+    
+faviconAny.href = favLogo;
+faviconSvg.href = favLogo;
 
 const hme = "../index.html";
 const rpt = "./report.html";

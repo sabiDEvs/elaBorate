@@ -6,14 +6,8 @@
 header{
     grid-area: header;
 }
-footer{
+footer {
     grid-area: footer;
-}
-table, tr, td, th{
-    border: 1px solid black;
-}
-.selected {
-    background-color: #a96c0a;
 }
 body{
     width: 100%;
@@ -28,12 +22,11 @@ body{
     'main main main main main'
     'footer footer footer footer footer';
 }
+
 .active{
     display: flex;
 }
-input{
-    background-color: #000000;
-}
+
 /*Aside styling*/
 aside{
     position: fixed;
@@ -60,8 +53,8 @@ aside > div li{
     float: right;
     display: block;
     background-color: #ffffff;
-    border-radius: 1vw;
-    padding: 1vw;
+    border-radius: 50%;
+    padding: 0.5vw;
     color:#000000;
 }
 /*main styling*/
@@ -73,23 +66,16 @@ main{
     gap: 2vh;
     padding: 2vw 6vw;
     display: flex;
-    margin: 0.2vw;
-    padding: 0.1vw;
 }
-.videos{
-    width: 100%;
-    height: 315px;
-    align-self: center;
-    justify-self: center;
-    margin: 1vw auto;
-}
+
 .halfImg{
-    width: 200px;
-    height: 150px;
+    width: 80%;
+    height: auto;
+    margin: 3vw auto;
     object-fit: contain;
 }
 .startImg{
-    width: 90%;
+    width: 95%;
     align-self: center;
     margin: 0 auto;
 }
@@ -154,52 +140,69 @@ main{
     vertical-align: middle;
 }
 iframe{
-    width: 90%;
-    height: 40vh;
-    margin: 0 auto;
+    width: 100%;
+    height: 315px;
+    margin: 3vw auto;
 }
 .download{
     display: none;
 }
+/*footer styling*/
 
 span{
     font-weight: bold;
 }
 .appBox img{
-     height: 100px;
-     width: 100px;
+     height: 150px;
+     width: 150px;
 }
-img, video{
-    width: 90%;
-    height: auto;
-    margin: 2px auto;
-}
-video{
-    height: 315px;
+.appBox p{
+    border-left: 3px solid #fca311;
+    padding-left: 0.5vw;
 }
 .appBox{
+    margin: 0;
+    padding: 0;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    justify-items: center;
-    gap: 5vw;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items: space-between;
+    gap: 6vw;
+}
+/* General styling */
+.selected {
+    background-color: #a96c0a;
+}
+div, li, h1, h2, h3, h4, p{
+    padding: 0.05vw;
+    margin: 0.5vw 0.25vw;
+}
+ul, ol{
+    margin-left: 6vw;
+}
+aside ul{
+    margin-left: 0;
+}
+header div, header li, header h1, header p, header h2, header h3, footer div, footer li, footer h1, footer h2, footer p, footer h3 {
+    margin: 0;
+    padding: 0;
+}
+table, td, th, tr {
+    border: 1px solid black;
+}
+table {
+    max-width: 100%;
+}
+.tables-container{
+    max-width: 100%;
 }
 @media only screen and (min-width:768px){
+    ul, ol{
+        margin-left: 3vw;
+    }    
     .menu{
         display: none;
     }
-    img, video{
-        width: 70%;
-        height: auto;
-        margin: 2vw auto;
-    }
-    video{
-        height: 400px;
-    }
-    #closeButton{
-        display: none;
-    }
-    
     body{
         width: 100%;
         background-color: #ffffff;
@@ -213,10 +216,16 @@ video{
         'aside aside main main main'
         'aside aside footer footer footer';
     }
+    main{
+        width: 75%;
+        margin-left: 25%;
+        margin-bottom: 10vh;
+        padding-left: 1vw;
+    }
     aside{
         height: 90vh;
         position: fixed;
-        margin-top: 10vh;
+        margin-top: 13vh;
         background-color: #14213d;
         color: #ffffff;
         display: block;
@@ -251,8 +260,8 @@ video{
         display: none;
     }
     iframe{
-        width: 40vw;
-        height: 50vh;
+        width: 80%;
+        height: 400px;
     }
     .download{
         display:  inline-block;
@@ -264,6 +273,9 @@ video{
     }
     .download a{
         text-decoration: none;
+    }
+    .halfImg{
+        width: 50%;
     }
     .downloadBox{
         background: #fca311;
@@ -283,11 +295,15 @@ video{
     .downloadcta{
         background: #ffffff;
         border: 1px solid #fca311;
-        top: 6vh;
+        top: 7vh;
         position: relative;
         left: 0.5vw;
         width: 12vw;
         height: 5vh;
         z-index: 1;
+    }
+    footer {
+        width: 75%;
+        margin-left: 23.5%;
     }
 }

@@ -118,11 +118,14 @@ const createDivs = (object) => {
     const text = document.createElement('div');
     text.innerHTML = `<span>• ${object.title}:</span>  ${object.text}`;
     div.appendChild(text);
-    if(object.image !== ' '){
-         const image = document.createElement('img');
-         image.classList.add('halfImg');
-         image.src = object.image
-         div.appendChild(image);
+    if(object.image !== ''){
+         return div;
+    }
+    else if(object.image !== '' && object.image !== null) {
+        const image = document.createElement('img');
+        image.classList.add('halfImg');
+        image.src = object.image
+        div.appendChild(image);
     }
     return div;
 }
