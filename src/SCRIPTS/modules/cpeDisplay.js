@@ -10,6 +10,12 @@ import ic7483 from "../../RESOURCES/images/ic7483.jpeg";
 import ic7400 from "../../RESOURCES/images/ic7400.jpeg";
 import halfSub from "../../RESOURCES/images/half sub.png";
 import fullSub from "../../RESOURCES/images/full sub.png";
+import displaySevSeg from "../../RESOURCES/images/display seven seg.png";
+import anode from "../../RESOURCES/images/anode.jpeg";
+import cathode from "../../RESOURCES/images/cathode.jpeg";
+import ic7400and7410 from "../../RESOURCES/images/ic7400-7410.jpeg";
+import bcd from "../../RESOURCES/images/bcd.jpeg";
+import truthTabSevSeg from "../../RESOURCES/images/Truth Table seven seg.jpeg";
 import obsAddSub from "../../RESOURCES/images/obserAdderSub.jpg";
 import { add } from "lodash";
 
@@ -879,6 +885,208 @@ export const displayAddersAndSubtractors = function () {
       "400L Laboratory Manual, Computer Engineering Programme, UNIBEN.",
       "Digital Design by M. Morris Mano.",
       "Digital Fundamentals by Thomas L. Floyd.",
+    ],
+    references
+  );
+  main.appendChild(references);
+};
+
+// SEVEN SEGMENT DISPLAY DECODER EXPERIMENT
+
+export const displaySevenSegmentDecoder = function () {
+  const main = reset();
+
+  // Title
+  const head = document.createElement("h1");
+  head.textContent = "Experiment: Seven Segment Display Decoder";
+  main.appendChild(head);
+
+  // Aim
+  const topic = document.createElement("h2");
+  topic.textContent =
+    "TO CONSTRUCT A CIRCUIT THAT TAKES A 3-BIT BINARY INTEGER AND PRODUCES THE CORRESPONDING SEVEN-SEGMENT CODE";
+  main.appendChild(topic);
+
+  // Objective
+  const objective = document.createElement("section");
+  createSecHeader("AIMS/OBJECTIVES", objective);
+  createPara(
+    "To construct a circuit that takes a 3-bit binary integer with a decimal value between 0 and 7 and produces the corresponding seven-segment code.",
+    objective
+  );
+  main.appendChild(objective);
+
+  // Apparatus
+  const apparatus = document.createElement("section");
+  createSecHeader("APPARATUS/TOOLS", apparatus);
+  createList(
+    [
+      "Breadboard",
+      "2-input NAND Gate (IC 7400)",
+      "3-input NAND Gate (IC 7410)",
+      "LEDs",
+      "Connecting wires",
+      "Voltage regulator",
+      "5V DC power source",
+    ],
+    apparatus
+  );
+  main.appendChild(apparatus);
+
+  // Theory
+  const theory = document.createElement("section");
+  createSecHeader("THEORY", theory);
+  createPara(
+    "Light Emitting Diode (LED) is the most widely used semiconductor which emits either visible light or invisible infrared light when forward biased. Remote controls generate invisible light. A Light-emitting diode (LED) is optical-electrical energy into light energy when voltage is applied. Seven segment displays are the output display device that provides a way to display information in the form of images or text or decimal numbers which is an alternative to the more complex dot matrix displays. It is widely used in digital clocks, basic calculators, electronic meters, and other electronic devices that display numerical information. It consists of seven segments of light-emitting diodes (LEDs) which are assembled like numerical 8.",
+    theory
+  );
+
+  const displaySevenSeg = document.createElement("img");
+  displaySevenSeg.src = displaySevSeg;
+  theory.appendChild(displaySevenSeg);
+
+  createPara(
+    "The number 8 is displayed when power is supplied to all segments of a seven-segment display. If the power to the ‘g’ segment is disconnected, the display shows the number 0. In a seven-segment display, voltage can be applied to different pins simultaneously, allowing the formation of numerical combinations from 0 to 9. Although seven-segment displays cannot form alphabets like X and Z, they can represent certain letters such as A, B, C, D, E, and F. Therefore, they are suitable for displaying hexadecimal digits. Each display unit typically includes a decimal point (DP), which can be located on either the left or the right of the display pattern. These displays can be used to show numerals from 0 to 9 as well as letters from A to F.",
+    theory
+  );
+
+  createSecHeader("Working of Seven Segment Displays", theory);
+  createPara(
+    "The number 8 is displayed when the power is given to all the segments and if you disconnect the power for ‘g’, then it displays the number 0. In a seven-segment display, power (or voltage) at different pins can be applied at the same time, so we can form combinations of display numerical from 0 to 9. Since seven-segment displays can not form alphabets like X and Z, so it can not be used for the alphabet and they can be used only for displaying decimal numerical magnitudes. However, seven-segment displays can form alphabets A, B, C, D, E, and F, so they can also be used for representing  each display unit is usually has a dot point (DP).  The display point could be located either towards the left or towards the right of the display pattern. This type of pattern can be used to display numerals from 0 to 9 and letters from to F hexadecimal digits.",
+    theory
+  );
+  createPara(
+    "According to the type of application, there are two types of configurations of seven-segment displays: common anode display and common cathode display.",
+    theory
+  );
+
+  createList(
+    [
+      "In common cathode seven segment displays, all the cathode connections of LED segments are connected together to logic 0 or ground. We use logic 1 through a current limiting resistor to forward bias the individual anode terminals a to g.",
+      "Whereas all the anode connections of the LED segments are connected together to logic 1 in a common anode seven segment display. We use logic 0 through a current limiting resistor to the cathode of a particular segment a to g.",
+    ],
+    theory
+  );
+
+  createPara(
+    "Common anode seven segment displays are more popular than cathode seven segment displays because logic circuits can sink more current than they can source and it is the same as connecting LEDs in reverse.",
+    theory
+  );
+  createSecHeader("APPLICATIONS", theory);
+  createList(
+    [
+      "Digital clocks",
+      "Clock radios",
+      "Calculators",
+      "Wristwatches",
+      "Speedometers",
+      "Motor-vehicle odometers",
+      "Radiofrequency indicators",
+    ],
+    theory
+  );
+  main.appendChild(theory);
+
+  // Diagrams
+  const diagrams = document.createElement("section");
+
+  // Anode Diagram
+  createSecHeader("Anode", diagrams);
+  const anodeDiag = document.createElement("img");
+  anodeDiag.src = anode;
+  diagrams.appendChild(anodeDiag);
+
+  // Cathode Diagram
+  createSecHeader("Cathode", diagrams);
+  const cathodeDiag = document.createElement("img");
+  cathodeDiag.src = cathode;
+  diagrams.appendChild(cathodeDiag);
+
+  // IC 7400 and 7410 Diagram
+  createSecHeader("IC 7400 and 7410", diagrams);
+  const ic7400And7410Diag = document.createElement("img");
+  ic7400And7410Diag.src = ic7400and7410;
+  diagrams.appendChild(ic7400And7410Diag);
+
+  // BCD Diagram
+  createSecHeader("BCD", diagrams);
+  const bcdDiag = document.createElement("img");
+  bcdDiag.src = bcd;
+  diagrams.appendChild(bcdDiag);
+
+  main.appendChild(diagrams);
+
+  // Procedures
+  const procedures = document.createElement("section");
+  createSecHeader("PROCEDURES", procedures);
+  createList(
+    [
+      "Use a multimeter to test the continuity of the breadboard and other components to ensure proper functionality.",
+      "Loop the breadboard by connecting jumper wires from one rail to its opposite rail to ensure consistent voltage flow across the power lines.",
+      "Properly place IC 7400, IC 7410, and IC 7404 onto the breadboard.",
+      "Connect pin 7 of IC 7400, IC 7410, and IC 7404 to the ground (negative rail) of the breadboard.",
+      "Connect pin 14 of IC 7400, IC 7410, and IC 7404 to the positive (Vcc) rail of the breadboard.",
+      "Connect the input pins (2, 5, 9, 12) of IC 7400 to the negative rail of the breadboard.",
+      "Connect the output pins (3, 6, 8, 11) of IC 7400 to the input pins (1, 3, 11, 13) of IC 7404.",
+      "Connect the input pins (2, 4, 5, 9, 13) of IC 7410 to the negative rail of the breadboard.",
+      "Connect probe wires to pins 1, 3, and 11 of IC 7410.",
+      "Connect the output pins (12, 6, 8) of IC 7410 to the input pins (13, 1, 11) of IC 7404.",
+      "Connect the output pins (2, 4, 10, 12) of IC 7404 to the corresponding input pins (10, 9, 7, 6, 4, 2, 1) of the seven-segment display.",
+      "Connect pins 8 and 3 of the seven-segment display to the Vcc rail.",
+      "Connect a voltage regulator to ensure the circuit receives a steady 5V supply.",
+      "Use probe wires to test the setup, specifically checking pins 1, 4, 10, and 13 of IC 7400 and connections to the seven-segment display. Record the results.",
+    ],
+    procedures
+  );
+  main.appendChild(procedures);
+
+  // Observations
+  const observations = document.createElement("section");
+
+  // Truth Table for Seven Segment Diagram
+  createSecHeader("Truth Table for Seven Segment", observations);
+  const truthTabSevSegDiag = document.createElement("img");
+  truthTabSevSegDiag.src = truthTabSevSeg;
+  observations.appendChild(truthTabSevSegDiag);
+
+  createSecHeader("OBSERVATIONS", observations);
+  createPara(
+    "The seven-segment display illuminated the correct segments corresponding to the binary input. Errors in connections resulted in partial or no segment illumination.",
+    observations
+  );
+  main.appendChild(observations);
+
+  // Precautions
+  const precautions = document.createElement("section");
+  createSecHeader("PRECAUTIONS", precautions);
+  createList(
+    [
+      "Ensure all components are functioning properly.",
+      "Verify all connections before powering the circuit.",
+      "Use a voltage regulator to prevent damage to components.",
+    ],
+    precautions
+  );
+  main.appendChild(precautions);
+
+  // Conclusion
+  const conclusions = document.createElement("section");
+  createSecHeader("CONCLUSIONS", conclusions);
+  createPara(
+    "In summary, a seven-segment display decoder plays a vital role in converting digital signals into readable numbers or characters. It works by controlling which segments of the display light up to represent digits (0-9) or hexadecimal values (A-F). This makes it a simple and effective way to present data in a way people can easily understand. Building and testing the decoder highlights the importance of proper wiring, ensuring components are in good condition, and regulating the voltage to protect the circuit. Seven-segment displays, combined with decoders, are widely used in everyday devices like clocks and calculators because they’re reliable and easy to use for displaying information.",
+    conclusions
+  );
+  main.appendChild(conclusions);
+
+  // References
+  const references = document.createElement("section");
+  createSecHeader("REFERENCES", references);
+  createList(
+    [
+      "400L Laboratory Manual, Computer Engineering Programme, UNIBEN.",
+      "Digital Design by M. Morris Mano.",
+      "Fundamentals of Digital Logic by Stephen Brown.",
+      "Digital Systems by Ronald Tucci.",
     ],
     references
   );

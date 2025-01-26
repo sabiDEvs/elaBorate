@@ -7,6 +7,7 @@ import {
   displayLogicGatesExperiment,
   displaySequentialCircuits,
   displayAddersAndSubtractors,
+  displaySevenSegmentDecoder,
 } from "./modules/cpeDisplay";
 
 const hme = "./index.html";
@@ -35,6 +36,10 @@ let reports = [
     func: displayAddersAndSubtractors,
   },
   {
+    title: "EXPERIMENT 402",
+    func: displaySevenSegmentDecoder,
+  },
+  {
     title: "EXPERIMENT 404",
     func: displaySequentialCircuits,
   },
@@ -47,13 +52,13 @@ renderHeader(body, [hme, rpt, abt]);
 const aside = document.createElement("aside");
 
 //create button to close side menu
-// const close = document.createElement("div");
-// close.textContent = "close";
-// close.addEventListener("click", () => {
-//   document.querySelector("aside").style.display = "none";
-// });
-// close.id = "closeButton";
-// aside.appendChild(close);
+const close = document.createElement("div");
+close.textContent = "x";
+close.addEventListener("click", () => {
+  document.querySelector("aside").style.display = "none";
+});
+close.id = "closeButton";
+aside.appendChild(close);
 
 //create aside header
 const heading = document.createElement("h3");
