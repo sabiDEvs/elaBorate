@@ -20,14 +20,14 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/'),
     filename: '[name].js', // Maintain filename for each entry point
   },
-  mode: 'development',
+  mode: 'production',
     optimization: {
         splitChunks: {
             chunks: 'all',
         },
         runtimeChunk: 'single',
     },
-  devtool: 'eval-source-map',
+  
   module: {
     rules: [
       {

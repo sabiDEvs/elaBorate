@@ -16,14 +16,14 @@ module.exports = {
       filename: '[name].js',
       clean: true,
     },
-    mode: 'development',
+    mode: 'production',
     optimization: {
         splitChunks: {
             chunks: 'all',
         },
         runtimeChunk: 'single',
     },
-    devtool: 'inline-source-map',
+    
     devServer: {
         static: './dist',
         hot: true,
