@@ -192,6 +192,7 @@ table, td, th, tr {
 }
 table {
     max-width: 100%;
+    table-layout: fixed;
 }
 .tables-container{
     max-width: 100%;

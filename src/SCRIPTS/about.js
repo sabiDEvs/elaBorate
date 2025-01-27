@@ -4,6 +4,12 @@ import { renderFooter } from "./modules/footer";
 import missionImg from "../RESOURCES/images/mission.png";
 import achieveImg from "../RESOURCES/images/achieve.png";
 import navigateImg from "../RESOURCES/images/navigate.png";
+import favLogo from '../RESOURCES/images/footer-logo.png'
+const faviconAny = document.querySelector('link[sizes="any"]');
+const faviconSvg = document.querySelector('link[type="image/svg+xml"]');   
+faviconAny.href = favLogo;
+faviconSvg.href = favLogo;
+
 
 import {
   createContent,

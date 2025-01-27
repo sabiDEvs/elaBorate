@@ -16,9 +16,11 @@ import aboutPic from '../RESOURCES/images/about_us_man.png';
 import favLogo from '../RESOURCES/images/footer-logo.png'
 
 const faviconAny = document.querySelector('link[sizes="any"]');
-const faviconSvg = document.querySelector('link[type="image/svg+xml"]');
-    
-    
+const faviconSvg = document.querySelector('link[type="image/svg+xml"]'); 
+const ogImage = document.querySelector('meta[property="og:image"]');
+const appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+appleIcon.setAttribute('href', favLogo);
+ogImage.setAttribute('content', favLogo);   
 faviconAny.href = favLogo;
 faviconSvg.href = favLogo;
 

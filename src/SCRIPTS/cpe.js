@@ -9,6 +9,11 @@ import {
   displayAddersAndSubtractors,
   displaySevenSegmentDecoder,
 } from "./modules/cpeDisplay";
+import favLogo from '../RESOURCES/images/footer-logo.png'
+const faviconAny = document.querySelector('link[sizes="any"]');
+const faviconSvg = document.querySelector('link[type="image/svg+xml"]');   
+faviconAny.href = favLogo;
+faviconSvg.href = favLogo;
 
 const hme = "./index.html";
 const rpt = "./report/report.html";
