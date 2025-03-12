@@ -1002,24 +1002,28 @@ export const displaySevenSegmentDecoder = function () {
   createSecHeader("Anode", diagrams);
   const anodeDiag = document.createElement("img");
   anodeDiag.src = anode;
+  anodeDiag.className = "diagramSmallScreens";
   diagrams.appendChild(anodeDiag);
 
   // Cathode Diagram
   createSecHeader("Cathode", diagrams);
   const cathodeDiag = document.createElement("img");
   cathodeDiag.src = cathode;
+  cathodeDiag.className = "diagramSmallScreens";
   diagrams.appendChild(cathodeDiag);
 
   // IC 7400 and 7410 Diagram
   createSecHeader("IC 7400 and 7410", diagrams);
   const ic7400And7410Diag = document.createElement("img");
   ic7400And7410Diag.src = ic7400and7410;
+  ic7400And7410Diag.className = "diagramSmallScreens";
   diagrams.appendChild(ic7400And7410Diag);
 
   // BCD Diagram
   createSecHeader("BCD", diagrams);
   const bcdDiag = document.createElement("img");
   bcdDiag.src = bcd;
+  bcdDiag.className = "diagramSmallScreens";
   diagrams.appendChild(bcdDiag);
 
   main.appendChild(diagrams);
@@ -1055,6 +1059,7 @@ export const displaySevenSegmentDecoder = function () {
   createSecHeader("Truth Table for Seven Segment", observations);
   const truthTabSevSegDiag = document.createElement("img");
   truthTabSevSegDiag.src = truthTabSevSeg;
+  truthTabSevSegDiag.className = "diagramSmallScreens";
   observations.appendChild(truthTabSevSegDiag);
 
   createSecHeader("OBSERVATIONS", observations);
