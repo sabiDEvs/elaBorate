@@ -787,36 +787,43 @@ export const displayAddersAndSubtractors = function () {
   createSecHeader("Adder and Subtractor Circuit", diagrams);
   const adderSubCir = document.createElement("img");
   adderSubCir.src = adderAndSubCir;
+  adderSubCir.className = "diagramSmallScreens";
   diagrams.appendChild(adderSubCir);
 
   createSecHeader("4-Bit Adder and Subtractor Circuit", diagrams);
   const fourBitAdderSubCir = document.createElement("img");
   fourBitAdderSubCir.src = fourBitAdderSub;
+  fourBitAdderSubCir.className = "diagramSmallScreens";
   diagrams.appendChild(fourBitAdderSubCir);
 
   createSecHeader("IC 7486 Diagram", diagrams);
   const ic7486Img = document.createElement("img");
   ic7486Img.src = ic7486;
+  ic7486Img.className = "diagramSmallScreens";
   diagrams.appendChild(ic7486Img);
 
   createSecHeader("IC 7483 Diagram", diagrams);
   const ic7483Img = document.createElement("img");
   ic7483Img.src = ic7483;
+  ic7483Img.className = "diagramSmallScreens";
   diagrams.appendChild(ic7483Img);
 
   createSecHeader("IC 7400 Diagram", diagrams);
   const ic7400Img = document.createElement("img");
   ic7400Img.src = ic7400;
+  ic7400Img.className = "diagramSmallScreens";
   diagrams.appendChild(ic7400Img);
 
   createSecHeader("Half Subtractor Circuit", diagrams);
   const halfSubImg = document.createElement("img");
   halfSubImg.src = halfSub;
+  halfSubImg.className = "diagramSmallScreens";
   diagrams.appendChild(halfSubImg);
 
   createSecHeader("Full Subtractor Circuit", diagrams);
   const fullSubImg = document.createElement("img");
   fullSubImg.src = fullSub;
+  fullSubImg.className = "diagramSmallScreens";
   diagrams.appendChild(fullSubImg);
 
   main.appendChild(diagrams);
@@ -854,6 +861,7 @@ export const displayAddersAndSubtractors = function () {
   createSecHeader("Observations of Adder and Subtractor", observations);
   const obsAddSubImg = document.createElement("img");
   obsAddSubImg.src = obsAddSub;
+  obsAddSubImg.className = "diagramSmallScreens";
   observations.appendChild(obsAddSubImg);
 
   main.appendChild(observations);

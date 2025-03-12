@@ -205,6 +205,9 @@ footer h3 {
   margin: 0;
   padding: 0;
 }
+.diagramSmallScreens {
+  width: 50vw;
+}
 @media only screen and (min-width: 768px) {
   ul {
     margin-left: 3vw;
