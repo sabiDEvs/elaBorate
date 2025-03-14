@@ -1,7 +1,7 @@
 import '../CSS/pre.css';
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
-import { displayStarted, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, displayEE204 } from './modules/eeeDisplay';
+import { displayStarted, displayEE201, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, displayEE204 } from './modules/eeeDisplay';
 const body = document.querySelector('body');
 
 const hme = "../../index.html";
@@ -12,6 +12,10 @@ let reports = [
     {
         title: 'Getting Started',
         func: displayStarted
+    },
+    {
+        title: 'Measurement of Unknown Resistance {EE201}',
+        func: displayEE201
     },
     {
         title: 'Measurement of Capacitance {EE202}',
