@@ -8,6 +8,10 @@ import {
   displaySequentialCircuits,
   displayAddersAndSubtractors,
   displaySevenSegmentDecoder,
+  displayDecoderAndMultiplexerExperiment,
+  display555TimerAndShiftRegisterExperiment,
+  displayJKFlipFlopExperiment,
+  displayBlockTransferExperiment,
 } from "./modules/cpeDisplay";
 import favLogo from "../RESOURCES/images/footer-logo.png";
 const faviconAny = document.querySelector('link[sizes="any"]');
@@ -27,26 +31,43 @@ let reports = [
     func: displayStarted,
   },
   {
-    title: "EXPERIMENT 3.9",
+    title: "EXPERIMENT 3.9: T0 Implement 4-bit and 8-bit Comparators",
     func: displayComparators,
   },
   {
-    title: "EXPERIMENT 303",
+    title: "EXPERIMENT 303: Verify Basic Logic Gates",
     func: displayLogicGatesExperiment,
   },
 
   // 400l
   {
-    title: "EXPERIMENT 401",
+    title: "EXPERIMENT 401: Adders and Subtractors",
     func: displayAddersAndSubtractors,
   },
+
   {
-    title: "EXPERIMENT 402",
+    title: "EXPERIMENT 402: Seven Segment Display Decoder",
     func: displaySevenSegmentDecoder,
   },
   {
-    title: "EXPERIMENT 404",
+    title: "EXPERIMENT 403: Decoder and Multiplexer",
+    func: displayDecoderAndMultiplexerExperiment,
+  },
+  {
+    title: "EXPERIMENT 404: Sequential Circuits",
     func: displaySequentialCircuits,
+  },
+  {
+    title: "EXPERIMENT 405: 555 Timer and Shift Register",
+    func: display555TimerAndShiftRegisterExperiment,
+  },
+  {
+    title: "EXPERIMENT 406: JK Negative Edge Triggered Flip Flop",
+    func: displayJKFlipFlopExperiment,
+  },
+  {
+    title: "EXPERIMENT 413: 8085 AND Z80 Block Transfer Programs",
+    func: displayBlockTransferExperiment,
   },
 ];
 

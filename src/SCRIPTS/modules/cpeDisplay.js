@@ -1105,3 +1105,793 @@ export const displaySevenSegmentDecoder = function () {
   );
   main.appendChild(references);
 };
+
+// DECODER AND MULTIPLEXER EXPERIMENT
+
+export const displayDecoderAndMultiplexerExperiment = function () {
+  const main = reset();
+
+  // Title
+  const head = document.createElement("h1");
+  head.textContent = "Experiment Number: CPE 403 - Decoder and Multiplexer";
+  main.appendChild(head);
+
+  // Aims
+  const aims = document.createElement("section");
+  createSecHeader("AIMS", aims);
+  createList(
+    [
+      "To construct combinational circuits for decoders and multiplexers.",
+      "To implement logical functions using decoders and multiplexers.",
+    ],
+    aims
+  );
+  main.appendChild(aims);
+
+  // Apparatus
+  const apparatus = document.createElement("section");
+  createSecHeader("APPARATUS", apparatus);
+  createList(
+    [
+      "Combinational logic gates",
+      "Breadboard",
+      "LEDs",
+      "Voltage regulator",
+      "Battery pack",
+      "Connecting wires",
+      "74138: 3-to-8 Decoder IC",
+      "74151: 8-to-1 Multiplexer IC",
+    ],
+    apparatus
+  );
+  main.appendChild(apparatus);
+
+  // Theory
+  const theory = document.createElement("section");
+  createSecHeader("THEORY", theory);
+
+  // Decoder Theory
+  createSecHeader("Decoder", theory);
+  createPara(
+    "A decoder is a digital circuit designed to interpret and translate encoded information. It receives an input signal in a specific format, typically binary, and converts it into a meaningful output, often activating a single channel among multiple possibilities.",
+    theory
+  );
+  createPara(
+    "A decoder is a combinational circuit that has n input lines and a maximum of 2^n output lines. When the decoder is enabled, one of these outputs will be active based on the combination of inputs present. In essence, a decoder detects a particular code.",
+    theory
+  );
+  createPara(
+    "For the purpose of this experiment, a 74138 IC is used as a 3-to-8 decoder. This decoder accepts three binary inputs and activates one of the eight outputs based on the input combination. The enable pins of the decoder must be appropriately set to activate the circuit.",
+    theory
+  );
+
+  // Multiplexer Theory
+  createSecHeader("Multiplexer", theory);
+  createPara(
+    "A multiplexer (or MUX) is a versatile digital circuit that acts as a multi-input, single-output data selector. It is a combinational circuit with a maximum of 2^n data inputs, n selection lines, and one output line. Based on the values of the selection lines, only one of the 2^n data inputs is connected to the output.",
+    theory
+  );
+  createList(
+    [
+      "Selection Lines: These determine which data input is selected.",
+      "Data Inputs: The maximum number of data inputs is 2^n.",
+      "Single Output: All operations funnel into a single output line.",
+    ],
+    theory
+  );
+  createPara(
+    "For instance, with 3 selection lines (n=3), the multiplexer can handle up to 8 data inputs. The combination of 0s and 1s on the selection lines ensures only one data input is selected and passed to the output.",
+    theory
+  );
+
+  // Combinational Circuit Theory
+  createSecHeader("Combinational Circuit", theory);
+  createPara(
+    "A combinational circuit is a type of digital circuit where the output depends solely on the current input values. Unlike sequential circuits, combinational circuits do not have memory elements, so their output is not influenced by past inputs. Examples of combinational circuits are:",
+    theory
+  );
+  createList(
+    [
+      "Logic gates like AND, OR, XOR, and NOT.",
+      "More complex circuits such as decoders, multiplexers, and adders.",
+    ],
+    theory
+  );
+  main.appendChild(theory);
+
+  // Diagrams
+  const diagrams = document.createElement("section");
+  createSecHeader("DIAGRAMS", diagrams);
+
+  // Decoder Diagram
+  const decoderDiagram = document.createElement("img");
+  decoderDiagram.src = "path/to/decoder_diagram.png";
+  decoderDiagram.className = "diagramSmallScreens";
+  diagrams.appendChild(decoderDiagram);
+
+  // Multiplexer Diagram
+  const multiplexerDiagram = document.createElement("img");
+  multiplexerDiagram.src = "path/to/multiplexer_diagram.png";
+  multiplexerDiagram.className = "diagramSmallScreens";
+  diagrams.appendChild(multiplexerDiagram);
+
+  main.appendChild(diagrams);
+
+  // Procedures
+  const procedures = document.createElement("section");
+  createSecHeader("PROCEDURES", procedures);
+
+  // Multiplexer Procedure
+  createSecHeader("Procedure for Multiplexer", procedures);
+  createList(
+    [
+      "Use a multimeter to perform a continuity test on the breadboard and other components to ensure they are in good working condition.",
+      "Loop the breadboard by connecting the positive rail of one side to the positive rail of the other side, and do the same for the negative rail, to ensure voltage flow through the circuit.",
+      "Mount the 74151 IC (8-to-1 Multiplexer) properly on the breadboard.",
+      "Connect pin 8 of the IC to ground.",
+      "Connect pin 16 of the IC to VCC (positive terminal).",
+      "Connect the Enable pin (pin 8) appropriately.",
+      "Connect pins 3, 15, 12, and 13 to the positive terminal of the breadboard. These pins will serve as D1, D2, D6, and D7.",
+      "Connect pins 4, 2, 1, and 14 to the negative terminal of the breadboard. These pins will serve as D0, D3, D4, and D5.",
+      "Connect output LEDs to pins 5 and 6 of the IC to serve as the output.",
+      "Attach push buttons to pins 11, 10, and 9 of the IC, which will act as switches.",
+      "Connect the other terminals of the push buttons to the negative rail of the breadboard.",
+      "Use a voltage regulator to ensure the voltage supply is regulated to 5 volts.",
+      "Test the circuit for functionality and tabulate the results.",
+    ],
+    procedures
+  );
+
+  // Decoder Procedure
+  createSecHeader("Procedure for Decoder", procedures);
+  createList(
+    [
+      "Use a multimeter to perform a continuity test on the breadboard and other components to ensure they are in good working condition.",
+      "Loop the breadboard by connecting the positive rail of one side to the positive rail of the other side, and do the same for the negative rail, to ensure voltage flow through the circuit.",
+      "Mount the 74138 IC (3-to-8 Decoder) properly on the breadboard.",
+      "Connect pin 8 of the IC to ground.",
+      "Connect pin 16 of the IC to VCC (positive terminal).",
+      "Ground pins 4 and 5 of the 74138 IC.",
+      "Connect LEDs to pins 7, 9, 10, 11, 12, 13, 14, and 15. These LEDs represent the outputs D0 to D7 respectively.",
+      "Connect push buttons to pins 1, 2, and 3. These push buttons will serve as switches, which will, in turn, serve as inputs for A2, A1, and A0.",
+      "Using 330-ohm resistors, connect three resistors to pins 1, 2, and 3. The other leg of the resistors should be connected to ground.",
+      "Connect the voltage regulator to ensure the voltage supply is regulated to 5V.",
+      "Test the circuit for functionality and tabulate the results.",
+    ],
+    procedures
+  );
+  main.appendChild(procedures);
+
+  // Observations
+  const observations = document.createElement("section");
+  createSecHeader("OBSERVATIONS", observations);
+
+  // Truth Table for Multiplexer
+  createSecHeader("Truth Table for Multiplexer", observations);
+  const multiplexerTruthTable = document.createElement("img");
+  multiplexerTruthTable.src = "path/to/multiplexer_truth_table.png";
+  multiplexerTruthTable.className = "diagramSmallScreens";
+  observations.appendChild(multiplexerTruthTable);
+
+  // Truth Table for Decoder
+  createSecHeader("Truth Table for Decoder", observations);
+  const decoderTruthTable = document.createElement("img");
+  decoderTruthTable.src = "path/to/decoder_truth_table.png";
+  decoderTruthTable.className = "diagramSmallScreens";
+  observations.appendChild(decoderTruthTable);
+
+  main.appendChild(observations);
+
+  // Precautions
+  const precautions = document.createElement("section");
+  createSecHeader("PRECAUTIONS", precautions);
+  createList(
+    [
+      "Ensure all the components were properly connected.",
+      "Ensure all the components were in good working condition before using them.",
+      "Use a voltage regulator to regulate the voltage to 5V.",
+    ],
+    precautions
+  );
+  main.appendChild(precautions);
+
+  // Conclusion
+  const conclusion = document.createElement("section");
+  createSecHeader("CONCLUSION", conclusion);
+  createPara(
+    "The experiment successfully demonstrated the construction of combinational circuits for the decoder and multiplexer using ICs 74138 and 74151. Through the implementation of these circuits, various logical functions were effectively realized, showcasing the versatility and importance of these circuits in digital systems. The experiment not only provided hands-on experience with important components but also deepened the understanding of their functionality and applications in digital designs.",
+    conclusion
+  );
+  main.appendChild(conclusion);
+};
+
+// 555 TIMER AND SHIFT REGISTER EXPERIMENT
+
+export const display555TimerAndShiftRegisterExperiment = function () {
+  const main = reset();
+
+  // Title
+  const head = document.createElement("h1");
+  head.textContent =
+    "Experiment Code Number: CPE405 - 555 Timer and 4-Bit Shift Register";
+  main.appendChild(head);
+
+  // Aim
+  const aims = document.createElement("section");
+  createSecHeader("AIM", aims);
+  createList(
+    [
+      "Building and Implementing a 555 Timer.",
+      "Building and Implementing a 4-bit Shift Register.",
+      "Understanding the Internal Circuitry of a 555 Timer and a 4-bit Shift Register.",
+    ],
+    aims
+  );
+  main.appendChild(aims);
+
+  // Apparatus
+  const apparatus = document.createElement("section");
+  createSecHeader("APPARATUS", apparatus);
+  createList(
+    [
+      "5V DC Power Source",
+      "Breadboard",
+      "Oscilloscope",
+      "Resistors: 1x 10kΩ, 3x 1kΩ, 5x 330Ω",
+      "Capacitors: 1x 47μF, 1x 0.07μF",
+      "ICs: 2x 74LS76 ICs, 1x 742504 IC, 1x LM 555 Timer IC",
+      "Connecting Wires",
+      "Voltage Regulators",
+      "LEDs",
+    ],
+    apparatus
+  );
+  main.appendChild(apparatus);
+
+  // Theory
+  const theory = document.createElement("section");
+  createSecHeader("THEORY", theory);
+
+  // 555 Timer IC Theory
+  createSecHeader("555 Timer IC", theory);
+  createPara(
+    "The 555 Timer is an integrated circuit (IC) widely used in various applications, including timing, pulse generation, and oscillator functions. Introduced in 1972 by Signetics (now part of Texas Instruments), the 555 Timer remains popular due to its versatility, ease of use, and low cost. The 555 Timer is widely used in various electronic circuits due to its versatility. Its applications include:",
+    theory
+  );
+  createList(
+    [
+      "LED flashers",
+      "Timers",
+      "Pulse generators",
+      "Oscillators",
+      "Voltage-controlled oscillators",
+    ],
+    theory
+  );
+
+  // 4-Bit Shift Register Theory
+  createSecHeader("4-Bit Shift Register", theory);
+  createPara(
+    "A Shift Register is a sequential logic circuit consisting of flip-flops arranged in a manner where the output of one flip-flop serves as the input to the next. This allows binary numbers to 'shift' through the flip-flops, controlled by clock pulses.",
+    theory
+  );
+  createPara(
+    "The specific implementation described here is a 4-bit serial-in, parallel-out shift register. It comprises four flip-flops connected in series, with clock inputs tied to a common line, ensuring they receive clock pulses simultaneously.",
+    theory
+  );
+  createList(
+    [
+      "The serial-in input allows binary data to be fed into the first flip-flop in the chain.",
+      "With each rising edge of the clock pulse, the value of one flip-flop is transferred to the next.",
+      "The parallel-out outputs enable all four bits to be read simultaneously.",
+      "This type of shift register is widely used as a serial-to-parallel converter and is frequently employed in serial communication systems.",
+    ],
+    theory
+  );
+  main.appendChild(theory);
+
+  // Diagrams
+  const diagrams = document.createElement("section");
+  createSecHeader("DIAGRAMS", diagrams);
+
+  // 555 Timer Diagram
+  const timerDiagram = document.createElement("img");
+  timerDiagram.src = "path/to/555_timer_diagram.png";
+  timerDiagram.className = "diagramSmallScreens";
+  diagrams.appendChild(timerDiagram);
+
+  // 4-Bit Shift Register Diagram
+  const shiftRegisterDiagram = document.createElement("img");
+  shiftRegisterDiagram.src = "path/to/shift_register_diagram.png";
+  shiftRegisterDiagram.className = "diagramSmallScreens";
+  diagrams.appendChild(shiftRegisterDiagram);
+
+  main.appendChild(diagrams);
+
+  // Procedures
+  const procedures = document.createElement("section");
+  createSecHeader("PROCEDURES", procedures);
+  createList(
+    [
+      "Use a multimeter to perform a continuity test on the breadboard and other components to ensure they are in good working condition.",
+      "Loop the breadboard by connecting jumper wires from one part to its opposite end to ensure proper voltage flow through the circuit.",
+      "Properly mount the 555 Timer IC, IC 742676, and IC 742576 onto the breadboard.",
+      "Connect the output of the clock (Pin 3 of the 555 Timer) to Pins 1 and 6 of the first IC (742576).",
+      "Connect Pin 3 of the 555 Timer to Pins 1 and 6 of the second IC (742676).",
+      "Connect resistor R1 (10kΩ) between Pins 8 and 7 of the 555 Timer.",
+      "Connect resistor R2 (3.3kΩ) between Pins 7 and 6 of the 555 Timer.",
+      "Attach a 100μF capacitor to Pin 2 of the 555 Timer.",
+      "Connect Pin 4 to Pin 8 of the 555 Timer.",
+      "Connect Pin 2 to Pin 6 of the 555 Timer.",
+      "Ground Pin 1 of the 555 Timer.",
+      "Connect Pin 8 of the 555 Timer to VCC (power supply).",
+      "Connect Pins 2 and 7 of the first and second ICs (742676) to the positive terminal of the breadboard to the power supply.",
+      "Connect Pin 4 of the first IC (742576) to Pin 13 of the second IC (742576).",
+      "Connect Pin 12 of IC 7404 to Pin 16 of the first IC (742576).",
+      "Connect Pin 15 to Pin 9 of the first IC (742576).",
+      "Connect Pin 14 to Pin 12 of the first IC (742576).",
+      "Connect Pins 3 and 8 of both 74LS76 ICs to the positive terminal of the breadboard.",
+      "Connect Pin 11 of the first IC (742576) to Pin 4 of the second IC (742576).",
+      "Connect Pins 9 and 11 of IC 7404 to Pins 15 and 11 of the second IC (742576), respectively.",
+      "Connect Pins 4 and 6 of IC 7404 to Pins 15 and 11 of IC 74LS76, respectively.",
+      "Connect Pin 15 to Pin 9 of the second IC (742576).",
+      "Connect Pin 14 to Pin 12 of the second IC (742576).",
+      "Ground Pins 13 of both ICs (742576).",
+      "Connect Pins 5 of both ICs (742576) to VCC.",
+      "Connect LEDs to Pins 4, 6, 8, and 10 of IC 7404.",
+      "Connect the voltage regulator to regulate the voltage to 5V.",
+      "Test and observe the circuit.",
+    ],
+    procedures
+  );
+  main.appendChild(procedures);
+
+  // Observations
+  const observations = document.createElement("section");
+  createSecHeader("OBSERVATIONS", observations);
+  createPara(
+    "The 555 Timer generated stable clock pulses, which were successfully used to drive the 4-bit shift register. The shift register correctly shifted the input data through its flip-flops, and the parallel outputs matched the expected results.",
+    observations
+  );
+  main.appendChild(observations);
+
+  // Precautions
+  const precautions = document.createElement("section");
+  createSecHeader("PRECAUTIONS", precautions);
+  createList(
+    [
+      "Ensured all components were properly connected.",
+      "Verified all components were in good working condition before use.",
+      "Used a voltage regulator to maintain a stable voltage of 5 volts.",
+    ],
+    precautions
+  );
+  main.appendChild(precautions);
+
+  // Conclusion
+  const conclusion = document.createElement("section");
+  createSecHeader("CONCLUSION", conclusion);
+  createPara(
+    "In conclusion, the integration of the 555 Timer and the 4-bit shift register yielded insightful results. The synchronized operation between these components demonstrated their compatibility and potential for various applications, such as timing circuits and sequential logic systems. Further experimentation and optimization could lead to enhanced functionality and performance.",
+    conclusion
+  );
+  main.appendChild(conclusion);
+
+  // References
+  const references = document.createElement("section");
+  createSecHeader("REFERENCES", references);
+  createList(
+    [
+      "400L Laboratory Manual, Computer Engineering Programme, University of Benin.",
+      "Practical Electronics for Inventors by Paul Scherz and Simon Monk.",
+      "Digital Design: Principles and Practices by John F. Wakerly.",
+      "Digital Systems: Principles and Applications by Gregory L. Moss.",
+    ],
+    references
+  );
+  main.appendChild(references);
+};
+
+// JK FLIP FLOP EXPERIMENT
+
+export const displayJKFlipFlopExperiment = function () {
+  const main = reset();
+
+  // Title
+  const head = document.createElement("h1");
+  head.textContent =
+    "Experiment Code Number: CPE406 - JK Negative Edge Triggered Flip Flop";
+  main.appendChild(head);
+
+  // Aim
+  const aims = document.createElement("section");
+  createSecHeader("AIM", aims);
+  createList(
+    [
+      "To examine the concept of the J-K Negative Edge Triggered Flip-Flop.",
+      "To practically implement the J-K Negative Edge Triggered Flip-Flop.",
+    ],
+    aims
+  );
+  main.appendChild(aims);
+
+  // Apparatus
+  const apparatus = document.createElement("section");
+  createSecHeader("APPARATUS", apparatus);
+  createList(
+    [
+      "Breadboard",
+      "IC 74LS76",
+      "LEDs",
+      "Connecting wires",
+      "IC 7404",
+      "555 Timer",
+      "Voltage Regulator",
+      "5V DC power source",
+    ],
+    apparatus
+  );
+  main.appendChild(apparatus);
+
+  // Theory
+  const theory = document.createElement("section");
+  createSecHeader("THEORY", theory);
+
+  // JK Flip Flop Theory
+  createSecHeader("JK Flip Flop", theory);
+  createPara(
+    "The 'JK flip flop,' also known as the Jack Kilby flip flop, is a sequential logic circuit designed by Jack Kilby during his tenure at Texas Instruments in the 1950s. This flip flop serves the purpose of storing and manipulating binary information within digital systems.",
+    theory
+  );
+  createPara(
+    "The J-K Negative Edge Triggered Flip-Flop is a type of flip-flop that changes its state on the falling edge (negative edge) of the clock signal. It is widely used in digital circuits for its versatility and ability to perform multiple functions.",
+    theory
+  );
+
+  // Basic Structure
+  createSecHeader(
+    "Basic Structure of the J-K Negative Edge Triggered Flip-Flop",
+    theory
+  );
+  createPara(
+    "The J-K flip-flop has two inputs, labeled J and K, and a clock input (CLK). It also has two outputs, Q and Q' (the complement of Q). The behavior of the flip-flop is controlled by the combination of the J and K inputs as well as the clock signal.",
+    theory
+  );
+
+  // Basic Functionality
+  createSecHeader("Basic Functionality of JK Flip Flop", theory);
+  createPara(
+    "JK flip flop operates on sequential logic principle, where the output is dependent not only on the current inputs but also on the previous state. There are two inputs in JK Flip Flop Set and Reset denoted by J and K. It also has two outputs Output and complement of Output denoted by Q and Q̅. The internal circuitry of a JK Flip Flop consists of a combination of logic gates, usually NAND gates.",
+    theory
+  );
+
+  // Operation Modes
+  createSecHeader("Operation Modes of JK Flip Flop", theory);
+  createList(
+    [
+      "Edge-Triggered: In this mode, flip flop responds to a signal transition occurring at a clock pulse. It is commonly used in synchronous systems, where the output changes only when the clock signal changes from low to high or high to low.",
+      "Level-Triggered: Unlike the edge-triggered mode, the level-triggered JK Flip Flop responds to the input values continuously as long as the clock signal is held at a specific level (high or low).",
+    ],
+    theory
+  );
+
+  // Applications
+  createSecHeader("Applications of JK Flip Flop", theory);
+  createList(
+    ["Counters", "Shift Registers", "Memory Units", "Frequency Division"],
+    theory
+  );
+
+  // Characteristic Equation
+  createSecHeader("Characteristic Equation of JK Flip Flop", theory);
+  createPara(
+    "The characteristic equation of JK Flip Flop represents the relationship between the current state (Q(t)), the inputs (J and K), and the next state (Q(t+1)). Here is the characteristic equation of JK Flip Flop:",
+    theory
+  );
+  createPara("Q(t+1) = JQ̅(t) + QK̅(t)", theory);
+  createPara(
+    "In this equation, the term JQ̅(t) represents the effect of the J input when it is in the set formation (J=1), and K̅(t) represents the effect of the K input when it is reset (K=0). The term QK̅(t) represents the effect of the K input when it is in the set form (K=1), and Q̅(t) represents the complement of the current state.",
+    theory
+  );
+  main.appendChild(theory);
+
+  // Diagrams
+  const diagrams = document.createElement("section");
+  createSecHeader("DIAGRAMS", diagrams);
+
+  // JK Flip Flop Diagram
+  const jkFlipFlopDiagram = document.createElement("img");
+  jkFlipFlopDiagram.src = "path/to/jk_flip_flop_diagram.png";
+  jkFlipFlopDiagram.className = "diagramSmallScreens";
+  diagrams.appendChild(jkFlipFlopDiagram);
+
+  // 555 Timer Diagram
+  const timerDiagram = document.createElement("img");
+  timerDiagram.src = "path/to/555_timer_diagram.png";
+  timerDiagram.className = "diagramSmallScreens";
+  diagrams.appendChild(timerDiagram);
+
+  main.appendChild(diagrams);
+
+  // Procedures
+  const procedures = document.createElement("section");
+  createSecHeader("PROCEDURES", procedures);
+  createList(
+    [
+      "With a multimeter, perform a continuity test on the breadboard and other components to ensure they are in good working condition.",
+      "Loop the breadboard by connecting jumper wires from one rail to its opposite rail. This ensures voltage flow through the circuit.",
+      "Properly mount the IC 74LS76, IC 7404, and 555 timer on the breadboard.",
+      "Connect pin 1 of the 555 timer to ground.",
+      "Connect pin 8 of the 555 timer to VCC.",
+      "Connect pin 4 of the 555 timer to pin 8.",
+      "Connect pin 2 of the 555 timer to pin 6.",
+      "Connect an LED to pin 3 of the 555 timer.",
+      "Connect a resistor R2 (330 Ω) between pins 7 and 6 of the 555 timer.",
+      "Connect a capacitor (100 µF) to pin 2 of the 555 timer.",
+      "Connect a resistor R1 (4.7 kΩ) between pins 8 and 7 of the 555 timer.",
+      "Using 1 kΩ resistors, connect pins 2, 4, 16, and 3 of IC 74LS76 to the positive terminal of the breadboard. These pins represent PRE, J, K, and CLR, respectively.",
+      "Connect the output pin of the 555 timer (pin 3) to the clock (CLK) input of IC 74LS76, which is pin 1.",
+      "Connect pin 5 of IC 74LS76 to VCC.",
+      "Connect pin 13 of IC 74LS76 to ground.",
+      "Pin 15 of IC 74LS76 represents the output Q. Connect this pin to pin 13 of IC 7404.",
+      "Pin 14 of IC 74LS76 represents the output Q'. Connect this pin to pin 12 of IC 7404.",
+      "Connect an LED to pin 11 of IC 7404. This will serve as one of the outputs.",
+      "Connect an LED to pin 10 of IC 7404. This will serve as another output.",
+      "Connect both LEDs to the positive terminal of the breadboard using 330 Ω resistors.",
+      "Connect a voltage regulator to regulate the voltage to 5V.",
+      "Test the circuit and record your observations.",
+    ],
+    procedures
+  );
+  main.appendChild(procedures);
+
+  // Observations
+  const observations = document.createElement("section");
+  createSecHeader("OBSERVATIONS", observations);
+  createPara(
+    "The J-K Negative Edge Triggered Flip-Flop transitioned correctly based on its characteristic table at the negative edge of the clock pulse. Outputs remained stable between clock pulses and changed at the negative edge, confirming the edge-triggered behavior.",
+    observations
+  );
+  main.appendChild(observations);
+
+  // Precautions
+  const precautions = document.createElement("section");
+  createSecHeader("PRECAUTIONS", precautions);
+  createList(
+    [
+      "Ensured all the components were properly connected.",
+      "Ensured all the components were in good working condition before using them.",
+      "Ensured a voltage regulator was used to regulate the voltage to 5V.",
+    ],
+    precautions
+  );
+  main.appendChild(precautions);
+
+  // Conclusion
+  const conclusion = document.createElement("section");
+  createSecHeader("CONCLUSION", conclusion);
+  createPara(
+    "In the experiment with the J-K negative edge-triggered flip-flop, the flip-flop was observed to transition correctly based on its characteristic table at the negative edge of the clock pulse. Outputs remained stable between clock pulses and changed at the negative edge, confirming the edge-triggered behavior. Different output combinations produced the expected results. This confirms that the flip-flop is suitable for applications requiring reliable state storage, synchronous timing, and logging. Overall, the J-K negative edge-triggered flip-flop operates reliably and is useful in various digital electronics applications.",
+    conclusion
+  );
+  main.appendChild(conclusion);
+
+  // References
+  const references = document.createElement("section");
+  createSecHeader("REFERENCES", references);
+  createList(
+    [
+      "400L Laboratory Manual, Computer Engineering Programme, University of Benin.",
+      "Digital Design by M. Morris Mano.",
+      "Fundamentals of Digital Logic with Verilog Design by Stephen Brown.",
+      "Digital Fundamentals by Thomas L. Floyd.",
+      "Digital Systems by Ronald Tocci.",
+    ],
+    references
+  );
+  main.appendChild(references);
+};
+
+// BLOCK TRANSFER EXPERIMENT
+
+export const displayBlockTransferExperiment = function () {
+  const main = reset();
+
+  // Title
+  const head = document.createElement("h1");
+  head.textContent =
+    "Experiment Code Number: CPE413 - 8085 and Z80 Block Transfer Programs";
+  main.appendChild(head);
+
+  // Aim
+  const aims = document.createElement("section");
+  createSecHeader("AIM", aims);
+  createList(
+    [
+      "To examine the concept of the 8085 and Z80 microprocessors.",
+      "To implement machine code programs.",
+    ],
+    aims
+  );
+  main.appendChild(aims);
+
+  // Apparatus
+  const apparatus = document.createElement("section");
+  createSecHeader("APPARATUS", apparatus);
+  createList(
+    [
+      "Z80 Microprocessor",
+      "8085 Microprocessor",
+      "Microprocessor Programmer",
+      "Power Supply",
+      "Computer Device (Laptop or Desktop)",
+      "Connectors and Cables",
+    ],
+    apparatus
+  );
+  main.appendChild(apparatus);
+
+  // Theory
+  const theory = document.createElement("section");
+  createSecHeader("THEORY", theory);
+
+  // 8085 Microprocessor Block Transfer Program
+  createSecHeader("8085 Microprocessor Block Transfer Program", theory);
+  createPara(
+    "The 8085 is an 8-bit microprocessor introduced by Intel in 1976. It has a relatively simple instruction set, and block transfers need to be done using basic instructions and loops.",
+    theory
+  );
+  createSecHeader("Key Instructions for Block Transfer", theory);
+  createList(
+    [
+      "MOV: Moves data between registers or between registers and memory.",
+      "MVI: Used to move immediate data to a register or memory.",
+      "LXI: Load a 16-bit immediate data into a register pair.",
+      "LDAX: Load the accumulator with data from a memory location pointed by a register pair.",
+      "STAX: Store the accumulator content into memory at an address pointed by a register pair.",
+    ],
+    theory
+  );
+
+  // Z80 Microprocessor Block Transfer Program
+  createSecHeader("Z80 Microprocessor Block Transfer Program", theory);
+  createPara(
+    "The Z80 microprocessor, introduced by Zilog in 1976, offers more advanced instructions for block transfers, making it more efficient than the 8085.",
+    theory
+  );
+  createSecHeader("Key Instructions for Block Transfer", theory);
+  createList(
+    [
+      "LD: Load data between registers or between a register and memory.",
+      "LDI/LDIR: Load increment, or load increment and repeat (automatically increments source and destination pointers).",
+      "LDDR: Load decrement and repeat (automatically decrements source and destination pointers).",
+    ],
+    theory
+  );
+
+  // Comparative Analysis
+  createSecHeader(
+    "Comparative Analysis Between 8085 and Z80 Microprocessors",
+    theory
+  );
+  createList(
+    [
+      "Instruction Set: The 8085 uses basic instructions combined in loops for block transfer, while the Z80 offers specialized instructions for efficient block transfers.",
+      "Efficiency: The 8085 requires multiple instructions and manual loop control, making the code longer and less efficient. The Z80's LDIR performs block transfers in a single instruction, making the code more concise and efficient.",
+      "Programming Complexity: The 8085 requires more effort and a deeper understanding of loop structures for block transfers. The Z80 simplifies block transfers with dedicated instructions, making the process more user-friendly.",
+      "Performance: The 8085's method involves multiple fetch-execute cycles for each byte transferred, making it slower. The Z80 significantly reduces the number of cycles needed per byte transferred, enhancing overall performance.",
+    ],
+    theory
+  );
+  main.appendChild(theory);
+
+  // Diagrams
+  const diagrams = document.createElement("section");
+  createSecHeader("DIAGRAMS", diagrams);
+
+  // 8085 Block Transfer Diagram
+  const blockTransfer8085Diagram = document.createElement("img");
+  blockTransfer8085Diagram.src = "path/to/8085_block_transfer_diagram.png";
+  blockTransfer8085Diagram.className = "diagramSmallScreens";
+  diagrams.appendChild(blockTransfer8085Diagram);
+
+  // Z80 Block Transfer Diagram
+  const blockTransferZ80Diagram = document.createElement("img");
+  blockTransferZ80Diagram.src = "path/to/z80_block_transfer_diagram.png";
+  blockTransferZ80Diagram.className = "diagramSmallScreens";
+  diagrams.appendChild(blockTransferZ80Diagram);
+
+  main.appendChild(diagrams);
+
+  // Procedures
+  const procedures = document.createElement("section");
+  createSecHeader("PROCEDURES", procedures);
+  createList(
+    [
+      "Enter the following 16 bytes into successive memory locations starting at RAM address 2000H: 2000H: 01 02 03 04 05 06 07 08, 2008H: 09 0A 0B 0C 0D 0E 0F 10.",
+      "Write the Z80 assembly language program to transfer the 16 bytes from memory block 2000H to another block starting at address 3000H. Enter the code in the assembler window of the Z80 Simulator.",
+      "Simulate the program step-by-step and record the changes in internal registers and memory.",
+      "Simulate the program using the fast run mode and record the final internal register and memory contents.",
+      "Write and enter Z80 Program 2 in the assembler window.",
+      "Perform a step-by-step simulation for Z80 Program 2 and record the changes in internal registers and memory.",
+      "Simulate Z80 Program 2 in fast run mode and record the final internal register and memory contents.",
+      "Rewrite Z80 Program 1 for the 8085 microprocessor and simulate the program: Perform a step-by-step simulation, recording internal register and memory changes. Perform a fast run simulation, recording the final register and memory contents.",
+    ],
+    procedures
+  );
+
+  // Z80 Program 1
+  createSecHeader("Z80 PROGRAM 1 (Block Transfer Using Loop)", procedures);
+  const z80Program1 = document.createElement("pre");
+  z80Program1.textContent = `
+LD H, 10H         ; Initialize counter in H register (16 bytes)
+LD BC, 2000H      ; Load source address into BC register pair
+LD DE, 3000H      ; Load destination address into DE register pair
+LOOP: LD A, (BC)  ; Load value from source address into A register
+LD (DE), A        ; Store value in destination address
+INC BC            ; Increment source address
+INC DE            ; Increment destination address
+DEC H             ; Decrement counter
+JR NZ, LOOP       ; Jump back to LOOP if counter is not zero
+HALT              ; Stop execution
+`;
+  procedures.appendChild(z80Program1);
+
+  // Z80 Program 2
+  createSecHeader("Z80 PROGRAM 2 (Block Transfer Using LDIR)", procedures);
+  const z80Program2 = document.createElement("pre");
+  z80Program2.textContent = `
+LD HL, 2000H      ; Load source address into HL register pair
+LD DE, 3000H      ; Load destination address into DE register pair
+LD BC, 10H        ; Load byte count (16 bytes) into BC register pair
+LDIR              ; Perform block transfer and repeat until BC = 0
+HALT              ; Stop execution
+`;
+  procedures.appendChild(z80Program2);
+  main.appendChild(procedures);
+
+  // Observations
+  const observations = document.createElement("section");
+  createSecHeader("OBSERVATIONS", observations);
+  createPara(
+    "The Z80 microprocessor uses the LD, DEC, INC, and JR instructions for block transfer, making it highly efficient for moving blocks of data from one memory location to another. The Z80 employs indirect addressing modes for block transfer, allowing flexibility and precision in handling data movement. Implementing a block transfer program simplifies the process, making the program concise and easier to understand. Using assembly instructions and translating them into machine code enhances understanding of the microprocessor’s internal workings.",
+    observations
+  );
+  main.appendChild(observations);
+
+  // Precautions
+  const precautions = document.createElement("section");
+  createSecHeader("PRECAUTIONS", precautions);
+  createList(
+    [
+      "Ensured the appropriate microprocessor programmer was used when implementing the experiment.",
+      "Verified that the data from the source address block was accurately copied to the destination address block by cross-checking the assembly instructions.",
+      "Confirmed that the Z80 microprocessor and any interfacing peripherals were correctly connected and functioning.",
+      "Ensured the registers were properly initialized before starting the block transfer.",
+    ],
+    precautions
+  );
+  main.appendChild(precautions);
+
+  // Conclusion
+  const conclusion = document.createElement("section");
+  createSecHeader("CONCLUSION", conclusion);
+  createPara(
+    "The experiment successfully demonstrated data transfer between memory blocks using the Z80 microprocessor. It showcased the efficient block transfer capabilities of the Z80 and provided insights into the functioning of microprocessors through practical implementation.",
+    conclusion
+  );
+  main.appendChild(conclusion);
+
+  // References
+  const references = document.createElement("section");
+  createSecHeader("REFERENCES", references);
+  createList(
+    [
+      "Laboratory Manual for CPE 413, University of Benin.",
+      "Zilog Z80 Microprocessor Design Documentation.",
+      "Microprocessor Systems and Programming, 2nd Edition.",
+    ],
+    references
+  );
+  main.appendChild(references);
+};
