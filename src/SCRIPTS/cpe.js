@@ -5,6 +5,7 @@ import {
   displayStarted,
   displayComparators,
   displayLogicGatesExperiment,
+  display3x8DecoderExperiment,
   displaySequentialCircuits,
   displayAddersAndSubtractors,
   displaySevenSegmentDecoder,
@@ -37,6 +38,10 @@ let reports = [
   {
     title: "EXPERIMENT 303: Verify Basic Logic Gates",
     func: displayLogicGatesExperiment,
+  },
+  {
+    title: "EXPERIMENT 307: 3x8 Decoder",
+    func: display3x8DecoderExperiment,
   },
 
   // 400l

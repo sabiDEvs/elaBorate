@@ -4,12 +4,18 @@ import { renderFooter } from "./modules/footer";
 import missionImg from "../RESOURCES/images/mission.png";
 import achieveImg from "../RESOURCES/images/achieve.png";
 import navigateImg from "../RESOURCES/images/navigate.png";
-import favLogo from '../RESOURCES/images/footer-logo.png'
+import favLogo from "../RESOURCES/images/footer-logo.png";
+import marvellous from "../RESOURCES/images/marvellous.jpg";
+import elijah from "../RESOURCES/images/elijah.jpg";
+import david from "../RESOURCES/images/david.jpg";
+import maro from "../RESOURCES/images/maro.jpg";
+import blessing from "../RESOURCES/images/blessing.jpg";
+import success from "../RESOURCES/images/success.jpg";
+import daniel from "../RESOURCES/images/daniel.jpg";
 const faviconAny = document.querySelector('link[sizes="any"]');
-const faviconSvg = document.querySelector('link[type="image/svg+xml"]');   
+const faviconSvg = document.querySelector('link[type="image/svg+xml"]');
 faviconAny.href = favLogo;
 faviconSvg.href = favLogo;
-
 
 import {
   createContent,
@@ -177,7 +183,7 @@ An “A” in all your ELA results? A seamlessly good ELA experience?
 A good idea and understanding of whatever experiment you may perform? 
 A well written and elaborated report? Something that facilitates your inquisitiveness 
 and point you in the right direction to gather the knowledge you seek? You could name a dozen, really. 
-Whatever good thing you wish to achieve as you go about your ELA activities, is what we want for you.
+Whatever good thing you wish to achieve as you go about your ELA activities, is what we want for you. Speaking of we, ain't you a bit curious on who we are? Keep scrolling to find out.
 `;
 
 const sectionAchieve = document.createElement("section");
@@ -202,6 +208,157 @@ divTextAchieve.classList.add("div-text-achieve");
 containerAchieve.appendChild(divTextAchieve);
 createHeaderSecondary(divTextAchieve, achieveHeader);
 createContent(divTextAchieve, achieveText);
+
+// ////////////////////////
+
+const JSCarousel = ({
+  carouselContainer = sectionAchieve, // Default to body if no container is provided
+  slides = [], // Array of slide content (e.g., image URLs or HTML content)
+  slidesCaption = [], // Array of slide captions
+  enableAutoplay = true,
+  autoplayInterval = 3000,
+}) => {
+  let currentSlideIndex = 0;
+  let prevButton, nextButton;
+  let autoplayTimer;
+
+  // Create the carousel element
+  const carousel = document.createElement("div");
+  carousel.classList.add("carousel");
+  carousel.setAttribute("role", "region");
+  carousel.setAttribute("aria-labelledby", "carousel-title");
+  carousel.setAttribute("tabindex", "0");
+
+  // Create the carousel title
+  // const carouselTitle = document.createElement("h2");
+  // carouselTitle.id = "carousel-title";
+  // carouselTitle.textContent = "Meet the creators";
+  // carousel.appendChild(carouselTitle);
+
+  // Create the carousel inner container
+  const carouselInner = document.createElement("div");
+  carouselInner.classList.add("carousel-inner");
+  carousel.appendChild(carouselInner);
+
+  // Create slides dynamically
+  slides.forEach((slideContent, index) => {
+    const slide = document.createElement("div");
+    slide.classList.add("slide");
+    slide.setAttribute("role", "tabpanel");
+    slide.setAttribute("aria-labelledby", `carousel-slide-${index + 1}-title`);
+
+    const slideContentDiv = document.createElement("div");
+    slideContentDiv.classList.add("slide-content");
+
+    const slideCaption = document.createElement("h3");
+    slideCaption.id = `carousel-slide-${index + 1}-title`;
+    slideCaption.classList.add("slide-caption");
+    slideCaption.textContent = `${slidesCaption[index]}`;
+
+    const slideImage = document.createElement("img");
+    slideImage.src = slideContent; // Assuming slideContent is an image URL
+    slideImage.alt = `Slide ${index + 1}`;
+
+    slideContentDiv.appendChild(slideCaption);
+    slideContentDiv.appendChild(slideImage);
+    slide.appendChild(slideContentDiv);
+    carouselInner.appendChild(slide);
+
+    slide.style.transform = `translateX(${index * 100}%)`;
+  });
+
+  // Create previous and next buttons
+  prevButton = document.createElement("button");
+  prevButton.classList.add("carousel-btn", "carousel-btn--prev");
+  prevButton.setAttribute("aria-label", "Previous Slide");
+  prevButton.textContent = "<";
+  carouselInner.appendChild(prevButton);
+
+  nextButton = document.createElement("button");
+  nextButton.classList.add("carousel-btn", "carousel-btn--next");
+  nextButton.setAttribute("aria-label", "Next Slide");
+  nextButton.textContent = ">";
+  carouselInner.appendChild(nextButton);
+
+  // Append the carousel to the specified container
+  carouselContainer.appendChild(carousel);
+
+  // Helper functions
+  const adjustSlidePosition = () => {
+    slides.forEach((_, i) => {
+      const slide = carouselInner.children[i];
+      slide.style.transform = `translateX(${100 * (i - currentSlideIndex)}%)`;
+    });
+  };
+
+  const moveSlide = (direction) => {
+    const newSlideIndex =
+      direction === "next"
+        ? (currentSlideIndex + 1) % slides.length
+        : (currentSlideIndex - 1 + slides.length) % slides.length;
+    currentSlideIndex = newSlideIndex;
+    adjustSlidePosition();
+  };
+
+  const handlePrevButtonClick = () => moveSlide("prev");
+  const handleNextButtonClick = () => moveSlide("next");
+
+  const startAutoplay = () => {
+    autoplayTimer = setInterval(() => {
+      moveSlide("next");
+    }, autoplayInterval);
+  };
+
+  const stopAutoplay = () => clearInterval(autoplayTimer);
+
+  const handleMouseEnter = () => stopAutoplay();
+  const handleMouseLeave = () => startAutoplay();
+
+  // Attach event listeners
+  prevButton.addEventListener("click", handlePrevButtonClick);
+  nextButton.addEventListener("click", handleNextButtonClick);
+
+  if (enableAutoplay && autoplayInterval !== null) {
+    carousel.addEventListener("mouseenter", handleMouseEnter);
+    carousel.addEventListener("mouseleave", handleMouseLeave);
+    startAutoplay();
+  }
+
+  // Cleanup function
+  const destroy = () => {
+    prevButton.removeEventListener("click", handlePrevButtonClick);
+    nextButton.removeEventListener("click", handleNextButtonClick);
+
+    if (enableAutoplay && autoplayInterval !== null) {
+      carousel.removeEventListener("mouseenter", handleMouseEnter);
+      carousel.removeEventListener("mouseleave", handleMouseLeave);
+      stopAutoplay();
+    }
+
+    carousel.remove(); // Remove the carousel from the DOM
+  };
+
+  return { destroy };
+};
+
+// Example usage
+const carousel1 = JSCarousel({
+  carouselContainer: sectionAchieve, // Append to a specific container
+  slides: [blessing, marvellous, elijah, daniel, david, maro, success],
+  slidesCaption: [
+    "Blessing",
+    "Marvellous",
+    "Elijah",
+    "Daniel",
+    "David",
+    "Maro",
+    "Success",
+  ],
+  enableAutoplay: true,
+  autoplayInterval: 5000,
+});
+
+// //////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////
 // Navigating the platform section

@@ -499,6 +499,173 @@ export const displayLogicGatesExperiment = function () {
   return main;
 };
 
+// 3 by 8 DECODER EXPERIMENT
+
+export const display3x8DecoderExperiment = function () {
+  const main = reset();
+
+  // Title
+  const head = document.createElement("h1");
+  head.textContent = "Title of Experiment: A 3x8 Decoder";
+  main.appendChild(head);
+
+  // Aim
+  const aims = document.createElement("section");
+  createSecHeader("AIMS/OBJECTIVE", aims);
+  createPara(
+    "To design and implement a 3x8 decoder using digital logic components.",
+    aims
+  );
+  main.appendChild(aims);
+
+  // Apparatus
+  const apparatus = document.createElement("section");
+  createSecHeader("APPARATUS", apparatus);
+  createList(
+    [
+      "Power Supply",
+      "Digital Trainer Kit",
+      "IC 74138 (3x8 Decoder IC)",
+      "NOT Gate IC",
+      "Connecting Wires",
+      "Multimeter",
+      "Voltage Regulator",
+      "LEDs (Light Emitting Diodes)",
+    ],
+    apparatus
+  );
+  main.appendChild(apparatus);
+
+  // Theory
+  const theory = document.createElement("section");
+  createSecHeader("THEORY", theory);
+  createPara(
+    "A decoder is a digital circuit designed to interpret and translate encoded information. It receives an input signal in a specific format, typically binary, and converts it into a meaningful output, often activating a single channel among multiple possibilities.",
+    theory
+  );
+  createPara(
+    "A decoder is a combinational circuit that has 'n' input lines and a maximum of 2ⁿ output lines. When the decoder is enabled, one of these outputs will be active based on the combination of inputs present. This means a decoder detects a particular code. For the purpose of this experiment, we will be dealing with implementing a 3x8 decoder.",
+    theory
+  );
+  createPara(
+    "A 3×8 decoder, also known as a binary-to-octal decoder, takes three binary inputs and converts them into eight mutually exclusive output signals. It acts as a translator, decoding a 3-bit code and activating one of its eight outputs based on the specific input combination.",
+    theory
+  );
+
+  // Working Principle
+  createSecHeader("Working Principle", theory);
+  createList(
+    [
+      "Each output (D0 to D7) corresponds to a unique combination of input bits.",
+      "Only one output is active (high) at a time, while the others remain inactive (low).",
+      "The active output represents the binary equivalent of the input code in octal form (base 8).",
+    ],
+    theory
+  );
+
+  // Applications
+  createSecHeader("Applications", theory);
+  createList(
+    [
+      "Memory address decoding.",
+      "Data line selection in multiplexers.",
+      "Control logic implementation in various systems.",
+    ],
+    theory
+  );
+
+  // YouTube Link
+  createSecHeader("YouTube Link to the Practical Experiment", theory);
+  const youtubeLink = document.createElement("a");
+  youtubeLink.href = "https://youtu.be/RS-OkGxuUpU?si=w46MQYUU0PBP5cSS";
+  youtubeLink.textContent = "Watch the Experiment on YouTube";
+  theory.appendChild(youtubeLink);
+  main.appendChild(theory);
+
+  // Diagrams
+  const diagrams = document.createElement("section");
+  createSecHeader("DIAGRAMS", diagrams);
+
+  // 3x8 Decoder Diagram
+  const decoderDiagram = document.createElement("img");
+  decoderDiagram.src = "path/to/3x8_decoder_diagram.png";
+  decoderDiagram.className = "diagramSmallScreens";
+  diagrams.appendChild(decoderDiagram);
+
+  main.appendChild(diagrams);
+
+  // Procedures
+  const procedures = document.createElement("section");
+  createSecHeader("PROCEDURES", procedures);
+  createList(
+    [
+      "With a multimeter, perform a continuity test on the breadboard and other components to ensure they are in good working condition.",
+      "Loop the breadboard by connecting the positive rail on one side to the positive rail on the other side, and do the same for the negative rail to ensure proper voltage distribution.",
+      "Mount the 74LS138 decoder IC properly on the breadboard.",
+      "Ground the IC by connecting pin 8 to the negative rail of the breadboard.",
+      "Connect pin 16 (Vcc) to the positive rail of the breadboard.",
+      "Attach LEDs to pins 15, 14, 13, 12, 11, 10, 9, and 7 to serve as outputs D0–D7, ensuring each LED has a current-limiting resistor in series.",
+      "Use jumper wires to connect input pins 1 (A0), 2 (A1), and 3 (A2) to logic sources or switches.",
+      "Ground unused pins (pins 4, 5, and 6) to prevent floating inputs.",
+      "Install a voltage regulator to ensure a stable power supply.",
+      "Power on the circuit, test different input combinations, and observe which output LED turns on. Record the results in an observation table to verify that each unique combination of inputs activates only one output at a time.",
+    ],
+    procedures
+  );
+  main.appendChild(procedures);
+
+  // Observations
+  const observations = document.createElement("section");
+  createSecHeader("OBSERVATIONS", observations);
+  createPara(
+    "From the results obtained above, it is observed that for each combination of the three input pins (A2, A1, and A0), exactly one output pin is active (high) at a time. This active output represents the binary equivalent of the input combination in octal form.",
+    observations
+  );
+  main.appendChild(observations);
+
+  // Precautions
+  const precautions = document.createElement("section");
+  createSecHeader("PRECAUTIONS", precautions);
+  createList(
+    [
+      "Ensured that all components were properly and securely connected.",
+      "Made sure the voltage from the power source did not exceed 5V to prevent damage to the IC.",
+      "Used a voltage regulator to maintain a stable power supply.",
+      "Ensured proper voltage distribution by correctly wiring the connections.",
+    ],
+    precautions
+  );
+  main.appendChild(precautions);
+
+  // Conclusion
+  const conclusion = document.createElement("section");
+  createSecHeader("CONCLUSION", conclusion);
+  createPara(
+    "From the observations, it’s clear that the 3×8 decoder works exactly as expected—it takes a 3-bit binary input and activates only one output at a time, correctly converting it into its corresponding octal value. This confirms that the decoder reliably translates binary inputs into distinct outputs without overlap.",
+    conclusion
+  );
+  createPara(
+    "The experiment also highlights the importance of proper circuit setup. Ensuring secure connections, using a stable 5V power supply, and grounding unused pins all played a role in making the circuit function smoothly. This reinforces how essential decoders are in digital electronics, whether it’s for memory address decoding, selecting data lines in multiplexers, or controlling different parts of a system.",
+    conclusion
+  );
+  main.appendChild(conclusion);
+
+  // References
+  const references = document.createElement("section");
+  createSecHeader("REFERENCES", references);
+  createList(
+    [
+      "Laboratory Manual, Computer Engineering Programme, University of Benin, Benin City (2002).",
+      "Decoder in Digital Electronics – Javatpoint.",
+      "Decoders – O'Reilly.",
+      "Digital Circuits (Decoders) – TutorialsPoint.",
+      "YouTube",
+    ],
+    references
+  );
+  main.appendChild(references);
+};
+
 // /////////////////////////////////////////////////////
 
 // 400L CPE EXPERIMENTS
