@@ -40,6 +40,15 @@ import ee2023 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/3.png';
 import ee2024 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/4.png';
 
 import ee2025 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/5.png';
+
+import ee2011 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/1.png';
+import ee2013 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/2.png';
+import ee2014 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/3.png';
+import ee2012 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/2051.png';
+
+import ee201Fig1 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/fig1.jpg'; 
+import ee201Fig2 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/fig2.png';
+import ee201Plot1 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/plot.png';
 const createDivs = (object) => {
   const div = document.createElement("div");
   const text = document.createElement("div");
@@ -143,7 +152,7 @@ const displayStarted = () => {
   imgAchieve.id = "getStartImg";
 
   const startingHeader = document.createElement("h2");
-  startingHeader.textContent = "GETTING STARTED WITH PRODUCTION ELA";
+  startingHeader.textContent = "GETTING STARTED WITH ELECTRICAL ELA";
   startingHeader.id = "getStartHead";
   divImgAchieve.appendChild(startingHeader);
   main.appendChild(divImgAchieve);
@@ -574,347 +583,443 @@ const displayEE206 = () => {
 
 const displayEE201 = () => {
   const main = reset();
-  const head = document.createElement("h1");
-  head.textContent = "Mesurement of Unknown Resistance";
-  main.appendChild(head);
 
-  const aim = document.createElement("section");
-  const aimHead = document.createElement("h2");
-  aimHead.textContent = "AIMS";
-  aim.appendChild(aimHead);
+  // Create and append the main heading
+  const mainHeading = document.createElement("h1");
+  mainHeading.textContent = "Measurement of Unknown Resistance";
+  main.appendChild(mainHeading);
+
+  // Create and append the AIMS section
+  const aimSection = document.createElement("section");
+  const aimHeading = document.createElement("h2");
+  aimHeading.textContent = "AIMS";
+  aimSection.appendChild(aimHeading);
+
   const aimList = document.createElement("ul");
   const aims = [
-    "To measure the value of an Unknown resistor and to determine the characteristics of a resistor",
-
+    "To measure the value of an unknown resistor and to determine the characteristics of a resistor.",
+    "To understand the application of Ohm's Law in practical circuits.",
+    "To compare the accuracy of different methods for measuring resistance.",
   ];
-  let list2 = [];
-  for (let i = 0; i < aims.length; i++) {
-    list2[i] = document.createElement("li");
-    list2[i].textContent = aims[i];
-    aimList.appendChild(list2[i]);
-  }
-  aim.appendChild(aimList);
+  aims.forEach((aim) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = aim;
+    aimList.appendChild(listItem);
+  });
+  aimSection.appendChild(aimList);
+  main.appendChild(aimSection);
 
-  main.appendChild(aim);
-  const expHead = document.createElement("h1");
-  head.textContent = "FIRST METHOD: Current-voltage measurement method";
-  main.appendChild(expHead);
-  const appHead = document.createElement("h2");
-  appHead.textContent = "Apparatus";
-  main.appendChild(appHead);
-  const section = document.createElement("section");
-  section.classList.add("appBox");
+  // Create and append the first method heading
+  const method1Heading = document.createElement("h1");
+  method1Heading.textContent = "FIRST METHOD: Current-Voltage Measurement Method";
+  main.appendChild(method1Heading);
 
-  //CHNGE THE IMAGES
-  const apparatus = [
-    {
-      cap: "Unknown Resistor",
-      image: pic2,
-    },
-    {
-      cap: "DC Power Supply (o-15v, 2A)",
-      image: pic3,
-    },
-    {
-      cap: "DC Voltmeter (o-30v)",
-      image: pic4,
-    },
-    {
-      cap: "D.C Ammeter 0 – 2A",
-      image: pic5,
-    }
+  // Create and append the Apparatus section for the first method
+  const apparatusSection1 = document.createElement("section");
+  const apparatusHeading1 = document.createElement("h2");
+  apparatusHeading1.textContent = "Apparatus";
+  apparatusSection1.appendChild(apparatusHeading1);
+
+  const apparatusList1 = [
+    { cap: "Unknown Resistor", image: pic2 },
+    { cap: "DC Power Supply (0-15V, 2A)", image: pic3 },
+    { cap: "DC Voltmeter (0-30V)", image: pic4 },
+    { cap: "DC Ammeter (0-2A)", image: pic5 },
   ];
-  let appBox = [];
-  let appImage = [];
-  let appCaption = [];
-  for (let i = 0; i < apparatus.length; i++) {
-    appBox[i] = document.createElement("div");
-    appImage[i] = document.createElement("img");
-    appCaption[i] = document.createElement("p");
-    appImage[i].src = apparatus[i].image;
-    appCaption[i].textContent = apparatus[i].cap;
-    appBox[i].appendChild(appImage[i]);
-    appBox[i].appendChild(appCaption[i]);
-    section.appendChild(appBox[i]);
-  }
-  main.appendChild(section);
- // Create the section for theory1
-const theory1 = document.createElement("section");
 
-// Add a heading for theory1
-const theory1Head = document.createElement("h2");
-theory1Head.textContent = "Measurement of Unknown Resistance by Current-Voltage (I-V) Measurement Method";
-theory1.appendChild(theory1Head);
+  const apparatusContainer1 = document.createElement("div");
+  apparatusContainer1.classList.add("appBox");
 
-// Introduction to the method
-const intro = document.createElement("div");
-intro.innerHTML = `
-  <p>
-    The <strong>current-voltage (I-V) measurement method</strong> is a fundamental technique used to determine the value of an unknown resistance in an electrical circuit. This method is based on <strong>Ohm's Law</strong>, which states that the current (<em>I</em>) flowing through a conductor between two points is directly proportional to the voltage (<em>V</em>) across the two points and inversely proportional to the resistance (<em>R</em>). Mathematically, Ohm's Law is expressed as:
-  </p>
-  <p style="text-align: center;">
-    <strong>V = I × R</strong>
-  </p>
-  <p>
-    By measuring the voltage across the unknown resistance and the current flowing through it, the resistance can be calculated using the formula:
-  </p>
-  <p style="text-align: center;">
-    <strong>R = V / I</strong>
-  </p>
-`;
-theory1.appendChild(intro);
+  apparatusList1.forEach((apparatus) => {
+    const apparatusItem = document.createElement("div");
+    const apparatusImage = document.createElement("img");
+    const apparatusCaption = document.createElement("p");
 
-// Explanation of the circuit setup
-const circuitSetup = document.createElement("div");
-circuitSetup.innerHTML = `
-  <h3>Circuit Setup</h3>
-  <p>
-    To measure an unknown resistance using the I-V method, the following components are required:
-  </p>
-  <ul>
-    <li><strong>DC Power Supply:</strong> Provides a stable voltage to the circuit.</li>
-    <li><strong>Ammeter:</strong> Measures the current flowing through the unknown resistance.</li>
-    <li><strong>Voltmeter:</strong> Measures the voltage across the unknown resistance.</li>
-    <li><strong>Unknown Resistor:</strong> The resistance whose value is to be determined.</li>
-    <li><strong>Connecting Wires:</strong> Used to complete the circuit.</li>
-  </ul>
-  <p>
-    The circuit is set up as follows:
-  </p>
-  <ol>
-    <li>Connect the DC power supply in series with the unknown resistor and the ammeter.</li>
-    <li>Connect the voltmeter in parallel across the unknown resistor.</li>
-    <li>Ensure all connections are secure to avoid measurement errors.</li>
-  </ol>
-  <p>
-    <strong>Note:</strong> The ammeter must be connected in series to measure the current flowing through the resistor, while the voltmeter must be connected in parallel to measure the voltage across the resistor.
-  </p>
-`;
-theory1.appendChild(circuitSetup);
+    apparatusImage.src = apparatus.image;
+    apparatusCaption.textContent = apparatus.cap;
 
-// Explanation of the measurement procedure
-const measurementProcedure = document.createElement("div");
-measurementProcedure.innerHTML = `
-  <h3>Measurement Procedure</h3>
-  <p>
-    The steps to measure the unknown resistance are as follows:
-  </p>
-  <ol>
-    <li><strong>Set Up the Circuit:</strong> Assemble the circuit as described above.</li>
-    <li><strong>Adjust the Power Supply:</strong> Set the DC power supply to a low voltage (e.g., 1V) initially to avoid damaging the components.</li>
-    <li><strong>Record Measurements:</strong>
-      <ul>
-        <li>Measure the voltage (<em>V</em>) across the unknown resistor using the voltmeter.</li>
-        <li>Measure the current (<em>I</em>) flowing through the resistor using the ammeter.</li>
-      </ul>
-    </li>
-    <li><strong>Calculate Resistance:</strong> Use Ohm's Law (<em>R = V / I</em>) to calculate the resistance.</li>
-    <li><strong>Repeat for Accuracy:</strong> Repeat the measurements at different voltages (e.g., 2V, 3V, etc.) to ensure consistency and accuracy.</li>
-    <li><strong>Average the Results:</strong> Calculate the average resistance value from all measurements to minimize errors.</li>
-  </ol>
-`;
-theory1.appendChild(measurementProcedure);
+    apparatusItem.appendChild(apparatusImage);
+    apparatusItem.appendChild(apparatusCaption);
+    apparatusContainer1.appendChild(apparatusItem);
+  });
 
-// Explanation of potential errors and precautions
-const errorsPrecautions = document.createElement("div");
-errorsPrecautions.innerHTML = `
-  <h3>Potential Errors and Precautions</h3>
-  <p>
-    While performing the I-V measurement method, the following errors and precautions should be considered:
-  </p>
-  <ul>
-    <li><strong>Ammeter Resistance:</strong> The ammeter has an internal resistance that can affect the measurement. Ensure the ammeter's resistance is much lower than the unknown resistance to minimize errors.</li>
-    <li><strong>Voltmeter Resistance:</strong> The voltmeter has a high internal resistance, but it can still draw a small current. Ensure the voltmeter's resistance is much higher than the unknown resistance to avoid significant errors.</li>
-    <li><strong>Connection Errors:</strong> Loose or incorrect connections can lead to inaccurate measurements. Double-check all connections before taking measurements.</li>
-    <li><strong>Power Supply Fluctuations:</strong> Ensure the power supply provides a stable voltage. Fluctuations can lead to inconsistent readings.</li>
-  </ul>
-`;
-theory1.appendChild(errorsPrecautions);
+  apparatusSection1.appendChild(apparatusContainer1);
+  main.appendChild(apparatusSection1);
 
-// Applications of the I-V method
-const applications = document.createElement("div");
-applications.innerHTML = `
-  <h3>Applications of the I-V Measurement Method</h3>
-  <p>
-    The I-V measurement method is widely used in electrical engineering for various applications, including:
-  </p>
-  <ul>
-    <li><strong>Characterizing Resistors:</strong> Determining the value of unknown resistors in circuits.</li>
-    <li><strong>Testing Components:</strong> Verifying the performance of resistors, diodes, and other components.</li>
-    <li><strong>Circuit Analysis:</strong> Analyzing the behavior of circuits under different voltage and current conditions.</li>
-    <li><strong>Research and Development:</strong> Used in labs to study the properties of new materials and components.</li>
-  </ul>
-`;
-theory1.appendChild(applications);
+  // Create and append the Theory section for the first method
+  const theorySection1 = document.createElement("section");
+  const theoryHeading1 = document.createElement("h2");
+  theoryHeading1.textContent = "Theory of Measuring Unknown Resistance Using the Current-Voltage (I-V) Method";
+  theorySection1.appendChild(theoryHeading1);
 
-// Add a conclusion
+  const theoryContent1 = document.createElement("div");
+  theoryContent1.innerHTML = `
+    <p>
+      The measurement of an unknown resistance using the <strong>current-voltage (I-V) method</strong> is based on <strong>Ohm's Law</strong>, which states that the current (<em>I</em>) flowing through a conductor is directly proportional to the voltage (<em>V</em>) across it and inversely proportional to its resistance (<em>R</em>). Mathematically, this is expressed as:
+    </p>
+    <p style="text-align: center;">
+      <strong>V = I × R</strong>
+    </p>
+    <p>
+      From this, the resistance can be calculated as:
+    </p>
+    <p style="text-align: center;">
+      <strong>R = V / I</strong>
+    </p>
+    <p>
+      This method involves applying a known voltage across the resistor and measuring the resulting current. The resistance is then calculated using the above formula.
+    </p>
+    <p>
+      The I-V method is widely used due to its simplicity and direct application of Ohm's Law. However, it is essential to ensure accurate measurements of voltage and current to minimize errors. Factors such as the internal resistance of the ammeter and voltmeter, as well as fluctuations in the power supply, can affect the results.
+    </p>
+    <p>
+      In this experiment, we will use a DC power supply to apply a known voltage across the unknown resistor and measure the resulting current using an ammeter. The voltage across the resistor will be measured using a voltmeter. By recording multiple voltage and current readings, we can plot a graph of voltage versus current and determine the resistance from the slope of the graph.
+    </p>
+  `;
+  theorySection1.appendChild(theoryContent1);
+  main.appendChild(theorySection1);
 
+  // Create and append the YouTube video section
+  const videoSection = document.createElement("div");
+  const videoDescription = document.createElement("p");
+  videoDescription.textContent = "Watch the video below to learn more about Ohm's Law:";
+  videoSection.appendChild(videoDescription);
 
-// Append the theory1 section to the main content
-main.appendChild(theory1);
+  const videoEmbed = document.createElement("div");
+  videoEmbed.innerHTML = `
+    <iframe width="677" height="392" src="https://www.youtube.com/embed/-m9bqZ3L5pg" title="Ohm's Law Experiment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  `;
+  videoSection.appendChild(videoEmbed);
+  theorySection1.appendChild(videoSection);
+
+  // Create and append the Diagrams section
   const diagramsSection = document.createElement("section");
-  const diagramHead = document.createElement("h2");
-  diagramHead.innerText = "DIAGRAMS";
-
-  diagramsSection.appendChild(diagramHead);
+  const diagramsHeading = document.createElement("h2");
+  diagramsHeading.textContent = "DIAGRAMS";
+  diagramsSection.appendChild(diagramsHeading);
 
   const diagrams = [
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER RATIO TEST",
-      image: pic9,
-    },
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER NO – LOAD TEST",
-      image: pic10,
-    },
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER LOAD TEST",
-      image: pic11,
-    },
+    { cap: "CIRCUIT DIAGRAM", image: ee201Fig1 },
   ];
-  let diagramBox = [];
-  let diagramImage = [];
-  let diagramCaption = [];
-  for (let i = 0; i < diagrams.length; i++) {
-    diagramBox[i] = document.createElement("div");
-    diagramImage[i] = document.createElement("img");
-    diagramCaption[i] = document.createElement("p");
-    diagramImage[i].src = diagrams[i].image;
-    diagramCaption[i].textContent = diagrams[i].cap;
-    diagramBox[i].appendChild(diagramImage[i]);
-    diagramBox[i].appendChild(diagramCaption[i]);
-    diagramsSection.appendChild(diagramBox[i]);
-  }
+
+  diagrams.forEach((diagram) => {
+    const diagramContainer = document.createElement("div");
+    const diagramImage = document.createElement("img");
+    const diagramCaption = document.createElement("p");
+
+    diagramImage.src = diagram.image;
+    diagramCaption.textContent = diagram.cap;
+
+    diagramContainer.appendChild(diagramImage);
+    diagramContainer.appendChild(diagramCaption);
+    diagramsSection.appendChild(diagramContainer);
+  });
 
   main.appendChild(diagramsSection);
-  const practicals = document.createElement("section");
-  const step1 = document.createElement("h2");
-  step1.textContent = "PROCEDURE";
 
-  practicals.appendChild(step1);
-  const step4 = document.createElement("h3");
-  step4.textContent = "TRANSFER RATIO TEST";
-  practicals.appendChild(step4);
-  const stepList2 = document.createElement("ul");
-  stepList2.classList.add("stepboxlist");
-  const steps2 = [
-    "Set Variac control dial to zero (0) position",
-    "Connect up the variac, the voltmeter V₁ (0-220), the amimeter (0-1A), and the transformer. as in the working diagram fig 22-1-1",
-    "Connect the voltmeter V₂ (0-100V) across the secondary terminals a₁-a₂.",
-    "(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.",
-    "Record on table 206-1 the values of V₁, V₂ and the primary and secondary turns (as marked on transformer).",
-    "Connect voltmeter V₂ in turn across terminals (a₁-a₂) (a₁-a₃) (a₁-a₄) (a₁-a₅) and repeat (5)",
-    "Fill-up table 206-1.",
+  // Create and append the Procedure section
+  const procedureSection = document.createElement("section");
+  const procedureHeading = document.createElement("h2");
+  procedureHeading.textContent = "PROCEDURE";
+  procedureSection.appendChild(procedureHeading);
+
+  const procedureSteps = [
+    "Connect the circuit as shown in Fig. 1.",
+    "Switch on the power supply.",
+    "Set the voltage so that the ammeter reads 3mA. Read the voltage from the voltmeter.",
+    "Increase the voltage so that the ammeter reads 6mA. Read the voltage from the voltmeter.",
+    "Repeat the process for currents of 9mA, 12mA, etc., up to 30mA.",
+    "Record the results in a table.",
+    "Plot the graph of voltage versus current.",
   ];
-  let stepBox2 = [];
-  for (let i = 0; i < steps2.length; i++) {
-    stepBox2[i] = document.createElement("li");
 
-    stepBox2[i].textContent = steps2[i];
-    stepList2.appendChild(stepBox2[i]);
-  }
-  practicals.appendChild(stepList2);
+  const procedureList = document.createElement("ul");
+  procedureSteps.forEach((step) => {
+    const stepItem = document.createElement("li");
+    stepItem.textContent = step;
+    procedureList.appendChild(stepItem);
+  });
 
-  const step3 = document.createElement("h3");
-  step3.textContent = "NO-LOAD TEST";
-  practicals.appendChild(step3);
-  const stepList1 = document.createElement("ul");
-  stepList1.classList.add("stepboxlist");
-  const steps1 = [
-    "Reduce variac output to zero (0) and switch-OFF mains",
-    "(i) Connect up the circuit of Fig. 22-1-2 leaving the secondary terminals open circuit. Use the wattmeter (0-12W). \n (ii) Get the supervisor to check the circuit (you may also need the help of a supervisor to connect up the wattmeter).",
-    "Switch-ON mains to variac and turn variac control to obtain 40V on voltmeter V₁.",
-    "(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.",
-    "Take ammeter and wattmeter readings and record on table 206-2 as I₁ and W₁, respectively.",
-    " Vary variac control to obtain 80, 120, 160, 200, and 220V in turn on voltmeter V₁, and repeat (11) at each setting. \n(i) Fill up table 206-2. \n(ii) Plot graph of primary voltage (V₁) vs loss (W).",
+  procedureSection.appendChild(procedureList);
+  main.appendChild(procedureSection);
+
+  // Create and append the Results section
+  const resultsSection = document.createElement("section");
+  const resultsHeading = document.createElement("h2");
+  resultsHeading.textContent = "RESULTS";
+  resultsSection.appendChild(resultsHeading);
+
+  const resultsTable = document.createElement("table");
+  resultsTable.style.borderCollapse = "collapse";
+  resultsTable.style.width = "100%";
+
+  const tableHeaders = ["I (mA)", "V (V)", "R = V/I (Ω)"];
+  const headerRow = document.createElement("tr");
+  tableHeaders.forEach((header) => {
+    const th = document.createElement("th");
+    th.textContent = header;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow.appendChild(th);
+  });
+  resultsTable.appendChild(headerRow);
+
+  const tableData = [
+    [3, 0.30, 100],
+    [6, 0.60, 100],
+    [9, 0.90, 100],
+    [12, 1.20, 100],
+    [15, 1.50, 100],
+    [18, 1.60, 100],
+    [21, 2.10, 100],
+    [24, 2.40, 100],
+    [27, 2.70, 100],
+    [30, 3.00, 100],
   ];
-  let stepBox1 = [];
-  for (let i = 0; i < steps1.length; i++) {
-    stepBox1[i] = document.createElement("li");
-    stepBox1[i].textContent = steps1[i];
-    stepList1.appendChild(stepBox1[i]);
-  }
-  practicals.appendChild(stepList1);
 
-  const step5 = document.createElement("h3");
-  step5.textContent = "LOAD TEST";
-  practicals.appendChild(step5);
-  const stepList3 = document.createElement("ul");
-  stepList3.classList.add("stepboxlist");
-  const steps4 = [
-    'Turn variac dial to "0" position, and switch-OFF mains from the variac.',
-    "Connect up the circuit of Load test ",
-    "Connect mains to load bank and switch ON fan. (Do not use load bank itif fan is not working)",
-    "Switch ON mains to variac and vary dial to obtain 220V in voltmeter V₁.",
-    "Switch one of load bank dials to position 400 and use its associated TRIMMER control to set the current on A₂ to 2A.",
-    "Record the readings of V₂, V₂, A₁, A₂, and wattmeter on table 206-4.",
-    "Use the load bank dial switches and trimmers, set the reading of A₁ to 4, 6, 8, and 10A respectively, and repeat (19) at each setting.",
-    'Turn variac dial to "0" position and switch-OFF mains to variac.',
-    "Fill-up table 206-3",
+  tableData.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    resultsTable.appendChild(tr);
+  });
+
+  resultsSection.appendChild(resultsTable);
+  main.appendChild(resultsSection);
+
+  // Create and append the Graph section
+ 
+
+  // Create and append the Second Method: Wheatstone Bridge
+  const method2Heading = document.createElement("h1");
+  method2Heading.textContent = "SECOND METHOD: Wheatstone Bridge Method";
+  main.appendChild(method2Heading);
+
+  // Apparatus for Wheatstone Bridge
+  const apparatusSection2 = document.createElement("section");
+  const apparatusHeading2 = document.createElement("h2");
+  apparatusHeading2.textContent = "Apparatus";
+  apparatusSection2.appendChild(apparatusHeading2);
+
+  const apparatusList2 = [
+    { cap: "Unknown Resistor", image: pic2 },
+    { cap: "Known Resistors (Precision Resistors)", image: pic6 },
+    { cap: "Galvanometer", image: pic7 },
+    { cap: "DC Power Supply (0-15V, 2A)", image: pic3 },
+    { cap: "Wheatstone Bridge Board", image: pic8 },
   ];
-  let stepBox3 = [];
-  for (let i = 0; i < steps4.length; i++) {
-    stepBox3[i] = document.createElement("li");
-    stepBox3[i].textContent = steps4[i];
-    stepList3.appendChild(stepBox3[i]);
-  }
-  practicals.appendChild(stepList3);
 
-  // i am supposed to implemetnresults and tables her but e npo make sense
+  const apparatusContainer2 = document.createElement("div");
+  apparatusContainer2.classList.add("appBox");
 
-  main.appendChild(practicals);
-  const precaution = document.createElement("section");
-  const cautionHead = document.createElement("h3");
-  cautionHead.textContent = "PRECAUTIONS";
-  precaution.appendChild(cautionHead);
-  const cautionList = document.createElement("ul");
+  apparatusList2.forEach((apparatus) => {
+    const apparatusItem = document.createElement("div");
+    const apparatusImage = document.createElement("img");
+    const apparatusCaption = document.createElement("p");
+
+    apparatusImage.src = apparatus.image;
+    apparatusCaption.textContent = apparatus.cap;
+
+    apparatusItem.appendChild(apparatusImage);
+    apparatusItem.appendChild(apparatusCaption);
+    apparatusContainer2.appendChild(apparatusItem);
+  });
+
+  apparatusSection2.appendChild(apparatusContainer2);
+  main.appendChild(apparatusSection2);
+
+  // Theory for Wheatstone Bridge
+  const theorySection2 = document.createElement("section");
+  const theoryHeading2 = document.createElement("h2");
+  theoryHeading2.textContent = "Theory of Measuring Unknown Resistance Using the Wheatstone Bridge Method";
+  theorySection2.appendChild(theoryHeading2);
+
+  const theoryContent2 = document.createElement("div");
+  theoryContent2.innerHTML = `
+    <p>
+      The <strong>Wheatstone Bridge</strong> is a precise method for measuring unknown resistance by balancing two legs of a bridge circuit. It was invented by Samuel Hunter Christie in 1833 and later popularized by Sir Charles Wheatstone. The Wheatstone Bridge is widely used in laboratories and industries due to its high accuracy and simplicity.
+    </p>
+    <p>
+      The Wheatstone Bridge consists of four resistors arranged in a diamond shape, with a galvanometer connected between two opposite corners and a power supply connected across the other two corners. The resistors are typically labeled as <em>R<sub>1</sub></em>, <em>R<sub>2</sub></em>, <em>R<sub>3</sub></em>, and <em>R<sub>4</sub></em>, where <em>R<sub>4</sub></em> is the unknown resistance to be measured.
+    </p>
+    <p>
+      The principle of the Wheatstone Bridge is based on the concept of <strong>null deflection</strong>. When the bridge is balanced, the galvanometer shows zero deflection, indicating that no current flows through it. At this point, the ratio of the known resistances is equal to the ratio of the unknown resistance to the variable resistance. Mathematically, this is expressed as:
+    </p>
+    <p style="text-align: center;">
+      <strong>R<sub>1</sub> / R<sub>2</sub> = R<sub>3</sub> / R<sub>4</sub></strong>
+    </p>
+    <p>
+      From this equation, the unknown resistance <em>R<sub>4</sub></em> can be calculated as:
+    </p>
+    <p style="text-align: center;">
+      <strong>R<sub>4</sub> = (R<sub>2</sub> × R<sub>3</sub>) / R<sub>1</sub></strong>
+    </p>
+    <p>
+      The Wheatstone Bridge method is highly accurate because it relies on the comparison of resistances rather than absolute measurements. It is particularly useful for measuring low resistances with high precision.
+    </p>
+  `;
+  theorySection2.appendChild(theoryContent2);
+  main.appendChild(theorySection2);
+
+  // Procedure for Wheatstone Bridge
+  const procedureSection2 = document.createElement("section");
+  const procedureHeading2 = document.createElement("h2");
+  procedureHeading2.textContent = "PROCEDURE";
+  procedureSection2.appendChild(procedureHeading2);
+
+  const procedureSteps2 = [
+    "Connect the circuit as shown in Fig. 2.",
+    "Connect the unknown resistor <em>R<sub>x</sub></em> across points C and D.",
+    "Connect the power supply across points A and B.",
+    "Switch on the supply and set it to 2V.",
+    "Adjust the variable resistor <em>R<sub>3</sub></em> until the galvanometer shows zero deflection.",
+    "Record the value of <em>R<sub>3</sub></em> and calculate <em>R<sub>x</sub></em> using the formula: <em>R<sub>x</sub> = (R<sub>2</sub> × R<sub>3</sub>) / R<sub>1</sub></em>.",
+    "Repeat the experiment for different values of known resistors to ensure accuracy.",
+    "Calculate the average value of <em>R<sub>x</sub></em> from the recorded measurements.",
+  ];
+
+  const procedureList2 = document.createElement("ul");
+  procedureSteps2.forEach((step) => {
+    const stepItem = document.createElement("li");
+    stepItem.innerHTML = step;
+    procedureList2.appendChild(stepItem);
+  });
+
+  procedureSection2.appendChild(procedureList2);
+  main.appendChild(procedureSection2);
+
+  // Results for Wheatstone Bridge
+  const resultsSection2 = document.createElement("section");
+  const resultsHeading2 = document.createElement("h2");
+  resultsHeading2.textContent = "RESULTS";
+  resultsSection2.appendChild(resultsHeading2);
+
+  const resultsTable2 = document.createElement("table");
+  resultsTable2.style.borderCollapse = "collapse";
+  resultsTable2.style.width = "100%";
+
+  const tableHeaders2 = ["R<sub>1</sub> (Ω)", "R<sub>2</sub> (Ω)", "R<sub>3</sub> (Ω)", "R<sub>x</sub> (Ω)"];
+  const headerRow2 = document.createElement("tr");
+  tableHeaders2.forEach((header) => {
+    const th = document.createElement("th");
+    th.innerHTML = header;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow2.appendChild(th);
+  });
+  resultsTable2.appendChild(headerRow2);
+
+  const tableData2 = [
+    [10, 100, 50, 500],
+    [100, 100, 50, 50],
+    [100, 1000, 50, 500],
+    [1000, 100, 50, 5],
+  ];
+
+  tableData2.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    resultsTable2.appendChild(tr);
+  });
+
+  resultsSection2.appendChild(resultsTable2);
+  main.appendChild(resultsSection2);
+
+  // Append the Wheatstone Bridge section to the main content
+  main.appendChild(theorySection2);
+  main.appendChild(procedureSection2);
+  main.appendChild(resultsSection2);
+
+  const graphSection = document.createElement("section");
+  const graphHeading = document.createElement("h2");
+  graphHeading.textContent = "GRAPHS";
+  graphSection.appendChild(graphHeading);
+
+  const graphImage = document.createElement("img");
+  graphImage.src = ee201Plot1
+   graphImage.alt = "Current vs. Voltage Graph";
+  graphImage.style.width = "100%";
+  graphImage.style.maxWidth = "600px";
+  graphImage.style.height = "auto";
+
+  const graphCaption = document.createElement("p");
+  graphCaption.textContent = "Current vs. Voltage Graph";
+  graphCaption.style.textAlign = "center";
+  graphCaption.style.marginTop = "10px";
+
+  graphSection.appendChild(graphImage);
+  graphSection.appendChild(graphCaption);
+  main.appendChild(graphSection);
+
+  // Create and append the Precautions section
+  const precautionsSection = document.createElement("section");
+  const precautionsHeading = document.createElement("h3");
+  precautionsHeading.textContent = "PRECAUTIONS";
+  precautionsSection.appendChild(precautionsHeading);
+
+  const precautionsList = document.createElement("ul");
   const precautions = [
-    "I avoided error due to parallax when taking the readings ",
-    "I ensured all measuring instruments (voltmeters, ammeters etc) were calibrated and were in good working condition for accurate measurements",
-    "I ensured that I didn’t  touch live circuits to avoid getting electrocuted",
+    "Avoid parallax errors when taking readings.",
+    "Ensure all measuring instruments are calibrated and in good working condition.",
+    "Do not touch live circuits to avoid electric shock.",
+    "Ensure proper connections to avoid short circuits.",
+    "Use appropriate safety gear, such as insulated gloves, when handling high voltages.",
   ];
-  let cautionBox = [];
-  for (let i = 0; i < precautions.length; i++) {
-    cautionBox[i] = document.createElement("li");
-    cautionBox[i].textContent = precautions[i];
-    cautionList.appendChild(cautionBox[i]);
-  }
-  precaution.appendChild(cautionList);
-  main.appendChild(precaution);
-  const conclusion = document.createElement("section");
-  const concHead = document.createElement("h3");
-  concHead.textContent = "CONCLUSION:";
-  conclusion.appendChild(concHead);
-  const concText = document.createElement("p");
-  concText.textContent =
-    "At the end of this experiment, we were able to verify that the voltage ratio between the primary voltage and secondary voltage and secondary voltage of a transformer is equal to the turns winding ratio and also able to understand the characteristics of a transformer on No-load and on load and also draw the graphs required";
-  conclusion.appendChild(concText);
-  main.appendChild(conclusion);
-  const references = document.createElement("section");
-  const refHead = document.createElement("h3");
-  refHead.textContent = "REFERENCES";
-  references.appendChild(refHead);
-  const refList = document.createElement("ul");
-  refList.classList.add("stepboxlist");
-  const reference = [
+
+  precautions.forEach((precaution) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = precaution;
+    precautionsList.appendChild(listItem);
+  });
+
+  precautionsSection.appendChild(precautionsList);
+  main.appendChild(precautionsSection);
+
+  // Create and append the Conclusion section
+  const conclusionSection = document.createElement("section");
+  const conclusionHeading = document.createElement("h3");
+  conclusionHeading.textContent = "CONCLUSION";
+  conclusionSection.appendChild(conclusionHeading);
+
+  const conclusionText = document.createElement("p");
+  conclusionText.textContent = "At the end of this experiment, we successfully measured the unknown resistance using the current-voltage method and verified Ohm's Law. The results were consistent with theoretical expectations. Additionally, we explored the Wheatstone Bridge method, which provided a more precise measurement of resistance. Both methods demonstrated the importance of accurate measurements and proper experimental techniques in electrical engineering.";
+  conclusionSection.appendChild(conclusionText);
+  main.appendChild(conclusionSection);
+
+  // Create and append the References section
+  const referencesSection = document.createElement("section");
+  const referencesHeading = document.createElement("h3");
+  referencesHeading.textContent = "REFERENCES";
+  referencesSection.appendChild(referencesHeading);
+
+  const referencesList = document.createElement("ul");
+  const references = [
     "Electric Machinery Fundamentals by Stephen J. Chapman",
     "Electrical Engineering Laboratory Manual by the Department of Electrical Engineering, University of Benin.",
     "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku",
+    "Principles of Electrical Measurement by Slawomir Tumanski",
   ];
-  let refBox = [];
-  for (let i = 0; i < reference.length; i++) {
-    refBox[i] = document.createElement("li");
-    refBox[i].textContent = reference[i];
-    refList.appendChild(refBox[i]);
-  }
-  references.appendChild(refList);
-  main.appendChild(references);
-  const hover = createHover("#");
-  main.appendChild(hover);
-  const download = createDownload("#");
-  main.appendChild(download);
-};
 
+  references.forEach((reference) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = reference;
+    referencesList.appendChild(listItem);
+  });
+
+  referencesSection.appendChild(referencesList);
+  main.appendChild(referencesSection);
+};
 const displayEE205 = () => {
   const main = reset();
   const head = document.createElement("h1");
@@ -972,15 +1077,15 @@ const displayEE205 = () => {
   const apparatus = [
     {
       cap: "Oscilloscope Type",
-      image: ee2051,
+      image: ee2011,
     },
     {
       cap: "DC power supply",
-      image: ee2052,
+      image: ee2012,
     },
     {
       cap: "2 Amp Variac",
-      image: ee2053,
+      image: ee2013,
     },
     {
       cap: "A.C voltmeter{0-100v}",
@@ -1262,222 +1367,106 @@ const displayEE205 = () => {
 
   main.appendChild(practicals);
 
-  const results = document.createElement('section');
-  const resultHeader = document.createElement('h2');
-  resultHeader.textContent = "Results";
-  results.appendChild(resultHeader);
+ // Create the section for the Ohm's Law experiment results
+const ohmsLawResults = document.createElement('section');
+const ohmsLawHeader = document.createElement('h2');
+ohmsLawHeader.textContent = "Ohm's Law Experiment Results";
+ohmsLawResults.appendChild(ohmsLawHeader);
 
-
-const resultsTable = document.createElement("table");
-resultsTable.style.borderCollapse = "collapse";
-resultsTable.style.width = "100%";
-resultsTable.style.marginTop = "20px";
+// Create the table for Ohm's Law experiment
+const ohmsLawTable = document.createElement("table");
+ohmsLawTable.style.borderCollapse = "collapse";
+ohmsLawTable.style.width = "100%";
+ohmsLawTable.style.marginTop = "20px";
 
 // Create table header
-const thead = document.createElement("thead");
-const headerRow = document.createElement("tr");
+const ohmsLawThead = document.createElement("thead");
+const ohmsLawHeaderRow = document.createElement("tr");
 
 // Create header cells
-const headers = ["Voltage (V)", "Deflection S(cm)", "Deflection Sensitivity D = (V/S)"];
-headers.forEach(text => {
+const ohmsLawHeaders = ["I (mA)", "V (V)", "R = V/I (Ω)"];
+ohmsLawHeaders.forEach(text => {
     const th = document.createElement("th");
     th.textContent = text;
     th.style.border = "1px solid black";
     th.style.padding = "8px";
-    headerRow.appendChild(th);
+    ohmsLawHeaderRow.appendChild(th);
 });
 
-thead.appendChild(headerRow);
-resultsTable.appendChild(thead);
+ohmsLawThead.appendChild(ohmsLawHeaderRow);
+ohmsLawTable.appendChild(ohmsLawThead);
 
 // Create table body
-const tbody = document.createElement("tbody");
+const ohmsLawTbody = document.createElement("tbody");
 
-// Table data
-const tableData = [
-    [5, "0.65 ≈ 1.0"],
-    [10, "1.65 ≈ 2.0"],
-    [15, "2.65 ≈ 3.0"],
-    [-5, "-1.4"],
-    [-10, "-2.4"],
-    [-15, "-3.4"]
+// Table data for Ohm's Law experiment
+const ohmsLawData = [
+    [3, 0.30, 100],
+    [6, 0.60, 100],
+    [9, 0.90, 100],
+    [12, 1.20, 100],
+    [15, 1.50, 100],
+    [18, 1.80, 100],
+    [21, 2.10, 100],
+    [24, 2.40, 100],
+    [27, 2.70, 100],
+    [30, 3.00, 100]
 ];
 
 // Create rows and cells
-tableData.forEach(row => {
+ohmsLawData.forEach(row => {
     const tr = document.createElement("tr");
     
-    // Create voltage cell
+    // Create current (I) cell
+    const currentCell = document.createElement("td");
+    currentCell.textContent = row[0];
+    currentCell.style.border = "1px solid black";
+    currentCell.style.padding = "8px";
+    tr.appendChild(currentCell);
+    
+    // Create voltage (V) cell
     const voltageCell = document.createElement("td");
-    voltageCell.textContent = row[0];
+    voltageCell.textContent = row[1];
     voltageCell.style.border = "1px solid black";
     voltageCell.style.padding = "8px";
     tr.appendChild(voltageCell);
     
-    // Create deflection cell
-    const deflectionCell = document.createElement("td");
-    deflectionCell.textContent = row[1];
-    deflectionCell.style.border = "1px solid black";
-    deflectionCell.style.padding = "8px";
-    tr.appendChild(deflectionCell);
+    // Create resistance (R) cell
+    const resistanceCell = document.createElement("td");
+    resistanceCell.textContent = row[2];
+    resistanceCell.style.border = "1px solid black";
+    resistanceCell.style.padding = "8px";
+    tr.appendChild(resistanceCell);
     
-    // Create empty sensitivity cell
-    const sensitivityCell = document.createElement("td");
-    sensitivityCell.style.border = "1px solid black";
-    sensitivityCell.style.padding = "8px";
-    tr.appendChild(sensitivityCell);
-    
-    tbody.appendChild(tr);
+    ohmsLawTbody.appendChild(tr);
 });
 
-resultsTable.appendChild(tbody);
+ohmsLawTable.appendChild(ohmsLawTbody);
 
 // Add title text above table
-const titleText = document.createElement("p");
-titleText.textContent = "VOLTS/CM SETTING = 50V/cm";
-titleText.style.fontWeight = "bold";
-titleText.style.marginBottom = "10px";
+const ohmsLawTitle = document.createElement("p");
+ohmsLawTitle.textContent = "Value of the Resistor by Color Code is: 100 Ω";
+ohmsLawTitle.style.fontWeight = "bold";
+ohmsLawTitle.style.marginBottom = "10px";
 
+ohmsLawResults.appendChild(ohmsLawTitle);
+ohmsLawResults.appendChild(ohmsLawTable);
 
-results.appendChild(titleText);
-results.appendChild(resultsTable);
+// Add total and average resistance calculation
+const totalResistance = document.createElement("p");
+totalResistance.textContent = "Total R = ";
+totalResistance.style.fontWeight = "bold";
+totalResistance.style.marginTop = "20px";
 
-// Create Table 205.2
-const table2 = document.createElement("table");
-table2.style.borderCollapse = "collapse";
-table2.style.width = "100%";
-table2.style.marginTop = "30px";
+const averageResistance = document.createElement("p");
+averageResistance.textContent = "Average value = R / 10";
+averageResistance.style.fontWeight = "bold";
 
-// Create title for Table 205.2
-const title2 = document.createElement("p");
-title2.textContent = "TABLE 205.2 - VOLTS/cm Setting = 50V/S";
-title2.style.fontWeight = "bold";
-title2.style.marginBottom = "10px";
+ohmsLawResults.appendChild(totalResistance);
+ohmsLawResults.appendChild(averageResistance);
 
-// Create header row for Table 205.2
-const thead2 = document.createElement("thead");
-const headerRow2 = document.createElement("tr");
-
-// Create complex header for voltmeter reading
-const voltmeterHeader = document.createElement("th");
-voltmeterHeader.style.border = "1px solid black";
-voltmeterHeader.style.padding = "8px";
-voltmeterHeader.colSpan = "2";
-voltmeterHeader.textContent = "VOLTMETER READING";
-
-// Create other headers
-const headers2 = ["Length of Trace L (cm)", "2Vp", "Deflection Sensitivity D = (1 x 2Vp)/L = 2Vp/L"];
-[voltmeterHeader, ...headers2].forEach(text => {
-    const th = document.createElement("th");
-    th.textContent = typeof text === 'string' ? text : text.textContent;
-    th.style.border = "1px solid black";
-    th.style.padding = "8px";
-    headerRow2.appendChild(text === voltmeterHeader ? text : th);
-});
-
-// Create subheader row for voltmeter readings
-const subHeaderRow = document.createElement("tr");
-const subHeaders = ["Vrms (V)", "V(peak) = Vrms×√2"];
-subHeaders.forEach(text => {
-    const th = document.createElement("th");
-    th.textContent = text;
-    th.style.border = "1px solid black";
-    th.style.padding = "8px";
-    subHeaderRow.appendChild(th);
-});
-
-thead2.appendChild(headerRow2);
-thead2.appendChild(subHeaderRow);
-table2.appendChild(thead2);
-
-// Create Table 205.3
-const table3 = document.createElement("table");
-table3.style.borderCollapse = "collapse";
-table3.style.width = "100%";
-table3.style.marginTop = "30px";
-
-// Create title for Table 205.3
-const title3 = document.createElement("p");
-title3.textContent = "TABLE 205.3";
-title3.style.fontWeight = "bold";
-title3.style.marginBottom = "10px";
-
-// Create header row for Table 205.3
-const thead3 = document.createElement("thead");
-const headerRow3 = document.createElement("tr");
-
-// Headers for Table 205.3
-const headers3 = [
-    "Set Frequency (Hz)",
-    "Equiphase Distance",
-    "Time/cm Setting d(cm)",
-    "Measured Period T=dx Time/cm (mS)",
-    "Measured Frequency F = 1/T (Hz)"
-];
-
-headers3.forEach(text => {
-    const th = document.createElement("th");
-    th.textContent = text;
-    th.style.border = "1px solid black";
-    th.style.padding = "8px";
-    headerRow3.appendChild(th);
-});
-
-thead3.appendChild(headerRow3);
-table3.appendChild(thead3);
-
-// Create tbody for Table 205.3
-const tbody3 = document.createElement("tbody");
-const tableData3 = [
-    ["Mains", "4 cm", "5ms", "", ""],
-    ["1,000", "4 cm", "250 μs", "", ""],
-    ["5,000", "3.6 cm", "50 μs", "", ""],
-    ["10,000", "3.8 cm", "25 μs", "", ""]
-];
-
-tableData3.forEach(row => {
-    const tr = document.createElement("tr");
-    row.forEach(cell => {
-        const td = document.createElement("td");
-        td.textContent = cell;
-        td.style.border = "1px solid black";
-        td.style.padding = "8px";
-        tr.appendChild(td);
-    });
-    tbody3.appendChild(tr);
-});
-
-table3.appendChild(tbody3);
-
-// Append everything to results section
-results.appendChild(title2);
-results.appendChild(table2);
-results.appendChild(title3);
-results.appendChild(table3);
-
-const resultsAnswered = document.createElement('div');
-const resultsAnsweredHead = document.createElement('h3');
-resultsAnsweredHead.textContent = `For "B" the deflection sesitivity is given by Voltage(v)/ Deflection S(cm)`;
-const resList = document.createElement("ul");
-resList.classList.add("stepboxlist");
-const resultsListItems = [
-  "V= 5V, S=1cm, Therefore D = V/S = 5v/cm",
-  "V= 10V, S=2cm, Therefore D = V/S = 5v/cm",
-  "Period T = 40 x 10^-6 x 0.048 = 1.92 x 10^-6 ms, Frequency f = 1/1.92 x 10^-6 = 520.833KHz ",
-  "Period T = 20 x 10^-6 x 0.05 = 1 x 10^-6 ms, Frequency f = 1/1 x 10^-6 = 1000KHz ",
-
-];
-let resBox = [];
-for (let i = 0; i < resultsListItems.length; i++) {
-  resBox[i] = document.createElement("li");
-  resBox[i].textContent = resultsListItems[i];
-  resList.appendChild(resBox[i]);
-}
-resultsAnswered.appendChild(resList);
-
-
-
-main.appendChild(results);
+// Append the Ohm's Law results section to the main content
+main.appendChild(ohmsLawResults);
 
 //   const precaution = document.createElement("section");
 //   const cautionHead = document.createElement("h3");
