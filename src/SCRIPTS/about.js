@@ -212,7 +212,7 @@ createContent(divTextAchieve, achieveText);
 // ////////////////////////
 
 const JSCarousel = ({
-  carouselContainer = sectionAchieve, // Default to body if no container is provided
+  carouselContainer = sectionAchieve,
   slides = [], // Array of slide content (e.g., image URLs or HTML content)
   slidesCaption = [], // Array of slide captions
   enableAutoplay = true,
@@ -367,7 +367,7 @@ const navigateHeader = `Navigating elaBorate`;
 
 const navigateTextMain = `
 Now that we have performed the conventional niceties by welcoming you, 
-making clear our intentions and stating what we hope to achieve, 
+making clear our intentions, introducing ourselves and stating what we hope to achieve, 
 we want to aid your experience when using this platform, 
 by showing you how to navigate the various sections.
 This platform is primarily divided into four sections - Mechanical, 
