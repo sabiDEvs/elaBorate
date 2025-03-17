@@ -230,10 +230,10 @@ const JSCarousel = ({
   carousel.setAttribute("tabindex", "0");
 
   // Create the carousel title
-  // const carouselTitle = document.createElement("h2");
-  // carouselTitle.id = "carousel-title";
-  // carouselTitle.textContent = "Meet the creators";
-  // carousel.appendChild(carouselTitle);
+  const carouselTitle = document.createElement("h2");
+  carouselTitle.id = "carousel-title";
+  carouselTitle.textContent = "Meet the creators";
+  carousel.appendChild(carouselTitle);
 
   // Create the carousel inner container
   const carouselInner = document.createElement("div");
