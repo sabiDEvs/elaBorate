@@ -211,15 +211,26 @@ createContent(divTextAchieve, achieveText);
 
 // ////////////////////////
 
+const fontAwesome = document.createElement("link");
+fontAwesome.rel = "stylesheet";
+fontAwesome.href =
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css";
+document.head.appendChild(fontAwesome);
+
 const JSCarousel = ({
-  carouselContainer = sectionAchieve,
-  slides = [], // Array of slide content (e.g., image URLs or HTML content)
-  slidesCaption = [], // Array of slide captions
+  carouselContainer,
+  slides = [], // Array of image URLs or HTML content
+  slidesCaption = [], // Array of captions
+  xLinks = [], // Array of external links
   enableAutoplay = true,
   autoplayInterval = 3000,
 }) => {
+  if (!carouselContainer) {
+    console.error("Error: No valid container provided for the carousel.");
+    return;
+  }
+
   let currentSlideIndex = 0;
-  let prevButton, nextButton;
   let autoplayTimer;
 
   // Create the carousel element
@@ -227,15 +238,14 @@ const JSCarousel = ({
   carousel.classList.add("carousel");
   carousel.setAttribute("role", "region");
   carousel.setAttribute("aria-labelledby", "carousel-title");
-  carousel.setAttribute("tabindex", "0");
 
-  // Create the carousel title
+  // Create title
   const carouselTitle = document.createElement("h2");
   carouselTitle.id = "carousel-title";
-  carouselTitle.textContent = "Meet the creators";
+  carouselTitle.textContent = "Meet the Creators";
   carousel.appendChild(carouselTitle);
 
-  // Create the carousel inner container
+  // Create carousel inner container
   const carouselInner = document.createElement("div");
   carouselInner.classList.add("carousel-inner");
   carousel.appendChild(carouselInner);
@@ -250,92 +260,112 @@ const JSCarousel = ({
     const slideContentDiv = document.createElement("div");
     slideContentDiv.classList.add("slide-content");
 
-    const slideCaption = document.createElement("h3");
-    slideCaption.id = `carousel-slide-${index + 1}-title`;
-    slideCaption.classList.add("slide-caption");
-    slideCaption.textContent = `${slidesCaption[index]}`;
-
     const slideImage = document.createElement("img");
     slideImage.src = slideContent; // Assuming slideContent is an image URL
     slideImage.alt = `Slide ${index + 1}`;
 
-    slideContentDiv.appendChild(slideCaption);
+    const slideCaption = document.createElement("h3");
+    slideCaption.id = `carousel-slide-${index + 1}-title`;
+    slideCaption.classList.add("slide-caption");
+    slideCaption.textContent = slidesCaption[index] || "";
+
+    // Extracting person's social links
+    const links = xLinks[index] ? xLinks[index].split(",") : [];
+
+    // Create a container for social links
+    const socialLinksContainer = document.createElement("span");
+    // socialLinksContainer.style.marginLeft = "10px";
+
+    links.forEach((link) => {
+      link = link.trim(); // Remove any extra spaces
+
+      if (link) {
+        const socialLink = document.createElement("a");
+        socialLink.href = link;
+        socialLink.target = "_blank";
+        socialLink.style.marginLeft = "5px";
+
+        const icon = document.createElement("i");
+
+        if (link.includes("linkedin.com")) {
+          icon.classList.add("fab", "fa-linkedin");
+        } else if (link.includes("x.com") || link.includes("twitter.com")) {
+          icon.classList.add("fab", "fa-x-twitter");
+        }
+
+        icon.style.color = "white";
+        socialLink.appendChild(icon);
+        socialLinksContainer.appendChild(socialLink);
+      }
+    });
+
+    // Append the social links container to the caption
+    slideCaption.appendChild(socialLinksContainer);
+
+    // Append elements
     slideContentDiv.appendChild(slideImage);
+    slideContentDiv.appendChild(slideCaption);
     slide.appendChild(slideContentDiv);
     carouselInner.appendChild(slide);
 
     slide.style.transform = `translateX(${index * 100}%)`;
   });
 
-  // Create previous and next buttons
-  prevButton = document.createElement("button");
+  // Create navigation buttons
+  const prevButton = document.createElement("button");
   prevButton.classList.add("carousel-btn", "carousel-btn--prev");
   prevButton.setAttribute("aria-label", "Previous Slide");
-  prevButton.textContent = "<";
-  carouselInner.appendChild(prevButton);
+  prevButton.innerHTML = "&#10094;"; // Left arrow
 
-  nextButton = document.createElement("button");
+  const nextButton = document.createElement("button");
   nextButton.classList.add("carousel-btn", "carousel-btn--next");
   nextButton.setAttribute("aria-label", "Next Slide");
-  nextButton.textContent = ">";
-  carouselInner.appendChild(nextButton);
+  nextButton.innerHTML = "&#10095;"; // Right arrow
 
-  // Append the carousel to the specified container
+  carousel.appendChild(prevButton);
+  carousel.appendChild(nextButton);
+
+  // Append carousel to container
   carouselContainer.appendChild(carousel);
 
   // Helper functions
   const adjustSlidePosition = () => {
-    slides.forEach((_, i) => {
-      const slide = carouselInner.children[i];
-      slide.style.transform = `translateX(${100 * (i - currentSlideIndex)}%)`;
-    });
+    carouselInner.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
   };
 
   const moveSlide = (direction) => {
-    const newSlideIndex =
-      direction === "next"
-        ? (currentSlideIndex + 1) % slides.length
-        : (currentSlideIndex - 1 + slides.length) % slides.length;
-    currentSlideIndex = newSlideIndex;
+    if (direction === "next") {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    } else {
+      currentSlideIndex =
+        (currentSlideIndex - 1 + slides.length) % slides.length;
+    }
     adjustSlidePosition();
   };
 
-  const handlePrevButtonClick = () => moveSlide("prev");
-  const handleNextButtonClick = () => moveSlide("next");
-
+  // Autoplay
   const startAutoplay = () => {
-    autoplayTimer = setInterval(() => {
-      moveSlide("next");
-    }, autoplayInterval);
+    autoplayTimer = setInterval(() => moveSlide("next"), autoplayInterval);
   };
 
   const stopAutoplay = () => clearInterval(autoplayTimer);
 
-  const handleMouseEnter = () => stopAutoplay();
-  const handleMouseLeave = () => startAutoplay();
+  // Event Listeners
+  prevButton.addEventListener("click", () => moveSlide("prev"));
+  nextButton.addEventListener("click", () => moveSlide("next"));
 
-  // Attach event listeners
-  prevButton.addEventListener("click", handlePrevButtonClick);
-  nextButton.addEventListener("click", handleNextButtonClick);
-
-  if (enableAutoplay && autoplayInterval !== null) {
-    carousel.addEventListener("mouseenter", handleMouseEnter);
-    carousel.addEventListener("mouseleave", handleMouseLeave);
+  if (enableAutoplay) {
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
     startAutoplay();
   }
 
   // Cleanup function
   const destroy = () => {
-    prevButton.removeEventListener("click", handlePrevButtonClick);
-    nextButton.removeEventListener("click", handleNextButtonClick);
-
-    if (enableAutoplay && autoplayInterval !== null) {
-      carousel.removeEventListener("mouseenter", handleMouseEnter);
-      carousel.removeEventListener("mouseleave", handleMouseLeave);
-      stopAutoplay();
-    }
-
-    carousel.remove(); // Remove the carousel from the DOM
+    prevButton.removeEventListener("click", moveSlide);
+    nextButton.removeEventListener("click", moveSlide);
+    stopAutoplay();
+    carousel.remove();
   };
 
   return { destroy };
@@ -354,6 +384,16 @@ const carousel1 = JSCarousel({
     "Maro",
     "Success",
   ],
+  xLinks: [
+    "https://www.linkedin.com/in/blessing-uzoukwu",
+    "http://x.com/Bigma_r_v_i_n, http://linkedin.com/in/marvellous-okoro-ab5b07226",
+    "https://www.linkedin.com/in/elijah-ayara-b60666310",
+    "http://x.com/obuhdaniel2",
+    "http://x.com/xavierScript",
+    "http://x.com/odogwuScript, https://www.linkedin.com/in/oghenemaro-ogbaudu-124a93278",
+    "http://x.com/SazeCodes",
+  ],
+
   enableAutoplay: true,
   autoplayInterval: 5000,
 });
