@@ -118,19 +118,17 @@ const createDivs = (object) => {
     const text = document.createElement('div');
     text.innerHTML = `<span>• ${object.title}:</span>  ${object.text}`;
     div.appendChild(text);
-    if(object.image !== ''){
-         return div;
-    }
-    else if(object.image !== '' && object.image !== null) {
+    
+    // Check if image exists and is not empty
+    if (object.image && object.image !== '') {
         const image = document.createElement('img');
         image.classList.add('halfImg');
-        image.src = object.image
+        image.src = object.image;
         div.appendChild(image);
     }
+    
     return div;
 }
-
-
 
 const createVids = (object) => {
     const div = document.createElement('div');
@@ -166,6 +164,9 @@ const reset = () => {
     window.scrollTo(0, 0);
     const main = document.querySelector('main');
     main.innerHTML = '';
+    if(window.innerWidth < 800) {
+        document.querySelector('aside').style.display = 'none';
+    };
     return main;
 }
 
@@ -212,6 +213,8 @@ const createHover = (url) => {
 
 const displayStarted = () => {
     const main = reset();
+
+    
     
     const divImgAchieve = document.createElement("div");
     divImgAchieve.classList.add("div-img-achieve");
@@ -2440,7 +2443,7 @@ const displayFS201 = () => {
         const references = document.createElement('section');
         const refHead = document.createElement('h3');
         refHead.textContent = "REFERENCES";
-        references.appendChild(refHead);
+        references.append.appendChild(refHead);
         const refList = document.createElement('ul');
         const reference = ["Production Engineering Laboratory Manual for ELA201 and ELA202 by Department of Production Engineering, University of Benin.", "Foundry Technology by K P Sinha & D B Goel", "Foundry Technology by P R Beeley"];
         let refBox = [];

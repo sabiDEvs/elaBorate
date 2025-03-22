@@ -79,7 +79,13 @@ let list = [];
 for(let i = 0; i < reports.length; i++){
     list[i] = document.createElement('li');
     list[i].textContent = `${reports[i].title}`;
-    list[i].addEventListener('click', reports[i].func);
+    list[i].addEventListener('click', () => {
+        const normalizedTitle = reports[i].title
+            .replace(/\s+/g, '-')
+            .replace(/[{}]/g, '')
+            .toLowerCase();
+        window.location.hash = normalizedTitle;
+    });
     reportList.appendChild(list[i]);
 }
 reportDiv.appendChild(reportList);
@@ -90,3 +96,48 @@ const main = document.createElement('main');
 body.appendChild(main);
 displayStarted();
 renderFooter(body, [hme, rpt, abt]);
+
+function loadFromHash() {
+    const hash = window.location.hash.slice(1); // Remove the # symbol
+    
+    if (!hash) {
+        displayStarted();
+        deselect(list);
+        return;
+    }
+
+    const normalizedHash = decodeURIComponent(hash)
+        .replace(/-/g, ' ')
+        .toLowerCase();
+
+    const report = reports.find(r => 
+        r.title.replace(/[{}]/g, '').toLowerCase() === normalizedHash
+    );
+
+    if (report) {
+        report.func();
+        const reportIndex = reports.indexOf(report);
+        if (reportIndex !== -1) {
+            deselect(list);
+            list[reportIndex].classList.add('selected');
+        }
+    } else {
+        displayStarted();
+        deselect(list);
+    }
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    loadFromHash();
+});
+
+window.addEventListener('hashchange', loadFromHash);
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        document.querySelector('aside').style.display = 'block';
+    } else {
+        document.querySelector('aside').style.display = 'none';
+    }
+});
+

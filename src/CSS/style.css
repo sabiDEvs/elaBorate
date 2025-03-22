@@ -12,7 +12,7 @@ body{
     font-size: 16px;
     position: relative;
 }
-p{
+p, div{
     font-family: "Poppins", sans-serif;
 }
 h1,h2, h3, h4, h5, a{
@@ -138,7 +138,6 @@ main{
     padding: 3vw;
 }
 .deptText article{
-    font-weight: lighter;
     font-size: 14px;
 }
 .deptBox img{
@@ -400,7 +399,7 @@ input, textarea{
         flex-direction: row;
         gap: 30px;
         justify-content: space-between;
-        width: 80%;
+        width: 95%;
     }
     #dept{
         margin-top: 10vw;
@@ -425,12 +424,12 @@ input, textarea{
     }
     #offers{
         flex-direction: row;
-        width: 60%;
+        width: 75%;
         align-items: center;
         gap: 0;
     }
     .serve{
-        width: 30%;
+        width: 33%;
         border-radius: 3vw;
         font-size: 1vw;
         padding: 2vw 1vw;

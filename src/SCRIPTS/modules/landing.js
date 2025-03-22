@@ -29,6 +29,7 @@ const createMenu = (header) => {
         div.appendChild(bars[i]);
     }
     div.addEventListener('click', () => {
+        div.classList.toggle('active');
         document.querySelector('.nav').classList.toggle('active');
     
         if(document.querySelector('.nav').className === 'nav active'){

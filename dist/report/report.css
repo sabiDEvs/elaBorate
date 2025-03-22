@@ -2,6 +2,16 @@
 @import url(https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Michroma&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Michroma&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Michroma&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+p, div, li{
+    font-family: "Poppins", sans-serif;
+}
+h1,h2, h3, h4, h5, a{
+    font-family: "Michroma", sans-serif;
+}
 header{
     top: 0;
     position: fixed;
@@ -18,14 +28,30 @@ header{
 
 .bars{
     height: 2px;
-    width: 5vw;
+    width: 25px;
     background-color: #14213d;
     border: none;
+    margin: 1px;
+    transition: all 0.3s ease;
 }
 .menu{
     display: flex;
     flex-direction: column;
     gap: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu.active .bars:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu.active .bars:nth-child(2) {
+    opacity: 0;
+}
+
+.menu.active .bars:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
 }
 /*navBar styling*/
 .nav{
@@ -148,6 +174,8 @@ footer{
 }
 #subscribe input{
     border: 1px solid #fca311;
+    padding: 2px 4px;
+    background: black;
 }
 #rightFoot{
     display: flex;
@@ -175,6 +203,9 @@ footer a{
     text-align: center;
     vertical-align: middle;
     padding: 10px 20px;
+}
+footer span {
+    color: #fca311;
 }
 
 @media only screen and (min-width:768px){
@@ -212,7 +243,7 @@ body{
     font-size: 16px;
     position: relative;
 }
-p{
+p, div{
     font-family: "Poppins", sans-serif;
 }
 h1,h2, h3, h4, h5, a{
@@ -338,7 +369,6 @@ main{
     padding: 3vw;
 }
 .deptText article{
-    font-weight: lighter;
     font-size: 14px;
 }
 .deptBox img{
@@ -600,7 +630,7 @@ input, textarea{
         flex-direction: row;
         gap: 30px;
         justify-content: space-between;
-        width: 80%;
+        width: 95%;
     }
     #dept{
         margin-top: 10vw;
@@ -625,12 +655,12 @@ input, textarea{
     }
     #offers{
         flex-direction: row;
-        width: 60%;
+        width: 75%;
         align-items: center;
         gap: 0;
     }
     .serve{
-        width: 30%;
+        width: 33%;
         border-radius: 3vw;
         font-size: 1vw;
         padding: 2vw 1vw;

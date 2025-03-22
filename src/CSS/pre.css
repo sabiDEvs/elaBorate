@@ -31,7 +31,7 @@ body{
 /*Aside styling*/
 aside{
     position: fixed;
-    margin-top: 10vh;
+    margin-top: 5vh;
     background-color: #14213d;
     color: #ffffff;
     padding: 4vw;
@@ -65,7 +65,7 @@ main{
     width: 100%;
     flex-direction: column;
     gap: 2vh;
-    padding: 2vw 6vw;
+    padding: 2vw 3vw;
     display: flex;
 }
 
@@ -188,6 +188,9 @@ header div, header li, header h1, header p, header h2, header h3, footer div, fo
     margin: 0;
     padding: 0;
 }
+main > h1{
+    font-size:2em;
+}
 @media only screen and (min-width:768px){
     ul{
         margin-left: 3vw;
@@ -225,6 +228,9 @@ header div, header li, header h1, header p, header h2, header h3, footer div, fo
         grid-area: aside;
         width: 22.5%;
         overflow-y: auto;
+    }
+    #closeButton{
+        display: none;
     }
     aside > div{
         padding: 0 0.5vw;
