@@ -6,6 +6,7 @@ import {createGemini, createChatGpt, displayAI} from './modules/ai';
 //import css
 
 import '../CSS/style.css';
+import '../CSS/ai.css';
 
 //import images
 import dept1 from '../RESOURCES/images/computer-dept.png';

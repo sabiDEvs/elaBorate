@@ -511,74 +511,6 @@ input, textarea{
     color: #ffffff;
     box-shadow: 3px 3px #000000;
 }
-/*Ai pop up and button styling*/
-#chatGPT, #geminiAI{
-    width: 80vw;
-    height: 70vh;
-    position: fixed;
-    top: 15vh;
-    left: 10vw;
-    z-index: 4;
-    background-color: #ffffff;
-    border-radius: 1vw;
-    padding: 2vw;
-    display: none;
-}
-.close{
-    border-radius: 50%;
-    background-color: red;
-    padding: 1px;
-    text-align: center;
-    vertical-align: center;
-    margin: 0.5vw;
-    position: relative;
-    float: right;
-    cursor: default;
-    display: inline;
-}
-.frameBox{
-    height: 100%;
-}
-.aiText{
-    display: inline-block;
-    position: relative;
-}
-#chatgpt, #gemini{
-    height: 90%;
-    width: 100%;
-}
-#ai{
-    height: 14vh;
-    width: 10vw;
-    position: fixed;
-    bottom: 5vh;
-    right: 5vw;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
-}
-.aiDiv{
-    background-color: #14213d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 14vw;
-    width: 14vw;
-    border-radius: 50%;
-}
-#ai img{
-    width: 80%;
-    height: 80%;
-    margin: 0 auto;
-}
-.popUp{
-    display: none;
-    width: 10vw;
-    height: 10vw;
-    border-radius: 1vw;
-}
 .active{
     display: flex;
 }
@@ -731,33 +663,8 @@ input, textarea{
         align-self: center;
         margin: 0 auto;
     }
-    
-    #chatGPT, #geminiAI{
-        width: 40vw;
-        height: 90vh;
-        top: 5vh;
-        left: 30vw;
-        padding: 1vw;
-    }
-    #ai{
-        height: 14vh;
-        width: 5vw;
-        bottom: 10vh;
-        right: 1vw;
-        gap: 20px;
-    }
-    .aiDiv{
-        height: 5vw;
-        width: 5vw;
-        border-radius: 0.5vw;
-    }
     .textDiv{
         margin-right: 5vw;
-    }
-    .popUp{
-        width: 3vw;
-        height: 3vw;
-        border-radius: 0.3vw;
     }
 }
 #wrapper {

@@ -2443,7 +2443,7 @@ const displayFS201 = () => {
         const references = document.createElement('section');
         const refHead = document.createElement('h3');
         refHead.textContent = "REFERENCES";
-        references.append.appendChild(refHead);
+        references.appendChild(refHead);
         const refList = document.createElement('ul');
         const reference = ["Production Engineering Laboratory Manual for ELA201 and ELA202 by Department of Production Engineering, University of Benin.", "Foundry Technology by K P Sinha & D B Goel", "Foundry Technology by P R Beeley"];
         let refBox = [];
