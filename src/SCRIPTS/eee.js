@@ -1,7 +1,9 @@
 import '../CSS/pre.css';
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
-import { displayStarted, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, } from './modules/eeeDisplay';
+import '../CSS/ai.css';
+import { displayStarted, displayEE201, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, displayEE208 } from './modules/eeeDisplay';
+import {createGemini, createChatGpt, displayAI} from './modules/ai';
 import favLogo from '../RESOURCES/images/footer-logo.png'
 const faviconAny = document.querySelector('link[sizes="any"]');
 const faviconSvg = document.querySelector('link[type="image/svg+xml"]');   
@@ -18,6 +20,10 @@ let reports = [
     {
         title: 'Getting Started',
         func: displayStarted
+    },
+    {
+        title: 'Measurement of Unknown Resistance {EE201}',
+        func: displayEE201
     },
     {
         title: 'Measurement of Capacitance {EE202}',
@@ -39,10 +45,15 @@ let reports = [
         title: 'D.C Generator {EE 205}',
         func: displayEE207
     },
-    
+    {
+        title: 'D.C Generator {EE 208}',
+        func: displayEE208
+    },
 
     
 ];
+
+
 //display  header
 renderHeader(body, [hme, rpt, abt]);
 //create aside side menu
@@ -67,7 +78,28 @@ let list = [];
 for(let i = 0; i < reports.length; i++){
     list[i] = document.createElement('li');
     list[i].textContent = `${reports[i].title}`;
-    list[i].addEventListener('click', reports[i].func);
+    list[i].classList.add('menu-item');
+    
+    // Set Getting Started as default active item
+    if (reports[i].title === 'Getting Started') {
+        list[i].classList.add('active');
+        // Set default hash if none exists
+        if (!window.location.hash) {
+            window.location.hash = 'getting-started';
+        }
+    }
+    
+    list[i].addEventListener('click', () => {
+        const normalizedTitle = reports[i].title
+            .replace(/\s+/g, '-')
+            .replace(/[{}]/g, '')
+            .toLowerCase();
+        window.location.hash = normalizedTitle;
+        // Remove active class from all items
+        list.forEach(item => item.classList.remove('active'));
+        // Add active class to clicked item
+        list[i].classList.add('active');
+    });
     reportList.appendChild(list[i]);
 }
 reportDiv.appendChild(reportList);
@@ -78,3 +110,46 @@ const main = document.createElement('main');
 body.appendChild(main);
 displayStarted();
 renderFooter(body, [hme, rpt, abt]);
+
+function loadFromHash() {
+    const hash = window.location.hash.slice(1) || 'getting-started'; // Default to getting-started
+    
+    const normalizedHash = decodeURIComponent(hash)
+        .replace(/-/g, ' ')
+        .toLowerCase();
+
+    const report = reports.find(r => 
+        r.title.replace(/[{}]/g, '').toLowerCase() === normalizedHash
+    );
+
+    if (report) {
+        report.func();
+        const reportIndex = reports.indexOf(report);
+        if (reportIndex !== -1) {
+            list.forEach(item => item.classList.remove('active'));
+            list[reportIndex].classList.add('active');
+        }
+    } else {
+        displayStarted();
+        list.forEach(item => item.classList.remove('active'));
+        list[0].classList.add('active'); // Getting Started is first item
+    }
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    loadFromHash();
+});
+
+window.addEventListener('hashchange', loadFromHash);
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        document.querySelector('aside').style.display = 'block';
+    } else {
+        document.querySelector('aside').style.display = 'none';
+    }
+});
+
+displayAI(body);
+createGemini(body);
+createChatGpt(body);
