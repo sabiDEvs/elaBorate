@@ -35,6 +35,8 @@ import pic34 from '../../RESOURCES/images/spring-balance.png';
 import pic35 from '../../RESOURCES/images/10kg.png';
 import pic36 from '../../RESOURCES/images/inclined.png';
 import pic37 from '../../RESOURCES/images/slider-tray.png';
+import pic38 from '../../RESOURCES/images/jennaco.jpg';
+import pic39 from '../../RESOURCES/images/clamp stand.png';
 import pic112 from '../../RESOURCES/images/download-icon.png';
 import pic113 from '../../RESOURCES/images/download.png';
 
@@ -43,6 +45,9 @@ const reset = () => {
     window.scrollTo(0, 0);
     const main = document.querySelector('main');
     main.innerHTML = '';
+    if(window.innerWidth < 800) {
+        document.querySelector('aside').style.display = 'none';
+    };
     return main;
 }
 
@@ -110,7 +115,7 @@ const displayStarted = () => {
 
     const imgAchieve = document.createElement("img");
     divImgAchieve.appendChild(imgAchieve);
-    imgAchieve.src = pic10;
+    imgAchieve.src = pic38;
     imgAchieve.classList.add('startImg');
     imgAchieve.id = 'getStartImg';
     
@@ -125,12 +130,40 @@ const displayStarted = () => {
     genHead.textContent = 'General Instructions';
     genSection.appendChild(genHead);
     const genDesc = document.createElement('p');
-    genDesc.textContent = 'Follow these instructions when preparing for any Production ELA...';
+    genDesc.textContent = 'Follow these instructions when preparing for any Mechanical ELA session to ensure proper documentation and submission.';
     genSection.appendChild(genDesc);
-    const report = displayTask('1', 'Report Format:', ['Use A4 paper or full-scalp sheets for writing your reports.', 'The instructor will specify the preferred format; if necessary.']);
-    genSection.appendChild(report);
-    const attend = displayTask('2', 'Attendance:', ['Punctuality is crucial for all Production ELA sessions.', 'Ensure you do not miss any session.']);
-    genSection.appendChild(attend);
+    const guidelines = [
+        'Submission Deadline: You may be required to submit your report by 4 PM or 5 PM on the same day. Be fast and efficient in writing your report.',
+        'Research in Advance:',
+        'Study the given topic before the ELA session.',
+        'Focus on the theory and formulas in the manual.',
+        'Do not copy directly from the manual—use it as a guideline to structure your work.',
+        'Sketching and Quick Notes:',
+        'Upon entering the lab, you have 5 minutes to sketch your work.',
+        'If possible, take a quick photo for reference (avoid getting caught).',
+        'Be quick and precise with your drawings.',
+        'Diagrams & Tables:',
+        'Draw realistic diagrams with a pencil only.',
+        'Attach A4 paper if additional space is needed.',
+        'Label all parts in one direction for clarity.',
+        'Use a pen for tables and attach extra A4 sheets if necessary.',
+        'Calculations:',
+        'Show all workings clearly.',
+        'For tables, if a value is derived from multiplication or other operations, show how you got it.',
+        'Noting Key Information:',
+        'Pay close attention to the instructor’s comments.',
+        'Write down precautions, observations, or hints provided.',
+        'References:',
+        'Do not list website links.',
+        'Instead, reference textbooks or research papers.',
+        'If using Wikipedia, check the references section and cite those sources.'
+    ];
+    guidelines.forEach(text => {
+        const p = document.createElement('p');
+        p.textContent = text;
+        genSection.appendChild(p);
+    });
+
     main.appendChild(genSection);
 
     const repSection = document.createElement('section');
@@ -138,44 +171,97 @@ const displayStarted = () => {
     repHead.textContent = 'Report Structure';
     repSection.appendChild(repHead);
     const repDesc = document.createElement('p');
-    repDesc.textContent = 'It is most expedient that you follow the structure given below, when writing your reports.';
+    repDesc.textContent = 'Follow the structure below when writing your reports.';
     repSection.appendChild(repDesc);
-    const id = displayTask('1', 'Identification:', ['Name: [Your full name]', 'Matriculation Number: [Your Matriculation Number]', 'Department: [Your department]', 'Serial Number: [Your ELA Serial number Upon registration]', 'Section: []', 'Title of Experiment: [e.g “Bench fitting”]', 'Experiment Code: [e.g “AM201”]']);
-    repSection.appendChild(id);
-    const objective = displayTask('2', 'Objectives:', ['State the aim of the experiment as listed in the manual. Write down all the objectives provided.']);
-    repSection.appendChild(objective);
-    const tools = displayTask('3', 'Apparatus/Tools:', ['List all tools used in the experiment.', 'Include diagrams of the tools and ensure they are well-labeled and neatly drawn.']);
-    repSection.appendChild(tools);
-    const theory = displayTask('4', 'Theory:', ['Provide a theoretical background relevant to the practical.', 'Discuss the applications and sequence of operations, supplemented with diagrams where necessary.', 'Ensure the content is focused and does not deviate from the topic.']);
-    repSection.appendChild(theory);
-    const procedures = displayTask('5', 'Procedures:', ['Document the procedure exactly as written in the manual.', 'Use diagrams to explain the steps, if possible.']);
-    repSection.appendChild(procedures);
-    const precautions = displayTask('6', 'Precautions:', ['List the precautions taken during the experiment in past tense.', '~Example: “I ensured that I...”']);
-    repSection.appendChild(precautions);
-    const conclusions = displayTask('7', 'Conclusion:', ['Summarize the outcomes of the experiment.', '~Example: “At the end of this experiment, we were able to develop a lap joint, understand the sequence of operations involved, and achieve a comprehensive understanding of the process.”']);
-    repSection.appendChild(conclusions);
-    const references = displayTask('8', 'References:', ['Cite books and manuals relevant to the experiment. Do not include web links.', '~Example:', '~~“Production Engineering Laboratory Manual for ELA201 and ELA202’’ by the Department of Production Engineering, University of Benin.', '~~”The TIG Welding Book” by Todd Bridigum.', '~~”Welding for Dummies” by Steven Robert Farnsworth.']);
-    repSection.appendChild(references);
+
+    const reportSections = [
+        { number: '1', title: 'Identification', details: [
+            'Name: [Your Full Name]',
+            'Matriculation Number: [Your Matric Number]',
+            'Department: [Your Department]',
+            'Serial Number: [ELA Serial Number]',
+            'Section: []',
+            'Title of Experiment: [e.g., "Simple Pendulum"]',
+            'Experiment Code: [e.g., "SM212"]'
+        ] },
+        { number: '2', title: 'Objectives', details: [
+            'Clearly state the aim of the experiment.',
+            'Include all objectives as listed in the manual.'
+        ] },
+        { number: '3', title: 'Apparatus/Tools', details: [
+            'List all tools and equipment used.',
+            'Include well-labeled diagrams for clarity.'
+        ] },
+        { number: '4', title: 'Theory', details: [
+            'Provide a concise theoretical background relevant to the experiment.',
+            'Discuss applications and sequences of operations using diagrams where necessary.'
+        ] },
+        { number: '5', title: 'Procedure', details: [
+            'Document the exact procedure followed during the experiment.',
+            'Use diagrams for better explanation.'
+        ] },
+        { number: '6', title: 'Precautions', details: [
+            'List the precautions taken, written in past tense.',
+            'Example: “I ensured that I secured the workpiece properly before cutting.”'
+        ] },
+        { number: '7', title: 'Results & Observations', details: [
+            'Include tables, charts, and calculations to support your results.',
+            'Graphs must be attached where applicable.',
+            'Photocopy graphs if multiple are required.'
+        ] },
+        { number: '8', title: 'Discussion & Conclusion', details: [
+            'Summarize findings and learning outcomes from the experiment.',
+            'Example: “At the end of the experiment, we successfully measured the cutting force and analyzed its impact on material deformation.”'
+        ] },
+        { number: '9', title: 'References', details: [
+            'Cite textbooks and manuals used.',
+            'Example:',
+            '“Mechanical Engineering Laboratory Manual for ELA301 and ELA302” by the Department of Mechanical Engineering.',
+            '“Engineering Mechanics” by R.S. Khurmi.',
+            '“Machining Fundamentals” by John R. Walker.'
+        ] }
+    ];
+
+    reportSections.forEach(section => {
+        const task = displayTask(section.number, section.title, section.details);
+        repSection.appendChild(task);
+    });
+
     main.appendChild(repSection);
 
-    const addSection = document.createElement('section');
-    const addHead = document.createElement('h2');
-    addHead.textContent = 'Additional Notes';
-    addSection.appendChild(addHead);
-    const para1 = document.createElement('p');
-    para1.textContent = "Always follow the instructor's specific guidelines regarding report format and content to ensure good marks.";
-    addSection.appendChild(para1);
-    const para2 = document.createElement('p');
-    para2.textContent = "Submit your report on time. The report submission time is usually given by the instructor.";
-    addSection.appendChild(para2);
-    const good = document.createElement('div');
-    good.textContent = 'GOOD LUCK!!!';
-    addSection.appendChild(good);
-    main.appendChild(addSection);
+    const gradingSection = document.createElement('section');
+    const gradingHead = document.createElement('h3');
+    gradingHead.textContent = 'Key Areas for Effective Grading';
+    gradingSection.appendChild(gradingHead);
+    const gradingPoints = [
+        'First Page (Complete all fields correctly)',
+        'Drawings & Sketches',
+        'Tables & Results',
+        'Calculations (Show all workings)',
+        'Precautions & Observations',
+        'Discussion & Conclusion',
+        'Graphs (Attach and photocopy if needed)',
+        'References (Only books & manuals, no web links)',
+        'If required to submit by 4 PM, you may not finish everything. Just ensure you include key sections and calculations.',
+        'Be punctual—arrive at least 5 minutes before submission time. Missing an ELA session is not an option.'
+    ];
+    gradingPoints.forEach(text => {
+        const p = document.createElement('p');
+        p.textContent = text;
+        gradingSection.appendChild(p);
+    });
+
+    main.appendChild(gradingSection);
+
+    const goodLuck = document.createElement('div');
+    goodLuck.textContent = 'GOOD LUCK!!!';
+    main.appendChild(goodLuck);
+
     const hover = createHover('#');
     main.appendChild(hover);
     const download = createDownload('#');
     main.appendChild(download);
+
 };
 
 const displaySimplePendulum = () => {
@@ -478,7 +564,7 @@ const displayShearForceExperiment = () => {
 
     const resultsLink = document.createElement('div');
     resultsLink.innerHTML = `
-        <iframe src="https://youtu.be/d0XxhA95MKs?si=sAaJYo91x3LES-lN" title="Shear Force Experiment Procedure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://youtube.com/embed/d0XxhA95MKs?si=sAaJYo91x3LES-lN" title="Shear Force Experiment Procedure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     `;
     resultsSection.appendChild(resultsLink);
 
@@ -1871,7 +1957,7 @@ const displayGears = () => {
         <h2>RESULTS</h2>
         <p>Video demonstration on how the Automat Spur Gear Model experiment works</p>
         <div class="video-container">
-            <iframe src="https://youtu.be/BfttOey8n2E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://youtube.com/embed/BfttOey8n2E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     `;
     main.appendChild(resultsSection);
@@ -1933,7 +2019,7 @@ graphsSection.innerHTML = `
     <h2>GRAPHS</h2>
     <p>Tutorial on graph drawing:</p>
     <div class="video-container">
-        <iframe src="https://youtu.be/9kJ5vyfW0n4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/9kJ5vyfW0n4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 `;
 
@@ -2129,8 +2215,8 @@ const displayScrewJack = () => {
         <h2>RESULTS</h2>
         <p>Below is the youtube link that illustrates the procedures for a Screw Jack experiment.</p>
         <div class="video-container">
-            <iframe src="https://youtu.be/qb_u8OylKuE" allowfullscreen></iframe>
-            <iframe src="https://youtu.be/zEwj6KVhpG0" allowfullscreen></iframe>
+            <iframe src="https://youtube.com/embed/qb_u8OylKuE" allowfullscreen></iframe>
+            <iframe src="https://youtube.com/embed/zEwj6KVhpG0" allowfullscreen></iframe>
         </div>
         
         <h3>TABLE OF RESULTS</h3>
@@ -2220,35 +2306,35 @@ const displayScrewJack = () => {
     main.appendChild(analysisSection);
 
     // Observations Section
-    const observationsSection = document.createElement('section');
-    observationsSection.innerHTML = `
-        <h2>OBSERVATION AND PRECAUTIONS</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>OBSERVATIONS</th>
-                        <th>PRECAUTIONS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>I observed that a smaller effort was required to lift a larger load due to the mechanical advantage.</td>
-                        <td>I ensured that I calibrated all instruments before use to ensure accurate readings.</td>
-                    </tr>
-                    <tr>
-                        <td>I observed that lubrication improved smoothness and slightly increased efficiency.</td>
-                        <td>I avoided error due to parallax when taking measurements for the experiment</td>
-                    </tr>
-                    <tr>
-                        <td> I Observed that the pitch of the screw affected the velocity ratio, with smaller pitches increasing mechanical advantage.</td>
-                        <td>I ensured that I  measured the pitch of the screw carefully using a Vernier caliper.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    `;
-    main.appendChild(observationsSection);
+const observationsSection = document.createElement('section');
+observationsSection.innerHTML = `
+    <h2>OBSERVATION AND PRECAUTIONS</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>OBSERVATIONS</th>
+                    <th>PRECAUTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>I observed that a smaller effort was required to lift a larger load due to the mechanical advantage.</td>
+                    <td>I ensured that I calibrated all instruments before use to ensure accurate readings.</td>
+                </tr>
+                <tr>
+                    <td>I observed that lubrication improved smoothness and slightly increased efficiency.</td>
+                    <td>I avoided error due to parallax when taking measurements for the experiment</td>
+                </tr>
+                <tr>
+                    <td> I Observed that the pitch of the screw affected the velocity ratio, with smaller pitches increasing mechanical advantage.</td>
+                    <td>I ensured that I  measured the pitch of the screw carefully using a Vernier caliper.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+`;
+main.appendChild(observationsSection);
 
     // Graphs Section
 const graphsSection = document.createElement('section');
@@ -2261,7 +2347,7 @@ graphsSection.innerHTML = `
         <li>Effort (Y-axis) against load (X-axis)</li>
     </ul>
     <div class="video-container">
-        <iframe src="https://youtu.be/9kJ5vyfW0n4" allowfullscreen></iframe>
+        <iframe src="https://youtube.com/embed/9kJ5vyfW0n4" allowfullscreen></iframe>
     </div>
 `;
 main.appendChild(graphsSection);
@@ -2317,15 +2403,17 @@ questionsSection.innerHTML = `
 
     <div class="question">
         <h3>Comment on experimental procedures to justify its suitability for accuracy of results and time saving:</h3>
-        <div class="procedure-analysis">
-            <h4>CHOOSE THE ONE YOU WANT</h4>
-            <ul>
-                <li>The experimental procedure for the screw jack experiment is carefully structured to ensure both accurate results and efficient use of time. The procedure’s design, reliance on simple tools, and organized approach are key to achieving these objectives.</li>
-                <li>A major factor contributing to the accuracy of the experiment is the controlled setup and the precise measurements taken at each stage. At the start, the screw jack and other equipment, like the spring balance and load, are carefully arranged on a stable surface. By ensuring the apparatus is properly positioned and all measuring tools are calibrated, the experiment minimizes the chances of errors in data collection. Essential dimensions of the screw jack, such as the radius of the effort wheel and the pitch of the screw, are accurately measured to ensure the data used in calculations is as precise as possible. The accurate measurement of these variables directly impacts the precision of subsequent calculations, such as the velocity ratio and mechanical advantage.</li>
-                <li>Another aspect that ensures the accuracy of the experiment is the systematic, step-by-step approach followed throughout the procedure. The experiment involves applying a controlled amount of effort, gradually rotating the screw jack handle to lift the load. The effort applied is measured consistently using a spring balance, while the load lifted is recorded with accuracy. This controlled approach minimizes any potential fluctuations in the effort applied or the measurements taken, thereby reducing the possibility of errors that could affect the results. By following a clear and organized procedure, the experiment ensures that the data gathered is both consistent and reliable.</li>
-                <li>In terms of time efficiency, the experiment utilizes simple and dependable tools that allow for quick setup and smooth operation. The use of basic equipment, such as the spring balance to measure effort and the screw jack to lift the load, ensures that the experiment is easy to conduct without complicated setup processes. The simplicity of the tools also enables efficient measurement and minimizes the chances of equipment malfunctions or errors, which could cause delays. This straightforward approach ensures the experiment can be completed within a reasonable timeframe without compromising accuracy.</li>
-            </ul>
-        </div>
+        <strong>CHOOSE THE ONE YOU WANT</strong>
+        <ul>
+            <li>The experimental procedure for the screw jack experiment is carefully structured to ensure both accurate results and efficient use of time. The procedure’s design, reliance on simple tools, and organized approach are key to achieving these objectives.</li>
+            <li>A major factor contributing to the accuracy of the experiment is the controlled setup and the precise measurements taken at each stage. At the start, the screw jack and other equipment, like the spring balance and load, are carefully arranged on a stable surface. By ensuring the apparatus is properly positioned and all measuring tools are calibrated, the experiment minimizes the chances of errors in data collection. Essential dimensions of the screw jack, such as the radius of the effort wheel and the pitch of the screw, are accurately measured to ensure the data used in calculations is as precise as possible. The accurate measurement of these variables directly impacts the precision of subsequent calculations, such as the velocity ratio and mechanical advantage.</li>
+            <li>Another aspect that ensures the accuracy of the experiment is the systematic, step-by-step approach followed throughout the procedure. The experiment involves applying a controlled amount of effort, gradually rotating the screw jack handle to lift the load. The effort applied is measured consistently using a spring balance, while the load lifted is recorded with accuracy. This controlled approach minimizes any potential fluctuations in the effort applied or the measurements taken, thereby reducing the possibility of errors that could affect the results. By following a clear and organized procedure, the experiment ensures that the data gathered is both consistent and reliable.</li>
+            <li>In terms of time efficiency, the experiment utilizes simple and dependable tools that allow for quick setup and smooth operation. The use of basic equipment, such as the spring balance to measure effort and the screw jack to lift the load, ensures that the experiment is easy to conduct without complicated setup processes. The simplicity of the tools also enables efficient measurement and minimizes the chances of equipment malfunctions or errors, which could cause delays. This straightforward approach ensures the experiment can be completed within a reasonable timeframe without compromising accuracy.</li>
+            <li>The experimental design was also practical, as it inherently accounted for frictional losses in the system. By directly measuring the effort required to lift a given load, the procedure provided an accurate assessment of the mechanical advantage and efficiency of the wheel and axle system. This approach eliminated the need for additional, complex steps to analyze friction, saving time while still yielding comprehensive results.</li>
+            <li>Additionally, the procedure minimized the need for specialized equipment, relying on simple tools that were easy to calibrate and handle. This choice made the experiment more accessible and reduced the potential for equipment-related errors, ensuring that the results accurately reflected the performance of the wheel and axle system.</li>
+            <li>In terms of time efficiency, the experiment facilitated quick data collection without sacrificing accuracy. The straightforward measurements and calculations for velocity ratio, mechanical advantage, and efficiency allowed the objectives to be achieved within a reasonable timeframe. The procedure was also flexible, accommodating different wheel and axle configurations, such as varying radii or loads, providing opportunities for further exploration without significantly extending the experiment duration.</li>
+            <li>In conclusion, the experimental procedure for the Simple Wheel and Axle Experiment was well-designed for obtaining accurate results while saving time. Its simplicity, structured execution, and practical design made it an effective method for investigating mechanical advantage, velocity ratio, and efficiency. By combining precision and efficiency, the procedure successfully met the experiment's objectives, offering valuable insights into the functioning of this simple machine.</li>
+        </ul>
     </div>
     <div class="question">
         <h3>What was the most difficult aspect of the experiment?</h3>
@@ -2490,7 +2578,7 @@ const displayWheelAndAxle = () => {
         <h2>RESULTS</h2>
         <div class="video-container">
             <p>The youtube video below illustrates the procedures for a Wheel and axle experiment.</p>
-            <iframe src="https://youtu.be/h_kk0NSg-hI" allowfullscreen></iframe>
+            <iframe src="https://youtube.com/embed/h_kk0NSg-hI" allowfullscreen></iframe>
         </div>
         <p><strong>NOTE: this is an example of how the table looks like not the actual table input the values calculated or gotten from the experiment into the tables under each column correctly.</strong></p>
         <table>
@@ -2603,7 +2691,7 @@ graphsSection.innerHTML = `
     <div class="note">
         <p>Below is the youtube video to know how to draw a graph:</p>
         <div class="video-container">
-            <iframe src="https://youtu.be/9kJ5vyfW0n4" allowfullscreen></iframe>
+            <iframe src="https://youtube.com/embed/9kJ5vyfW0n4" allowfullscreen></iframe>
         </div>
     </div>
 `;
@@ -2657,7 +2745,7 @@ main.appendChild(conclusionSection);
         <h3>Comment on the Experimental Procedure to Justify its Suitability for Accuracy of Results and Time Saving:</h3>
         <strong>CHOOSE THE ONE YOU WANT !!</strong>
         <ul>
-            <li>The experimental procedure for the Simple Wheel and Axle Experiment was structured to guarantee accurate results and efficient time utilization. Its straightforward design, organized methodology, and emphasis on the primary objectives ensured reliable and precise outcomes while avoiding unnecessary delays. The setup of the apparatus was simple and easy to assemble, using basic components like the wheel, axle, weights, and measuring tools. This straightforward approach eliminated the complexities typically associated with more advanced mechanical systems. The simplicity of the setup not only saved time but also minimized the risk of errors from improper assembly, ensuring the experiment could be conducted smoothly and efficiently.</li>
+            <li>The experimental procedure for the Simple Wheel and Axle Experiment was structured to guarantee both accurate results and efficient use of time. Its straightforward design, organized methodology, and emphasis on the primary objectives ensured reliable and precise outcomes while avoiding unnecessary delays. The setup of the apparatus was simple and easy to assemble, using basic components like the wheel, axle, weights, and measuring tools. This straightforward approach eliminated the complexities typically associated with more advanced mechanical systems. The simplicity of the setup not only saved time but also minimized the risk of errors from improper assembly, ensuring the experiment could be conducted smoothly and efficiently.</li>
             <li>The procedure involved directly measuring key parameters, such as the radii of the wheel and axle, the applied effort, and the load lifted. These measurements were uncomplicated and didn’t require complex calculations or specialized instruments, enhancing the accuracy of the results. Simple and reliable tools, like spring balances and rulers, further ensured the precision of the data collected.</li>
             <li>Conducting the experiment in a controlled environment with a fixed apparatus helped minimize the influence of external factors, such as vibrations or uneven surfaces, which could have affected the results. The procedure was also stepwise, with each step clearly defined and systematically followed, ensuring no critical tasks were missed and allowing the experimenters to stay focused on the objectives, ultimately saving time and reducing errors.</li>
             <li>To enhance reliability, multiple trials were performed for each load and effort configuration. This repetition allowed for averaging the measurements, reducing the impact of random errors and improving the accuracy of the final calculations. Repeated measurements showed the robustness of the procedure in producing consistent and dependable data.</li>
@@ -2740,6 +2828,10 @@ main.appendChild(conclusionSection);
 const displayFriction = () => {
     const main = reset();
 
+    // Header
+    const header = document.createElement('h1');
+    header.textContent = 'Friction {AM 211}';
+    main.appendChild(header)
     // Theory Section
     const theorySection = document.createElement('section');
     theorySection.innerHTML = `
@@ -2808,9 +2900,21 @@ const displayFriction = () => {
     resultsSection.innerHTML = `
         <h2>RESULTS</h2>
         <div class="video-container">
-            <p>The youtube videos below illustrate the procedures for the Friction experiment.</p>
-            <iframe src="https://youtu.be/dGQS1j_aTj8" allowfullscreen></iframe>
-            <iframe src="https://youtu.be/L6ek_1YXAMs" allowfullscreen></iframe>
+            <p>The YouTube videos below illustrate the procedures for the Friction experiment.</p>
+            <iframe 
+                src="https://www.youtube.com/embed/dGQS1j_aTj8" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+            <iframe 
+                src="https://www.youtube.com/embed/L6ek_1YXAMs" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
         </div>
     `;
     main.appendChild(resultsSection);
@@ -2881,7 +2985,7 @@ graphsSection.innerHTML = `
         
         <div class="video-container">
             <p>Below is the youtube video to know how to draw a graph:</p>
-            <iframe src="https://youtu.be/9kJ5vyfW0n4" allowfullscreen></iframe>
+            <iframe src="https://youtube.com/embed/9kJ5vyfW0n4" allowfullscreen></iframe>
         </div>
         
         <p class="important-note"><strong>NB:</strong> Calculate for the slope when you finish drawing the graph</p>
@@ -3113,9 +3217,334 @@ main.appendChild(questionsSection);
     main.appendChild(download);
 };
 
-export { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel, displayGears, displayScrewJack, displayWheelAndAxle, displayFriction, displayStarted };
+const displayRollingOnInclinedPlane = () => {
+    const main = reset();
+    //Header section
+    const header = document.createElement('h1');
+    header.textContent = 'Rolling on an Inclined Plane {AM 212}';
+    main.appendChild(header);
+    // Theory Section
+    const theorySection = document.createElement('section');
+    theorySection.innerHTML = `
+        <h2>THEORY</h2>
+        <p>When an object rolls down an inclined plane, its motion combines both translational and rotational dynamics. Rolling without slipping takes place when the condition v = rω is met, where v represents the linear velocity of the object's center of mass, r is the object's radius, and ω is its angular velocity.</p>
+        
+        <h3>Forces Acting on a Rolling Object:</h3>
+        <ul>
+            <li><strong>Gravitational Force:</strong> This force acts vertically downward and is divided into two components:
+                <ul>
+                    <li>One component is parallel to the inclined plane, driving the object downward.</li>
+                    <li>The other component is perpendicular to the plane and is counteracted by the normal force.</li>
+                </ul>
+            </li>
+            <li><strong>Frictional Force:</strong> Acting parallel to the plane, this force prevents slipping and provides the necessary torque for rotation.</li>
+        </ul>
+        
+        <p>The total energy of the rolling object consists of both translational and rotational kinetic energy. As the object rolls down the incline, its gravitational potential energy is transformed into these two types of kinetic energy.</p>
+        
+        <p>The acceleration of the rolling object is influenced by the distribution of its mass and the incline angle. Different shapes, such as spheres, cylinders, and discs, roll at varying rates because the way their mass is distributed affects their motion.</p>
+        
+        <p>Friction plays a vital role in ensuring rolling without slipping. It prevents sliding and allows the rotational motion to synchronize with the translational motion, resulting in smooth movement.</p>
+        
+        <p>In an ideal situation, where there are no energy losses from air resistance or surface imperfections, mechanical energy is conserved. The potential energy at the top of the incline is fully converted into kinetic energy as the object rolls down.</p>
+        
+        <p>Objects with lower moments of inertia relative to their mass, such as solid spheres, roll faster than those with higher moments of inertia, like hollow cylinders. This is because less energy is required to rotate objects with lower moments of inertia. The rolling motion on an inclined plane demonstrates the principles of rotational dynamics and energy conservation. The time taken by an object to roll down depends on its moment of inertia and the angle of inclination. Objects with different mass distributions exhibit different accelerations due to variations in their rotational inertia.</p>
+    `;
+    main.appendChild(theorySection);
 
+    // Apparatus Section
+    const apparatusSection = document.createElement('section');
+    apparatusSection.innerHTML = `
+        <h2>APPARATUS</h2>
+        <ul>
+            <li><div><p>Inclined Plane</p><img class='halfImg' src=${pic36}></div></li>
+            <li><div><p>Metre Rule</p><img class='halfImg' src=${pic28}></div></li>
+            <li><div><p>Clamp Stand</p><img class='halfImg' src=${pic39}></div></li>
+            <li><div><p>Protractor</p><img class='halfImg' src=${pic9}></div></li>
+            <li><div><p>Stopwatch</p><img class='halfImg' src=${pic12}></div></li>
+        </ul>
+    `;
+    main.appendChild(apparatusSection);
 
+    // Results Section
+    const resultsSection = document.createElement('section');
+    resultsSection.innerHTML = `
+        <h2>RESULTS</h2>
+        <div class="video-container">
+            <p>Below are the YouTube links that illustrate the procedures for the Rolling on an Inclined Plane experiment:</p>
+            <iframe src="https://youtube.com/embed/C0DGuwlIzqc" allowfullscreen></iframe>
+            <iframe src="https://youtube.com/embed/ufgY237M5KQ" allowfullscreen></iframe>
+        </div>
+        <p><strong>NOTE:</strong> The table below illustrates an example of how the table of results will look like after performing the experiment. Input the values calculated or obtained from the experiment into the tables under each column correctly.</p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Angle of Inclination (θ)</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td>Acceleration (a)</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td>Mass (m)</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td>Frictional Force (FK)</td>
+                        <td>...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    main.appendChild(resultsSection);
 
+    // Analysis Section
+    const analysisSection = document.createElement('section');
+    analysisSection.innerHTML = `
+        <h2>ANALYSIS</h2>
+        <div class="analysis-content">
+            <p>When you have tabulated the results, use the following equations:</p>
+            <ul>
+                <li>FN = mg cos(θ)</li>
+                <li>FK = μK FN</li>
+                <li>a = g sin(θ)</li>
+            </ul>
+            <p>Where:</p>
+            <ul>
+                <li>FN = Normal Force</li>
+                <li>FK = Frictional Force</li>
+                <li>μK = Coefficient of Friction</li>
+                <li>a = Acceleration</li>
+                <li>g = Acceleration due to gravity (9.8 m/s²)</li>
+                <li>θ = Angle of inclination</li>
+            </ul>
+        </div>
+    `;
+    main.appendChild(analysisSection);
 
+    // Observations and Precautions Section
+    const observationsSection = document.createElement('section');
+    observationsSection.innerHTML = `
+        <h2>OBSERVATION AND PRECAUTIONS</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Observations</th>
+                        <th>Precautions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>I observed that the angle of inclination affects the acceleration and speed of the rolling object.</td>
+                        <td>I ensured that the inclined plane is stable and does not wobble during the experiment.</td>
+                    </tr>
+                    <tr>
+                        <td>I observed that objects with smaller moments of inertia roll faster than those with larger moments of inertia.</td>
+                        <td>I ensured that the rolling objects are clean and dry to avoid frictional variations.</td>
+                    </tr>
+                    <tr>
+                        <td>I observed that the potential energy at the top is completely converted into kinetic energy during rolling.</td>
+                        <td>I ensured that I released the object gently to avoid imparting any additional force or velocity.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    main.appendChild(observationsSection);
 
+    // Graphs Section
+    const graphsSection = document.createElement('section');
+    graphsSection.innerHTML = `
+        <h2>GRAPHS</h2>
+        <div class="graphs-content">
+            <p><strong>NOTE:</strong> There are three graphs to be drawn:</p>
+            <ul>
+                <li>Efficiency (Y-axis) against Load (X-axis) - First Graph</li>
+                <li>Effect of Friction (Y-axis) against Load (X-axis) - Second Graph</li>
+                <li>Effort (Y-axis) against Load (X-axis) - Third Graph</li>
+            </ul>
+            <div class="video-container">
+                <p>Below is the YouTube link to know how to draw a graph:</p>
+                <iframe src="https://youtube.com/embed/9kJ5vyfW0n4" allowfullscreen></iframe>
+            </div>
+        </div>
+    `;
+    main.appendChild(graphsSection);
+
+    // Discussion Section
+    const discussionSection = document.createElement('section');
+    discussionSection.innerHTML = `
+        <h2>DISCUSSION</h2>
+        <div class="discussion-content">
+            <p>The Rolling on an Inclined Plane Experiment allows us to observe and analyze the behavior of objects as they roll down an inclined surface, highlighting the interplay between translational and rotational motion. The experiment clearly shows that an object's moment of inertia has a significant effect on its acceleration and speed as it rolls down the inclined plane. Objects with a smaller moment of inertia, like solid spheres, roll faster compared to those with a larger moment of inertia, such as hollow spheres or cylinders. This happens because a higher moment of inertia causes more of the object's energy to be allocated to rotational motion, rather than translational motion, resulting in slower movement.</p>
+            <p>The angle of inclination is a key factor in determining the object's acceleration. As the angle increases, the component of the gravitational force acting parallel to the plane becomes larger, leading to increased acceleration. However, if the angle becomes too steep, factors like sliding (caused by inadequate friction) may occur, altering the motion. Therefore, it is essential to choose an angle that is steep enough to observe acceleration without being so steep that sliding becomes the primary factor.</p>
+            <p>When an object like a ball or cylinder rolls down a slope, it helps us understand some fascinating physics concepts. It's like watching two types of movement happen at once: the object is moving down the slope while also spinning around itself. Think of rolling a ball down a ramp. As it moves:</p>
+            <ul>
+                <li>The ball spins (rotational motion)</li>
+                <li>It travels down the slope (translational motion)</li>
+                <li>Static friction between the ball and surface makes the rolling possible</li>
+            </ul>
+            <p>What's really interesting is that different objects roll differently. A solid ball will roll down differently than a hollow one, and a cylinder rolls differently than a hoop. This happens because the mass is distributed differently in each object. As the object rolls down, something remarkable happens - the energy transforms but doesn't disappear. The potential energy (from being at the top of the slope) changes into two types of kinetic energy:</p>
+            <ul>
+                <li>Energy from moving down the slope</li>
+                <li>Energy from spinning</li>
+            </ul>
+            <p>This experiment helps engineers design things like wheels, gears, and moving parts in machines. It's also why different sports balls (like golf balls vs. basketballs) behave differently when they roll.</p>
+        </div>
+    `;
+    main.appendChild(discussionSection);
+
+    // Conclusion Section
+    const conclusionSection = document.createElement('section');
+    conclusionSection.innerHTML = `
+        <h2>CONCLUSION</h2>
+        <div class="conclusion-content">
+            <p>At the end of this experiment, we were able to determine the radius of gyration of a body rolling on an inclined plane and to verify Newton’s laws in this case. The Rolling on an Inclined Plane Experiment successfully demonstrates the relationship between translational and rotational motion and the effect of mass distribution (moment of inertia) on the motion of rolling objects.</p>
+        </div>
+    `;
+    main.appendChild(conclusionSection);
+
+    // Questions Section
+    const questionsSection = document.createElement('section');
+    questionsSection.innerHTML = `
+        <h2>SECTION B (QUESTIONS)</h2>
+        <div class="question">
+            <h3>What have you gained from this experiment?</h3>
+            <ul>
+                <li>I have developed a deeper understanding of how rolling objects exhibit both rotational and translational motion. The experiment helped clarify how these two forms of motion interact and how energy is distributed between them during rolling.</li>
+                <li>I understood the crucial role of friction in rolling motion. Friction prevents the object from slipping, ensuring the condition for rolling without slipping is met. Additionally, it generates the torque needed for the object to rotate.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>What role did you play during the experiment?</h3>
+            <ul>
+                <li>I was responsible for assembling the experiment setup, which included positioning the inclined plane at the appropriate angle using a clamp stand and adjusting the surface to ensure it was smooth and free of obstacles.</li>
+                <li>I made sure that all measurements were accurate and consistent across different trials. I also used a stopwatch to accurately measure the time taken by each object to travel down the incline. This was essential for calculating the acceleration and verifying the theoretical predictions.</li>
+                <li>I collected the data by writing down the values/parameters needed to perform the experiment and analyzed the data for my group.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>Could you have performed this experiment by yourself?</h3>
+            <p>NO: Because I will not be able to take my readings accurately without guidance or external help to verify the accuracy of the readings/results.</p>
+        </div>
+
+        <div class="question">
+            <h3>Comment on the experimental procedure to justify its suitability for accuracy of results and time saving:</h3>
+            <p>The Rolling on an Inclined Plane Experiment follows a well-structured and efficient procedure that is designed to ensure both the accuracy of results and time-saving. The experiment's suitability for these objectives can be attributed to several key aspects of its methodology, including the clarity and simplicity of the setup, controlled conditions, systematic variable variation, and effective data collection process. Each of these factors contributes to the reliability of the results and the overall efficiency of the experiment.</p>
+        </div>
+
+        <div class="question">
+            <h3>What was the most difficult aspect of the experiment?</h3>
+            <ul>
+                <li>The most difficult aspect was Managing Frictional Losses. For rolling without slipping to occur, the friction between the object and the surface of the inclined plane had to be perfectly balanced. If the friction was too low, the object would slide instead of rolling. If it was too high, it could hinder the rolling motion, compromising the accuracy of the experiment. Achieving this balance proved challenging, especially when working with various materials or surface textures.</li>
+                <li>The most difficult aspect was measuring the time accurately. Accurate time measurement was crucial for calculating the acceleration of the objects. Using a stopwatch for precise timing was challenging, especially as the objects moved at different speeds due to variations in shape and moment of inertia. Ensuring consistent timing for each trial required careful attention and multiple attempts to minimize any potential human error in starting and stopping the stopwatch.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>Name and describe any apparatus or method you know can be used to perform this same experiment:</h3>
+            <ul>
+                <li><strong>Standard Inclined Plane with Adjustable Angle:</strong> A simple apparatus that consists of a smooth inclined plane that can be adjusted to various angles. The plane is typically made of wood or metal and may have a surface that is treated to ensure low friction. The inclination angle can be adjusted using a protractor or an angular gauge, ensuring precise angle measurements.</li>
+                <li><strong>Digital Motion Sensor:</strong> A motion sensor or infrared sensor can be used to measure the velocity or acceleration of the rolling object as it moves down the inclined plane. The sensor can track the object's motion by emitting and receiving signals (e.g., light or infrared) as the object passes by.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>List the parameters required in this experiment:</h3>
+            <ul>
+                <li>Angle of Inclined plane (θ)</li>
+                <li>Acceleration (m/s²)</li>
+                <li>Mass (kg)</li>
+                <li>Acceleration due to gravity (m/s²)</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>Briefly discuss one measuring instrument used in this experiment:</h3>
+            <ul>
+                <li><strong>Stopwatch:</strong> The stopwatch is a crucial instrument for timing the motion of the object as it rolls down the incline. By precisely measuring the time taken for the object to travel along the plane, the experimenter can calculate its speed, velocity, and acceleration. Time measurements are vital for determining the object's kinematic properties and for understanding the connection between its gravitational potential energy (due to height) and kinetic energy (due to motion).</li>
+                <li><strong>Metre Rule:</strong> The metre rule is crucial for determining the distance the object rolls down the incline, which is necessary to calculate the object's velocity, acceleration, and the time it takes to reach the bottom of the incline. The accuracy in measuring the length of the incline helps ensure that the experimental results are reliable and can be compared with theoretical models.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>Discuss briefly the practical relevance/application of the experiment:</h3>
+            <ul>
+                <li><strong>Engineering and Design of Wheels and Rolling Objects:</strong> The knowledge gained from the Rolling on an Inclined Plane Experiment has significant applications in the design and optimization of rolling objects like wheels, bearings, and gears. In engineering, understanding the behavior of objects as they roll down an incline allows engineers to create more efficient and durable systems. For instance, the study of rolling motion is crucial for enhancing the performance of vehicles such as cars and bicycles, where wheel design is essential. By examining factors like friction and moment of inertia, engineers can reduce energy loss due to friction, improve fuel efficiency, and boost the overall performance of these vehicles.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>State the section of the course that the experiment best relates:</h3>
+            <ul>
+                <li>Engineering Mechanics</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>List the suggestions you made while carrying out the experiment:</h3>
+            <ul>
+                <li>I suggested that to minimize the impact of friction on the results, the inclined plane and apparatus should be lubricated and cleaned, reducing energy loss and enhancing the system's efficiency.</li>
+                <li>I suggested that all measuring instruments, such as the stopwatch and ruler, should be properly calibrated before starting the experiment to minimize measurement errors.</li>
+                <li>I suggested that to reduce the impact of friction and irregularities in the surface, a smooth incline should be used and ensuring that the rolling object’s surface was clean and free of debris.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>List the suggestions made by the members of your group which helped the group during the experiment:</h3>
+            <ul>
+                <li>We suggested that multiple trials should be done/taken for each load and effort configuration to average the results and reduce the impact of random errors, ensuring more accurate calculations.</li>
+                <li>We suggested that the surface of the incline and the rolling object should be cleaned to ensure minimal friction.</li>
+                <li>We suggested that each reading should be cross-verified by a second person to reduce errors and ensure the accuracy of recorded values.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>Did you put down the experimental results in your book at the time of the experiment or you copied from your group members?</h3>
+            <p>YES: I recorded the experiment results in my workbook at the time of the experiment to ensure accuracy and prevents errors that may occur when relying on others later or memory.</p>
+        </div>
+
+        <div class="question">
+            <h3>Discuss anything that interested you most during the experiment:</h3>
+            <ul>
+                <li>What interested me the most was how the screw jack's operation can be scaled up for use in heavy-duty applications, such as car jacks and industrial lifting equipment. The experiment served as a microcosm of larger systems used in construction, automotive repair, and engineering, providing a clear link between theoretical knowledge and real-world applications.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>Did you come to the laboratory with the laboratory manual during the performance of the experiment?</h3>
+            <p>YES: because it is required for me to follow up with the practical.</p>
+        </div>
+    `;
+    main.appendChild(questionsSection);
+
+    // References Section
+    const referencesSection = document.createElement('section');
+    referencesSection.innerHTML = `
+        <h2>REFERENCES</h2>
+        <ul>
+            <li>Halliday, D., Resnick, R., & Walker, J. (2018). Fundamentals of Physics (11th ed.). Wiley.</li>
+            <li>Young, H. D., & Freedman, R. A. (2020). University Physics with Modern Physics (15th ed.). Pearson.</li>
+        </ul>
+    `;
+    main.appendChild(referencesSection);
+
+    const hover = createHover('#');
+    main.appendChild(hover);
+    const download = createDownload('#');
+    main.appendChild(download);
+};
+
+export { displaySimplePendulum, displayShearForceExperiment, displayCamFollower, displayConicalPendulum, displayFlywheel, displayGears, displayScrewJack, displayWheelAndAxle, displayFriction, displayStarted, displayRollingOnInclinedPlane };

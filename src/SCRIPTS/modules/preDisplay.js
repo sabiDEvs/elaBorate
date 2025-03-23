@@ -284,9 +284,9 @@ const displayStarted = () => {
     good.textContent = 'GOOD LUCK!!!';
     addSection.appendChild(good);
     main.appendChild(addSection);
-    const hover = createHover('#');
+    const hover = createHover('https://drive.google.com/file/d/1DHuJ_6gEji9DAzfL7ypnCzi-XzklO2p9/view?usp=drive_link');
     main.appendChild(hover);
-    const download = createDownload('#');
+    const download = createDownload('https://drive.google.com/file/d/1DHuJ_6gEji9DAzfL7ypnCzi-XzklO2p9/view?usp=drive_link');
     main.appendChild(download);
 };
 
@@ -704,9 +704,9 @@ const displayWW201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
-        const hover = createHover('#');
+        const hover = createHover('https://drive.google.com/file/d/1DVpA6yb8HUjVBzPZ4E48LqS0VVLatmyT/view?usp=drive_link');
         main.appendChild(hover); 
-        const download = createDownload('#');
+        const download = createDownload('https://drive.google.com/file/d/1DVpA6yb8HUjVBzPZ4E48LqS0VVLatmyT/view?usp=drive_link');
         main.appendChild(download);
 };
 
@@ -1001,9 +1001,9 @@ const displaySM201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
-        const hover = createHover('#');
+        const hover = createHover('https://drive.google.com/file/d/1DNPsKgB3110aaDr2BAFPQq4DIbP1xaKM/view?usp=drive_link');
         main.appendChild(hover);
-        const download = createDownload('#');
+        const download = createDownload('https://drive.google.com/file/d/1DNPsKgB3110aaDr2BAFPQq4DIbP1xaKM/view?usp=drive_link');
         main.appendChild(download);
 };
 
@@ -2454,9 +2454,9 @@ const displayFS201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
-        const hover = createHover('#');
+        const hover = createHover('https://drive.google.com/file/d/1DYzgO2emKZTABEGHWz1GauS1dOp9E4XG/view?usp=drive_link');
         main.appendChild(hover);
-        const download = createDownload('#');
+        const download = createDownload('https://drive.google.com/file/d/1DYzgO2emKZTABEGHWz1GauS1dOp9E4XG/view?usp=drive_link');
         main.appendChild(download);
 };
 
