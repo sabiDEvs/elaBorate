@@ -17,6 +17,9 @@ import ic7400and7410 from "../../RESOURCES/images/ic7400-7410.jpeg";
 import bcd from "../../RESOURCES/images/bcd.jpeg";
 import truthTabSevSeg from "../../RESOURCES/images/Truth Table seven seg.jpeg";
 import obsAddSub from "../../RESOURCES/images/obserAdderSub.jpg";
+import pic112 from "../../RESOURCES/images/download-icon.png";
+import pic113 from "../../RESOURCES/images/download.png";
+
 import { add } from "lodash";
 
 const reset = () => {
@@ -24,6 +27,47 @@ const reset = () => {
   const main = document.querySelector("main");
   main.innerHTML = "";
   return main;
+};
+
+const createDownload = (url) => {
+  const div = document.createElement("div");
+  div.classList.add("download");
+  const container = document.createElement("div");
+  container.classList.add("downloadcta");
+  const button = document.createElement("div");
+  button.classList.add("downloadBox");
+  const link = document.createElement("a");
+  link.href = url;
+  button.textContent = "DOWNLOAD";
+  const icon = document.createElement("img");
+  icon.src = pic112;
+  button.appendChild(icon);
+  link.appendChild(button);
+  div.appendChild(container);
+  div.appendChild(link);
+  return div;
+};
+
+const createHover = (url) => {
+  const div = document.createElement("div");
+  const view = document.createElement("div");
+  view.textContent = "view reports >";
+  view.classList.add("viewText");
+  view.addEventListener("click", () => {
+    document.querySelector("aside").style.display = "block";
+  });
+  const download = document.createElement("div");
+  const link = document.createElement("a");
+  link.href = url;
+  const icon = document.createElement("img");
+  icon.src = pic113;
+  icon.classList.add("hoverIcon");
+  link.appendChild(icon);
+  download.appendChild(link);
+  div.appendChild(view);
+  div.appendChild(download);
+  div.classList.add("hover");
+  return div;
 };
 
 const createPriHeader = function (value, element) {
@@ -60,13 +104,157 @@ const createList = function (arr, element) {
 };
 
 // Display started
+
 export const displayStarted = () => {
-  alert("Who dey breathe");
-  const main = document.querySelector("main");
-  main.innerHTML = "";
+  const main = reset();
+
+  // Title
+  createPriHeader("Getting Started with CPE ELA", main);
+
+  // Introduction
+  createSecHeader("Introduction", main);
+  createPara(
+    "The CPE ELA (Computer Engineering Electrical Laboratory Analysis) report is an essential part of your practical coursework. It helps document your experiments, observations, and findings in a structured format. Writing a well-organized report ensures clarity and proper documentation of your practical work.",
+    main
+  );
+
+  // Report Structure
+  createSecHeader("Report Structure", main);
+
+  // First Page Details
+  createTertHeader("1. First Page Details", main);
+  createPara(
+    "Before starting your report, include the following details in capital letters:",
+    main
+  );
+  const firstPageDetails = [
+    "Name",
+    "Matriculation Number",
+    "Serial Number",
+    "Level",
+    "Experiment Number",
+  ];
+  createList(firstPageDetails, main);
+
+  // Title
+  createTertHeader("2. Title", main);
+  createPara(
+    "Give a clear and concise title that describes the experiment.",
+    main
+  );
+
+  // Aim
+  createTertHeader("3. Aim", main);
+  createPara(
+    "Clearly state the purpose of the experiment. What is the goal you aim to achieve?",
+    main
+  );
+
+  // Objectives
+  createTertHeader("4. Objectives", main);
+  createPara(
+    "List the specific objectives of the experiment, which outline what you will learn or demonstrate.",
+    main
+  );
+
+  // Apparatus
+  createTertHeader("5. Apparatus", main);
+  createPara(
+    "Provide a list of all the equipment, tools, and components used in the experiment.",
+    main
+  );
+
+  // Theory
+  createTertHeader("6. Theory", main);
+  const theoryPoints = [
+    "Conduct thorough research and write a detailed explanation of the experiment’s background.",
+    "Avoid plagiarism—do not copy from others.",
+    "Ensure that your explanation relates directly to the experiment.",
+    "No need to draw diagrams in this section.",
+  ];
+  createList(theoryPoints, main);
+
+  // Diagrams
+  createTertHeader("7. Diagrams", main);
+  const diagramPoints = [
+    "Only include relevant diagrams from the ELA manual.",
+    "Examples of necessary diagrams:",
+    "Pin diagrams",
+    "Circuit diagrams",
+    "Block diagrams",
+  ];
+  createList(diagramPoints, main);
+
+  // Procedure
+  createTertHeader("8. Procedure", main);
+  const procedurePoints = [
+    "Pay close attention to the lab attendant’s instructions during class.",
+    "Actively participate in the practical session for hands-on learning.",
+    "Do not copy someone else's procedure—write your own observations.",
+  ];
+  createList(procedurePoints, main);
+
+  // Observations
+  createTertHeader("9. Observations", main);
+  createPara(
+    "Most experiments require recording observations in a table format. Ensure that your practical results are accurately documented.",
+    main
+  );
+
+  // Precautions
+  createTertHeader("10. Precautions", main);
+  const precautionPoints = [
+    "Follow all necessary precautions for safety and accuracy.",
+    "Always paraphrase precautions instead of copying them.",
+    "Understand the reasoning behind each precaution and how it affects the experiment.",
+  ];
+  createList(precautionPoints, main);
+
+  // Conclusion
+  createTertHeader("11. Conclusion", main);
+  createPara(
+    "Your conclusion should validate the objective of the experiment. Stick to the relevant findings—do not go off-topic.",
+    main
+  );
+
+  // Assignment
+  createTertHeader("12. Assignment", main);
+  createPara(
+    "Some experiments come with additional assignments. Ensure you analyze and answer them carefully.",
+    main
+  );
+
+  // References
+  createTertHeader("13. References", main);
+  createPara(
+    "List any textbooks, research papers, or websites you consulted.",
+    main
+  );
+
+  // Additional Tips for Success
+  createSecHeader("Additional Tips for Success", main);
+  const tips = [
+    "Collaboration: Work effectively with your group members.",
+    "Breadboard & Circuit Design: Some experiments require circuit design—be comfortable with using breadboards and electronic components.",
+    "Use Online Resources: If you don’t understand something, refer to videos, tutorials, or textbooks for further clarification.",
+    "Practice Technical Writing: Keep your explanations clear, concise, and professional.",
+  ];
+  createList(tips, main);
+
+  // Good Luck Message
+  createPara(
+    "By following this structured approach, you’ll be able to write a well-organized and accurate CPE ELA report that meets academic standards.",
+    main
+  );
+  createPriHeader("GOOD LUCK!!!", main);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
-// CAOMPARATORS
+// COMPARATORS
 
 export const displayComparators = function () {
   const main = reset();
@@ -272,6 +460,10 @@ export const displayComparators = function () {
     references
   );
   main.appendChild(references);
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // LOGIC GATES EXPERIMENT
@@ -496,6 +688,11 @@ export const displayLogicGatesExperiment = function () {
   );
   main.appendChild(referencesSection);
 
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
+
   return main;
 };
 
@@ -664,6 +861,10 @@ export const display3x8DecoderExperiment = function () {
     references
   );
   main.appendChild(references);
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // /////////////////////////////////////////////////////
