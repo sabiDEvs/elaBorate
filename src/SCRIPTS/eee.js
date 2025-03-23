@@ -2,7 +2,7 @@ import '../CSS/eee.css';
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import '../CSS/ai.css';
-import { displayStarted, displayEE201, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, displayEE208 } from './modules/eeeDisplay';
+import { displayStarted, displayEE201, displayEE203, displayEE204, displayEE202, displayEE207, displayEE205, displayEE206, displayEE208 } from './modules/eeeDisplay';
 import {createGemini, createChatGpt, displayAI} from './modules/ai';
 import favLogo from '../RESOURCES/images/footer-logo.png'
 const faviconAny = document.querySelector('link[sizes="any"]');
@@ -32,6 +32,10 @@ let reports = [
     {
         title: 'Measurement of Inductance {EE203}',
         func: displayEE203
+    },
+    {
+        title: 'Verification of Network Theorems {EE204}',
+        func: displayEE204
     },
     {
         title: 'The Oscilloscope {EE 205}',
