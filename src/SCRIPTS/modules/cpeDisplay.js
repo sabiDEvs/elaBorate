@@ -17,6 +17,9 @@ import ic7400and7410 from "../../RESOURCES/images/ic7400-7410.jpeg";
 import bcd from "../../RESOURCES/images/bcd.jpeg";
 import truthTabSevSeg from "../../RESOURCES/images/Truth Table seven seg.jpeg";
 import obsAddSub from "../../RESOURCES/images/obserAdderSub.jpg";
+import pic112 from "../../RESOURCES/images/download-icon.png";
+import pic113 from "../../RESOURCES/images/download.png";
+
 import { add } from "lodash";
 
 const reset = () => {
@@ -24,6 +27,47 @@ const reset = () => {
   const main = document.querySelector("main");
   main.innerHTML = "";
   return main;
+};
+
+const createDownload = (url) => {
+  const div = document.createElement("div");
+  div.classList.add("download");
+  const container = document.createElement("div");
+  container.classList.add("downloadcta");
+  const button = document.createElement("div");
+  button.classList.add("downloadBox");
+  const link = document.createElement("a");
+  link.href = url;
+  button.textContent = "DOWNLOAD";
+  const icon = document.createElement("img");
+  icon.src = pic112;
+  button.appendChild(icon);
+  link.appendChild(button);
+  div.appendChild(container);
+  div.appendChild(link);
+  return div;
+};
+
+const createHover = (url) => {
+  const div = document.createElement("div");
+  const view = document.createElement("div");
+  view.textContent = "view reports >";
+  view.classList.add("viewText");
+  view.addEventListener("click", () => {
+    document.querySelector("aside").style.display = "block";
+  });
+  const download = document.createElement("div");
+  const link = document.createElement("a");
+  link.href = url;
+  const icon = document.createElement("img");
+  icon.src = pic113;
+  icon.classList.add("hoverIcon");
+  link.appendChild(icon);
+  download.appendChild(link);
+  div.appendChild(view);
+  div.appendChild(download);
+  div.classList.add("hover");
+  return div;
 };
 
 const createPriHeader = function (value, element) {
@@ -60,13 +104,21 @@ const createList = function (arr, element) {
 };
 
 // Display started
+
 export const displayStarted = () => {
-  alert("Who dey breathe");
-  const main = document.querySelector("main");
-  main.innerHTML = "";
+  const main = reset();
+
+  const hello = document.createElement("h1");
+  hello.textContent = "Hello World";
+  main.appendChild(hello);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
-// CAOMPARATORS
+// COMPARATORS
 
 export const displayComparators = function () {
   const main = reset();
@@ -272,6 +324,10 @@ export const displayComparators = function () {
     references
   );
   main.appendChild(references);
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // LOGIC GATES EXPERIMENT
@@ -496,6 +552,11 @@ export const displayLogicGatesExperiment = function () {
   );
   main.appendChild(referencesSection);
 
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
+
   return main;
 };
 
@@ -664,6 +725,10 @@ export const display3x8DecoderExperiment = function () {
     references
   );
   main.appendChild(references);
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // /////////////////////////////////////////////////////
