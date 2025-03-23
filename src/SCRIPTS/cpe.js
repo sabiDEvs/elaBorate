@@ -115,6 +115,5 @@ body.appendChild(aside);
 //create main div where content would be generated to
 const main = document.createElement("main");
 body.appendChild(main);
-
-// displayStarted();
+displayStarted();
 renderFooter(body, [hme, rpt, abt]);
