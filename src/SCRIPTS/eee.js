@@ -1,7 +1,7 @@
 import '../CSS/pre.css';
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
-import { displayStarted, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, } from './modules/eeeDisplay';
+import { displayStarted, displayEE201, displayEE203, displayEE202, displayEE207, displayEE205, displayEE206, displayEE208 } from './modules/eeeDisplay';
 import favLogo from '../RESOURCES/images/footer-logo.png'
 const faviconAny = document.querySelector('link[sizes="any"]');
 const faviconSvg = document.querySelector('link[type="image/svg+xml"]');   
@@ -18,6 +18,10 @@ let reports = [
     {
         title: 'Getting Started',
         func: displayStarted
+    },
+    {
+        title: 'Measurement of Unknown Resistance {EE201}',
+        func: displayEE201
     },
     {
         title: 'Measurement of Capacitance {EE202}',
@@ -39,7 +43,10 @@ let reports = [
         title: 'D.C Generator {EE 205}',
         func: displayEE207
     },
-    
+    {
+        title: 'D.C Generator {EE 208}',
+        func: displayEE208
+    },
 
     
 ];

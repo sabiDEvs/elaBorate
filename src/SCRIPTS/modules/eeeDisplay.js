@@ -39,6 +39,16 @@ import ee2023 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/3.png';
 import ee2024 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/4.png';
 
 import ee2025 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/5.png';
+
+import ee2011 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/1.png';
+import ee2013 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/2.png';
+import ee2014 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/3.png';
+import ee2012 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/2051.png';
+
+import ee201Fig1 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/fig1.jpg'; 
+import ee201Fig2 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/fig2.png';
+import ee201Plot1 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/plot.png';
+
 const createDivs = (object) => {
   const div = document.createElement("div");
   const text = document.createElement("div");
@@ -247,7 +257,809 @@ const displayStarted = () => {
   main.appendChild(download);
 };
 
+const displayEE201 = () => {
+  const main = reset();
 
+  // Create and append the main heading
+  const mainHeading = document.createElement("h1");
+  mainHeading.textContent = "Measurement of Unknown Resistance";
+  main.appendChild(mainHeading);
+
+  // Create and append the AIMS section
+  const aimSection = document.createElement("section");
+  const aimHeading = document.createElement("h2");
+  aimHeading.textContent = "AIMS";
+  aimSection.appendChild(aimHeading);
+
+  const aimList = document.createElement("ul");
+  const aims = [
+    "To measure the value of an unknown resistor and to determine the characteristics of a resistor.",
+    "To understand the application of Ohm's Law in practical circuits.",
+    "To compare the accuracy of different methods for measuring resistance.",
+  ];
+  aims.forEach((aim) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = aim;
+    aimList.appendChild(listItem);
+  });
+  aimSection.appendChild(aimList);
+  main.appendChild(aimSection);
+
+  // Create and append the first method heading
+  const method1Heading = document.createElement("h1");
+  method1Heading.textContent = "FIRST METHOD: Current-Voltage Measurement Method";
+  main.appendChild(method1Heading);
+
+  // Create and append the Apparatus section for the first method
+  const apparatusSection1 = document.createElement("section");
+  const apparatusHeading1 = document.createElement("h2");
+  apparatusHeading1.textContent = "Apparatus";
+  apparatusSection1.appendChild(apparatusHeading1);
+
+  const apparatusList1 = [
+    { cap: "Unknown Resistor", image: pic2 },
+    { cap: "DC Power Supply (0-15V, 2A)", image: pic3 },
+    { cap: "DC Voltmeter (0-30V)", image: pic4 },
+    { cap: "DC Ammeter (0-2A)", image: pic5 },
+  ];
+
+  const apparatusContainer1 = document.createElement("div");
+  apparatusContainer1.classList.add("appBox");
+
+  apparatusList1.forEach((apparatus) => {
+    const apparatusItem = document.createElement("div");
+    const apparatusImage = document.createElement("img");
+    const apparatusCaption = document.createElement("p");
+
+    apparatusImage.src = apparatus.image;
+    apparatusCaption.textContent = apparatus.cap;
+
+    apparatusItem.appendChild(apparatusImage);
+    apparatusItem.appendChild(apparatusCaption);
+    apparatusContainer1.appendChild(apparatusItem);
+  });
+
+  apparatusSection1.appendChild(apparatusContainer1);
+  main.appendChild(apparatusSection1);
+
+  // Create and append the Theory section for the first method
+  const theorySection1 = document.createElement("section");
+  const theoryHeading1 = document.createElement("h2");
+  theoryHeading1.textContent = "Theory of Measuring Unknown Resistance Using the Current-Voltage (I-V) Method";
+  theorySection1.appendChild(theoryHeading1);
+
+  const theoryContent1 = document.createElement("div");
+  theoryContent1.innerHTML = `
+    <p>
+      The measurement of an unknown resistance using the <strong>current-voltage (I-V) method</strong> is based on <strong>Ohm's Law</strong>, which states that the current (<em>I</em>) flowing through a conductor is directly proportional to the voltage (<em>V</em>) across it and inversely proportional to its resistance (<em>R</em>). Mathematically, this is expressed as:
+    </p>
+    <p style="text-align: center;">
+      <strong>V = I × R</strong>
+    </p>
+    <p>
+      From this, the resistance can be calculated as:
+    </p>
+    <p style="text-align: center;">
+      <strong>R = V / I</strong>
+    </p>
+    <p>
+      This method involves applying a known voltage across the resistor and measuring the resulting current. The resistance is then calculated using the above formula.
+    </p>
+    <p>
+      The I-V method is widely used due to its simplicity and direct application of Ohm's Law. However, it is essential to ensure accurate measurements of voltage and current to minimize errors. Factors such as the internal resistance of the ammeter and voltmeter, as well as fluctuations in the power supply, can affect the results.
+    </p>
+    <p>
+      In this experiment, we will use a DC power supply to apply a known voltage across the unknown resistor and measure the resulting current using an ammeter. The voltage across the resistor will be measured using a voltmeter. By recording multiple voltage and current readings, we can plot a graph of voltage versus current and determine the resistance from the slope of the graph.
+    </p>
+  `;
+  theorySection1.appendChild(theoryContent1);
+  main.appendChild(theorySection1);
+
+  // Create and append the YouTube video section
+  const videoSection = document.createElement("div");
+  const videoDescription = document.createElement("p");
+  videoDescription.textContent = "Watch the video below to learn more about Ohm's Law:";
+  videoSection.appendChild(videoDescription);
+
+  const videoEmbed = document.createElement("div");
+  videoEmbed.innerHTML = `
+    <iframe width="677" height="392" src="https://www.youtube.com/embed/-m9bqZ3L5pg" title="Ohm's Law Experiment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  `;
+  videoSection.appendChild(videoEmbed);
+  theorySection1.appendChild(videoSection);
+
+  // Create and append the Diagrams section
+  const diagramsSection = document.createElement("section");
+  const diagramsHeading = document.createElement("h2");
+  diagramsHeading.textContent = "DIAGRAMS";
+  diagramsSection.appendChild(diagramsHeading);
+
+  const diagrams = [
+    { cap: "CIRCUIT DIAGRAM", image: ee201Fig1 },
+  ];
+
+  diagrams.forEach((diagram) => {
+    const diagramContainer = document.createElement("div");
+    const diagramImage = document.createElement("img");
+    const diagramCaption = document.createElement("p");
+
+    diagramImage.src = diagram.image;
+    diagramCaption.textContent = diagram.cap;
+
+    diagramContainer.appendChild(diagramImage);
+    diagramContainer.appendChild(diagramCaption);
+    diagramsSection.appendChild(diagramContainer);
+  });
+
+  main.appendChild(diagramsSection);
+
+  // Create and append the Procedure section
+  const procedureSection = document.createElement("section");
+  const procedureHeading = document.createElement("h2");
+  procedureHeading.textContent = "PROCEDURE";
+  procedureSection.appendChild(procedureHeading);
+
+  const procedureSteps = [
+    "Connect the circuit as shown in Fig. 1.",
+    "Switch on the power supply.",
+    "Set the voltage so that the ammeter reads 3mA. Read the voltage from the voltmeter.",
+    "Increase the voltage so that the ammeter reads 6mA. Read the voltage from the voltmeter.",
+    "Repeat the process for currents of 9mA, 12mA, etc., up to 30mA.",
+    "Record the results in a table.",
+    "Plot the graph of voltage versus current.",
+  ];
+
+  const procedureList = document.createElement("ul");
+  procedureSteps.forEach((step) => {
+    const stepItem = document.createElement("li");
+    stepItem.textContent = step;
+    procedureList.appendChild(stepItem);
+  });
+
+  procedureSection.appendChild(procedureList);
+  main.appendChild(procedureSection);
+
+  // Create and append the Results section
+  const resultsSection = document.createElement("section");
+  const resultsHeading = document.createElement("h2");
+  resultsHeading.textContent = "RESULTS";
+  resultsSection.appendChild(resultsHeading);
+
+  const resultsTable = document.createElement("table");
+  resultsTable.style.borderCollapse = "collapse";
+  resultsTable.style.width = "100%";
+
+  const tableHeaders = ["I (mA)", "V (V)", "R = V/I (Ω)"];
+  const headerRow = document.createElement("tr");
+  tableHeaders.forEach((header) => {
+    const th = document.createElement("th");
+    th.textContent = header;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow.appendChild(th);
+  });
+  resultsTable.appendChild(headerRow);
+
+  const tableData = [
+    [3, 0.30, 100],
+    [6, 0.60, 100],
+    [9, 0.90, 100],
+    [12, 1.20, 100],
+    [15, 1.50, 100],
+    [18, 1.60, 100],
+    [21, 2.10, 100],
+    [24, 2.40, 100],
+    [27, 2.70, 100],
+    [30, 3.00, 100],
+  ];
+
+  tableData.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    resultsTable.appendChild(tr);
+  });
+
+  resultsSection.appendChild(resultsTable);
+  main.appendChild(resultsSection);
+
+  // Create and append the Graph section
+ 
+
+  // Create and append the Second Method: Wheatstone Bridge
+  const method2Heading = document.createElement("h1");
+  method2Heading.textContent = "SECOND METHOD: Wheatstone Bridge Method";
+  main.appendChild(method2Heading);
+
+  // Apparatus for Wheatstone Bridge
+  const apparatusSection2 = document.createElement("section");
+  const apparatusHeading2 = document.createElement("h2");
+  apparatusHeading2.textContent = "Apparatus";
+  apparatusSection2.appendChild(apparatusHeading2);
+
+  const apparatusList2 = [
+    { cap: "Unknown Resistor", image: pic2 },
+    { cap: "Known Resistors (Precision Resistors)", image: pic6 },
+    { cap: "Galvanometer", image: pic7 },
+    { cap: "DC Power Supply (0-15V, 2A)", image: pic3 },
+    { cap: "Wheatstone Bridge Board", image: pic8 },
+  ];
+
+  const apparatusContainer2 = document.createElement("div");
+  apparatusContainer2.classList.add("appBox");
+
+  apparatusList2.forEach((apparatus) => {
+    const apparatusItem = document.createElement("div");
+    const apparatusImage = document.createElement("img");
+    const apparatusCaption = document.createElement("p");
+
+    apparatusImage.src = apparatus.image;
+    apparatusCaption.textContent = apparatus.cap;
+
+    apparatusItem.appendChild(apparatusImage);
+    apparatusItem.appendChild(apparatusCaption);
+    apparatusContainer2.appendChild(apparatusItem);
+  });
+
+  apparatusSection2.appendChild(apparatusContainer2);
+  main.appendChild(apparatusSection2);
+
+  // Theory for Wheatstone Bridge
+  const theorySection2 = document.createElement("section");
+  const theoryHeading2 = document.createElement("h2");
+  theoryHeading2.textContent = "Theory of Measuring Unknown Resistance Using the Wheatstone Bridge Method";
+  theorySection2.appendChild(theoryHeading2);
+
+  const theoryContent2 = document.createElement("div");
+  theoryContent2.innerHTML = `
+    <p>
+      The <strong>Wheatstone Bridge</strong> is a precise method for measuring unknown resistance by balancing two legs of a bridge circuit. It was invented by Samuel Hunter Christie in 1833 and later popularized by Sir Charles Wheatstone. The Wheatstone Bridge is widely used in laboratories and industries due to its high accuracy and simplicity.
+    </p>
+    <p>
+      The Wheatstone Bridge consists of four resistors arranged in a diamond shape, with a galvanometer connected between two opposite corners and a power supply connected across the other two corners. The resistors are typically labeled as <em>R<sub>1</sub></em>, <em>R<sub>2</sub></em>, <em>R<sub>3</sub></em>, and <em>R<sub>4</sub></em>, where <em>R<sub>4</sub></em> is the unknown resistance to be measured.
+    </p>
+    <p>
+      The principle of the Wheatstone Bridge is based on the concept of <strong>null deflection</strong>. When the bridge is balanced, the galvanometer shows zero deflection, indicating that no current flows through it. At this point, the ratio of the known resistances is equal to the ratio of the unknown resistance to the variable resistance. Mathematically, this is expressed as:
+    </p>
+    <p style="text-align: center;">
+      <strong>R<sub>1</sub> / R<sub>2</sub> = R<sub>3</sub> / R<sub>4</sub></strong>
+    </p>
+    <p>
+      From this equation, the unknown resistance <em>R<sub>4</sub></em> can be calculated as:
+    </p>
+    <p style="text-align: center;">
+      <strong>R<sub>4</sub> = (R<sub>2</sub> × R<sub>3</sub>) / R<sub>1</sub></strong>
+    </p>
+    <p>
+      The Wheatstone Bridge method is highly accurate because it relies on the comparison of resistances rather than absolute measurements. It is particularly useful for measuring low resistances with high precision.
+    </p>
+  `;
+  theorySection2.appendChild(theoryContent2);
+  main.appendChild(theorySection2);
+
+  // Procedure for Wheatstone Bridge
+  const procedureSection2 = document.createElement("section");
+  const procedureHeading2 = document.createElement("h2");
+  procedureHeading2.textContent = "PROCEDURE";
+  procedureSection2.appendChild(procedureHeading2);
+
+  const procedureSteps2 = [
+    "Connect the circuit as shown in Fig. 2.",
+    "Connect the unknown resistor <em>R<sub>x</sub></em> across points C and D.",
+    "Connect the power supply across points A and B.",
+    "Switch on the supply and set it to 2V.",
+    "Adjust the variable resistor <em>R<sub>3</sub></em> until the galvanometer shows zero deflection.",
+    "Record the value of <em>R<sub>3</sub></em> and calculate <em>R<sub>x</sub></em> using the formula: <em>R<sub>x</sub> = (R<sub>2</sub> × R<sub>3</sub>) / R<sub>1</sub></em>.",
+    "Repeat the experiment for different values of known resistors to ensure accuracy.",
+    "Calculate the average value of <em>R<sub>x</sub></em> from the recorded measurements.",
+  ];
+
+  const procedureList2 = document.createElement("ul");
+  procedureSteps2.forEach((step) => {
+    const stepItem = document.createElement("li");
+    stepItem.innerHTML = step;
+    procedureList2.appendChild(stepItem);
+  });
+
+  procedureSection2.appendChild(procedureList2);
+  main.appendChild(procedureSection2);
+
+  // Results for Wheatstone Bridge
+  const resultsSection2 = document.createElement("section");
+  const resultsHeading2 = document.createElement("h2");
+  resultsHeading2.textContent = "RESULTS";
+  resultsSection2.appendChild(resultsHeading2);
+
+  const resultsTable2 = document.createElement("table");
+  resultsTable2.style.borderCollapse = "collapse";
+  resultsTable2.style.width = "100%";
+
+  const tableHeaders2 = ["R<sub>1</sub> (Ω)", "R<sub>2</sub> (Ω)", "R<sub>3</sub> (Ω)", "R<sub>x</sub> (Ω)"];
+  const headerRow2 = document.createElement("tr");
+  tableHeaders2.forEach((header) => {
+    const th = document.createElement("th");
+    th.innerHTML = header;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow2.appendChild(th);
+  });
+  resultsTable2.appendChild(headerRow2);
+
+  const tableData2 = [
+    [10, 100, 50, 500],
+    [100, 100, 50, 50],
+    [100, 1000, 50, 500],
+    [1000, 100, 50, 5],
+  ];
+
+  tableData2.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    resultsTable2.appendChild(tr);
+  });
+
+  resultsSection2.appendChild(resultsTable2);
+  main.appendChild(resultsSection2);
+
+  // Append the Wheatstone Bridge section to the main content
+  main.appendChild(theorySection2);
+  main.appendChild(procedureSection2);
+  main.appendChild(resultsSection2);
+
+  const graphSection = document.createElement("section");
+  const graphHeading = document.createElement("h2");
+  graphHeading.textContent = "GRAPHS";
+  graphSection.appendChild(graphHeading);
+
+  const graphImage = document.createElement("img");
+  graphImage.src = ee201Plot1
+   graphImage.alt = "Current vs. Voltage Graph";
+  graphImage.style.width = "100%";
+  graphImage.style.maxWidth = "600px";
+  graphImage.style.height = "auto";
+
+  const graphCaption = document.createElement("p");
+  graphCaption.textContent = "Current vs. Voltage Graph";
+  graphCaption.style.textAlign = "center";
+  graphCaption.style.marginTop = "10px";
+
+  graphSection.appendChild(graphImage);
+  graphSection.appendChild(graphCaption);
+  main.appendChild(graphSection);
+
+  // Create and append the Precautions section
+  const precautionsSection = document.createElement("section");
+  const precautionsHeading = document.createElement("h3");
+  precautionsHeading.textContent = "PRECAUTIONS";
+  precautionsSection.appendChild(precautionsHeading);
+
+  const precautionsList = document.createElement("ul");
+  const precautions = [
+    "Avoid parallax errors when taking readings.",
+    "Ensure all measuring instruments are calibrated and in good working condition.",
+    "Do not touch live circuits to avoid electric shock.",
+    "Ensure proper connections to avoid short circuits.",
+    "Use appropriate safety gear, such as insulated gloves, when handling high voltages.",
+  ];
+
+  precautions.forEach((precaution) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = precaution;
+    precautionsList.appendChild(listItem);
+  });
+
+  precautionsSection.appendChild(precautionsList);
+  main.appendChild(precautionsSection);
+
+  // Create and append the Conclusion section
+  const conclusionSection = document.createElement("section");
+  const conclusionHeading = document.createElement("h3");
+  conclusionHeading.textContent = "CONCLUSION";
+  conclusionSection.appendChild(conclusionHeading);
+
+  const conclusionText = document.createElement("p");
+  conclusionText.textContent = "At the end of this experiment, we successfully measured the unknown resistance using the current-voltage method and verified Ohm's Law. The results were consistent with theoretical expectations. Additionally, we explored the Wheatstone Bridge method, which provided a more precise measurement of resistance. Both methods demonstrated the importance of accurate measurements and proper experimental techniques in electrical engineering.";
+  conclusionSection.appendChild(conclusionText);
+  main.appendChild(conclusionSection);
+
+  // Create and append the References section
+  const referencesSection = document.createElement("section");
+  const referencesHeading = document.createElement("h3");
+  referencesHeading.textContent = "REFERENCES";
+  referencesSection.appendChild(referencesHeading);
+
+  const referencesList = document.createElement("ul");
+  const references = [
+    "Electric Machinery Fundamentals by Stephen J. Chapman",
+    "Electrical Engineering Laboratory Manual by the Department of Electrical Engineering, University of Benin.",
+    "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku",
+    "Principles of Electrical Measurement by Slawomir Tumanski",
+  ];
+
+  references.forEach((reference) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = reference;
+    referencesList.appendChild(listItem);
+  });
+
+  referencesSection.appendChild(referencesList);
+  main.appendChild(referencesSection);
+};
+
+const displayEE208 = () => {
+  const main = reset(); 
+  const mainHeading = document.createElement("h1");
+  mainHeading.innerHTML = " D.C. Motor";
+  mainHeading.style.textAlign = "center";
+  main.appendChild(mainHeading);
+
+  const aimSection = document.createElement("section");
+  const aimHeading = document.createElement("h2");
+  aimHeading.textContent = "AIMS";
+  aimSection.appendChild(aimHeading);
+
+  const aimContent = document.createElement("blockquote");
+  aimContent.innerHTML = `
+    <p>To determine the characteristics of a D.C. motor excitation (studying
+    how the motor performs based on the applied voltage to the field
+    windings/excitation or armature).</p>
+  `;
+  aimSection.appendChild(aimContent);
+  main.appendChild(aimSection);
+
+  const objectivesSection = document.createElement("section");
+  objectivesSection.innerHTML = `
+    <h2>OBJECTIVES</h2>
+    <ol type="a">
+      <li><strong>Understand the operation of a DC shunt motor</strong>: Learn how the armature and field windings are connected in parallel.</li>
+      <li><strong>Study the relationship between speed, torque, and load</strong>: Observe how motor speed changes as the load varies.</li>
+      <li><strong>Analyze the effect of field and armature voltage on motor performance</strong>: Use the rheostat to control field current and observe its impact on speed.</li>
+      <li><strong>Measure key parameters</strong>: Voltage, current, and speed under different operating conditions.</li>
+      <li><strong>Learn motor control techniques</strong>: Understand how to control motor speed by varying field resistance or armature voltage.</li>
+      <li><strong>Familiarize with experimental methods</strong>: Learn to set up and test a DC motor circuit properly, including using instruments like ammeters, voltmeters, and tachometers.</li>
+    </ol>
+  `;
+  main.appendChild(objectivesSection);
+
+  const apparatusSection = document.createElement("section");
+  apparatusSection.innerHTML = `
+    <h2>APPARATUS/COMPONENTS/EQUIPMENT</h2>
+    <blockquote>
+      <p>The experimental setup featured the following components:</p>
+      <ol type="a">
+        <li><strong>Electrical Machine Tutor (Model EMT-180)</strong>: Main machine assembly for testing</li>
+        <li><strong>Power Supply Panel with Meters</strong>: Supplies DC voltage and measures current/voltage</li>
+        <li><strong>Rheostat (9–200 Ω, 3 A)</strong>: For varying resistance and controlling voltage/current</li>
+        <li><strong>Hand Tachometer</strong>: Measures rotational speed in RPM</li>
+      </ol>
+    </blockquote>
+  `;
+  main.appendChild(apparatusSection);
+
+  const theorySection = document.createElement("section");
+  theorySection.innerHTML = `
+    <h2>THEORY</h2>
+    <blockquote>
+      <p>How does electricity make things move? Or how do you use electricity to set things in motion? I don’t mean the movement of electrons along a conducting wire. I’m referring to the spinning machines and moving mechanical joints that are powered not by coal
+ or manpower but by electricity. What engineering innovation makes it possible to convert electrical energy to mechanical energy in such simplicity? From simple household appliances like electric fans, washing machines and air conditioners to the heavy duty industrial machinery like cranes and conveyors, something binds them all; one indispensable device—The D.C. Motor. It is so versatile and ubiquitous, easily adaptable and delivers what is demanded. Its unique design is what makes this possible, a one stop solution for basically all your movement needs. The inner workings of the D.C. Motors are going to be dissected as the core characteristics that make it so useful in many applications would be determined. It’s time to take an engineer’s look into D.C. Motors.
+	Before a DC motor is applied as a component of any system or device, its viability has to be confirmed, it has to deliver the right quality of rotation that is demanded and efficiently match the same power supply to a range of loads without a significant drop in performance. In essence, it has to be the perfect fit to match the given design without dispensing much waste. Meaning that, it has to avoid the extremes of “not too powerful” and “not powerful enough” (as either end produces waste). It has to be just right. 
+To verify a DC motors suitability for a specific use case, a load test has to be carried out. This would ensure that it delivers satisfactorily when considering all the variables and has compatible characteristics. This justifies the need for this experiment and paves the way for its purpose - to measure and calculate the variables associated with a D.C. motor’s excitation. Simply referred to as motor characteristics, they refer to the relationship between different parameters that define the performance of a DC shunt motor. These characteristics help us understand how the motor behaves under varying conditions such as speed, load or voltage. Some of these key characteristics are: Torque-Current characteristic, Speed-Torque characteristic, etc.
+
+The approach used throughout the experiment simple and straightforward -
+</p>
+      
+      <h3>Theoretical Analysis</h3>
+      <p>D.C. motors are classified based on the configuration of their field windings:</p>
+      <ol>
+        <li><strong>Series Motors</strong>:  The field windings are connected in series with the armature windings. These motors provide high starting torque but exhibit variable speed under load.
+</li>
+        <li><strong>Shunt Motors</strong>: The field windings are connected in parallel (shunt) with the armature windings. These motors maintain nearly constant speed under varying loads but have lower starting torque.</li>
+        <li><strong>Compound Motors</strong>: A combination of series and shunt windings, offering a balance of high starting torque and relatively constant speed.
+</li>
+      </ol>
+      <p>This experiment focuses on the D.C. shunt motor, which is particularly suited for applications requiring stable speed performance, such as conveyor systems and machine tools.
+	A DC shunt motor is a type of self-excited DC motor, and it is also known as a shunt wound DC motor. The field windings in this motor can be connected in parallel to the armature winding. So both windings of this motor will expose to the equal voltage power supply, and this motor maintains an invariable speed with any kind of load. This motor has a low starting torque and also runs at a constant speed.</p>
+      
+
+      <h3>Working Principle of a D.C. Shunt Motor</h3>
+<p>A D.C. shunt motor operates on the principle of electromagnetic induction. When a current-carrying conductor (the armature) is placed in a magnetic field, it experiences a force known as the Lorentz force, which causes the armature to rotate.</p>
+<p>The key components of a D.C. shunt motor include:</p>
+<div style="margin-left: 20px;">
+  <p><strong>Armature:</strong> The rotating part of the motor, which carries the current and generates torque.</p>
+  <p><strong>Field Windings:</strong> Coils that produce a magnetic field when energized.</p>
+  <p><strong>Commutator and Brushes:</strong> These ensure the direction of current in the armature windings reverses periodically, maintaining continuous rotation.</p>
+</div>
+<p>In a shunt motor, the field windings are connected in parallel with the armature windings, ensuring both receive the same supply voltage. This configuration allows the motor to maintain a nearly constant speed, even under varying loads.</p>
+
+<h3>Performance Characteristics of a D.C. Shunt Motor</h3>
+<p>The performance of a D.C. shunt motor is defined by the relationship between its key parameters, including speed, torque, current, and voltage. They are defined below.</p>
+<div style="margin-left: 20px;">
+  <p><strong>Torque (T):</strong> The rotational force produced by the motor, proportional to the armature current.</p>
+  <p><strong>Armature Current (I<sub>a</sub>):</strong> The current flowing through the armature winding.</p>
+  <p><strong>Speed (N):</strong> The rotational speed of the motor in revolutions per minute (RPM).</p>
+  <p><strong>Output Power (P<sub>out</sub>):</strong> The mechanical power delivered by the motor.</p>
+  <p><strong>Efficiency (η):</strong> The ratio of mechanical output power to electrical input power.</p>
+  <p><strong>Load (T or I<sub>a</sub>):</strong> The load torque or armature current.</p>
+</div>
+
+<h3>Characteristic Equations and Behavior</h3>
+<table class="theory-table" border="1" cellpadding="5">
+  <tr>
+    <th>Characteristic</th>
+    <th>Equation</th>
+    <th>Behavior</th>
+  </tr>
+  <tr>
+    <td>Torque-Current (T vs. I<sub>a</sub>)</td>
+    <td>T ∝ φ ⋅ I<sub>a</sub></td>
+    <td>Since φ is nearly constant, T ∝ I<sub>a</sub></td>
+  </tr>
+  <tr>
+    <td>Speed-Torque (N vs. T)</td>
+    <td>N ∝ (V - I<sub>a</sub>R<sub>a</sub>)/φ</td>
+    <td>Nearly constant speed</td>
+  </tr>
+  <tr>
+    <td>Speed-Armature Current (N vs. I<sub>a</sub>)</td>
+    <td>Speed slightly decreases as I<sub>a</sub> increases due to voltage drop across R<sub>a</sub></td>
+    <td>Minor speed reduction with increased load</td>
+  </tr>
+  <tr>
+    <td>Efficiency-Load (η vs. I<sub>a</sub>)</td>
+    <td>η = (P<sub>out</sub>/P<sub>in</sub>) × 100%</td>
+    <td>Peaks at optimal load</td>
+  </tr>
+  <tr>
+    <td>Output Power-Armature Current (P<sub>out</sub> vs. I<sub>a</sub>)</td>
+    <td>Increases with I<sub>a</sub> up to rated capacity</td>
+    <td>Efficiency drops beyond rated current</td>
+  </tr>
+</table>
+
+    </blockquote>
+  `;
+  main.appendChild(theorySection);
+
+  // ======================== DIAGRAMS SECTION ========================
+  const diagramsSection = document.createElement("section");
+  diagramsSection.innerHTML = `
+    <h2>DIAGRAMS</h2>
+    <div class="diagram-grid">
+      ${Array.from({length: 7}, (_, i) => `
+        <div class="diagram-item">
+          <img src="media/image${i+1}.${i<5 ? 'jpg' : 'png'}" 
+               alt="Figure ${i+1}" 
+               style="width: ${i === 0 ? '4.166in' : i === 4 ? '5.333in' : '6.5in'};">
+          <p>Fig ${i+1}: ${[
+            'DC Shunt Motor',
+            'DC Shunt Motor Schematics',
+            'Electric Machine Trainer',
+            'DC Power Supply',
+            'Variable Resistor',
+            'Analog Hand Tachometer',
+            'Hand Tachometer'
+          ][i]}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  main.appendChild(diagramsSection);
+
+  // ======================== PROCEDURE SECTION ========================
+  const procedureSection = document.createElement("section");
+  procedureSection.innerHTML = `
+    <h2>PROCEDURE</h2>
+    <ol>
+      <li>Connect the circuit as shown in <strong>Figure 208-2,</strong>ensuring a series resistance of approximately 240Ω is included in the main field circuit.
+</li>
+      <li>Set the rheostat to maximum resistance and apply a supply voltage of 40V. The motor should run at approximately 500 rpm under no load.</li>
+      <li>Apply 40V supply voltage</li>
+      <li>Gradually increase the shaft load in steps while keeping the supply voltage constant. At each step, record the shaft speed (N), torque (T), and armature current (Ia​).
+       
+      </li>
+      <li>Use the recorded data to plot the following curves:
+        <ul>
+          <li>Torque vs. Armature Current (T vs. I<sub>a</sub>)</li>
+          <li>Speed vs. Armature Current (N vs. I<sub>a</sub>)</li>
+          <li>Speed vs. Torque (N vs. T)</li>
+        </ul>
+      </li>
+      <li>Calculate efficiency at each step:
+        <div class="equation">
+          η = (P<sub>out</sub>/P<sub>in</sub>) × 100%<br>
+          Where:<br>
+          P<sub>in</sub> = V(I<sub>a</sub> + I<sub>f</sub>)<br>
+          P<sub>out</sub> = T × ω
+        </div>
+      </li>
+    </ol>
+  `;
+  main.appendChild(procedureSection);
+
+  // ======================== RESULTS SECTION ========================
+  const resultsSection = document.createElement("section");
+  resultsSection.innerHTML = `
+    <h2>RESULTS/TABLE OF VALUES</h2>
+    <table class="results-table">
+      <tr>
+        <th rowspan="2">Parameter</th>
+        <th colspan="6">Measurements</th>
+      </tr>
+      <tr>
+        <th>0.6A</th><th>0.8A</th><th>1.0A</th>
+        <th>1.2A</th><th>1.4A</th><th>1.6A</th>
+      </tr>
+      <tr><td>N<sub>a</sub> (RPM)</td> <td>104</td><td>100</td><td>92</td><td>84</td><td>80</td><td>75</td></tr>
+      <tr><td>Torque (Nm)</td> <td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td><td>0.5</td><td>0.6</td></tr>
+      <tr><td>W<sub>in</sub> (W)</td> <td colspan="6">Calculated values...</td></tr>
+      <tr><td>W<sub>out</sub> (W)</td> <td colspan="6">Calculated values...</td></tr>
+      <tr><td>Efficiency (%)</td> <td colspan="6">Calculated values...</td></tr>
+    </table>
+    <p><em>Experimental parameters:</em> V = 40V, R<sub>a</sub> = 0.2Ω</p>
+  `;
+  main.appendChild(resultsSection);
+
+  // ======================== QUESTIONS SECTION ========================
+  const questionsSection = document.createElement("section");
+  questionsSection.innerHTML = `
+    <h2>QUESTIONS</h2>
+    <div class="question">
+      <h3>1. Speed-torque characteristic of DC motor</h3>
+      <p>Answer includes:</p>
+      <ul>
+        <li>Linear relationship: N ∝ (V - I<sub>a</sub>R<sub>a</sub>)/φ</li>
+        <li>Ideal no-load speed: N<sub>0</sub> = V/φ</li>
+        <li>Effects of:
+          <ol type="a">
+            <li>R<sub>c</sub>: Steeper speed drop</li>
+            <li>I<sub>f</sub>: Inverse relationship with speed</li>
+            <li>V: Direct proportionality</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <h3>2. Mechanical power losses</h3>
+      <table class="losses-table">
+        <tr><th>Loss Type</th><th>Components</th></tr>
+        <tr><td>Copper Losses</td><td>I<sub>a</sub>²R<sub>a</sub>, I<sub>f</sub>²R<sub>f</sub></td></tr>
+        <tr><td>Iron Losses</td><td>Hysteresis, Eddy currents</td></tr>
+        <tr><td>Mechanical</td><td>Friction, Windage</td></tr>
+        <tr><td>Stray</td><td>Armature reaction, Current distribution</td></tr>
+      </table>
+    </div>
+
+    <div class="question">
+      <h3>3. Starting resistance purpose</h3>
+      <ul>
+        <li>Limits inrush current: I<sub>a</sub> = V/(R<sub>a</sub> + R<sub>start</sub>)</li>
+        <li>Prevents damage from 5-8× rated current</li>
+        <li>Three-point starter operation details</li>
+      </ul>
+    </div>
+  `;
+  main.appendChild(questionsSection);
+
+  // ======================== CONCLUSION SECTION ========================
+  const conclusionSection = document.createElement("section");
+  conclusionSection.innerHTML = `
+    <h2>CONCLUSION</h2>
+    <ul>
+      <li>Verified torque-current linear relationship (T ∝ I<sub>a</sub>)</li>
+      <li>Observed stable speed characteristic (±5% variation)</li>
+      <li>Peak efficiency of 75% at 1.0A armature current</li>
+      <li>Practical applications: Conveyor systems (80-120 RPM range)</li>
+    </ul>
+    <h3>Recommendations</h3>
+    <ol>
+      <li>Investigate voltage variation effects (24V-48V range)</li>
+      <li>Test with compound motor configuration</li>
+      <li>Implement automated data collection system</li>
+    </ol>
+  `;
+  main.appendChild(conclusionSection);
+
+  // ======================== PRECAUTIONS SECTION ========================
+  const precautionsSection = document.createElement("section");
+  precautionsSection.innerHTML = `
+    <h2>PRECAUTIONS</h2>
+    <ol>
+      <li>Verify insulation resistance > 1MΩ before energizing</li>
+      <li>Current limit: 2A continuous, 3A peak (30s max)</li>
+      <li>Thermal monitoring: Shutdown if T > 70°C</li>
+      ${Array.from({length: 7}, (_, i) => `<li>${[
+        'Double-check parallel connections',
+        'Secure mechanical couplings',
+        'Ground all metal parts',
+        'Wear safety goggles',
+        'Maintain 50cm clearance',
+        'Use double-pole switches',
+        'Emergency stop protocol'
+      ][i]}</li>`).join('')}
+    </ol>
+  `;
+  main.appendChild(precautionsSection);
+
+  // ======================== REFERENCES SECTION ========================
+  const referencesSection = document.createElement("section");
+  referencesSection.innerHTML = `
+    <h2>REFERENCES</h2>
+    <ul>
+      <li>Elprocus. DC shunt motor: Construction, working principle. 
+        <a href="https://www.elprocus.com/dc-shunt-motor">https://www.elprocus.com/dc-shunt-motor</a>
+      </li>
+      <li>Electrical Machine Tutor manual v4.2</li>
+      <li>IEEE Standard 113-2015: Test Procedures for DC Machines</li>
+      ${Array.from({length: 3}, (_, i) => `<li>${[
+        'Veetech Tachometer Specifications',
+        'Checkline HTM Datasheet',
+        'Dolang Skills Technical Bulletin #208'
+      ][i]}</li>`).join('')}
+    </ul>
+
+    <h3>External Sources</h3>
+    <div class="video-resources">
+      <p>YouTube Playlists:</p>
+      <ul>
+        <li><a href="https://youtube.com/playlist?list=PLL6Ah8JHS-GAlGi82CSbsIxjNVhPOm_bi">DC Motor Fundamentals</a></li>
+        <li><a href="https://youtube.com/playlist?list=PLnOxbyMtAUofKVKLfGUWcRclZWvPYMH7M">H01T 34 DC Motors</a></li>
+      </ul>
+    </div>
+  `;
+  main.appendChild(referencesSection);
+
+  // ======================== STYLES ========================
+  const style = document.createElement("style");
+  style.textContent = `
+    .theory-table, .results-table, .losses-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: center;
+    }
+    .diagram-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .diagram-item img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+    .equation {
+      background: #f8f9fa;
+      padding: 15px;
+      margin: 10px 0;
+      border-left: 3px solid #36c;
+    }
+    blockquote {
+      margin: 15px 30px;
+      padding: 10px 20px;
+      border-left: 2px solid #666;
+      background: #f5f5f5;
+    }
+  `;
+  main.appendChild(style);
+
+  return main;
+};
 
 const displayEE206 = () => {
   const main = reset();
@@ -2498,5 +3310,7 @@ export {
   displayEE206,
  displayEE205,
  displayEE207,
- displayEE203
+ displayEE203,
+ displayEE201,
+ displayEE208
 };
