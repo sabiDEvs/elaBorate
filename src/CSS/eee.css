@@ -1,0 +1,446 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    grid-area: header;
+}
+footer {
+    grid-area: footer;
+}
+body{
+    width: 100%;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-areas: 
+    'header header header header header'
+    'main main main main main'
+    'main main main main main'
+    'main main main main main'
+    'main main main main main'
+    'main main main main main'
+    'footer footer footer footer footer';
+}
+
+.active{
+    display: flex;
+}
+
+/*Aside styling*/
+aside{
+    position: fixed;
+    margin-top: 5vh;
+    padding: 2vh 0;
+    background-color: #14213d;
+    color: #ffffff;
+    display: none;
+    grid-area: main;
+    width: 75%;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 4;
+}
+aside h3{
+    margin-left: 2vw;
+}
+aside > div{
+    margin-top: 5vh;
+}
+aside > div li{
+    font-size: 14px;
+    padding: 3vw;
+    margin-top: 5vw;
+}
+#closeButton{
+    float: right;
+    display: block;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    margin-right: 10px;
+    color:#000000;
+}
+/*main styling*/
+main{
+    grid-area: main;
+    margin-top: 10vh;
+    width: 100%;
+    flex-direction: column;
+    gap: 2vh;
+    padding: 2vw 3vw;
+    display: flex;
+}
+
+.halfImg{
+    width: 80%;
+    height: auto;
+    margin: 3vw auto;
+    object-fit: contain;
+}
+.startImg{
+    width: 100%;
+    align-self: center;
+    margin: 0 auto;
+}
+.div-img-achieve{
+    display: grid;
+    position: relative;
+    grid-template-columns: 0.25fr 1fr 1fr 0.25fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 50vh;
+}
+.div-img-achieve::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#getStartHead{
+    grid-column: 2/4;
+    grid-row: 2/4;
+    text-align: center;
+    color: #ffffff;
+    z-index: 2;
+    padding: 0 3vw;
+}
+#getStartImg{
+    grid-column: 1/5;
+    grid-row: 1/4;
+    height: 50vh;
+    width: 100%;
+}
+.hover{
+    width: 80%;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 5vh;
+    background: rgba(252, 163, 17, 0.6);
+    border: 0.5px solid #fca311;
+    backdrop-filter: blur(10.4px);
+    box-shadow: 0 2px 1.5px 1px #fca31133;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 1.5vw;
+    border-radius: 2vw;
+    align-self: center;
+}
+.hoverIcon{
+    height: 8vw;
+    width: 8vw;
+    border-radius: 50%;
+    padding: 0.5vw;
+    background: #fca21113;
+    box-shadow: 1px 1px 25px #fca31186, 1px 1px 20px #fca31195, 2px 2px 37px #a96c0a, -2px -2px 37px #a96c0a;
+}
+.viewText{
+    color: #a96c0a;
+    text-shadow: 2px 2px 1.5px 1px #d9d9d933;
+    vertical-align: middle;
+}
+iframe{
+    width: 100%;
+    height: 315px;
+    margin: 3vw auto;
+}
+.download{
+    display: none;
+}
+/*footer styling*/
+
+span{
+    font-weight: bold;
+}
+.appBox img{
+     height: 150px;
+     width: 150px;
+}
+.appBox p{
+    border-left: 3px solid #fca311;
+    padding-left: 0.5vw;
+}
+.appBox{
+    margin: auto;
+    width: 98%;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    justify-items: space-between;
+    gap: 6vw;
+}
+/* General styling */
+.selected {
+    background-color: #a96c0a;
+}
+div, li, h1, h2, h3, h4, p{
+    padding: 0.05vw;
+    margin: 0.5vw 0.25vw;
+}
+ul{
+    margin-left: 6vw;
+}
+aside ul{
+    margin-left: 0;
+}
+header div, header li, header h1, header p, header h2, header h3, footer div, footer li, footer h1, footer h2, footer p, footer h3 {
+    margin: 0;
+    padding: 0;
+}
+main > h1{
+    font-size:1.7em;
+}
+aside ul li.menu-item {
+    padding: 10px 15px;
+    margin: 0 0;
+    border-bottom:1px solid #f0f0f0;
+    cursor: pointer;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+aside ul li.menu-item:hover {
+    background-color: #f0f0f0;
+    transform: translateX(5px);
+    color: #14213d;
+}
+
+aside ul li.menu-item.active {
+    background-color: white;
+    color: #14213d;
+    font-weight: bold;
+}
+
+aside ul li.menu-item.active:hover {
+    background-color: #f0f0f0;
+    color: #14213d;
+}
+.menu-item {
+    position: relative;
+    padding: 10px 15px 10px 30px;  /* Increased left padding for dot */
+    margin: 0 0;
+    border-bottom:1px solid #f0f0f0; 
+    cursor: pointer;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-item:before {
+    content: '';
+    position: absolute;
+    left: -7%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #fca311;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.menu-item.active:before {
+    opacity: 1;
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-item.active {
+    background-color: white;
+    color: #14213d;
+}
+.diagrams-section {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.diagram-container {
+    margin: 2rem 0;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.diagram-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.diagram-caption {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+
+.table-disclaimer {
+    font-style: italic;
+    margin: 10px 0;
+    color: #ff0000;
+}
+
+.graph-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+@media only screen and (min-width:768px){
+    .menu-item, aside ul li.menu-item{
+        border-radius: 4px;
+        margin: 5px, 0;
+        border-bottom: none;
+    }
+    ul{
+        margin-left: 3vw;
+    }    
+    .menu{
+        display: none;
+    }
+    body{
+        width: 100%;
+        background-color: #ffffff;
+        display: grid;
+        grid-template-areas: 
+        'header header header header header'
+        'aside aside main main main'
+        'aside aside main main main'
+        'aside aside main main main'
+        'aside aside main main main'
+        'aside aside main main main'
+        'aside aside footer footer footer';
+    }
+    main{
+        width: 73%;
+        margin-left: 27%;
+        margin-bottom: 10vh;
+        padding-left: 1vw;
+    }
+    aside{
+        height: 90vh;
+        position: fixed;
+        margin-top: 13vh;
+        background-color: #14213d;
+        color: #ffffff;
+        display: block;
+        padding: 2vw;
+        grid-area: aside;
+        width: 25%;
+        overflow-y: auto;
+    }
+    #closeButton{
+        display: none;
+    }
+    aside > div{
+        
+    }
+    aside > div li{
+        margin-top: 2vw;
+        padding: 0 0.5vw;
+    }
+    .div-img-achieve{
+        height: 60vh;
+    }
+    #getStartImg{
+        height: 60vh;
+    }
+    #getStartHead{
+        padding: 0;
+    }
+    .appBox img{
+        height: 150px;
+        width: 150px;
+    }
+    .appBox{
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .hover{
+        display: none;
+    }
+    iframe{
+        width: 80%;
+        height: 400px;
+    }
+    .download{
+        display:  inline-block;
+        align-self: center;
+    }
+    .downloadBox img{
+        height: 1.5vw;
+        width: 1.5vw;
+    }
+    .download a{
+        text-decoration: none;
+    }
+    .halfImg{
+        width: 50%;
+    }
+    .downloadBox{
+        background: #fca311;
+        color: #ffffff;
+        padding: 0.5vw 1vw;
+        width: 12vw;
+        height: 5vh;
+        display:flex;
+        gap: 0.5vw;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+        z-index: 2;
+    }
+    .downloadcta{
+        background: #ffffff;
+        border: 1px solid #fca311;
+        top: 7vh;
+        position: relative;
+        left: 0.5vw;
+        width: 12vw;
+        height: 5vh;
+        z-index: 1;
+    }
+    footer {
+        width: 73%;
+        margin-left: 27%;
+    }
+
+    .diagrams-section {
+        padding: 1rem;
+    }
+    
+    .diagram-container {
+        margin: 1rem 0;
+        padding: 0.5rem;
+    }
+    
+    .diagram-caption {
+        font-size: 0.8rem;
+    }
+}

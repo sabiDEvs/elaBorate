@@ -10,7 +10,8 @@
     "watch": "webpack --watch",
     "index": "webpack --config dist.config.js",
     "sub": "webpack --config sub.config.js",
-    "report": "webpack --config report.config.js"
+    "report": "webpack --config report.config.js",
+    "watch:report": "webpack --config report.config.js --watch"
   },
   "repository": {
     "type": "git",
