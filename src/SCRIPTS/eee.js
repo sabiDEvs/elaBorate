@@ -1,4 +1,4 @@
-import '../CSS/pre.css';
+import '../CSS/eee.css';
 import {renderHeader} from './modules/header';
 import {renderFooter} from './modules/footer';
 import '../CSS/ai.css';
@@ -68,7 +68,7 @@ close.id = 'closeButton';
 aside.appendChild(close);
 //create aside header
 const heading = document.createElement('h3');
-heading.textContent = 'PRE ELA TOPICS';
+heading.textContent = 'EEE ELA TOPICS';
 aside.appendChild(heading);
 //create div to store reports list
 const reportDiv = document.createElement('div');
