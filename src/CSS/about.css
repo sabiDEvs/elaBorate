@@ -44,6 +44,13 @@ h2 {
   padding: 0 0.32rem;
 }
 
+/* yyyyy */
+/* .container {
+  max-width: 100%; 
+  margin: 0; 
+  padding: 0;
+} */
+
 /* ///////////////////////////////////// */
 /* Specific styles */
 
@@ -262,46 +269,48 @@ h2 {
 /* ///////////////////////////////////////////////////////////// */
 /* Breakpoint considerations */
 /* Below 1201px */
-
 @media (max-width: 75em) {
   html {
-    font-size: 56.25%;
+    font-size: 60%; /* Adjust base font size for smaller screens */
   }
 
   .main-header {
-    font-size: 7rem;
+    font-size: 5rem; /* Reduce header size for better fit */
   }
 
   .container {
-    max-width: 120rem;
-    /* margin: 0 150px; */
-    margin-left: 10rem;
-    margin-right: 10rem;
-    padding: 0 0.32rem;
+    max-width: 100%; /* Ensure container takes full width */
+    margin: 0 2rem; /* Add small margins for better spacing */
+    padding: 0 1rem; /* Consistent padding */
   }
 
   .container-welcome {
-    max-width: 120rem;
+    max-width: 100%; /* Ensure container takes full width */
+    margin: 0 2rem; /* Add small margins for better spacing */
+    padding: 0 1rem; /* Consistent padding */
   }
 
   /* Mission section */
   .section-mission {
-    border: none;
+    border: none; /* Remove border for cleaner look */
+    margin: 2rem 0; /* Add margin for spacing */
+    padding: 1rem; /* Consistent padding */
   }
 
   .container-mission {
+    position: relative;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-
-    position: relative;
+    gap: 2rem; /* Add gap for better spacing */
   }
 
   .div-img-mission {
     position: relative;
-    width: fit-content;
-    margin: auto;
+    width: 100%; /* Ensure image container takes full width */
+    max-width: 90rem; /* Limit maximum width */
+    margin: 0 auto; /* Center the container */
   }
 
   .div-img-mission::after {
@@ -316,41 +325,42 @@ h2 {
 
   .div-img-mission img {
     display: block;
-
-    width: 90rem;
-    height: 40rem;
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 40rem; /* Limit maximum height */
   }
 
   .div-text-mission h2 {
     position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 25%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the element */
     color: white;
-    font-size: 5rem;
+    font-size: 3rem; /* Reduce font size for better fit */
     text-align: center;
-    z-index: 1;
+    z-index: 2;
   }
 
   .div-text-mission p {
-    /* font-size: 2rem; */
     text-align: left;
+    font-size: 1.6rem; /* Adjust font size for readability */
   }
 
   /* Achieve section */
   .container-achieve {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    position: relative;
+    gap: 2rem; /* Add gap for better spacing */
   }
 
   .div-img-achieve {
     position: relative;
-    width: fit-content;
-    margin: auto;
+    width: 100%; /* Ensure image container takes full width */
+    max-width: 90rem; /* Limit maximum width */
+    margin: 0 auto; /* Center the container */
   }
 
   .div-img-achieve::after {
@@ -364,35 +374,35 @@ h2 {
   }
 
   .div-img-achieve img {
-    width: 90rem;
-    height: 40rem;
-
-    border-radius: 0;
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 40rem; /* Limit maximum height */
+    border-radius: 0; /* Remove border radius */
   }
 
   .div-text-achieve h2 {
     position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 25%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the element */
     color: white;
-    font-size: 5rem;
+    font-size: 3rem; /* Reduce font size for better fit */
     text-align: center;
     z-index: 1;
   }
-}
-.div-text-achieve p {
-  /* font-size: 2rem; */
-  text-align: left;
-}
 
-/* Below 575px */
-
-@media (max-width: 36em) {
-  html {
-    font-size: 50%;
+  .div-text-achieve p {
+    text-align: left;
+    font-size: 1.6rem; /* Adjust font size for readability */
   }
 
+  /* Carousel section */
+  .carousel {
+    margin-top: 0; /* Remove extra margin for carousel */
+  }
+}
+/* Below 575px */
+@media (max-width: 36em) {
   .main-header {
     font-size: 2rem;
   }
@@ -407,40 +417,38 @@ h2 {
 
   .container-welcome {
     max-width: 80rem;
-    margin: 0 5rem;
-    padding: 0 0.32rem;
+    margin: 0;
+    padding: 0 1rem; /* Consistent padding for readability */
   }
 
   /* Mission section */
   .section-mission {
     margin-top: 5rem;
+    margin: 0; /* Remove section margins on mobile */
+    padding: 1rem; /* Consistent padding for readability */
   }
 
   .container-mission {
     gap: 2rem;
-
     position: relative;
   }
 
   .div-img-mission img {
-    width: 30rem;
-    height: 15rem;
+    width: 100%; /* Ensure images take full width */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .div-text-mission h2 {
     position: absolute;
     left: 50%;
-    top: 10%;
+    top: 15%;
     font-size: 1.5rem;
   }
 
-  /* .div-text-mission p {
-    font-size: 0.9rem;
-  } */
-
   /* Help section */
   .section-help {
-    margin-top: 5rem;
+    margin: 0; /* Remove section margins on mobile */
+    padding: 1rem; /* Consistent padding for readability */
   }
 
   .section-help h2 {
@@ -449,7 +457,8 @@ h2 {
 
   /* Achieve section */
   .section-achieve {
-    margin-top: 5rem;
+    margin: 0; /* Remove section margins on mobile */
+    padding: 1rem; /* Consistent padding for readability */
   }
 
   .container-achieve {
@@ -457,21 +466,18 @@ h2 {
   }
 
   .div-img-achieve img {
-    width: 30rem;
-    height: 15rem;
+    width: 100%; /* Ensure images take full width */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .div-text-achieve h2 {
     font-size: 1.5rem;
   }
 
-  /* .div-text-achieve p {
-    font-size: 0.9rem;
-  } */
-
   /* Navigate section */
   .section-navigate {
-    margin-top: 5rem;
+    margin: 0; /* Remove section margins on mobile */
+    padding: 1rem; /* Consistent padding for readability */
   }
 
   .section-navigate h2 {
@@ -479,8 +485,9 @@ h2 {
   }
 
   .div-header-navigate {
-    width: 30rem;
+    width: 100%; /* Full width for navigate section */
     height: 15rem;
+    margin: 0; /* Remove margins */
     margin-bottom: 2rem;
   }
 
@@ -498,14 +505,15 @@ h2 {
 
   /* CTA section */
   .section-cta {
-    margin-top: 5rem;
+    margin: 0; /* Remove section margins on mobile */
+    padding: 1rem; /* Consistent padding for readability */
     margin-bottom: 15vh;
   }
 
   .container-cta {
     font-size: 1.2rem;
     row-gap: 1rem;
-    padding: 2rem 0;
+    padding: 1rem; /* Consistent padding for readability */
   }
 
   .container-cta h2 {
@@ -532,6 +540,11 @@ h2 {
   .btn-view-reports:hover {
     top: -0.6rem;
     left: -0.6rem;
+  }
+
+  /* Carousel section */
+  .carousel {
+    margin-top: 0; /* Remove extra margin for carousel */
   }
 }
 
@@ -570,17 +583,6 @@ h2 {
   height: 100vh;
   object-fit: contain;
 }
-/* 
-.slide-caption {
-  position: absolute;
-  bottom: 70px;
-  left: 0;
-  width: 100%;
-  padding: 1em;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  text-align: center;
-} */
 
 .slide-caption {
   position: absolute;
@@ -659,6 +661,7 @@ h2 {
   .slide img {
     width: 100%;
     height: 50vh;
+    object-fit: contain;
   }
 
   .slide-caption {
