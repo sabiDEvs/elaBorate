@@ -229,57 +229,105 @@ main{
     font-size: 16px;
     font-weight: bold;
 }
-/*contact section styling*/
-#contact{
+#contact {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 3vw;
-    margin-bottom: 15vh;
-    padding: 2vw 1vw;
+    gap: 2rem;
+    margin-bottom: 10vh;
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+  }
+  
+#contact h2 {
+    font-family: "Michroma", sans-serif;
+    font-size: 2.5rem;
+    color: #00184b;
+    margin-bottom: 1rem;
+    text-align: center;
 }
-form{
-    
+  
+  form {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
-    gap: 2vh;
-}
-input, textarea{
-    width: 70%; 
-    background-color: #000000;
-    color: #e5e5e5;
-    padding: 1vw;
-    margin: 0 auto;
-}
-#userName{
-    grid-column: 1/2;
-    grid-row: 1/2;
-}
-#userEmail{
-    grid-column: 1/2;
-    grid-row: 2/3;
-}
-#userPhone{
-    grid-column: 1/2;
-    grid-row: 3/4;
-}
-#userMessage{
-    grid-column: 1/2;
-    grid-row: 4/5;
-}
-#userSubmit{
-    grid-column: 1/2;
-    grid-row: 5/6;
-    border: 0;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    color: #333;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus,
+  textarea:focus {
+    border-color: #00184b;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 24, 75, 0.2);
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+  
+  #userSubmit {
     font-weight: bold;
-    background-color: #fca311;
-    color: #ffffff;
-    box-shadow: 3px 3px #000000;
-}
+    background-color: rgb(252, 163, 17);
+    color: rgb(255, 255, 255);
+    box-shadow: rgb(0, 0, 0) 3px 3px;
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  #userSubmit:hover {
+    background-color: #003366;
+    transform: translateY(-2px);
+  }
+  
+  #userSubmit:active {
+    transform: translateY(0);
+  }
+  
+  
+
+  
+  @media (max-width: 480px) {
+    #contact h2 {
+      font-size: 1.75rem;
+    }
+  
+    input,
+    textarea {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  
+    #userSubmit {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
 .active{
     display: flex;
 }
@@ -395,43 +443,20 @@ input, textarea{
     #about p{
         font-size: 36px;
     }
-    form{
-        
-        width: 80%;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        align-items: unset;
-    }
-    input{
-        justify-self: self-end;
-    }
-    input, textarea{
-        width: 80%; 
-        margin: 0;
-    }
-    #userName{
-        grid-column: 1/2;
-        grid-row: 1/2;
-    }
-    #userEmail{
-        grid-column: 1/2;
-        grid-row: 2/3;
-    }
-    #userPhone{
-        grid-column: 1/2;
-        grid-row: 3/4;
-    }
-    #userMessage{
-        grid-column: 2/3;
-        grid-row: 1/4;
-    }
-    #userSubmit{
-        grid-column: 1/3;
-        grid-row: 4/5;
-        width: 20%;
-        align-self: center;
-        margin: 0 auto;
-    }
+    #contact h2 {
+        font-size: 2rem;
+      }
+    
+      input,
+      textarea {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+      }
+    
+      #userSubmit {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+      }
     .textDiv{
         margin-right: 5vw;
     }
