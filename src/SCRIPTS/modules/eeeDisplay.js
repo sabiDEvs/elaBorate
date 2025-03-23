@@ -20,6 +20,10 @@ import ee2036 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/fig2.png";
 import ee2037 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/fig1.png";
 import ee2038 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/graph1.png";
 import ee2039 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/graph2.png";
+import ee2041 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/204/1.png";
+import ee2042 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/204/3.png";
+import ee2043 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/204/4.png";
+import ee2044 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/204/fig1.png";
 import ee2051 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/2051.png";
 import ee2052 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/2052.png";
 import ee2053 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/2053.png";
@@ -2602,551 +2606,6 @@ const displayEE207 = () => {
   main.appendChild(download);
 };
 
-const displayEE203 = () => {
-  const main = reset();
-  const head = document.createElement("h1");
-  head.textContent = "Measurement of Inductance";
-  main.appendChild(head);
-
-  const aim = document.createElement("section");
-  const aimHead = document.createElement("h2");
-  aimHead.textContent = "AIMS";
-  aim.appendChild(aimHead);
-  const aimList = document.createElement("ul");
-  const aims = [
-    "Using Maxwell's Bridge",
-    "Measurement transient voltage and time of R.L circuit ",
-  ];
-  let list2 = [];
-  for (let i = 0; i < aims.length; i++) {
-    list2[i] = document.createElement("li");
-    list2[i].textContent = aims[i];
-    aimList.appendChild(list2[i]);
-  }
-  aim.appendChild(aimList);
-
-  const objective = document.createElement("section");
-  const objHead = document.createElement("h2");
-  objHead.textContent = "OBJECTIVES";
-  objective.appendChild(objHead);
-  const objList = document.createElement("ul");
-  const objectives = [
-    "To find the value of the unknown inductor L and its resistance Rx balancing the bridge.",
-  ];
-  let list = [];
-  for (let i = 0; i < objectives.length; i++) {
-    list[i] = document.createElement("li");
-    list[i].textContent = objectives[i];
-    objList.appendChild(list[i]);
-  }
-  objective.appendChild(objList);
-  main.appendChild(aim);
-  main.appendChild(objective);
-  const appHead = document.createElement("h2");
-  appHead.textContent = "Apparatus";
-  main.appendChild(appHead);
-  const section = document.createElement("section");
-  section.classList.add("appBox");
-  const apparatus = [
-    {
-      cap: "A.F Generator",
-      image: ee2031,
-    },
-    {
-      cap: "Three decade Resistance Boxes",
-      image: ee2032,
-    },
-    {
-      cap: "One Decade Capacitance Boxes",
-      image: ee2033,
-    },
-    {
-      cap: "Headphones",
-      image: ee2034,
-    },
-    {
-      cap: "Inductor of Unknown Valu",
-      image: ee2035,
-    },
-  
-  ];
-  let appBox = [];
-  let appImage = [];
-  let appCaption = [];
-  for (let i = 0; i < apparatus.length; i++) {
-    appBox[i] = document.createElement("div");
-    appImage[i] = document.createElement("img");
-    appCaption[i] = document.createElement("p");
-    appImage[i].src = apparatus[i].image;
-    appCaption[i].textContent = apparatus[i].cap;
-    appBox[i].appendChild(appImage[i]);
-    appBox[i].appendChild(appCaption[i]);
-    section.appendChild(appBox[i]);
-  }
-  main.appendChild(section);
-  const theory = document.createElement("section");
-const theoHead = document.createElement("h2");
-theoHead.textContent = "THEORY";
-theory.appendChild(theoHead);
-
-const explain = document.createElement("div");
-explain.textContent =
-  "Inductance is a fundamental property of electrical circuits that quantifies the ability of a conductor or coil to store energy in a magnetic field when an electric current flows through it. It is an essential principle in electromagnetism and plays a critical role in transformers, inductors, and many AC circuit applications. A conductor’s ability to generate an opposing electromotive force when the current changes is measured in henrys (H), named after Joseph Henry, an American scientist who contributed significantly to the study of electromagnetism.";
-theory.appendChild(explain);
-
-const explain1 = document.createElement("div");
-explain1.textContent =
-  "A Maxwell Bridge is a refinement of the Wheatstone Bridge, specifically designed to measure the self-inductance of an inductor. Unlike direct methods that require a separate power source and oscilloscopes, the Maxwell Bridge provides a simple and effective means of determining an inductor’s value by balancing resistive and capacitive components within a bridge circuit. It operates by setting up an AC bridge network, where impedances are carefully adjusted to bring the system into balance. This bridge network principle is vital in electrical engineering as it allows for accurate measurement of inductance in both laboratory and industrial settings.";
-theory.appendChild(explain1);
-
-const explain2 = document.createElement("div");
-explain2.textContent =
-  "Maxwell’s bridge is especially useful for measuring inductors with significant internal resistance. The circuit consists of four arms in a diamond configuration, where each arm contributes to achieving balance. The goal of the experiment is to adjust the resistive and capacitive components in the circuit until a null detection occurs, meaning there is no voltage difference between the bridge points. At this balance condition, the inductance can be calculated using well-defined mathematical relations. The effectiveness of Maxwell’s bridge lies in its ability to provide accurate and precise inductance values even when dealing with complex inductor materials and coil designs.";
-theory.appendChild(explain2);
-
-const categories = [
-  {
-    title: "Arm AB",
-    text: "This arm contains a known resistor R1, which serves as a reference for determining unknown values in the circuit.",
-    image: "",
-  },
-  {
-    title: "Arm BC",
-    text: "Similar to Arm AB, this branch also contains a known resistor R2, ensuring balance within the bridge circuit.",
-    image: "",
-  },
-  {
-    title: "Arm CD",
-    text: "This arm contains the unknown inductor Lx and a known resistor Rx in series. The presence of Lx introduces an inductive reactance to the circuit, affecting impedance calculations.",
-    image: "",
-  },
-  {
-    title: "Arm DA",
-    text: "This arm includes a variable resistor R3 and a capacitor C3 in series. The capacitor compensates for the inductive nature of the unknown inductor, assisting in balancing the bridge.",
-    image: "",
-  },
-];
-categories.forEach((item) => {
-  theory.appendChild(createDivs(item));
-});
-
-const explain3 = document.createElement("div");
-explain3.textContent =
-  "Transient voltage refers to short-duration voltage spikes or fluctuations in an electrical circuit. These fluctuations can be caused by sudden changes in current, switching operations, or external disturbances such as lightning strikes. Understanding transient voltage is crucial in power system analysis, as it helps engineers design protective measures like surge suppressors and filtering circuits to mitigate their impact. The study of transient voltage is particularly important in ensuring the longevity and reliability of electronic components operating under varying electrical conditions.";
-theory.appendChild(explain3);
-
-const explain4 = document.createElement("div");
-explain4.textContent =
-  "In practical applications, Maxwell’s bridge is often used in conjunction with digital instrumentation to improve measurement accuracy. Modern implementations include microcontroller-based bridge circuits capable of automated balancing and real-time data processing. This advancement makes Maxwell’s bridge a versatile tool in contemporary electrical testing and calibration environments. By refining this method, engineers can efficiently characterize inductive components and optimize their performance in diverse electronic and power systems.";
-theory.appendChild(explain4);
-
-
-
-
-// Create and append the YouTube video section
-const videoSection = document.createElement("div");
-const videoDescription = document.createElement("p");
-videoDescription.textContent =
-  "Watch the video below to learn more about Maxwell's Bridge:";
-videoSection.appendChild(videoDescription);
-
-const videoEmbed = document.createElement("div");
-videoEmbed.innerHTML = `
-  <iframe width="437" height="251" src="https://www.youtube.com/embed/wbhWgqoY8U0" title="Maxwell&#39;s LC Bridge | Maxwell&#39;s Inductance Capacitance Bridge for Measurement of Inductance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-videoSection.appendChild(videoEmbed);
-theory.appendChild(videoSection);
-
-main.appendChild(theory);
-
-const diagramsSection = document.createElement("section");
-diagramsSection.className = "diagrams-section";
-const diagramsHeading = document.createElement("h2");
-diagramsHeading.textContent = "DIAGRAMS";
-diagramsSection.appendChild(diagramsHeading);
-
-const diagrams = [{ cap: "CIRCUIT DIAGRAM", image: ee2036 }, { cap: "Figure 2", image: ee2037 }];
-
-diagrams.forEach((diagram) => {
-  const diagramContainer = document.createElement("div");
-  diagramContainer.className = "diagram-container";
-
-  const diagramImage = document.createElement("img");
-  diagramImage.className = "diagram-image";
-  diagramImage.src = diagram.image;
-  diagramImage.alt = diagram.cap;
-
-  const diagramCaption = document.createElement("p");
-  diagramCaption.className = "diagram-caption";
-  diagramCaption.textContent = diagram.cap;
-
-  diagramContainer.appendChild(diagramImage);
-  diagramContainer.appendChild(diagramCaption);
-  diagramsSection.appendChild(diagramContainer);
-});
-
-main.appendChild(diagramsSection);
-
-  // Procedure Section
-  const procedure = document.createElement("section");
-  const procHead = document.createElement("h2");
-  procHead.textContent = "PROCEDURE";
-  procedure.appendChild(procHead);
-
-  const procSteps = [
-    "Connect the bridge from the components as shown in the diagram. R₁, R₂, and R₃ are decade resistance boxes, and C is a decade capacitance box.",
-    "Set R₂ to approximately 100 Ω and R₃ to 1 kΩ.",
-    "Set the function switch to a sine waveform.",
-    "Now you will hear a tone in the headphones. Change C until no tone is heard.",
-    "Balance is indicated when no tone is heard.",
-    "When the bridge is balanced, note the values of R₁, R₂, R₃, and C, and enter these values in the table.",
-    "Use five different values of R₁ and balance the bridge. Enter the values of R₁, R₂, R₃, and C in the table.",
-    "Complete the table and find the average values of Rₓ and Lₓ.",
-  ];
-
-  const procList = document.createElement("ul");
-  procSteps.forEach((step) => {
-    const li = document.createElement("li");
-    li.textContent = step;
-    procList.appendChild(li);
-  });
-  procedure.appendChild(procList);
-
-  // Results Table
-  const resultsTable = document.createElement("table");
-  resultsTable.style.borderCollapse = "collapse";
-  resultsTable.style.width = "100%";
-
-  const thead = document.createElement("thead");
-  const headerRow = document.createElement("tr");
-
-  const headers = ["R₁ (Ω)", "R₂ (Ω)", "R₃ (Ω)", "C (μF)", "Rₓ (Ω)", "Lₓ (H)"];
-  headers.forEach((text) => {
-    const th = document.createElement("th");
-    th.textContent = text;
-    th.style.border = "1px solid black";
-    th.style.padding = "8px";
-    headerRow.appendChild(th);
-  });
-
-  thead.appendChild(headerRow);
-  resultsTable.appendChild(thead);
-
-  const tbody = document.createElement("tbody");
-  const tableData = [
-    [100, 100, 1000, 20, 10, 0.2],
-    [200, 100, 1000, 30, 20, 0.3],
-    [300, 100, 1000, 21, 30, 0.21],
-    [400, 100, 1000, 20, 40, 0.2],
-    [500, 100, 1000, 15, 50, 0.15],
-  ];
-
-  tableData.forEach((row) => {
-    const tr = document.createElement("tr");
-    row.forEach((cell) => {
-      const td = document.createElement("td");
-      td.textContent = cell;
-      td.style.border = "1px solid black";
-      td.style.padding = "8px";
-      tr.appendChild(td);
-    });
-    tbody.appendChild(tr);
-  });
-
-  resultsTable.appendChild(tbody);
-  procedure.appendChild(resultsTable);
-
-  const avgLx = document.createElement("p");
-  avgLx.textContent = "Average value of Inductance Lₓ = (0.2 + 0.3 + 0.21 + 0.2 + 0.15) / 5 = 0.212 H";
-  procedure.appendChild(avgLx);
-
-  const avgRx = document.createElement("p");
-  avgRx.textContent = "Average value of Resistance Rₓ = (10 + 20 + 30 + 40 + 50) / 5 = 30 Ω";
-  procedure.appendChild(avgRx);
-
-  main.appendChild(procedure);
-
-  // Calculations Section
-  const calculations = document.createElement("section");
-  const calcHead = document.createElement("h2");
-  calcHead.textContent = "CALCULATIONS";
-  calculations.appendChild(calcHead);
-
-  const calcFormulas = [
-    "Rₓ = (R₁ × R₂) / R₃",
-    "Lₓ = R₁ × R₂ × C",
-  ];
-
-  const calcList = document.createElement("ul");
-  calcFormulas.forEach((formula) => {
-    const li = document.createElement("li");
-    li.textContent = formula;
-    calcList.appendChild(li);
-  });
-  calculations.appendChild(calcList);
-
-  const calcExample = document.createElement("p");
-  calcExample.innerHTML = `
-    <strong>Example:</strong>
-    <ul>
-      <li>For R₁ = 100 Ω:</li>
-      <ul>
-        <li>Rₓ = (100 × 100) / 1000 = 10 Ω</li>
-        <li>Lₓ = (100 × 100 × 20 × 10⁻⁶) = 0.2 H</li>
-      </ul>
-    </ul>
-  `;
-  calculations.appendChild(calcExample);
-
-  main.appendChild(calculations);
-  const graphSection = document.createElement("section");
-  const graphHead = document.createElement("h2");
-  graphHead.textContent = "GRAPH";
-  graphSection.appendChild(graphHead);
-
-  const graphDesc = document.createElement("p");
-  graphDesc.textContent = "The graph of the table above looks like:";
-  graphSection.appendChild(graphDesc);
-
-  const graphPlot = document.createElement("p");
-  graphPlot.textContent = "Plot Lₓ against Rₓ";
-  graphSection.appendChild(graphPlot);
-
-  const graphImage = document.createElement("img");
-  graphImage.src = ee2038; 
-  graphImage.classList.add("graph-image");
-  graphImage.alt = "Graph of Lₓ vs Rₓ";
-  graphSection.appendChild(graphImage);
-
-  main.appendChild(graphSection);
-  const secondMethod = document.createElement("section");
-  const secondMethodHead = document.createElement("h2");
-  secondMethodHead.textContent = "SECOND METHOD: MEASURING TRANSIENT VOLTAGE AND TIME OF R.L CIRCUIT";
-  secondMethod.appendChild(secondMethodHead);
-
-  const secondMethodAim = document.createElement("h3");
-  secondMethodAim.textContent = "AIM";
-  secondMethod.appendChild(secondMethodAim);
-
-  const secondMethodAimText = document.createElement("p");
-  secondMethodAimText.textContent = "To measure the value of the unknown inductor using transient voltage measurement.";
-  secondMethod.appendChild(secondMethodAimText);
-
-  const secondMethodApparatus = document.createElement("h3");
-  secondMethodApparatus.textContent = "APPARATUS";
-  secondMethod.appendChild(secondMethodApparatus);
-
-  const secondMethodApparatusList = document.createElement("ul");
-  const secondMethodApparatusItems = [
-    "A.F Signal Generator",
-    "Inductor of Unknown Value",
-    "A Resistor of Known Value",
-    "Oscilloscope",
-  ];
-  secondMethodApparatusItems.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    secondMethodApparatusList.appendChild(li);
-  });
-  secondMethod.appendChild(secondMethodApparatusList);
-
-  const secondMethodProcedure = document.createElement("h3");
-  secondMethodProcedure.textContent = "PROCEDURE";
-  secondMethod.appendChild(secondMethodProcedure);
-  
-  const secondMethodSteps = [
-    { step: "Connect the circuit as shown above." },
-    {
-      step: "Make the following settings on the oscilloscope:",
-      subSteps: [
-        "Both channels to 4 volt/cm and CAL.",
-        "Trigger on channel 1.",
-        "Sweep on chop.",
-        "Time base to 1ms/cm and CAP.",
-        "Use internal trigger.",
-        "TRIG LEVEL TO AUTO.",
-        "Horizontal gain to CAL.",
-      ],
-    },
-    {
-      step: "Make the following settings of the oscillator:",
-      subSteps: [
-        "Switch frequency range to 1000Hz on the frequency dial.",
-        "Set input voltage to 5V.",
-        "Set the function switch to square wave.",
-      ],
-    },
-    { step: "Switch on the equipment and make any fine adjustments found necessary." },
-    { step: "Observe the two waveforms now visible on the scope, adjusting the stability control to give a stable picture." },
-    { step: "Superimpose the waves on the screen and sketch their waveform accurately on graph paper." },
-    { step: "Measure the voltage Vᵣ at each time division of the scope and record it in the table." },
-  ];
-  
-  const secondMethodStepList = document.createElement("ul");
-  
-  secondMethodSteps.forEach(({ step, subSteps }) => {
-    const li = document.createElement("li");
-    li.textContent = step;
-  
-    if (subSteps) {
-      const subList = document.createElement("ul");
-      subSteps.forEach(subStep => {
-        const subLi = document.createElement("li");
-        subLi.textContent = subStep;
-        subList.appendChild(subLi);
-      });
-      li.appendChild(subList);
-    }
-  
-    secondMethodStepList.appendChild(li);
-  });
-  
-  secondMethod.appendChild(secondMethodStepList);
-  
-  const secondMethodResults = document.createElement("h3");
-  secondMethodResults.textContent = "TABLE OF RESULTS";
-  secondMethod.appendChild(secondMethodResults);
-
-  const secondMethodTable = document.createElement("table");
-  secondMethodTable.style.borderCollapse = "collapse";
-  secondMethodTable.style.width = "100%";
-
-  const secondMethodThead = document.createElement("thead");
-  const secondMethodHeaderRow = document.createElement("tr");
-
-  const secondMethodHeaders = ["Time (t)", "Vᵣ (V)"];
-  secondMethodHeaders.forEach((text) => {
-    const th = document.createElement("th");
-    th.textContent = text;
-    th.style.border = "1px solid black";
-    th.style.padding = "8px";
-    secondMethodHeaderRow.appendChild(th);
-  });
-
-  secondMethodThead.appendChild(secondMethodHeaderRow);
-  secondMethodTable.appendChild(secondMethodThead);
-
-  const secondMethodTbody = document.createElement("tbody");
-  const secondMethodTableData = [
-    [0, 5],
-    [1, 4.5],
-    [2, 4],
-    [3, 3.5],
-    [4, 3],
-  ];
-
-  secondMethodTableData.forEach((row) => {
-    const tr = document.createElement("tr");
-    row.forEach((cell) => {
-      const td = document.createElement("td");
-      td.textContent = cell;
-      td.style.border = "1px solid black";
-      td.style.padding = "8px";
-      tr.appendChild(td);
-    });
-    secondMethodTbody.appendChild(tr);
-  });
-
-  secondMethodTable.appendChild(secondMethodTbody);
-  secondMethod.appendChild(secondMethodTable);
-
-  const secondMethodCalc = document.createElement("h3");
-  secondMethodCalc.textContent = "CALCULATIONS";
-  secondMethod.appendChild(secondMethodCalc);
-
-  const secondMethodCalcText = document.createElement("p");
-  secondMethodCalcText.textContent = "Lₓ = (R × t) / ln(V / (V − Vᵣ))";
-  secondMethod.appendChild(secondMethodCalcText);
-
-  const secondMethodCalcExamples = document.createElement("p");
-  secondMethodCalcExamples.innerHTML = `
-    <strong>Example Calculations:</strong>
-    <ul>
-      <li>Lₓ = (1000 × 4 × 10⁻⁵) / ln(5 / (5 − 1)) = 0.179 H</li>
-      <li>Lₓ = (1000 × 1 × 10⁻⁵) / ln(5 / (5 − 2)) = 0.196 H</li>
-      <li>Lₓ = (1000 × 2 × 10⁻⁴) / ln(5 / (5 − 3)) = 0.218 H</li>
-      <li>Lₓ = (1000 × 5 × 10⁻⁴) / ln(5 / (5 − 4)) = 0.311 H</li>
-    </ul>
-  `;
-  secondMethod.appendChild(secondMethodCalcExamples);
-
-  const secondMethodGraph = document.createElement("h3");
-  secondMethodGraph.textContent = "GRAPH";
-  secondMethod.appendChild(secondMethodGraph);
-
-  const secondMethodGraphDesc = document.createElement("p");
-  secondMethodGraphDesc.textContent = "Example of how the graph of the table above looks like:";
-  secondMethod.appendChild(secondMethodGraphDesc);
-
-  const secondMethodGraphImage = document.createElement("img");
-  secondMethodGraphImage.src = ee2039; 
-  secondMethodGraphImage.classList.add("graph-image");
-  secondMethodGraphImage.alt = "Graph of Transient Voltage";
-  secondMethod.appendChild(secondMethodGraphImage);
-
-  main.appendChild(secondMethod);
-
-  const precautions = document.createElement("section");
-  const precHead = document.createElement("h2");
-  precHead.textContent = "PRECAUTIONS";
-  precautions.appendChild(precHead);
-
-  const precList = document.createElement("ul");
-  const precItems = [
-    "I avoided error due to parallax when taking the readings.",
-    "I ensured all measuring instruments (voltmeters, ammeters, etc.) were calibrated and in good working condition for accurate measurements.",
-    "Ensure all connections are secure and free from corrosion or oxidation. Loose or poor connections can introduce resistance and affect measurements.",
-    "I ensured that I kept detailed records of all measurements.",
-  ];
-
-  precItems.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    precList.appendChild(li);
-  });
-  precautions.appendChild(precList);
-
-  main.appendChild(precautions);
-
-  // Conclusion Section
-  const conclusion = document.createElement("section");
-  const concHead = document.createElement("h2");
-  concHead.textContent = "CONCLUSION";
-  conclusion.appendChild(concHead);
-
-  const concText = document.createElement("p");
-  concText.textContent =
-    "At the end of this experiment, the values for the inductance in the first method are approximately equal to the values in the second method. Therefore, the experiment was successful in demonstrating the relationship between the transient voltage across the inductor and the inductance value.";
-  conclusion.appendChild(concText);
-
-  main.appendChild(conclusion);
-
-  // References Section
-  const references = document.createElement("section");
-  const refHead = document.createElement("h2");
-  refHead.textContent = "REFERENCES";
-  references.appendChild(refHead);
-
-  const refList = document.createElement("ul");
-  const refItems = [
-    "Electrical Engineering Laboratory Manual by the Department of Electrical Engineering, University of Benin.",
-    "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku.",
-  ];
-
-  refItems.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    refList.appendChild(li);
-  });
-  references.appendChild(refList);
-
-  main.appendChild(references);
-
-  
-  const hover = createHover("#");
-  main.appendChild(hover);
-  const download = createDownload("#");
-  main.appendChild(download);
-};
 
 const displayEE202 = () => {
   const main = reset();
@@ -3731,6 +3190,999 @@ const displayEE202 = () => {
   const download = createDownload("#");
   main.appendChild(download);
 };
+const displayEE203 = () => {
+  const main = reset();
+  const head = document.createElement("h1");
+  head.textContent = "Measurement of Inductance";
+  main.appendChild(head);
+
+  const aim = document.createElement("section");
+  const aimHead = document.createElement("h2");
+  aimHead.textContent = "AIMS";
+  aim.appendChild(aimHead);
+  const aimList = document.createElement("ul");
+  const aims = [
+    "Using Maxwell's Bridge",
+    "Measurement transient voltage and time of R.L circuit ",
+  ];
+  let list2 = [];
+  for (let i = 0; i < aims.length; i++) {
+    list2[i] = document.createElement("li");
+    list2[i].textContent = aims[i];
+    aimList.appendChild(list2[i]);
+  }
+  aim.appendChild(aimList);
+
+  const objective = document.createElement("section");
+  const objHead = document.createElement("h2");
+  objHead.textContent = "OBJECTIVES";
+  objective.appendChild(objHead);
+  const objList = document.createElement("ul");
+  const objectives = [
+    "To find the value of the unknown inductor L and its resistance Rx balancing the bridge.",
+  ];
+  let list = [];
+  for (let i = 0; i < objectives.length; i++) {
+    list[i] = document.createElement("li");
+    list[i].textContent = objectives[i];
+    objList.appendChild(list[i]);
+  }
+  objective.appendChild(objList);
+  main.appendChild(aim);
+  main.appendChild(objective);
+  const appHead = document.createElement("h2");
+  appHead.textContent = "Apparatus";
+  main.appendChild(appHead);
+  const section = document.createElement("section");
+  section.classList.add("appBox");
+  const apparatus = [
+    {
+      cap: "A.F Generator",
+      image: ee2031,
+    },
+    {
+      cap: "Three decade Resistance Boxes",
+      image: ee2032,
+    },
+    {
+      cap: "One Decade Capacitance Boxes",
+      image: ee2033,
+    },
+    {
+      cap: "Headphones",
+      image: ee2034,
+    },
+    {
+      cap: "Inductor of Unknown Valu",
+      image: ee2035,
+    },
+  
+  ];
+  let appBox = [];
+  let appImage = [];
+  let appCaption = [];
+  for (let i = 0; i < apparatus.length; i++) {
+    appBox[i] = document.createElement("div");
+    appImage[i] = document.createElement("img");
+    appCaption[i] = document.createElement("p");
+    appImage[i].src = apparatus[i].image;
+    appCaption[i].textContent = apparatus[i].cap;
+    appBox[i].appendChild(appImage[i]);
+    appBox[i].appendChild(appCaption[i]);
+    section.appendChild(appBox[i]);
+  }
+  main.appendChild(section);
+  const theory = document.createElement("section");
+const theoHead = document.createElement("h2");
+theoHead.textContent = "THEORY";
+theory.appendChild(theoHead);
+
+const explain = document.createElement("div");
+explain.textContent =
+  "Inductance is a fundamental property of electrical circuits that quantifies the ability of a conductor or coil to store energy in a magnetic field when an electric current flows through it. It is an essential principle in electromagnetism and plays a critical role in transformers, inductors, and many AC circuit applications. A conductor’s ability to generate an opposing electromotive force when the current changes is measured in henrys (H), named after Joseph Henry, an American scientist who contributed significantly to the study of electromagnetism.";
+theory.appendChild(explain);
+
+const explain1 = document.createElement("div");
+explain1.textContent =
+  "A Maxwell Bridge is a refinement of the Wheatstone Bridge, specifically designed to measure the self-inductance of an inductor. Unlike direct methods that require a separate power source and oscilloscopes, the Maxwell Bridge provides a simple and effective means of determining an inductor’s value by balancing resistive and capacitive components within a bridge circuit. It operates by setting up an AC bridge network, where impedances are carefully adjusted to bring the system into balance. This bridge network principle is vital in electrical engineering as it allows for accurate measurement of inductance in both laboratory and industrial settings.";
+theory.appendChild(explain1);
+
+const explain2 = document.createElement("div");
+explain2.textContent =
+  "Maxwell’s bridge is especially useful for measuring inductors with significant internal resistance. The circuit consists of four arms in a diamond configuration, where each arm contributes to achieving balance. The goal of the experiment is to adjust the resistive and capacitive components in the circuit until a null detection occurs, meaning there is no voltage difference between the bridge points. At this balance condition, the inductance can be calculated using well-defined mathematical relations. The effectiveness of Maxwell’s bridge lies in its ability to provide accurate and precise inductance values even when dealing with complex inductor materials and coil designs.";
+theory.appendChild(explain2);
+
+const categories = [
+  {
+    title: "Arm AB",
+    text: "This arm contains a known resistor R1, which serves as a reference for determining unknown values in the circuit.",
+    image: "",
+  },
+  {
+    title: "Arm BC",
+    text: "Similar to Arm AB, this branch also contains a known resistor R2, ensuring balance within the bridge circuit.",
+    image: "",
+  },
+  {
+    title: "Arm CD",
+    text: "This arm contains the unknown inductor Lx and a known resistor Rx in series. The presence of Lx introduces an inductive reactance to the circuit, affecting impedance calculations.",
+    image: "",
+  },
+  {
+    title: "Arm DA",
+    text: "This arm includes a variable resistor R3 and a capacitor C3 in series. The capacitor compensates for the inductive nature of the unknown inductor, assisting in balancing the bridge.",
+    image: "",
+  },
+];
+categories.forEach((item) => {
+  theory.appendChild(createDivs(item));
+});
+
+const explain3 = document.createElement("div");
+explain3.textContent =
+  "Transient voltage refers to short-duration voltage spikes or fluctuations in an electrical circuit. These fluctuations can be caused by sudden changes in current, switching operations, or external disturbances such as lightning strikes. Understanding transient voltage is crucial in power system analysis, as it helps engineers design protective measures like surge suppressors and filtering circuits to mitigate their impact. The study of transient voltage is particularly important in ensuring the longevity and reliability of electronic components operating under varying electrical conditions.";
+theory.appendChild(explain3);
+
+const explain4 = document.createElement("div");
+explain4.textContent =
+  "In practical applications, Maxwell’s bridge is often used in conjunction with digital instrumentation to improve measurement accuracy. Modern implementations include microcontroller-based bridge circuits capable of automated balancing and real-time data processing. This advancement makes Maxwell’s bridge a versatile tool in contemporary electrical testing and calibration environments. By refining this method, engineers can efficiently characterize inductive components and optimize their performance in diverse electronic and power systems.";
+theory.appendChild(explain4);
+
+
+
+
+// Create and append the YouTube video section
+const videoSection = document.createElement("div");
+const videoDescription = document.createElement("p");
+videoDescription.textContent =
+  "Watch the video below to learn more about Maxwell's Bridge:";
+videoSection.appendChild(videoDescription);
+
+const videoEmbed = document.createElement("div");
+videoEmbed.innerHTML = `
+  <iframe width="437" height="251" src="https://www.youtube.com/embed/wbhWgqoY8U0" title="Maxwell&#39;s LC Bridge | Maxwell&#39;s Inductance Capacitance Bridge for Measurement of Inductance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+videoSection.appendChild(videoEmbed);
+theory.appendChild(videoSection);
+
+main.appendChild(theory);
+
+const diagramsSection = document.createElement("section");
+diagramsSection.className = "diagrams-section";
+const diagramsHeading = document.createElement("h2");
+diagramsHeading.textContent = "DIAGRAMS";
+diagramsSection.appendChild(diagramsHeading);
+
+const diagrams = [{ cap: "CIRCUIT DIAGRAM", image: ee2036 }, { cap: "Figure 2", image: ee2037 }];
+
+diagrams.forEach((diagram) => {
+  const diagramContainer = document.createElement("div");
+  diagramContainer.className = "diagram-container";
+
+  const diagramImage = document.createElement("img");
+  diagramImage.className = "diagram-image";
+  diagramImage.src = diagram.image;
+  diagramImage.alt = diagram.cap;
+
+  const diagramCaption = document.createElement("p");
+  diagramCaption.className = "diagram-caption";
+  diagramCaption.textContent = diagram.cap;
+
+  diagramContainer.appendChild(diagramImage);
+  diagramContainer.appendChild(diagramCaption);
+  diagramsSection.appendChild(diagramContainer);
+});
+
+main.appendChild(diagramsSection);
+
+  // Procedure Section
+  const procedure = document.createElement("section");
+  const procHead = document.createElement("h2");
+  procHead.textContent = "PROCEDURE";
+  procedure.appendChild(procHead);
+
+  const procSteps = [
+    "Connect the bridge from the components as shown in the diagram. R₁, R₂, and R₃ are decade resistance boxes, and C is a decade capacitance box.",
+    "Set R₂ to approximately 100 Ω and R₃ to 1 kΩ.",
+    "Set the function switch to a sine waveform.",
+    "Now you will hear a tone in the headphones. Change C until no tone is heard.",
+    "Balance is indicated when no tone is heard.",
+    "When the bridge is balanced, note the values of R₁, R₂, R₃, and C, and enter these values in the table.",
+    "Use five different values of R₁ and balance the bridge. Enter the values of R₁, R₂, R₃, and C in the table.",
+    "Complete the table and find the average values of Rₓ and Lₓ.",
+  ];
+
+  const procList = document.createElement("ul");
+  procSteps.forEach((step) => {
+    const li = document.createElement("li");
+    li.textContent = step;
+    procList.appendChild(li);
+  });
+  procedure.appendChild(procList);
+
+  // Results Table
+  const resultsTable = document.createElement("table");
+  resultsTable.style.borderCollapse = "collapse";
+  resultsTable.style.width = "100%";
+
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+
+  const headers = ["R₁ (Ω)", "R₂ (Ω)", "R₃ (Ω)", "C (μF)", "Rₓ (Ω)", "Lₓ (H)"];
+  headers.forEach((text) => {
+    const th = document.createElement("th");
+    th.textContent = text;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow.appendChild(th);
+  });
+
+  thead.appendChild(headerRow);
+  resultsTable.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+  const tableData = [
+    [100, 100, 1000, 20, 10, 0.2],
+    [200, 100, 1000, 30, 20, 0.3],
+    [300, 100, 1000, 21, 30, 0.21],
+    [400, 100, 1000, 20, 40, 0.2],
+    [500, 100, 1000, 15, 50, 0.15],
+  ];
+
+  tableData.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+
+  resultsTable.appendChild(tbody);
+  procedure.appendChild(resultsTable);
+
+  const avgLx = document.createElement("p");
+  avgLx.textContent = "Average value of Inductance Lₓ = (0.2 + 0.3 + 0.21 + 0.2 + 0.15) / 5 = 0.212 H";
+  procedure.appendChild(avgLx);
+
+  const avgRx = document.createElement("p");
+  avgRx.textContent = "Average value of Resistance Rₓ = (10 + 20 + 30 + 40 + 50) / 5 = 30 Ω";
+  procedure.appendChild(avgRx);
+
+  main.appendChild(procedure);
+
+  // Calculations Section
+  const calculations = document.createElement("section");
+  const calcHead = document.createElement("h2");
+  calcHead.textContent = "CALCULATIONS";
+  calculations.appendChild(calcHead);
+
+  const calcFormulas = [
+    "Rₓ = (R₁ × R₂) / R₃",
+    "Lₓ = R₁ × R₂ × C",
+  ];
+
+  const calcList = document.createElement("ul");
+  calcFormulas.forEach((formula) => {
+    const li = document.createElement("li");
+    li.textContent = formula;
+    calcList.appendChild(li);
+  });
+  calculations.appendChild(calcList);
+
+  const calcExample = document.createElement("p");
+  calcExample.innerHTML = `
+    <strong>Example:</strong>
+    <ul>
+      <li>For R₁ = 100 Ω:</li>
+      <ul>
+        <li>Rₓ = (100 × 100) / 1000 = 10 Ω</li>
+        <li>Lₓ = (100 × 100 × 20 × 10⁻⁶) = 0.2 H</li>
+      </ul>
+    </ul>
+  `;
+  calculations.appendChild(calcExample);
+
+  main.appendChild(calculations);
+  const graphSection = document.createElement("section");
+  const graphHead = document.createElement("h2");
+  graphHead.textContent = "GRAPH";
+  graphSection.appendChild(graphHead);
+
+  const graphDesc = document.createElement("p");
+  graphDesc.textContent = "The graph of the table above looks like:";
+  graphSection.appendChild(graphDesc);
+
+  const graphPlot = document.createElement("p");
+  graphPlot.textContent = "Plot Lₓ against Rₓ";
+  graphSection.appendChild(graphPlot);
+
+  const graphImage = document.createElement("img");
+  graphImage.src = ee2038; 
+  graphImage.classList.add("graph-image");
+  graphImage.alt = "Graph of Lₓ vs Rₓ";
+  graphSection.appendChild(graphImage);
+
+  main.appendChild(graphSection);
+  const secondMethod = document.createElement("section");
+  const secondMethodHead = document.createElement("h2");
+  secondMethodHead.textContent = "SECOND METHOD: MEASURING TRANSIENT VOLTAGE AND TIME OF R.L CIRCUIT";
+  secondMethod.appendChild(secondMethodHead);
+
+  const secondMethodAim = document.createElement("h3");
+  secondMethodAim.textContent = "AIM";
+  secondMethod.appendChild(secondMethodAim);
+
+  const secondMethodAimText = document.createElement("p");
+  secondMethodAimText.textContent = "To measure the value of the unknown inductor using transient voltage measurement.";
+  secondMethod.appendChild(secondMethodAimText);
+
+  const secondMethodApparatus = document.createElement("h3");
+  secondMethodApparatus.textContent = "APPARATUS";
+  secondMethod.appendChild(secondMethodApparatus);
+
+  const secondMethodApparatusList = document.createElement("ul");
+  const secondMethodApparatusItems = [
+    "A.F Signal Generator",
+    "Inductor of Unknown Value",
+    "A Resistor of Known Value",
+    "Oscilloscope",
+  ];
+  secondMethodApparatusItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    secondMethodApparatusList.appendChild(li);
+  });
+  secondMethod.appendChild(secondMethodApparatusList);
+
+  const secondMethodProcedure = document.createElement("h3");
+  secondMethodProcedure.textContent = "PROCEDURE";
+  secondMethod.appendChild(secondMethodProcedure);
+  
+  const secondMethodSteps = [
+    { step: "Connect the circuit as shown above." },
+    {
+      step: "Make the following settings on the oscilloscope:",
+      subSteps: [
+        "Both channels to 4 volt/cm and CAL.",
+        "Trigger on channel 1.",
+        "Sweep on chop.",
+        "Time base to 1ms/cm and CAP.",
+        "Use internal trigger.",
+        "TRIG LEVEL TO AUTO.",
+        "Horizontal gain to CAL.",
+      ],
+    },
+    {
+      step: "Make the following settings of the oscillator:",
+      subSteps: [
+        "Switch frequency range to 1000Hz on the frequency dial.",
+        "Set input voltage to 5V.",
+        "Set the function switch to square wave.",
+      ],
+    },
+    { step: "Switch on the equipment and make any fine adjustments found necessary." },
+    { step: "Observe the two waveforms now visible on the scope, adjusting the stability control to give a stable picture." },
+    { step: "Superimpose the waves on the screen and sketch their waveform accurately on graph paper." },
+    { step: "Measure the voltage Vᵣ at each time division of the scope and record it in the table." },
+  ];
+  
+  const secondMethodStepList = document.createElement("ul");
+  
+  secondMethodSteps.forEach(({ step, subSteps }) => {
+    const li = document.createElement("li");
+    li.textContent = step;
+  
+    if (subSteps) {
+      const subList = document.createElement("ul");
+      subSteps.forEach(subStep => {
+        const subLi = document.createElement("li");
+        subLi.textContent = subStep;
+        subList.appendChild(subLi);
+      });
+      li.appendChild(subList);
+    }
+  
+    secondMethodStepList.appendChild(li);
+  });
+  
+  secondMethod.appendChild(secondMethodStepList);
+  
+  const secondMethodResults = document.createElement("h3");
+  secondMethodResults.textContent = "TABLE OF RESULTS";
+  secondMethod.appendChild(secondMethodResults);
+
+  const secondMethodTable = document.createElement("table");
+  secondMethodTable.style.borderCollapse = "collapse";
+  secondMethodTable.style.width = "100%";
+
+  const secondMethodThead = document.createElement("thead");
+  const secondMethodHeaderRow = document.createElement("tr");
+
+  const secondMethodHeaders = ["Time (t)", "Vᵣ (V)"];
+  secondMethodHeaders.forEach((text) => {
+    const th = document.createElement("th");
+    th.textContent = text;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    secondMethodHeaderRow.appendChild(th);
+  });
+
+  secondMethodThead.appendChild(secondMethodHeaderRow);
+  secondMethodTable.appendChild(secondMethodThead);
+
+  const secondMethodTbody = document.createElement("tbody");
+  const secondMethodTableData = [
+    [0, 5],
+    [1, 4.5],
+    [2, 4],
+    [3, 3.5],
+    [4, 3],
+  ];
+
+  secondMethodTableData.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    secondMethodTbody.appendChild(tr);
+  });
+
+  secondMethodTable.appendChild(secondMethodTbody);
+  secondMethod.appendChild(secondMethodTable);
+
+  const secondMethodCalc = document.createElement("h3");
+  secondMethodCalc.textContent = "CALCULATIONS";
+  secondMethod.appendChild(secondMethodCalc);
+
+  const secondMethodCalcText = document.createElement("p");
+  secondMethodCalcText.textContent = "Lₓ = (R × t) / ln(V / (V − Vᵣ))";
+  secondMethod.appendChild(secondMethodCalcText);
+
+  const secondMethodCalcExamples = document.createElement("p");
+  secondMethodCalcExamples.innerHTML = `
+    <strong>Example Calculations:</strong>
+    <ul>
+      <li>Lₓ = (1000 × 4 × 10⁻⁵) / ln(5 / (5 − 1)) = 0.179 H</li>
+      <li>Lₓ = (1000 × 1 × 10⁻⁵) / ln(5 / (5 − 2)) = 0.196 H</li>
+      <li>Lₓ = (1000 × 2 × 10⁻⁴) / ln(5 / (5 − 3)) = 0.218 H</li>
+      <li>Lₓ = (1000 × 5 × 10⁻⁴) / ln(5 / (5 − 4)) = 0.311 H</li>
+    </ul>
+  `;
+  secondMethod.appendChild(secondMethodCalcExamples);
+
+  const secondMethodGraph = document.createElement("h3");
+  secondMethodGraph.textContent = "GRAPH";
+  secondMethod.appendChild(secondMethodGraph);
+
+  const secondMethodGraphDesc = document.createElement("p");
+  secondMethodGraphDesc.textContent = "Example of how the graph of the table above looks like:";
+  secondMethod.appendChild(secondMethodGraphDesc);
+
+  const secondMethodGraphImage = document.createElement("img");
+  secondMethodGraphImage.src = ee2039; 
+  secondMethodGraphImage.classList.add("graph-image");
+  secondMethodGraphImage.alt = "Graph of Transient Voltage";
+  secondMethod.appendChild(secondMethodGraphImage);
+
+  main.appendChild(secondMethod);
+
+  const precautions = document.createElement("section");
+  const precHead = document.createElement("h2");
+  precHead.textContent = "PRECAUTIONS";
+  precautions.appendChild(precHead);
+
+  const precList = document.createElement("ul");
+  const precItems = [
+    "I avoided error due to parallax when taking the readings.",
+    "I ensured all measuring instruments (voltmeters, ammeters, etc.) were calibrated and in good working condition for accurate measurements.",
+    "Ensure all connections are secure and free from corrosion or oxidation. Loose or poor connections can introduce resistance and affect measurements.",
+    "I ensured that I kept detailed records of all measurements.",
+  ];
+
+  precItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    precList.appendChild(li);
+  });
+  precautions.appendChild(precList);
+
+  main.appendChild(precautions);
+
+  // Conclusion Section
+  const conclusion = document.createElement("section");
+  const concHead = document.createElement("h2");
+  concHead.textContent = "CONCLUSION";
+  conclusion.appendChild(concHead);
+
+  const concText = document.createElement("p");
+  concText.textContent =
+    "At the end of this experiment, the values for the inductance in the first method are approximately equal to the values in the second method. Therefore, the experiment was successful in demonstrating the relationship between the transient voltage across the inductor and the inductance value.";
+  conclusion.appendChild(concText);
+
+  main.appendChild(conclusion);
+
+  // References Section
+  const references = document.createElement("section");
+  const refHead = document.createElement("h2");
+  refHead.textContent = "REFERENCES";
+  references.appendChild(refHead);
+
+  const refList = document.createElement("ul");
+  const refItems = [
+    "Electrical Engineering Laboratory Manual by the Department of Electrical Engineering, University of Benin.",
+    "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku.",
+  ];
+
+  refItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    refList.appendChild(li);
+  });
+  references.appendChild(refList);
+
+  main.appendChild(references);
+
+  
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
+};
+
+
+const displayEE204 = () => {
+  const main = reset();
+
+   const titleSection = document.createElement("section");
+   const titleHead = document.createElement("h1");
+   titleHead.textContent = "VERIFICATION OF NETWORK THEOREMS";
+   titleSection.appendChild(titleHead);
+ 
+
+ 
+   main.appendChild(titleSection);
+ 
+   const aimSection = document.createElement("section");
+   const aimHead = document.createElement("h2");
+   aimHead.textContent = "AIM";
+   aimSection.appendChild(aimHead);
+ 
+   const aimList = document.createElement("ul");
+   const aims = [
+     "To verify Superposition Theorem using resistance circuit (204.A).",
+     "To verify Thevenin's Theorem using resistance circuit (204.B).",
+   ];
+   aims.forEach((item) => {
+     const li = document.createElement("li");
+     li.textContent = item;
+     aimList.appendChild(li);
+   });
+   aimSection.appendChild(aimList);
+ 
+   main.appendChild(aimSection);
+ 
+   const objectivesSection = document.createElement("section");
+   const objHead = document.createElement("h2");
+   objHead.textContent = "OBJECTIVES";
+   objectivesSection.appendChild(objHead);
+ 
+   const objList = document.createElement("ul");
+   const objectives = [
+     "To demonstrate that the total response of a circuit with multiple input sources is the sum of the individual responses to each source acting alone.",
+     "To determine the Thevenin equivalent circuit parameters (Thevenin voltage and Thevenin resistance) of a given network and verify that the equivalent circuit accurately represents the original network.",
+     "To practicalize applying the principles of superposition and Thevenin's theorem to analyze and solve complex circuits.",
+     "To develop the ability of simplifying circuits using these theorems, which can be useful in various applications such as power systems, electronic circuits, and communication networks.",
+   ];
+   objectives.forEach((item) => {
+     const li = document.createElement("li");
+     li.textContent = item;
+     objList.appendChild(li);
+   });
+   objectivesSection.appendChild(objList);
+ 
+   main.appendChild(objectivesSection);
+ 
+   const appHead = document.createElement("h2");
+   appHead.textContent = "Apparatus";
+   main.appendChild(appHead);
+   const section = document.createElement("section");
+   section.classList.add("appBox");
+   const apparatus = [
+     {
+       cap: "D.C Power Sources (2 - No)",
+       image: ee2041,
+     },
+     {
+       cap: "Decade Resistance Boxes (4 - No)",
+       image: ee2032,
+     },
+     {
+       cap: "AVO Meter (1 - No)",
+       image: ee2042,
+     },
+     {
+       cap: "Male-Male Connecting Wires",
+       image: ee2043,
+     },
+     {
+       cap: "Oscilloscope (Optional)",
+       image: ee2051,
+     },
+   
+   ];
+   let appBox = [];
+   let appImage = [];
+   let appCaption = [];
+   for (let i = 0; i < apparatus.length; i++) {
+     appBox[i] = document.createElement("div");
+     appImage[i] = document.createElement("img");
+     appCaption[i] = document.createElement("p");
+     appImage[i].src = apparatus[i].image;
+     appCaption[i].textContent = apparatus[i].cap;
+     appBox[i].appendChild(appImage[i]);
+     appBox[i].appendChild(appCaption[i]);
+     section.appendChild(appBox[i]);
+   }
+   main.appendChild(section);
+
+   const theorySection = document.createElement("section");
+   const theoryHead = document.createElement("h2");
+   theoryHead.textContent = "204.A: SUPERPOSITION THEOREM - THEORY";
+   theorySection.appendChild(theoryHead);
+ 
+   const theoryIntro = document.createElement("p");
+   theoryIntro.innerHTML = `
+     Without electrical circuits, modern technology would not exist. In fact, the whole pursuit of electrical engineering largely dies off, becoming almost a vacuum—to say the least, electrical circuits are all around us, and life as we know it is impossible without them. We have Ohm's Law (for relating the voltage and current of circuits, and therein uncovered the concept of resistance) and Kirchhoff's Laws at our disposal when we are about to construct a desired circuit or analyze a prototype, ascertaining whether it meets design/application requirements. However, as circuits become more intricate, complex, and advanced, using these basic laws alone introduces a lot more problems than it is able to solve. Using only Ohm's Law or Kirchhoff's Laws makes calculations more tedious and error-prone in multi-source or large-scale systems. There has to be another solution that builds on what is on the ground so that unnecessary complexity and inaccurate results can be avoided.
+     <br><br>
+     The additional set of principles used to navigate these major problems are called <strong>Network Theorems</strong>. <strong>Network theorems</strong>, a set of foundational principles in electrical engineering, are used for simplifying and analyzing such circuits, allowing engineers to break down complex systems into manageable components. Electric circuit theorems are always beneficial to help find voltage and currents in multi-loop circuits. These theorems use fundamental rules or formulas and basic equations of mathematics to analyze basic components of electrical or electronics parameters such as voltages, currents, resistance, and so on. These fundamental theorems include the basic theorems like Superposition theorem, Tellegen's theorem, Norton's theorem, Maximum power transfer theorem, and Thevenin's theorems. Another group of network theorems that are mostly used in the circuit analysis process includes the Compensation theorem, Substitution theorem, Reciprocity theorem, Millman's theorem, and Miller's theorem.
+     <br><br>
+     The central purpose of this investigation is to use a resistance circuit to verify some of these network theorems, namely Superposition and Thevenin's theorems. Exploring the practical applications and step-by-step methodologies of the <strong>Superposition Theorem</strong> and <strong>Thevenin's Theorem</strong>, this experiment aims to address the challenges of analyzing circuits with multiple independent sources and to simplify complex networks into equivalent circuits for easier computation. By mastering these theorems, one can efficiently solve for key circuit parameters, such as currents and voltages across components, in both theoretical and real-world scenarios.
+   `;
+   theorySection.appendChild(theoryIntro);
+ 
+   const physicalExplanation = document.createElement("h3");
+   physicalExplanation.textContent = "Physical Explanation of Phenomena";
+   theorySection.appendChild(physicalExplanation);
+ 
+   const physicalText = document.createElement("p");
+   physicalText.innerHTML = `
+     The study of electrical circuits emanates from the foundational principles of electromagnetism and circuit theory. At its core, two key phenomena are explored in circuit analysis: the behavior of current and voltage in response to various sources and the interaction of circuit elements such as resistors, capacitors, and inductors. These are the interactions that predict how circuits will perform under different physical constraints; an in-depth & practical knowledge of which is indispensable to the engineering practice.
+     <br><br>
+     The <strong>Superposition Theorem</strong> states that in a linear circuit with multiple independent sources, the total current or voltage at any point in the circuit can be determined by summing the contributions from each of the other independent sources. This theorem <strong>relies on the linearity of the circuit components, which means that the response (current or voltage) is directly proportional to the input (source)</strong>.
+     <br><br>
+     The strategy used in the superposition theorem is to eliminate all but one source of power within a network at a time. Then, we use series and parallel circuit analysis techniques to determine voltage drops and currents within the modified network for each power source separately.
+     <br><br>
+     This process is then repeated sequentially by individually evaluating the circuit for every voltage and current source in the system. After each individual analysis has been completed, the voltage and current values are all "superimposed" on top of each other (added algebraically) to find the actual voltage drops and currents with all sources active.
+     <br><br>
+     <strong>Thevenin's Theorem</strong> is an analytical method used to change a complex circuit into a simple equivalent circuit consisting of a single resistance in series with a source voltage. This theorem is based on the idea that any linear bilateral network can be represented as an equivalent circuit; a good method when analyzing circuits with varying load conditions.
+     <br><br>
+     <strong>Thevenin's Theorem</strong> states that <em>"Any linear circuit containing several voltages and resistances can be replaced by just one single voltage in series with a single resistance connected across the load"</em>. In other words, it is possible to simplify any electrical circuit, no matter how complex, to an equivalent two-terminal circuit with just a single constant voltage source in series with a resistance (or impedance) connected to a load as shown below.
+     <br><br>
+     The limitations of Thevenin's theorem are similar to that of the Superposition Principle.
+   `;
+   theorySection.appendChild(physicalText);
+ 
+   const governingEquations = document.createElement("h3");
+   governingEquations.textContent = "Governing Equations";
+   theorySection.appendChild(governingEquations);
+ 
+   const equationsText = document.createElement("p");
+   equationsText.innerHTML = `
+     We can derive the governing equations for both the Superposition and Thevenin's Theorems to mathematically prove the analysis.
+     <br><br>
+     <strong>1. Superposition Theorem:</strong>
+     <ul>
+       <li>For a circuit with multiple sources, the total current Iₜ through a branch can be expressed as:</li>
+       <li><strong>Iₜ = I₁ + I₂ + ... + Iₙ</strong></li>
+       <li>Each I is calculated by activating one source at a time while deactivating all others (replacing voltage sources with short circuits and current sources with open circuits).</li>
+     </ul>
+     <br>
+     <strong>2. Thevenin's Theorem:</strong>
+     <ul>
+       <li>The Thevenin equivalent voltage <strong>Vₜₕ</strong> is determined by calculating the open-circuit voltage across the terminals of interest:</li>
+       <li><strong>Vₜₕ = Vₒₖ</strong></li>
+       <li>The Thevenin equivalent resistance <strong>Rₜₕ</strong> is found by deactivating all independent sources and calculating the equivalent resistance seen from the terminals:</li>
+       <li><strong>Rₜₕ = Rₑₖ</strong></li>
+     </ul>
+     <br>
+     These equations are derived under the assumption that the circuit is linear and bilateral, meaning that the relationships between voltage and current are a direct variation and the circuit behaves the same regardless of the direction of current flow.
+   `;
+   theorySection.appendChild(equationsText);
+ 
+   const computerSimulation = document.createElement("h3");
+   computerSimulation.textContent = "Computer Simulation";
+   theorySection.appendChild(computerSimulation);
+ 
+   const simulationText = document.createElement("p");
+   simulationText.innerHTML = `
+     To validate the theoretical analysis, numerical simulations can be employed using software tools such as SPICE or MATLAB. The governing equations can be implemented in these tools to model the circuit behavior under various conditions.
+     <br><br>
+     <strong>Initial and Boundary Conditions:</strong> For simulations, initial conditions may include setting all voltages and currents to zero before applying the sources. Boundary conditions will depend on the specific circuit configuration and the sources used.
+     <br><br>
+     <strong>Numerical Parameters:</strong> When integrating differential equations that may arise in circuit analysis (e.g., in RLC circuits), the step size for numerical integration should be chosen carefully to ensure stability and accuracy. A common approach is to use a small time step, such as <strong>Δt = 0.01</strong> seconds, to capture the transient behavior of the circuit accurately.
+     <br><br>
+     By connecting the theoretical equations to numerical simulations, engineers can predict circuit behavior under various scenarios, enhancing their understanding and ability to design effective electrical systems.
+   `;
+   theorySection.appendChild(simulationText);
+ 
+   const theoryConclusion = document.createElement("h3");
+   theoryConclusion.textContent = "Conclusion";
+   theorySection.appendChild(theoryConclusion);
+ 
+   const conclusionText = document.createElement("p");
+   conclusionText.textContent = `
+     The theoretical analysis of network theorems, particularly the Superposition and Thevenin's Theorems, provides a firm foundation for understanding and analyzing electrical circuits. By combining physical explanations, governing equations, and computer simulations, engineers can effectively tackle complex circuit designs and analyses.
+   `;
+   theorySection.appendChild(conclusionText);
+ 
+   main.appendChild(theorySection);
+ 
+   // Diagrams Section
+   const diagramsSection = document.createElement("section");
+   const diagramsHead = document.createElement("h2");
+   diagramsHead.textContent = "DIAGRAMS";
+   diagramsSection.appendChild(diagramsHead);
+ 
+   const diagramImage = document.createElement("img");
+   diagramImage.src = ee2044;
+   diagramImage.alt = "Circuit Diagram for Experiment EE 204";
+   diagramImage.style.width = "100%";
+   diagramImage.style.maxWidth = "650px";
+   diagramsSection.appendChild(diagramImage);
+ 
+   main.appendChild(diagramsSection);
+ 
+
+  // Procedure Section (204.A: Superposition Theorem)
+  const procedureA = document.createElement("section");
+  const procAHead = document.createElement("h2");
+  procAHead.textContent = "204.A: SUPERPOSITION THEOREM - PROCEDURE";
+  procedureA.appendChild(procAHead);
+
+  const procASteps = [
+    "All measurements must be recorded on Table 204.1.",
+    "Use the Avometer (Set D.C. 10V range) for all voltage measurements.",
+    "Connect mains to the d.c. voltage sources E₁ and E₂ and switch ON.",
+    "Using the voltage adjust controls, set the d.c. output voltage of E₁ and E₂ to 6V (no-load or open-circuit value).",
+    "Switch off mains to the d.c. sources and connect the decade resistors R₁, R₂, and R₃ and the d.c. sources E₁ and E₂ as per the circuit diagram of Fig. 204.1 (note the polarities of the sources).",
+    "Select resistance values between 10-100 ohms for R₁ + R₂ and R₃ and switch ON mains (recheck the circuit).",
+    "Measure the e.m.f across the terminals of the d.c. source E₁ and E₂, record as V₁ and V₂ respectively.",
+    "Note: Since voltage is a vector quantity, it is important you also note the direction of V₁ and V₂ and use those as your reference (+) direction for subsequent measurements.",
+    "Measure the voltages (i.e. potential differences) across R₁, R₂, and R₃ and record.",
+    "Disconnect the d.c. source E₁ from the circuit and short-circuit terminals A-B (make sketch of resultant circuit and use space A).",
+    "Note: Where the voltage direction has changed from the direction in (6), record it as a negative (-) value.",
+    "Measure voltage (d.c.) across R₁, R₂, and R₃ and record.",
+    "Reconnect the d.c. source E₁ into the circuit and disconnect source E₂; short-circuit the resultant circuit (figure Space A).",
+    "Measure voltages V₁, V₂, and V₃ across R₁, R₂, and R₃ respectively and record.",
+    "Switch off all mains supply to E₁ and E₂.",
+  ];
+
+  const procAList = document.createElement("ol");
+  procASteps.forEach((step) => {
+    const li = document.createElement("li");
+    li.textContent = step;
+    procAList.appendChild(li);
+  });
+  procedureA.appendChild(procAList);
+
+  main.appendChild(procedureA);
+
+  // Procedure Section (204.B: Thevenin's Theorem)
+  const procedureB = document.createElement("section");
+  const procBHead = document.createElement("h2");
+  procBHead.textContent = "204.B: THEVENIN'S THEOREM - PROCEDURE";
+  procedureB.appendChild(procBHead);
+
+  const procBSteps = [
+    "Read through each procedure step before acting.",
+    "All measurements must be recorded in Table T.1.",
+    "Use the Avometer (Set D.C. 10V range) for all voltage and current measurements.",
+    "Connect mains to the d.c. voltage source EE and switch ON.",
+    "Using the voltage adjust controls, set the d.c. output voltage of EE to 6V (no-load or open-circuit value).",
+    "Connect the circuit as shown in Fig. T.1, including the voltage source EE, the resistors R₁, R₂, and the load resistor Rₗ.",
+    "Measure and record the open-circuit voltage across the terminals AA-BB (i.e., across Rₗ) as Vₜₕ.",
+    "Disconnect Rₗ from the circuit.",
+    "Measure the equivalent resistance of the circuit as seen from terminals AA-BB. To do this:",
+    "  - Switch off the voltage source EE and replace it with its internal resistance (short circuit if the source is ideal).",
+    "  - Measure the equivalent resistance across terminals AA-BB using the Avometer and record this as Rₜₕ.",
+    "Reconnect Rₗ to the circuit.",
+    "Measure the voltage across Rₗ and the current through Rₗ, recording them as Vₗ and Iₗ respectively.",
+    "Verify Iₗ using Iₗ = Vₜₕ / (Rₜₕ + Rₗ).",
+    "Switch off all mains supply to the voltage source EE.",
+  ];
+
+  const procBList = document.createElement("ol");
+  procBSteps.forEach((step) => {
+    const li = document.createElement("li");
+    li.textContent = step;
+    procBList.appendChild(li);
+  });
+  procedureB.appendChild(procBList);
+
+  main.appendChild(procedureB);
+
+  // Results/Table of Values Section
+  const results = document.createElement("section");
+  const resultsHead = document.createElement("h2");
+  resultsHead.textContent = "RESULTS/TABLE OF VALUES";
+  results.appendChild(resultsHead);
+
+  const resultsTable = document.createElement("table");
+  resultsTable.style.borderCollapse = "collapse";
+  resultsTable.style.width = "100%";
+
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+
+  const headers = ["Circuit Condition", "V₁ (V)", "V₂ (V)", "V₃ (V)", "I₁ (A)", "I₂ (A)", "I₃ (A)"];
+  headers.forEach((text) => {
+    const th = document.createElement("th");
+    th.textContent = text;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow.appendChild(th);
+  });
+
+  thead.appendChild(headerRow);
+  resultsTable.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+  const tableData = [
+    ["E₁ & E₂", "-2", "2", "4", "-0.07", "0.07", "0.13"],
+    ["E₁ alone", "2", "4", "2", "0.07", "0.13", "0.07"],
+    ["E₂ alone", "-4", "-2", "2", "-0.13", "-0.07", "0.07"],
+  ];
+
+  tableData.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+
+  resultsTable.appendChild(tbody);
+  results.appendChild(resultsTable);
+
+  const resultsNote = document.createElement("p");
+  resultsNote.textContent = "Note: Voltage and current values are recorded for different circuit conditions.";
+  results.appendChild(resultsNote);
+
+  main.appendChild(results);
+
+  // Calculations/Analysis Section
+  const calculations = document.createElement("section");
+  const calcHead = document.createElement("h2");
+  calcHead.textContent = "CALCULATIONS/ANALYSIS";
+  calculations.appendChild(calcHead);
+
+  const calcText = document.createElement("p");
+  calcText.innerHTML = `
+    <strong>Voltage Response:</strong>
+    <ul>
+      <li>V₁ₐ = V₁₆ + V₁ₐ = -4V + 2V = -2V</li>
+      <li>V₂ₐ = V₂₆ + V₂ₐ = -2V + 4V = 2V</li>
+      <li>V₃ₐ = V₃₆ + V₃ₐ = 2V + 2V = 4V</li>
+    </ul>
+    <strong>Current Response:</strong>
+    <ul>
+      <li>I₁ₐ = I₁₆ + I₁ₐ = -0.13A + 0.07A = -0.06A</li>
+      <li>I₂ₐ = I₂₆ + I₂ₐ = -0.07A + 0.13A = 0.06A</li>
+      <li>I₃ₐ = I₃₆ + I₃ₐ = 0.07A + 0.07A = 0.14A</li>
+    </ul>
+  `;
+  calculations.appendChild(calcText);
+
+  main.appendChild(calculations);
+
+  // Conclusion Section
+  const conclusion = document.createElement("section");
+  const concHead = document.createElement("h2");
+  concHead.textContent = "CONCLUSION";
+  conclusion.appendChild(concHead);
+
+  const concText = document.createElement("p");
+  concText.innerHTML = `
+    In this experiment, we applied and verified two fundamental network theorems—Superposition Theorem and Thevenin's Theorem—in the analysis of electrical circuits. By performing hands-on calculations, simulations, and measurements, we gained a deeper understanding of these theorems, their practical applications, and their importance in simplifying complex electrical networks.
+    <br><br>
+    <strong>Summary of Key Learning Outcomes:</strong>
+    <ul>
+      <li><strong>Superposition Theorem:</strong> It was demonstrated that in a linear circuit with multiple independent sources, the total response (voltage or current) can be determined by summing the effects of each individual source, with all other sources turned off (replaced by their internal impedance).</li>
+      <li><strong>Thevenin's Theorem:</strong> It was learned how to simplify a complex linear circuit into an equivalent circuit consisting of a single voltage source (Thevenin voltage) and a single series resistance (Thevenin resistance), as seen from the load terminals.</li>
+      <li><strong>Practical Circuit Analysis:</strong> The experiment reinforced the importance of these theorems in analyzing and simplifying circuits, particularly in situations where individual components, such as loads, need to be analyzed or replaced.</li>
+    </ul>
+    <br>
+    <strong>Practical Skills Acquired:</strong>
+    <ul>
+      <li><strong>Circuit Analysis Techniques:</strong> Developed proficiency in applying systematic methods for network theorem calculations, including turning off sources for superposition and determining open-circuit voltage and equivalent resistance for Thevenin.</li>
+      <li><strong>Measurement Techniques:</strong> Gained experience using tools such as multimeters and oscilloscopes to measure voltages and currents, and verify theoretical predictions.</li>
+      <li><strong>Simulation and Validation:</strong> Used circuit simulation software (such as LTspice, Multisim, or equivalent) to validate experimental results and compare them with theoretical calculations.</li>
+    </ul>
+    <br>
+    <strong>Future Applications:</strong>
+    The Superposition and Thevenin theorems are integral in the design and analysis of electrical and electronic systems. These theorems are particularly useful in simplifying circuits for troubleshooting, designing power systems, and optimizing circuit performance. The practical understanding gained from this experiment will be crucial in addressing real-world challenges requiring such skillset, for example, designing efficient power delivery systems for residential areas.
+    <br><br>
+    In conclusion, this experiment provided hands-on experience in applying two cornerstone network theorems. By bridging theory and practice, this experiment has formed a strong foundation for more advanced studies in circuit theory and electrical engineering.
+  `;
+  conclusion.appendChild(concText);
+
+  main.appendChild(conclusion);
+
+  // Precautions Section
+  const precautions = document.createElement("section");
+  const precHead = document.createElement("h2");
+  precHead.textContent = "PRECAUTIONS";
+  precautions.appendChild(precHead);
+
+  const precList = document.createElement("ul");
+  const precItems = [
+    "All circuit connections were double-checked before powering on the circuit to ensure there are no loose or incorrect connections that could cause short circuits or damage components.",
+    "Switched off the power supply when adding, removing, or changing components in the circuit to avoid electric shocks or damage to the equipment.",
+    "Ensured that all components, such as resistors, are rated to handle the applied voltage and current to prevent component failure or overheating.",
+    "Confirmed the correct polarity of power supplies (positive and negative terminals) to avoid reverse polarity issues that could damage the circuit or components.",
+    "Handled the resistors, wires, and other components carefully to avoid damaging them or introducing errors due to poor connections.",
+    "Properly used the correct range on multimeters and oscilloscopes when measuring voltage, current, or resistance to prevent instrument damage or inaccurate readings.",
+    "Ensured the power supply and measuring equipment are not overloaded beyond their specified limits to avoid equipment failure.",
+    "Ensured that the circuit and power supply are properly grounded to avoid noise interference or potential electrical hazards.",
+    "Measured the values before assembling the circuit, of resistors and other components with a multimeter to ensure they match the design specifications.",
+    "Performed the experiment on a clean, dry, and non-conductive surface to avoid accidental short circuits or electrical hazards.",
+    "Clearly labeled nodes and components to avoid confusion and ensure accurate assembly and analysis.",
+    "Avoided contact with live circuits to prevent electric shocks.",
+    "Ensured the simulated results align with theoretical expectations to avoid mistakes in the physical circuit.",
+    "Ensured that all measuring instruments, such as multimeters and oscilloscopes, are properly calibrated before use for accurate measurements.",
+    "Recorded all measurements and observations during the experiment in real time to avoid forgetting or misinterpreting results later.",
+  ];
+
+  precItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    precList.appendChild(li);
+  });
+  precautions.appendChild(precList);
+
+  main.appendChild(precautions);
+
+  // References Section
+  const references = document.createElement("section");
+  const refHead = document.createElement("h2");
+  refHead.textContent = "REFERENCES";
+  references.appendChild(refHead);
+
+  const refList = document.createElement("ul");
+  const refItems = [
+    "Alexander, C. K., & Sadiku, M. N. O. (2017). Fundamentals of electric circuits (6th ed.). McGraw-Hill Education.",
+    "Hayt, W. H., & Kemmerly, J. E. (2018). Engineering circuit analysis (8th ed.). McGraw-Hill Education.",
+    "Nilsson, J. W., & Riedel, S. A. (2019). Electric circuits (11th ed.). Pearson.",
+    "All About Circuits. (2022, August 5). Superposition theorem explained. All About Circuits. https://www.allaboutcircuits.com/textbook/direct-current/chpt-6/superposition-theorem/",
+    "Smith, J. (2023, April 10). Understanding Thevenin's theorem in electrical circuits. Electronics Tutorials. https://www.electronicstutorials.com/thevenins-theorem/",
+  ];
+
+  refItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    refList.appendChild(li);
+  });
+  references.appendChild(refList);
+
+  main.appendChild(references);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
+};
+
 
 export {
   displayStarted,
@@ -3741,4 +4193,5 @@ export {
   displayEE203,
   displayEE201,
   displayEE208,
+  displayEE204
 };
