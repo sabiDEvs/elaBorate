@@ -462,6 +462,9 @@ h2 {
   }
 
   .container-achieve {
+    position: relative;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
   }
 
@@ -471,7 +474,10 @@ h2 {
   }
 
   .div-text-achieve h2 {
+    position: absolute;
     font-size: 1.5rem;
+    top: 15%;
+    left: 50%;
   }
 
   /* Navigate section */
