@@ -39,6 +39,14 @@ import ee2023 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/3.png';
 import ee2024 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/4.png';
 
 import ee2025 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/5.png';
+import ee2081 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig1.png';
+import ee2082 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig2.png';
+import ee2083 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig3.png';
+import ee2084 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig4.png';
+import ee2085 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig5.png';
+import ee2086 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig6.png';
+import ee2087 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig7.png';
+
 
 import ee2011 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/1.png';
 import ee2013 from '../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/2.png';
@@ -831,32 +839,32 @@ The approach used throughout the experiment simple and straightforward -
   `;
   main.appendChild(theorySection);
 
-  // ======================== DIAGRAMS SECTION ========================
+  const images = [ee2081, ee2082, ee2083, ee2084, ee2085, ee2086, ee2087];
+
   const diagramsSection = document.createElement("section");
   diagramsSection.innerHTML = `
-    <h2>DIAGRAMS</h2>
-    <div class="diagram-grid">
-      ${Array.from({length: 7}, (_, i) => `
-        <div class="diagram-item">
-          <img src="media/image${i+1}.${i<5 ? 'jpg' : 'png'}" 
-               alt="Figure ${i+1}" 
-               style="width: ${i === 0 ? '4.166in' : i === 4 ? '5.333in' : '6.5in'};">
-          <p>Fig ${i+1}: ${[
-            'DC Shunt Motor',
-            'DC Shunt Motor Schematics',
-            'Electric Machine Trainer',
-            'DC Power Supply',
-            'Variable Resistor',
-            'Analog Hand Tachometer',
-            'Hand Tachometer'
-          ][i]}</p>
+     <h2>DIAGRAMS</h2>
+  <div class="diagram-grid">
+    ${images.map((img, i) => `
+      <div class="diagram-item">
+        <img src="${img}" 
+             alt="Figure ${i + 1}" 
+             style="width: ${i === 0 ? '4.166in' : i === 4 ? '5.333in' : '6.5in'};">
+        <p>Fig ${i + 1}: ${[
+          'DC Shunt Motor',
+          'DC Shunt Motor Schematics',
+          'Electric Machine Trainer',
+          'DC Power Supply',
+          'Variable Resistor',
+          'Analog Hand Tachometer',
+          'Hand Tachometer',
+          'Additional Diagram'
+        ][i]}</p>
         </div>
       `).join('')}
     </div>
   `;
   main.appendChild(diagramsSection);
-
-  // ======================== PROCEDURE SECTION ========================
   const procedureSection = document.createElement("section");
   procedureSection.innerHTML = `
     <h2>PROCEDURE</h2>
@@ -875,7 +883,7 @@ The approach used throughout the experiment simple and straightforward -
           <li>Speed vs. Torque (N vs. T)</li>
         </ul>
       </li>
-      <li>Calculate efficiency at each step:
+      <li>Calculate the motor's efficiency at each load step using the input and output power equations.
         <div class="equation">
           η = (P<sub>out</sub>/P<sub>in</sub>) × 100%<br>
           Where:<br>
@@ -887,10 +895,11 @@ The approach used throughout the experiment simple and straightforward -
   `;
   main.appendChild(procedureSection);
 
-  // ======================== RESULTS SECTION ========================
+ 
   const resultsSection = document.createElement("section");
   resultsSection.innerHTML = `
     <h2>RESULTS/TABLE OF VALUES</h2>
+    <p class="table-disclaimer">Note: These are placeholder or test values not the actual values used during the experiment. This is just to show an example of what to expect. Take down the readings and parameters obtained from the experiment and record them as your table of values</p>
     <table class="results-table">
       <tr>
         <th rowspan="2">Parameter</th>
@@ -914,113 +923,226 @@ The approach used throughout the experiment simple and straightforward -
   const questionsSection = document.createElement("section");
   questionsSection.innerHTML = `
     <h2>QUESTIONS</h2>
-    <div class="question">
-      <h3>1. Speed-torque characteristic of DC motor</h3>
-      <p>Answer includes:</p>
-      <ul>
-        <li>Linear relationship: N ∝ (V - I<sub>a</sub>R<sub>a</sub>)/φ</li>
-        <li>Ideal no-load speed: N<sub>0</sub> = V/φ</li>
-        <li>Effects of:
-          <ol type="a">
-            <li>R<sub>c</sub>: Steeper speed drop</li>
-            <li>I<sub>f</sub>: Inverse relationship with speed</li>
-            <li>V: Direct proportionality</li>
-          </ol>
-        </li>
-      </ul>
+    <div class="question">1. What is the nature of the speed-torque characteristic of a D.C. motor with constant excitation?</div>
+    <div class="answer">
+        The speed-torque characteristic of a D.C. motor with constant excitation describes the relationship between speed (N) and torque (T). For a D.C. shunt motor:
+        <ul>
+            <li>The relationship is generally linear.</li>
+            <li>As load torque increases, speed decreases slightly due to armature resistance voltage drop.</li>
+            <li>The motor maintains a nearly constant speed under varying loads.</li>
+        </ul>
+        <p>The speed-torque characteristic is mathematically expressed as:</p>
+        <p><strong>N ∝ (V − IaRa) / ϕ</strong></p>
+        <p>where:</p>
+        <ul>
+            <li>V = Supply voltage</li>
+            <li>Ia = Armature current</li>
+            <li>Ra = Armature resistance</li>
+            <li>ϕ = Magnetic flux (constant in a shunt motor)</li>
+        </ul>
     </div>
 
-    <div class="question">
-      <h3>2. Mechanical power losses</h3>
-      <table class="losses-table">
-        <tr><th>Loss Type</th><th>Components</th></tr>
-        <tr><td>Copper Losses</td><td>I<sub>a</sub>²R<sub>a</sub>, I<sub>f</sub>²R<sub>f</sub></td></tr>
-        <tr><td>Iron Losses</td><td>Hysteresis, Eddy currents</td></tr>
-        <tr><td>Mechanical</td><td>Friction, Windage</td></tr>
-        <tr><td>Stray</td><td>Armature reaction, Current distribution</td></tr>
-      </table>
+    <h3>Additional Considerations:</h3>
+
+    <div class="subsection">
+        <h4>(a) Ideal No-Load Speed</h4>
+        <p>The ideal no-load speed is the speed at which the motor runs with no mechanical load (T = 0). It is determined by:</p>
+        <p><strong>N_no-load = V / ϕ</strong></p>
+        <p>For a shunt motor, the no-load speed is high but finite due to small friction and windage losses.</p>
+
+        <h3>(b) Speed-Torque Characteristics for Different Values:</h3>
+
+        <h5>(i) Armature Resistance (Rc)</h5>
+        <p>Increasing Rc leads to:</p>
+        <ul>
+            <li>Higher voltage drop (IaRc).</li>
+            <li>Steeper speed reduction as load torque increases.</li>
+            <li>Reduced efficiency and poorer speed regulation.</li>
+        </ul>
+
+        <h5>(ii) Field Current (If)</h5>
+        <p>Effects of changing If:</p>
+        <ul>
+            <li>Increasing If increases ϕ, reducing speed (N ∝ 1/ϕ).</li>
+            <li>Decreasing If increases speed but reduces torque capability (T ∝ ϕIa).</li>
+        </ul>
+
+        <h4>(iii) Supply Voltage (V)</h4>
+        <p>Effects of changing V:</p>
+        <ul>
+            <li>Increasing V increases speed (N ∝ V).</li>
+            <li>Torque remains unchanged unless Ia also increases.</li>
+            <li>Reducing V lowers speed, useful in applications requiring speed control.</li>
+        </ul>
     </div>
 
-    <div class="question">
-      <h3>3. Starting resistance purpose</h3>
-      <ul>
-        <li>Limits inrush current: I<sub>a</sub> = V/(R<sub>a</sub> + R<sub>start</sub>)</li>
-        <li>Prevents damage from 5-8× rated current</li>
-        <li>Three-point starter operation details</li>
-      </ul>
+    <div class="question">2. Enumerate the different losses subtracted from mechanical power to get the output power of a D.C. motor.</div>
+    <div class="answer">
+        <p>Mechanical power developed: <strong>P_developed = T × ω</strong></p>
+        <p>Losses in a D.C. motor:</p>
+        
+        <table>
+            <tr>
+                <th>Type of Loss</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>Copper Losses</strong></td>
+                <td>Electrical losses due to resistance in windings:<br> 
+                    - Armature Copper Loss: Ia²Ra<br>
+                    - Field Copper Loss: If²Rf<br>
+                    - Brush Contact Loss</td>
+            </tr>
+            <tr>
+                <td><strong>Iron Losses</strong></td>
+                <td>Core losses due to alternating magnetic fields:<br> 
+                    - Hysteresis Loss<br>
+                    - Eddy Current Loss</td>
+            </tr>
+            <tr>
+                <td><strong>Mechanical Losses</strong></td>
+                <td>Losses due to physical movement:<br>
+                    - Friction Loss<br>
+                    - Windage Loss</td>
+            </tr>
+            <tr>
+                <td><strong>Stray Load Losses</strong></td>
+                <td>Miscellaneous losses:<br>
+                    - Armature reaction effects<br>
+                    - Non-uniform current distribution</td>
+            </tr>
+        </table>
+
+        <p><strong>P_output = P_developed − (Copper Losses + Iron Losses + Mechanical Losses + Stray Load Losses)</strong></p>
+    </div>
+
+    <div class="question">3. Explain the purpose of a starting resistance in series with the armature of a D.C. motor.</div>
+    <div class="answer">
+        <h5>1. Limiting Inrush Current</h5>
+        <p>At startup, back EMF (Eb) is zero, and high inrush current flows: <strong>Ia = V / Ra</strong>.</p>
+        <p>Since Ra is very small, current can be excessively high. A starting resistance (R_start) is added to limit this:</p>
+        <p><strong>Ia = V / (Ra + R_start)</strong></p>
+
+        <h5>2. Protecting the Motor</h5>
+        <ul>
+            <li>Prevents overheating, excessive sparking, and mechanical stress.</li>
+            <li>Extends motor lifespan by reducing startup wear.</li>
+        </ul>
+
+        <h5>3. Smooth Acceleration</h5>
+        <ul>
+            <li>Allows gradual current increase as speed rises.</li>
+            <li>Prevents jerks and mechanical shocks.</li>
+            <li>Resistance is gradually reduced as back EMF builds up.</li>
+        </ul>
+
+        <h5>4. Role of Back EMF</h5>
+        <p>As speed increases, back EMF (Eb) develops:</p>
+        <p><strong>Ia = (V - Eb) / Ra</strong></p>
+        <p>Once Eb is sufficient, the starting resistance is removed.</p>
+
+        <h5>Types of Starters Using Starting Resistance</h5>
+        <ul>
+            <li><strong>Three-Point Starter:</strong> Common for shunt and compound motors, includes a no-volt release coil.</li>
+            <li><strong>Four-Point Starter:</strong> More versatile, independent of field current.</li>
+            <li><strong>Automatic Starters:</strong> Use relays and contactors for automatic resistance reduction.</li>
+        </ul>
     </div>
   `;
   main.appendChild(questionsSection);
-
-  // ======================== CONCLUSION SECTION ========================
   const conclusionSection = document.createElement("section");
   conclusionSection.innerHTML = `
     <h2>CONCLUSION</h2>
-    <ul>
-      <li>Verified torque-current linear relationship (T ∝ I<sub>a</sub>)</li>
-      <li>Observed stable speed characteristic (±5% variation)</li>
-      <li>Peak efficiency of 75% at 1.0A armature current</li>
-      <li>Practical applications: Conveyor systems (80-120 RPM range)</li>
-    </ul>
+    <p>
+      The experiment successfully analyzed the performance characteristics of a D.C. shunt motor under varying load conditions. By conducting a load test, the relationships between torque, armature current, speed, and efficiency were determined, and the motor's behavior was evaluated against theoretical expectations. The key findings of the experiment are summarized below:
+    </p>
+    <h3>Torque-Current Characteristic</h3>
+    <p>
+      The torque (T) was found to be directly proportional to the armature current (I<sub>a</sub>), as expected from the theoretical relationship T ∝ I<sub>a</sub>. This linear relationship confirms that the motor's torque increases with higher armature current, consistent with the principles of electromagnetic induction.
+    </p>
+    <h3>Speed-Torque Characteristic</h3>
+    <p>
+      The motor exhibited a nearly constant speed under varying loads, with only a slight decrease in speed as the torque increased. This behavior is characteristic of a shunt motor, where the field flux (ϕ) remains constant, and the speed is primarily determined by the supply voltage and armature resistance.
+    </p>
+    <h3>Speed-Current Characteristic</h3>
+    <p>
+      As the load increased, the armature current (I<sub>a</sub>) increased, causing a slight drop in speed due to the voltage drop across the armature resistance (R<sub>a</sub>). This observation aligns with the theoretical equation N ∝ (V − I<sub>a</sub>R<sub>a</sub>)/ϕ.
+    </p>
+    <h3>Efficiency</h3>
+    <p>
+      The motor's efficiency (η) was calculated at each load step, and it was observed that the efficiency peaked at an optimal load. At very low or very high loads, the efficiency decreased due to increased losses, such as copper losses in the armature and mechanical losses in the load mechanism.
+    </p>
+    <h3>Practical Implications</h3>
+    <p>
+      The experiment demonstrated the importance of selecting a D.C. shunt motor with the appropriate specifications for a given application. The motor's ability to maintain a nearly constant speed under varying loads makes it ideal for applications such as conveyor systems, machine tools, and fans, where consistent performance is critical.
+    </p>
     <h3>Recommendations</h3>
-    <ol>
-      <li>Investigate voltage variation effects (24V-48V range)</li>
-      <li>Test with compound motor configuration</li>
-      <li>Implement automated data collection system</li>
-    </ol>
+    <ul>
+      <li>Future experiments could explore the effects of varying the supply voltage or field current on the motor's performance characteristics.</li>
+      <li>Additional tests could be conducted to analyze the motor's behavior under extreme load conditions or during startup.</li>
+    </ul>
+    <p>
+      In conclusion, the experiment provided valuable insights into the performance characteristics of a D.C. shunt motor and demonstrated its suitability for applications requiring stable speed and efficient operation. The results underscore the importance of understanding motor behavior to optimize its use in real-world systems.
+    </p>
   `;
   main.appendChild(conclusionSection);
-
-  // ======================== PRECAUTIONS SECTION ========================
+  
   const precautionsSection = document.createElement("section");
   precautionsSection.innerHTML = `
     <h2>PRECAUTIONS</h2>
-    <ol>
-      <li>Verify insulation resistance > 1MΩ before energizing</li>
-      <li>Current limit: 2A continuous, 3A peak (30s max)</li>
-      <li>Thermal monitoring: Shutdown if T > 70°C</li>
-      ${Array.from({length: 7}, (_, i) => `<li>${[
-        'Double-check parallel connections',
-        'Secure mechanical couplings',
-        'Ground all metal parts',
-        'Wear safety goggles',
-        'Maintain 50cm clearance',
-        'Use double-pole switches',
-        'Emergency stop protocol'
-      ][i]}</li>`).join('')}
-    </ol>
+    <ul>
+      <li>Check all wires and connections for proper insulation to avoid short circuits or electric shocks.</li>
+      <li>Do not exceed the rated voltage, current, or power limits of the motor, power supply, or measuring instruments.</li>
+      <li>Always turn off the power supply before making or modifying any connections in the circuit.</li>
+      <li>Ensure that the circuit is protected with appropriate fuses or circuit breakers to prevent damage in case of overcurrent.</li>
+      <li>Ensure that the motor and power supply are properly grounded to avoid electrical hazards.</li>
+      <li>Before starting the experiment, verify the motor's rated voltage, current, and speed to ensure it matches the power supply and load conditions.</li>
+      <li>Gradually increase or decrease the load on the motor to prevent mechanical stress or damage to the motor shaft.</li>
+      <li>Keep an eye on the motor's temperature during operation. If it becomes too hot, reduce the load or turn off the motor to prevent overheating.</li>
+      <li>Ensure all electrical connections are tight and secure to avoid loose contacts, which can lead to sparks or inconsistent readings.</li>
+      <li>Do not apply a load that exceeds the motor's rated torque capacity, as this can damage the motor or load mechanism.</li>
+    </ul>
   `;
   main.appendChild(precautionsSection);
-
-  // ======================== REFERENCES SECTION ========================
+  
   const referencesSection = document.createElement("section");
   referencesSection.innerHTML = `
     <h2>REFERENCES</h2>
     <ul>
-      <li>Elprocus. DC shunt motor: Construction, working principle. 
-        <a href="https://www.elprocus.com/dc-shunt-motor">https://www.elprocus.com/dc-shunt-motor</a>
+      <li>Elprocus. (n.d.). DC shunt motor: Construction, working principle, circuit diagram. 
+        <a href="https://www.elprocus.com/dc-shunt-motor-construction-working-principle-circuit-diagram">https://www.elprocus.com/dc-shunt-motor-construction-working-principle-circuit-diagram</a>
       </li>
-      <li>Electrical Machine Tutor manual v4.2</li>
-      <li>IEEE Standard 113-2015: Test Procedures for DC Machines</li>
-      ${Array.from({length: 3}, (_, i) => `<li>${[
-        'Veetech Tachometer Specifications',
-        'Checkline HTM Datasheet',
-        'Dolang Skills Technical Bulletin #208'
-      ][i]}</li>`).join('')}
+      <li>Veetech LLC. (n.d.). Handheld tachometer. 
+        <a href="https://www.veetechllc.com/handheld-tachometer">https://www.veetechllc.com/handheld-tachometer</a>
+      </li>
+      <li>Checkline. (n.d.). HTM handheld tachometer. 
+        <a href="https://www.checkline.com/product/HTM">https://www.checkline.com/product/HTM</a>
+      </li>
+      <li>Hackatronic. (n.d.). What are potentiometers or variable resistors? 
+        <a href="https://www.hackatronic.com/what-are-potentiometers-or-variable-resistors/">https://www.hackatronic.com/what-are-potentiometers-or-variable-resistors/</a>
+      </li>
+      <li>Learning About Electronics. (n.d.). How to build a DC power supply. 
+        <a href="https://www.learningaboutelectronics.com/Articles/How-to-build-a-DC-power-supply.php">https://www.learningaboutelectronics.com/Articles/How-to-build-a-DC-power-supply.php</a>
+      </li>
+      <li>Dolang Skills. (n.d.). DLWD-DJ22-M induction electrical machine trainer. 
+        <a href="https://www.dolangskills.com/product/dlwd-dj22-m-induction-electrical-machine-trainer-electrical-laboratory-equipment-electrical-maintenance-of-vocational-education-equipment">https://www.dolangskills.com/product/dlwd-dj22-m-induction-electrical-machine-trainer-electrical-laboratory-equipment-electrical-maintenance-of-vocational-education-equipment</a>
+      </li>
     </ul>
-
+  
     <h3>External Sources</h3>
+    <p>This is an elaborate feature that compiles online resources to deepen your understanding of the experiment and conduct further learning.</p>
+    <p>Here’s a non-exhaustive list:</p>
+  
     <div class="video-resources">
-      <p>YouTube Playlists:</p>
       <ul>
-        <li><a href="https://youtube.com/playlist?list=PLL6Ah8JHS-GAlGi82CSbsIxjNVhPOm_bi">DC Motor Fundamentals</a></li>
+        <li><a href="https://youtube.com/playlist?list=PLL6Ah8JHS-GAlGi82CSbsIxjNVhPOm_bi">DC Motor by Ekeeda</a></li>
         <li><a href="https://youtube.com/playlist?list=PLnOxbyMtAUofKVKLfGUWcRclZWvPYMH7M">H01T 34 DC Motors</a></li>
+        <li><a href="https://youtube.com/playlist?list=PL4C4A85A0D9F63D8C">Electric Motors by Engineering Mindset</a></li>
       </ul>
     </div>
   `;
   main.appendChild(referencesSection);
-
-  // ======================== STYLES ========================
+  
   const style = document.createElement("style");
   style.textContent = `
     .theory-table, .results-table, .losses-table {
@@ -1033,6 +1155,21 @@ The approach used throughout the experiment simple and straightforward -
       padding: 8px;
       text-align: center;
     }
+    .table-disclaimer {
+      font-style: italic;
+      margin: 10px 0;
+      color: #ff0000;}
+
+       .question {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .answer {
+            margin-left: 20px;
+        }
+        .subsection {
+            margin-left: 40px;
+        }
     .diagram-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1052,8 +1189,6 @@ The approach used throughout the experiment simple and straightforward -
     blockquote {
       margin: 15px 30px;
       padding: 10px 20px;
-      border-left: 2px solid #666;
-      background: #f5f5f5;
     }
   `;
   main.appendChild(style);
