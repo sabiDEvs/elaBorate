@@ -11,10 +11,15 @@ import pic10 from "../../RESOURCES/images/pic10.png";
 import pic11 from "../../RESOURCES/images/pic11.png";
 import pic112 from "../../RESOURCES/images/download-icon.png";
 import pic113 from "../../RESOURCES/images/download.png";
-import ee2031 from "../../RESOURCES/images/ee203-1.png";
-import ee2032 from "../../RESOURCES/images/ee203-1.png";
-import ee2033 from "../../RESOURCES/images/ee203-1.png";
-import ee2034 from "../../RESOURCES/images/ee203-1.png";
+import ee2031 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/1.png";
+import ee2032 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/2.png";
+import ee2033 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/3.png";
+import ee2034 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/4.png";
+import ee2035 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/5.png";
+import ee2036 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/fig2.png";
+import ee2037 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/fig1.png";
+import ee2038 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/graph1.png";
+import ee2039 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/203/graph2.png";
 import ee2051 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/2051.png";
 import ee2052 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/2052.png";
 import ee2053 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/2053.png";
@@ -162,7 +167,7 @@ const displayStarted = () => {
   imgAchieve.id = "getStartImg";
 
   const startingHeader = document.createElement("h2");
-  startingHeader.textContent = "GETTING STARTED WITH PRODUCTION ELA";
+  startingHeader.textContent = "GETTING STARTED WITH ELECTRICAL ELA";
   startingHeader.id = "getStartHead";
   divImgAchieve.appendChild(startingHeader);
   main.appendChild(divImgAchieve);
@@ -171,96 +176,128 @@ const displayStarted = () => {
   const genHead = document.createElement("h3");
   genHead.textContent = "General Instructions";
   genSection.appendChild(genHead);
+
   const genDesc = document.createElement("p");
-  genDesc.textContent =
-    "Follow these instructions when preparing for any Production ELA...";
+  genDesc.textContent = "Follow these guidelines to ensure proper documentation and submission of your Electrical ELA report.";
   genSection.appendChild(genDesc);
-  const report = displayTask("1", "Report Format:", [
-    "Use A4 paper or full-scalp sheets for writing your reports.",
-    "The instructor will specify the preferred format; if necessary.",
+
+  const report = displayTask("1", "Submission Deadline:", [
+    "You must submit your report the next day before 10 AM.",
+    "Write on foolscap paper with a minimum of 2-3 full foolscap pages (or at least 8 pages) for good grades."
   ]);
   genSection.appendChild(report);
-  const attend = displayTask("2", "Attendance:", [
-    "Punctuality is crucial for all Production ELA sessions.",
-    "Ensure you do not miss any session.",
+
+  const notes = displayTask("2", "Instructor's Notes:", [
+    "Write down all key points given by the instructor.",
+    "Expand on these points in your report, especially in the theory section."
   ]);
-  genSection.appendChild(attend);
+  genSection.appendChild(notes);
+
+  const format = displayTask("3", "Formatting:", [
+    "You may receive a specific format on the first day.",
+    "If no format is provided, use the structure below."
+  ]);
+  genSection.appendChild(format);
+
   main.appendChild(genSection);
 
+  // Report Format Section
   const repSection = document.createElement("section");
   const repHead = document.createElement("h3");
-  repHead.textContent = "Report Structure";
+  repHead.textContent = "Report Format";
   repSection.appendChild(repHead);
+
   const repDesc = document.createElement("p");
-  repDesc.textContent =
-    "It is most expedient that you follow the structure given below, when writing your reports.";
+  repDesc.textContent = "Follow the structure below to ensure a well-organized and detailed report.";
   repSection.appendChild(repDesc);
-  const id = displayTask("1", "Identification:", [
-    "Name: [Your full name]",
-    "Matriculation Number: [Your Matriculation Number]",
-    "Department: [Your department]",
-    "Serial Number: [Your ELA Serial number Upon registration]",
-    "Section: []",
-    "Title of Experiment: [e.g “Bench fitting”]",
-    "Experiment Code: [e.g “AM201”]",
+
+  const firstPage = displayTask("1", "First Page:", [
+    "Name: [Your Full Name]",
+    "Matriculation Number: [Your Matric Number]",
+    "Department: [Your Department]",
+    "Serial Number: [ELA Serial Number]",
+    "Title of Experiment: [e.g., 'Transformer Load Testing']",
+    "Experiment Number: [e.g., 'ELE302']",
+    "Date: [Date of Experiment]"
   ]);
-  repSection.appendChild(id);
-  const objective = displayTask("2", "Objectives:", [
-    "State the aim of the experiment as listed in the manual. Write down all the objectives provided.",
+  repSection.appendChild(firstPage);
+
+  const aims = displayTask("2", "Aims and Objectives:", [
+    "Clearly state the purpose and goals of the experiment."
   ]);
-  repSection.appendChild(objective);
-  const tools = displayTask("3", "Apparatus/Tools:", [
-    "List all tools used in the experiment.",
-    "Include diagrams of the tools and ensure they are well-labeled and neatly drawn.",
+  repSection.appendChild(aims);
+
+  const apparatus = displayTask("3", "Apparatus/Components/Equipment:", [
+    "List all tools, components, and equipment used."
   ]);
-  repSection.appendChild(tools);
+  repSection.appendChild(apparatus);
+
   const theory = displayTask("4", "Theory:", [
-    "Provide a theoretical background relevant to the practical.",
-    "Discuss the applications and sequence of operations, supplemented with diagrams where necessary.",
-    "Ensure the content is focused and does not deviate from the topic.",
+    "Provide a detailed theoretical background of the experiment.",
+    "Explain principles, equations, and concepts involved."
   ]);
   repSection.appendChild(theory);
-  const procedures = displayTask("5", "Procedures:", [
-    "Document the procedure exactly as written in the manual.",
-    "Use diagrams to explain the steps, if possible.",
+
+  const diagram = displayTask("5", "Diagram:", [
+    "Include a well-labeled diagram of the setup."
   ]);
-  repSection.appendChild(procedures);
-  const precautions = displayTask("6", "Precautions:", [
-    "List the precautions taken during the experiment in past tense.",
-    "~Example: “I ensured that I...”",
+  repSection.appendChild(diagram);
+
+  const procedure = displayTask("6", "Procedure:", [
+    "Write step-by-step instructions followed during the experiment."
+  ]);
+  repSection.appendChild(procedure);
+
+  const results = displayTask("7", "Tables of Values/Results:", [
+    "Present measured data in a table format.",
+    "Ensure values are clearly recorded."
+  ]);
+  repSection.appendChild(results);
+
+  const calculations = displayTask("8", "Calculations:", [
+    "Show all necessary calculations related to the experiment."
+  ]);
+  repSection.appendChild(calculations);
+
+  const conclusion = displayTask("9", "Conclusion:", [
+    "Summarize key findings and observations from the experiment."
+  ]);
+  repSection.appendChild(conclusion);
+
+  const precautions = displayTask("10", "Precautions:", [
+    "List all safety measures and precautions taken during the experiment."
   ]);
   repSection.appendChild(precautions);
-  const conclusions = displayTask("7", "Conclusion:", [
-    "Summarize the outcomes of the experiment.",
-    "~Example: “At the end of this experiment, we were able to develop a lap joint, understand the sequence of operations involved, and achieve a comprehensive understanding of the process.”",
-  ]);
-  repSection.appendChild(conclusions);
-  const references = displayTask("8", "References:", [
-    "Cite books and manuals relevant to the experiment. Do not include web links.",
-    "~Example:",
-    "~~“Production Engineering Laboratory Manual for ELA201 and ELA202’’ by the Department of Production Engineering, University of Benin.",
-    "~~”The TIG Welding Book” by Todd Bridigum.",
-    "~~”Welding for Dummies” by Steven Robert Farnsworth.",
+
+  const references = displayTask("11", "References:", [
+    "Do not use website links.",
+    "Cite textbooks and manuals used.",
+    "Example:",
+    "- 'Electrical Engineering Laboratory Manual' by the Department of Electrical Engineering.",
+    "- 'Fundamentals of Electric Circuits' by Charles K. Alexander & Matthew N. Sadiku."
   ]);
   repSection.appendChild(references);
+
   main.appendChild(repSection);
 
-  const addSection = document.createElement("section");
-  const addHead = document.createElement("h2");
-  addHead.textContent = "Additional Notes";
-  addSection.appendChild(addHead);
-  const para1 = document.createElement("p");
-  para1.textContent =
-    "Always follow the instructor's specific guidelines regarding report format and content to ensure good marks.";
-  addSection.appendChild(para1);
-  const para2 = document.createElement("p");
-  para2.textContent =
-    "Submit your report on time. The report submission time is usually given by the instructor.";
-  addSection.appendChild(para2);
-  const good = document.createElement("div");
-  good.textContent = "GOOD LUCK!!!";
-  addSection.appendChild(good);
-  main.appendChild(addSection);
+  // Final Submission Tips Section
+  const finalSection = document.createElement("section");
+  const finalHead = document.createElement("h3");
+  finalHead.textContent = "Final Submission Tips";
+  finalSection.appendChild(finalHead);
+
+  const tips = displayTask("1", "Tips:", [
+    "Ensure your report is well-organized and detailed.",
+    "Be punctual—arrive at least 5 minutes before submission time.",
+    "Never miss an Electrical ELA session!"
+  ]);
+  finalSection.appendChild(tips);
+
+  const goodLuck = document.createElement("p");
+  goodLuck.textContent = "GOOD LUCK!";
+  finalSection.appendChild(goodLuck);
+
+  main.appendChild(finalSection);
   const hover = createHover("#");
   main.appendChild(hover);
   const download = createDownload("#");
@@ -2617,28 +2654,21 @@ const displayEE203 = () => {
     },
     {
       cap: "Three decade Resistance Boxes",
-      image: pic3,
+      image: ee2032,
     },
     {
       cap: "One Decade Capacitance Boxes",
-      image: pic4,
+      image: ee2033,
     },
     {
       cap: "Headphones",
-      image: pic5,
+      image: ee2034,
     },
     {
       cap: "Inductor of Unknown Valu",
-      image: pic6,
+      image: ee2035,
     },
-    {
-      cap: "Wattmeter 1/510A ( 25/240/600V)",
-      image: pic7,
-    },
-    {
-      cap: "Resistance load bank",
-      image: pic8,
-    },
+  
   ];
   let appBox = [];
   let appImage = [];
@@ -2655,222 +2685,463 @@ const displayEE203 = () => {
   }
   main.appendChild(section);
   const theory = document.createElement("section");
-  const theoHead = document.createElement("h2");
-  theoHead.textContent = "THEORY";
-  theory.appendChild(theoHead);
-  const explain = document.createElement("div");
-  explain.textContent =
-    "A maximum Inductance is the tendency of an electrical conductor to oppose a change in the electric current flowing through it - It is the property on an electric conductor or current that cause an electromotive force to be generated by a change in the current flowing. A Maxwell Bridge is an adaptation of Wheatstone Bridge designed to measure a circuit's self-inductance using components that balance inductive and capacitive impedances. Inductance is a fundamental property of electrical circuits that quantifies the ability of a conductor or coil to store energy in a magnetic field when an electric current flows through it. A traditional AC bridge circuit called Maxwell's bridge is used to gauge an inductor's inductance. It functions according to the idea of a bridge network's impedances being balanced. When the product of the impedances in one pair of opposed arms and the product of the impedances in the other pair of opposite arms is equal, the bridge can be considered balanced.";
-  theory.appendChild(explain);
-  const explain1 = document.createElement("div");
-  explain1.textContent =
-    "Maxwell's bridge is a type of AC bridge used primarily for measuring the inductance of an inductor with relatively high accuracy. It is particularly useful for inductors with significant resistance. The bridge uses a combination of resistors and capacitors to balance the circuit, allowing the unknown inductance to be calculated. A Maxwell's bridge consists of four arms arranged in a diamond shape with the following components:";
-  theory.appendChild(explain1);
-  const categories = [
-    {
-      title: "Arm AB",
-      text: "Contains a known resistor R1.",
-      image: "",
-    },
-    {
-      title: "Arm BC",
-      text: "Contains a known resistor R1.",
-      image: "",
-    },
+const theoHead = document.createElement("h2");
+theoHead.textContent = "THEORY";
+theory.appendChild(theoHead);
 
-    {
-      title: "Arm CD",
-      text: "-Contains the unknown inductor Lx​ and a known resistor Rx​ in series.",
-      image: "",
-    },
-    {
-      title: "Arm DA",
-      text: "- Contains a variable resistor R3 and a variable capacitor C3 in series.",
-      image: "",
-    },
+const explain = document.createElement("div");
+explain.textContent =
+  "Inductance is a fundamental property of electrical circuits that quantifies the ability of a conductor or coil to store energy in a magnetic field when an electric current flows through it. It is an essential principle in electromagnetism and plays a critical role in transformers, inductors, and many AC circuit applications. A conductor’s ability to generate an opposing electromotive force when the current changes is measured in henrys (H), named after Joseph Henry, an American scientist who contributed significantly to the study of electromagnetism.";
+theory.appendChild(explain);
+
+const explain1 = document.createElement("div");
+explain1.textContent =
+  "A Maxwell Bridge is a refinement of the Wheatstone Bridge, specifically designed to measure the self-inductance of an inductor. Unlike direct methods that require a separate power source and oscilloscopes, the Maxwell Bridge provides a simple and effective means of determining an inductor’s value by balancing resistive and capacitive components within a bridge circuit. It operates by setting up an AC bridge network, where impedances are carefully adjusted to bring the system into balance. This bridge network principle is vital in electrical engineering as it allows for accurate measurement of inductance in both laboratory and industrial settings.";
+theory.appendChild(explain1);
+
+const explain2 = document.createElement("div");
+explain2.textContent =
+  "Maxwell’s bridge is especially useful for measuring inductors with significant internal resistance. The circuit consists of four arms in a diamond configuration, where each arm contributes to achieving balance. The goal of the experiment is to adjust the resistive and capacitive components in the circuit until a null detection occurs, meaning there is no voltage difference between the bridge points. At this balance condition, the inductance can be calculated using well-defined mathematical relations. The effectiveness of Maxwell’s bridge lies in its ability to provide accurate and precise inductance values even when dealing with complex inductor materials and coil designs.";
+theory.appendChild(explain2);
+
+const categories = [
+  {
+    title: "Arm AB",
+    text: "This arm contains a known resistor R1, which serves as a reference for determining unknown values in the circuit.",
+    image: "",
+  },
+  {
+    title: "Arm BC",
+    text: "Similar to Arm AB, this branch also contains a known resistor R2, ensuring balance within the bridge circuit.",
+    image: "",
+  },
+  {
+    title: "Arm CD",
+    text: "This arm contains the unknown inductor Lx and a known resistor Rx in series. The presence of Lx introduces an inductive reactance to the circuit, affecting impedance calculations.",
+    image: "",
+  },
+  {
+    title: "Arm DA",
+    text: "This arm includes a variable resistor R3 and a capacitor C3 in series. The capacitor compensates for the inductive nature of the unknown inductor, assisting in balancing the bridge.",
+    image: "",
+  },
+];
+categories.forEach((item) => {
+  theory.appendChild(createDivs(item));
+});
+
+const explain3 = document.createElement("div");
+explain3.textContent =
+  "Transient voltage refers to short-duration voltage spikes or fluctuations in an electrical circuit. These fluctuations can be caused by sudden changes in current, switching operations, or external disturbances such as lightning strikes. Understanding transient voltage is crucial in power system analysis, as it helps engineers design protective measures like surge suppressors and filtering circuits to mitigate their impact. The study of transient voltage is particularly important in ensuring the longevity and reliability of electronic components operating under varying electrical conditions.";
+theory.appendChild(explain3);
+
+const explain4 = document.createElement("div");
+explain4.textContent =
+  "In practical applications, Maxwell’s bridge is often used in conjunction with digital instrumentation to improve measurement accuracy. Modern implementations include microcontroller-based bridge circuits capable of automated balancing and real-time data processing. This advancement makes Maxwell’s bridge a versatile tool in contemporary electrical testing and calibration environments. By refining this method, engineers can efficiently characterize inductive components and optimize their performance in diverse electronic and power systems.";
+theory.appendChild(explain4);
+
+
+
+
+// Create and append the YouTube video section
+const videoSection = document.createElement("div");
+const videoDescription = document.createElement("p");
+videoDescription.textContent =
+  "Watch the video below to learn more about Maxwell's Bridge:";
+videoSection.appendChild(videoDescription);
+
+const videoEmbed = document.createElement("div");
+videoEmbed.innerHTML = `
+  <iframe width="437" height="251" src="https://www.youtube.com/embed/wbhWgqoY8U0" title="Maxwell&#39;s LC Bridge | Maxwell&#39;s Inductance Capacitance Bridge for Measurement of Inductance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+videoSection.appendChild(videoEmbed);
+theory.appendChild(videoSection);
+
+main.appendChild(theory);
+
+const diagramsSection = document.createElement("section");
+diagramsSection.className = "diagrams-section";
+const diagramsHeading = document.createElement("h2");
+diagramsHeading.textContent = "DIAGRAMS";
+diagramsSection.appendChild(diagramsHeading);
+
+const diagrams = [{ cap: "CIRCUIT DIAGRAM", image: ee2036 }, { cap: "Figure 2", image: ee2037 }];
+
+diagrams.forEach((diagram) => {
+  const diagramContainer = document.createElement("div");
+  diagramContainer.className = "diagram-container";
+
+  const diagramImage = document.createElement("img");
+  diagramImage.className = "diagram-image";
+  diagramImage.src = diagram.image;
+  diagramImage.alt = diagram.cap;
+
+  const diagramCaption = document.createElement("p");
+  diagramCaption.className = "diagram-caption";
+  diagramCaption.textContent = diagram.cap;
+
+  diagramContainer.appendChild(diagramImage);
+  diagramContainer.appendChild(diagramCaption);
+  diagramsSection.appendChild(diagramContainer);
+});
+
+main.appendChild(diagramsSection);
+
+  // Procedure Section
+  const procedure = document.createElement("section");
+  const procHead = document.createElement("h2");
+  procHead.textContent = "PROCEDURE";
+  procedure.appendChild(procHead);
+
+  const procSteps = [
+    "Connect the bridge from the components as shown in the diagram. R₁, R₂, and R₃ are decade resistance boxes, and C is a decade capacitance box.",
+    "Set R₂ to approximately 100 Ω and R₃ to 1 kΩ.",
+    "Set the function switch to a sine waveform.",
+    "Now you will hear a tone in the headphones. Change C until no tone is heard.",
+    "Balance is indicated when no tone is heard.",
+    "When the bridge is balanced, note the values of R₁, R₂, R₃, and C, and enter these values in the table.",
+    "Use five different values of R₁ and balance the bridge. Enter the values of R₁, R₂, R₃, and C in the table.",
+    "Complete the table and find the average values of Rₓ and Lₓ.",
   ];
-  categories.forEach((item) => {
-    theory.appendChild(createDivs(item));
+
+  const procList = document.createElement("ul");
+  procSteps.forEach((step) => {
+    const li = document.createElement("li");
+    li.textContent = step;
+    procList.appendChild(li);
   });
-  const description = document.createElement("p");
-  description.textContent =
-    "Transient voltage is a temporary unwanted voltage in an electric circuit that changes with respect to time. It occurs along with the intended voltage. An inductor is a passive electrical component that stores energy in its magnetic field when electric current flows through it. Electronic circuits frequently employ inductors for a variety of purposes, including energy storage, filtering, and circuit tuning.";
+  procedure.appendChild(procList);
 
-  theory.appendChild(description);
+  // Results Table
+  const resultsTable = document.createElement("table");
+  resultsTable.style.borderCollapse = "collapse";
+  resultsTable.style.width = "100%";
 
-  const utubeDiv = document.createElement("div");
-  const utube = document.createElement("p");
-  utube.textContent =
-    "Watch the video below to learn more about transformers and their applications:";
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
 
-  const uvideo = document.createElement("div");
-  uvideo.innerHTML =
-    '<iframe width="590" height="332" src="https://www.youtube.com/embed/8BSoNsZuTkE" title="Transformer: Introduction and Principle of Working (1)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+  const headers = ["R₁ (Ω)", "R₂ (Ω)", "R₃ (Ω)", "C (μF)", "Rₓ (Ω)", "Lₓ (H)"];
+  headers.forEach((text) => {
+    const th = document.createElement("th");
+    th.textContent = text;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow.appendChild(th);
+  });
 
-  utubeDiv.appendChild(utube);
-  utubeDiv.appendChild(uvideo);
+  thead.appendChild(headerRow);
+  resultsTable.appendChild(thead);
 
-  theory.appendChild(utubeDiv);
+  const tbody = document.createElement("tbody");
+  const tableData = [
+    [100, 100, 1000, 20, 10, 0.2],
+    [200, 100, 1000, 30, 20, 0.3],
+    [300, 100, 1000, 21, 30, 0.21],
+    [400, 100, 1000, 20, 40, 0.2],
+    [500, 100, 1000, 15, 50, 0.15],
+  ];
 
-  main.appendChild(theory);
+  tableData.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
 
-  const diagramsSection = document.createElement("section");
-  const diagramHead = document.createElement("h2");
-  diagramHead.innerText = "DIAGRAMS";
+  resultsTable.appendChild(tbody);
+  procedure.appendChild(resultsTable);
 
-  diagramsSection.appendChild(diagramHead);
+  const avgLx = document.createElement("p");
+  avgLx.textContent = "Average value of Inductance Lₓ = (0.2 + 0.3 + 0.21 + 0.2 + 0.15) / 5 = 0.212 H";
+  procedure.appendChild(avgLx);
 
-  const diagrams = [
+  const avgRx = document.createElement("p");
+  avgRx.textContent = "Average value of Resistance Rₓ = (10 + 20 + 30 + 40 + 50) / 5 = 30 Ω";
+  procedure.appendChild(avgRx);
+
+  main.appendChild(procedure);
+
+  // Calculations Section
+  const calculations = document.createElement("section");
+  const calcHead = document.createElement("h2");
+  calcHead.textContent = "CALCULATIONS";
+  calculations.appendChild(calcHead);
+
+  const calcFormulas = [
+    "Rₓ = (R₁ × R₂) / R₃",
+    "Lₓ = R₁ × R₂ × C",
+  ];
+
+  const calcList = document.createElement("ul");
+  calcFormulas.forEach((formula) => {
+    const li = document.createElement("li");
+    li.textContent = formula;
+    calcList.appendChild(li);
+  });
+  calculations.appendChild(calcList);
+
+  const calcExample = document.createElement("p");
+  calcExample.innerHTML = `
+    <strong>Example:</strong>
+    <ul>
+      <li>For R₁ = 100 Ω:</li>
+      <ul>
+        <li>Rₓ = (100 × 100) / 1000 = 10 Ω</li>
+        <li>Lₓ = (100 × 100 × 20 × 10⁻⁶) = 0.2 H</li>
+      </ul>
+    </ul>
+  `;
+  calculations.appendChild(calcExample);
+
+  main.appendChild(calculations);
+  const graphSection = document.createElement("section");
+  const graphHead = document.createElement("h2");
+  graphHead.textContent = "GRAPH";
+  graphSection.appendChild(graphHead);
+
+  const graphDesc = document.createElement("p");
+  graphDesc.textContent = "The graph of the table above looks like:";
+  graphSection.appendChild(graphDesc);
+
+  const graphPlot = document.createElement("p");
+  graphPlot.textContent = "Plot Lₓ against Rₓ";
+  graphSection.appendChild(graphPlot);
+
+  const graphImage = document.createElement("img");
+  graphImage.src = ee2038; 
+  graphImage.classList.add("graph-image");
+  graphImage.alt = "Graph of Lₓ vs Rₓ";
+  graphSection.appendChild(graphImage);
+
+  main.appendChild(graphSection);
+  const secondMethod = document.createElement("section");
+  const secondMethodHead = document.createElement("h2");
+  secondMethodHead.textContent = "SECOND METHOD: MEASURING TRANSIENT VOLTAGE AND TIME OF R.L CIRCUIT";
+  secondMethod.appendChild(secondMethodHead);
+
+  const secondMethodAim = document.createElement("h3");
+  secondMethodAim.textContent = "AIM";
+  secondMethod.appendChild(secondMethodAim);
+
+  const secondMethodAimText = document.createElement("p");
+  secondMethodAimText.textContent = "To measure the value of the unknown inductor using transient voltage measurement.";
+  secondMethod.appendChild(secondMethodAimText);
+
+  const secondMethodApparatus = document.createElement("h3");
+  secondMethodApparatus.textContent = "APPARATUS";
+  secondMethod.appendChild(secondMethodApparatus);
+
+  const secondMethodApparatusList = document.createElement("ul");
+  const secondMethodApparatusItems = [
+    "A.F Signal Generator",
+    "Inductor of Unknown Value",
+    "A Resistor of Known Value",
+    "Oscilloscope",
+  ];
+  secondMethodApparatusItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    secondMethodApparatusList.appendChild(li);
+  });
+  secondMethod.appendChild(secondMethodApparatusList);
+
+  const secondMethodProcedure = document.createElement("h3");
+  secondMethodProcedure.textContent = "PROCEDURE";
+  secondMethod.appendChild(secondMethodProcedure);
+  
+  const secondMethodSteps = [
+    { step: "Connect the circuit as shown above." },
     {
-      cap: "Fig.1 ",
-      image: pic9,
+      step: "Make the following settings on the oscilloscope:",
+      subSteps: [
+        "Both channels to 4 volt/cm and CAL.",
+        "Trigger on channel 1.",
+        "Sweep on chop.",
+        "Time base to 1ms/cm and CAP.",
+        "Use internal trigger.",
+        "TRIG LEVEL TO AUTO.",
+        "Horizontal gain to CAL.",
+      ],
     },
     {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER NO – LOAD TEST",
-      image: pic10,
+      step: "Make the following settings of the oscillator:",
+      subSteps: [
+        "Switch frequency range to 1000Hz on the frequency dial.",
+        "Set input voltage to 5V.",
+        "Set the function switch to square wave.",
+      ],
     },
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER LOAD TEST",
-      image: pic11,
-    },
+    { step: "Switch on the equipment and make any fine adjustments found necessary." },
+    { step: "Observe the two waveforms now visible on the scope, adjusting the stability control to give a stable picture." },
+    { step: "Superimpose the waves on the screen and sketch their waveform accurately on graph paper." },
+    { step: "Measure the voltage Vᵣ at each time division of the scope and record it in the table." },
   ];
-  let diagramBox = [];
-  let diagramImage = [];
-  let diagramCaption = [];
-  for (let i = 0; i < diagrams.length; i++) {
-    diagramBox[i] = document.createElement("div");
-    diagramImage[i] = document.createElement("img");
-    diagramCaption[i] = document.createElement("p");
-    diagramImage[i].src = diagrams[i].image;
-    diagramCaption[i].textContent = diagrams[i].cap;
-    diagramBox[i].appendChild(diagramImage[i]);
-    diagramBox[i].appendChild(diagramCaption[i]);
-    diagramsSection.appendChild(diagramBox[i]);
-  }
+  
+  const secondMethodStepList = document.createElement("ul");
+  
+  secondMethodSteps.forEach(({ step, subSteps }) => {
+    const li = document.createElement("li");
+    li.textContent = step;
+  
+    if (subSteps) {
+      const subList = document.createElement("ul");
+      subSteps.forEach(subStep => {
+        const subLi = document.createElement("li");
+        subLi.textContent = subStep;
+        subList.appendChild(subLi);
+      });
+      li.appendChild(subList);
+    }
+  
+    secondMethodStepList.appendChild(li);
+  });
+  
+  secondMethod.appendChild(secondMethodStepList);
+  
+  const secondMethodResults = document.createElement("h3");
+  secondMethodResults.textContent = "TABLE OF RESULTS";
+  secondMethod.appendChild(secondMethodResults);
 
-  main.appendChild(diagramsSection);
-  const practicals = document.createElement("section");
-  const step1 = document.createElement("h2");
-  step1.textContent = "PROCEDURE";
+  const secondMethodTable = document.createElement("table");
+  secondMethodTable.style.borderCollapse = "collapse";
+  secondMethodTable.style.width = "100%";
 
-  practicals.appendChild(step1);
-  const step4 = document.createElement("h3");
-  step4.textContent = "TRANSFER RATIO TEST";
-  practicals.appendChild(step4);
-  const stepList2 = document.createElement("ul");
-  stepList2.classList.add("stepboxlist");
-  const steps2 = [
-    "Set Variac control dial to zero (0) position",
-    "Connect up the variac, the voltmeter V₁ (0-220), the amimeter (0-1A), and the transformer. as in the working diagram fig 22-1-1",
-    "Connect the voltmeter V₂ (0-100V) across the secondary terminals a₁-a₂.",
-    "(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.",
-    "Record on table 206-1 the values of V₁, V₂ and the primary and secondary turns (as marked on transformer).",
-    "Connect voltmeter V₂ in turn across terminals (a₁-a₂) (a₁-a₃) (a₁-a₄) (a₁-a₅) and repeat (5)",
-    "Fill-up table 206-1.",
+  const secondMethodThead = document.createElement("thead");
+  const secondMethodHeaderRow = document.createElement("tr");
+
+  const secondMethodHeaders = ["Time (t)", "Vᵣ (V)"];
+  secondMethodHeaders.forEach((text) => {
+    const th = document.createElement("th");
+    th.textContent = text;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    secondMethodHeaderRow.appendChild(th);
+  });
+
+  secondMethodThead.appendChild(secondMethodHeaderRow);
+  secondMethodTable.appendChild(secondMethodThead);
+
+  const secondMethodTbody = document.createElement("tbody");
+  const secondMethodTableData = [
+    [0, 5],
+    [1, 4.5],
+    [2, 4],
+    [3, 3.5],
+    [4, 3],
   ];
-  let stepBox2 = [];
-  for (let i = 0; i < steps2.length; i++) {
-    stepBox2[i] = document.createElement("li");
 
-    stepBox2[i].textContent = steps2[i];
-    stepList2.appendChild(stepBox2[i]);
-  }
-  practicals.appendChild(stepList2);
+  secondMethodTableData.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    secondMethodTbody.appendChild(tr);
+  });
 
-  const step3 = document.createElement("h3");
-  step3.textContent = "NO-LOAD TEST";
-  practicals.appendChild(step3);
-  const stepList1 = document.createElement("ul");
-  stepList1.classList.add("stepboxlist");
-  const steps1 = [
-    "Reduce variac output to zero (0) and switch-OFF mains",
-    "(i) Connect up the circuit of Fig. 22-1-2 leaving the secondary terminals open circuit. Use the wattmeter (0-12W). \n (ii) Get the supervisor to check the circuit (you may also need the help of a supervisor to connect up the wattmeter).",
-    "Switch-ON mains to variac and turn variac control to obtain 40V on voltmeter V₁.",
-    "(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.",
-    "Take ammeter and wattmeter readings and record on table 206-2 as I₁ and W₁, respectively.",
-    " Vary variac control to obtain 80, 120, 160, 200, and 220V in turn on voltmeter V₁, and repeat (11) at each setting. \n(i) Fill up table 206-2. \n(ii) Plot graph of primary voltage (V₁) vs loss (W).",
+  secondMethodTable.appendChild(secondMethodTbody);
+  secondMethod.appendChild(secondMethodTable);
+
+  const secondMethodCalc = document.createElement("h3");
+  secondMethodCalc.textContent = "CALCULATIONS";
+  secondMethod.appendChild(secondMethodCalc);
+
+  const secondMethodCalcText = document.createElement("p");
+  secondMethodCalcText.textContent = "Lₓ = (R × t) / ln(V / (V − Vᵣ))";
+  secondMethod.appendChild(secondMethodCalcText);
+
+  const secondMethodCalcExamples = document.createElement("p");
+  secondMethodCalcExamples.innerHTML = `
+    <strong>Example Calculations:</strong>
+    <ul>
+      <li>Lₓ = (1000 × 4 × 10⁻⁵) / ln(5 / (5 − 1)) = 0.179 H</li>
+      <li>Lₓ = (1000 × 1 × 10⁻⁵) / ln(5 / (5 − 2)) = 0.196 H</li>
+      <li>Lₓ = (1000 × 2 × 10⁻⁴) / ln(5 / (5 − 3)) = 0.218 H</li>
+      <li>Lₓ = (1000 × 5 × 10⁻⁴) / ln(5 / (5 − 4)) = 0.311 H</li>
+    </ul>
+  `;
+  secondMethod.appendChild(secondMethodCalcExamples);
+
+  const secondMethodGraph = document.createElement("h3");
+  secondMethodGraph.textContent = "GRAPH";
+  secondMethod.appendChild(secondMethodGraph);
+
+  const secondMethodGraphDesc = document.createElement("p");
+  secondMethodGraphDesc.textContent = "Example of how the graph of the table above looks like:";
+  secondMethod.appendChild(secondMethodGraphDesc);
+
+  const secondMethodGraphImage = document.createElement("img");
+  secondMethodGraphImage.src = ee2039; 
+  secondMethodGraphImage.classList.add("graph-image");
+  secondMethodGraphImage.alt = "Graph of Transient Voltage";
+  secondMethod.appendChild(secondMethodGraphImage);
+
+  main.appendChild(secondMethod);
+
+  const precautions = document.createElement("section");
+  const precHead = document.createElement("h2");
+  precHead.textContent = "PRECAUTIONS";
+  precautions.appendChild(precHead);
+
+  const precList = document.createElement("ul");
+  const precItems = [
+    "I avoided error due to parallax when taking the readings.",
+    "I ensured all measuring instruments (voltmeters, ammeters, etc.) were calibrated and in good working condition for accurate measurements.",
+    "Ensure all connections are secure and free from corrosion or oxidation. Loose or poor connections can introduce resistance and affect measurements.",
+    "I ensured that I kept detailed records of all measurements.",
   ];
-  let stepBox1 = [];
-  for (let i = 0; i < steps1.length; i++) {
-    stepBox1[i] = document.createElement("li");
-    stepBox1[i].textContent = steps1[i];
-    stepList1.appendChild(stepBox1[i]);
-  }
-  practicals.appendChild(stepList1);
 
-  const step5 = document.createElement("h3");
-  step5.textContent = "LOAD TEST";
-  practicals.appendChild(step5);
-  const stepList3 = document.createElement("ul");
-  stepList3.classList.add("stepboxlist");
-  const steps4 = [
-    'Turn variac dial to "0" position, and switch-OFF mains from the variac.',
-    "Connect up the circuit of Load test ",
-    "Connect mains to load bank and switch ON fan. (Do not use load bank itif fan is not working)",
-    "Switch ON mains to variac and vary dial to obtain 220V in voltmeter V₁.",
-    "Switch one of load bank dials to position 400 and use its associated TRIMMER control to set the current on A₂ to 2A.",
-    "Record the readings of V₂, V₂, A₁, A₂, and wattmeter on table 206-4.",
-    "Use the load bank dial switches and trimmers, set the reading of A₁ to 4, 6, 8, and 10A respectively, and repeat (19) at each setting.",
-    'Turn variac dial to "0" position and switch-OFF mains to variac.',
-    "Fill-up table 206-3",
-  ];
-  let stepBox3 = [];
-  for (let i = 0; i < steps4.length; i++) {
-    stepBox3[i] = document.createElement("li");
-    stepBox3[i].textContent = steps4[i];
-    stepList3.appendChild(stepBox3[i]);
-  }
-  practicals.appendChild(stepList3);
+  precItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    precList.appendChild(li);
+  });
+  precautions.appendChild(precList);
 
-  // i am supposed to implemetnresults and tables her but e npo make sense
+  main.appendChild(precautions);
 
-  main.appendChild(practicals);
-  const precaution = document.createElement("section");
-  const cautionHead = document.createElement("h3");
-  cautionHead.textContent = "PRECAUTIONS";
-  precaution.appendChild(cautionHead);
-  const cautionList = document.createElement("ul");
-  const precautions = [
-    "I avoided error due to parallax when taking the readings ",
-    "I ensured all measuring instruments (voltmeters, ammeters etc) were calibrated and were in good working condition for accurate measurements",
-    "I ensured that I didn’t  touch live circuits to avoid getting electrocuted",
-  ];
-  let cautionBox = [];
-  for (let i = 0; i < precautions.length; i++) {
-    cautionBox[i] = document.createElement("li");
-    cautionBox[i].textContent = precautions[i];
-    cautionList.appendChild(cautionBox[i]);
-  }
-  precaution.appendChild(cautionList);
-  main.appendChild(precaution);
+  // Conclusion Section
   const conclusion = document.createElement("section");
-  const concHead = document.createElement("h3");
-  concHead.textContent = "CONCLUSION:";
+  const concHead = document.createElement("h2");
+  concHead.textContent = "CONCLUSION";
   conclusion.appendChild(concHead);
+
   const concText = document.createElement("p");
   concText.textContent =
-    "At the end of this experiment, we were able to verify that the voltage ratio between the primary voltage and secondary voltage and secondary voltage of a transformer is equal to the turns winding ratio and also able to understand the characteristics of a transformer on No-load and on load and also draw the graphs required";
+    "At the end of this experiment, the values for the inductance in the first method are approximately equal to the values in the second method. Therefore, the experiment was successful in demonstrating the relationship between the transient voltage across the inductor and the inductance value.";
   conclusion.appendChild(concText);
+
   main.appendChild(conclusion);
+
+  // References Section
   const references = document.createElement("section");
-  const refHead = document.createElement("h3");
+  const refHead = document.createElement("h2");
   refHead.textContent = "REFERENCES";
   references.appendChild(refHead);
+
   const refList = document.createElement("ul");
-  refList.classList.add("stepboxlist");
-  const reference = [
-    "Electric Machinery Fundamentals by Stephen J. Chapman",
+  const refItems = [
     "Electrical Engineering Laboratory Manual by the Department of Electrical Engineering, University of Benin.",
-    "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku",
+    "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku.",
   ];
-  let refBox = [];
-  for (let i = 0; i < reference.length; i++) {
-    refBox[i] = document.createElement("li");
-    refBox[i].textContent = reference[i];
-    refList.appendChild(refBox[i]);
-  }
+
+  refItems.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    refList.appendChild(li);
+  });
   references.appendChild(refList);
+
   main.appendChild(references);
+
+  
   const hover = createHover("#");
   main.appendChild(hover);
   const download = createDownload("#");
