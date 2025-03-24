@@ -98,6 +98,9 @@ serveBox.appendChild(serve1);
 serveBox.appendChild(serve3);
 //create service call to action
 const serveAction = document.createElement('div');
+serveAction.onclick = () => {
+    window.location.href = './report/report.html';
+};
 serveAction.textContent = 'GET STARTED';
 serveAction.id = 'serveAction';
 //Append service items to service section

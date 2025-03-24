@@ -192,42 +192,50 @@ main{
     position: relative;
 }
 /*About section styling*/
-#aboutSection{
+#aboutSection {
     position: relative;
-    margin-top: 20vw;
+    margin-top: 50px;
     width: 100%;
+    background: linear-gradient(to bottom, #1a1a1a, #000000);
+    padding: 50px 0;
 }
 
-#whyUs{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+#whyUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
 }
-#whyUs img{
-    grid-column: 1/6;
-    grid-row: 1/4;
+
+#whyUs img {
     width: 100%;
-    margin: 0;
-    display: inline-grid;
-    height: 30vh;
+    max-width: 500px;
+    height: auto;
+    border: 5px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-#whyUs h2{
-    grid-column: 2/6;
-    grid-row: 2/3;
-    align-self: center;
+
+#whyUs h2 {
     color: #ffffff;
-    font-weight: bold;
     font-size: 32px;
+    font-weight: bold;
+    margin: 0;
 }
-#about{
-    padding: 20vw 15vw;
+
+#about {
+    padding: 50px 20px;
     background-color: #000000;
     color: #ffffff;
+    text-align: center;
 }
-#about p{
-    font-size: 16px;
+
+#about p {
+    font-size: 18px;
     font-weight: bold;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
 }
 #contact {
     display: flex;
@@ -421,18 +429,13 @@ main{
         align-self: flex-end;
         margin-right: 20vw;
     }
-    #whyUS{
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        
+    #whyUs h2 {
+        font-size: 24px;
     }
-    #whyUs img{
-        grid-row: 1/5;
-        height: 60vh;
-    }
-    #whyUs h2{
-        grid-column: 4/6;
-        font-size: 60px;
-        align-self: self-end;
+
+    #about p {
+        font-size: 16px;
+        padding: 0 10px;
     }
     #about{
         padding: 10vw 25vw;

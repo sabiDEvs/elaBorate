@@ -93,6 +93,9 @@ const generateHeroSection = (section) =>  {
         const outerCircle = document.createElement('div');
         outerCircle.classList.add('outerCircle');
         const action = document.createElement('div');
+        action.onclick = () => {
+            window.location.href = './report/report.html';
+        };
         action.classList.add('callAction');
         heroText.textContent = heroContent[i].text;
         heroSpan.textContent = heroContent[i].word;
@@ -161,7 +164,7 @@ const createService = (heading, body, action) => {
     button.textContent = action;
     div.appendChild(head);
     div.appendChild(text);
-    div.appendChild(button);
+    // div.appendChild(button);
     return div;
 }
 export {createNavLink, generateHeroSection, carousel, createDept, createService, createBrand, createNavBar, createMenu};
