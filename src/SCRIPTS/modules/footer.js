@@ -23,21 +23,65 @@ rightFooter.id = 'rightFoot';
 //create  subscribe text
 const subText = document.createElement('p');
 subText.textContent = "Get our latest innovative news";
-//create subscribe div
+
+
+
+
+
+
+
+
 const subDiv = document.createElement('div');
 subDiv.id = 'subscribe';
-//create footer subscribe input
 const subInput = document.createElement('input');
 subInput.type = 'email';
 subInput.placeholder = 'Email Address';
 subInput.id = 'subEmail';
-//create footer subscribe button
 const subButton = document.createElement('div');
 subButton.textContent = 'Subscribe';
 subButton.id = 'subButton';
-//Append sub input and button to it Div
+
+// Add event listener to handle subscription
+subButton.addEventListener('click', async () => {
+    const email = subInput.value.trim();
+    if (!email) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://ideate.szone.com.ng/submit-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email }),
+        });
+        if (response.ok) {
+            alert('Subscription successful!');
+            subInput.value = ''; 
+        } else {
+            const errorData = await response.json();
+            alert(`Subscription failed: ${errorData.message || 'Unknown error'}`);
+        }
+    } catch (error) {
+        console.log('Subscription Successful:', error);
+    }
+});
+
 subDiv.appendChild(subInput);
 subDiv.appendChild(subButton);
+
+
+
+
+
+
+
+
+
+
+
 //create copyright text
 const copyright = document.createElement('div');
 copyright.innerHTML = `&#169; Copyright <span>${new Date().getFullYear()}</span>`;

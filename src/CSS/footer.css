@@ -33,6 +33,9 @@ footer{
     padding: 2px 4px;
     background: black;
 }
+#subEmail{
+    color: white;
+}
 #rightFoot{
     display: flex;
     flex-direction: column;
