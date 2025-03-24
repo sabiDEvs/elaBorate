@@ -137,6 +137,17 @@ aboutSection.appendChild(aboutDiv);
 //Append about section to main
 main.appendChild(aboutSection);
 
+
+
+
+
+
+
+
+
+
+
+
 //create contact section
 const reachSection = document.createElement('section');
 reachSection.id = 'contact';
@@ -144,7 +155,7 @@ reachSection.id = 'contact';
 const reachHeader = document.createElement('h2');
 reachHeader.textContent = 'CONTACT US';
 //create form element
-const form =  document.createElement('form');
+const form = document.createElement('form');
 const userName = document.createElement('input');
 userName.type = 'text';
 userName.placeholder = 'Name';
@@ -163,22 +174,66 @@ userPhone.classList.toggle('input');
 const userMessage = document.createElement('textarea');
 userMessage.placeholder = 'Enter Message';
 userMessage.id = 'userMessage';
-userPhone.classList.toggle('input');
+userMessage.classList.toggle('input');
 const userSubmit = document.createElement('input');
 userSubmit.type = 'submit';
-userSubmit.textContent = 'SUBMIT';
+userSubmit.value = 'SUBMIT';
 userSubmit.id = 'userSubmit';
-//Append form child elements
+
+// Add event listener to handle form submission
+form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent actual form submission
+    const email = userEmail.value.trim();
+    if (!email) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://ideate.szone.com.ng/submit-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email }),
+        });
+        if (response.ok) {
+            alert('Form submitted successfully!');
+            form.reset(); // Reset the form fields
+        } else {
+            const errorData = await response.json();
+            alert(`Submission failed: ${errorData.message || 'Unknown error'}`);
+        }
+    } catch (error) {
+        console.log('Submission Error:', error);
+    }
+});
+
 form.appendChild(userName);
 form.appendChild(userEmail);
 form.appendChild(userPhone);
 form.appendChild(userMessage);
 form.appendChild(userSubmit);
-//Append element to contact section
 reachSection.appendChild(reachHeader);
 reachSection.appendChild(form);
 //Append contact section to main
 main.appendChild(reachSection);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Append main to body
 body.appendChild(main);
 
