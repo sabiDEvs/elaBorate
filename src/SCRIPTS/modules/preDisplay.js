@@ -1281,9 +1281,9 @@ const displayBF201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
-        const hover = createHover('#');
+        const hover = createHover('https://drive.google.com/file/d/1EN_S0IQi9MoeEmOYgtBp2TFpbJUIliDV/view?usp=drive_link');
         main.appendChild(hover);
-        const download = createDownload('#');
+        const download = createDownload('https://drive.google.com/file/d/1EN_S0IQi9MoeEmOYgtBp2TFpbJUIliDV/view?usp=drive_link');
         main.appendChild(download);
 };
 
@@ -1594,9 +1594,9 @@ const displayHS201 = () => {
         }
         references.appendChild(refList);
         main.appendChild(references);
-        const hover = createHover('#');
+        const hover = createHover('https://drive.google.com/file/d/1ENfVu3x5N07GWWBZ5cYMTi-Q3o_T4n5P/view?usp=drive_link');
         main.appendChild(hover);
-        const download = createDownload('#');
+        const download = createDownload('https://drive.google.com/file/d/1ENfVu3x5N07GWWBZ5cYMTi-Q3o_T4n5P/view?usp=drive_link');
         main.appendChild(download);
 };
 
