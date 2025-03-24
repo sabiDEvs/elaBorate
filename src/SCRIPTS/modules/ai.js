@@ -15,6 +15,7 @@ const displayAI = (body) => {
     gpt.appendChild(gptIcon);
     const ai = document.createElement('div');
     ai.classList.add('aiDiv');
+    ai.id = 'midDiv';
     ai.addEventListener('click', () => {
         gpt.classList.toggle('active');
         gem.classList.toggle('active');
