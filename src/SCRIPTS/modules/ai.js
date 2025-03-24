@@ -64,7 +64,7 @@ const createAiBox = (url, title, ide) => {
     return div;
 };
 const createGemini = (body) => {
-    const gemini = createAiBox("https://bot.orimon.ai/?tenantId=5b8a360c-710a-44f2-87bc-5f91fc211911&fullScreenBot=true" , 'geminiAI', 'gemini');
+    const gemini = createAiBox("https://sabidevs.github.io/ela-gemini/" , 'geminiAI', 'gemini');
     body.appendChild(gemini);
 };
 const createChatGpt = (body) => {
