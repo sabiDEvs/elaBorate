@@ -311,6 +311,10 @@ aside ul li.menu-item.active:hover {
     margin: 0 auto;
     border-radius: 4px;
 }
+
+.danger{
+    overflow-x: hidden;
+}
 @media only screen and (min-width:768px){
     .menu-item, aside ul li.menu-item{
         border-radius: 4px;

@@ -1,4 +1,4 @@
-import pic1 from "../../RESOURCES/images/achieve.png";
+import pic1 from "../../RESOURCES/images/group-of-engr.png";
 import pic2 from "../../RESOURCES/images/daniel1.png";
 import pic3 from "../../RESOURCES/images/pic3.png";
 import pic4 from "../../RESOURCES/images/pic4.png";
@@ -119,6 +119,7 @@ const reset = () => {
   window.scrollTo(0, 0);
   const main = document.querySelector("main");
   main.innerHTML = "";
+  main.classList.add('danger');
   return main;
 };
 
@@ -165,14 +166,14 @@ const createHover = (url) => {
 
 const displayStarted = () => {
   const main = reset();
-
+ 
   const divImgAchieve = document.createElement("div");
   divImgAchieve.classList.add("div-img-achieve");
 
   const imgAchieve = document.createElement("img");
   divImgAchieve.appendChild(imgAchieve);
   imgAchieve.src = pic1;
-  imgAchieve.classList.add("fullImg");
+  imgAchieve.classList.add("diagram-image");
   imgAchieve.id = "getStartImg";
 
   const startingHeader = document.createElement("h2");
@@ -236,7 +237,7 @@ const displayStarted = () => {
   ]);
   repSection.appendChild(aims);
 
-  const apparatus = displayTask("3", "Apparatus/Components/Equipment:", [
+  const apparatus = displayTask("3", "Apparatus/Equipment:", [
     "List all tools, components, and equipment used."
   ]);
   repSection.appendChild(apparatus);
@@ -1000,9 +1001,9 @@ The approach used throughout the experiment simple and straightforward -
       </li>
       <li>Calculate the motor's efficiency at each load step using the input and output power equations.
         <div class="equation">
-          η = (P<sub>out</sub>/P<sub>in</sub>) × 100%<br>
-          Where:<br>
-          P<sub>in</sub> = V(I<sub>a</sub> + I<sub>f</sub>)<br>
+          η = (P<sub>out</sub>/P<sub>in</sub>) × 100% 
+          Where: 
+          P<sub>in</sub> = V(I<sub>a</sub> + I<sub>f</sub>) 
           P<sub>out</sub> = T × ω
         </div>
       </li>
@@ -1144,27 +1145,27 @@ The approach used throughout the experiment simple and straightforward -
             </tr>
             <tr>
                 <td><strong>Copper Losses</strong></td>
-                <td>Electrical losses due to resistance in windings:<br> 
-                    - Armature Copper Loss: Ia²Ra<br>
-                    - Field Copper Loss: If²Rf<br>
+                <td>Electrical losses due to resistance in windings:  
+                    - Armature Copper Loss: Ia²Ra 
+                    - Field Copper Loss: If²Rf 
                     - Brush Contact Loss</td>
             </tr>
             <tr>
                 <td><strong>Iron Losses</strong></td>
-                <td>Core losses due to alternating magnetic fields:<br> 
-                    - Hysteresis Loss<br>
+                <td>Core losses due to alternating magnetic fields:  
+                    - Hysteresis Loss 
                     - Eddy Current Loss</td>
             </tr>
             <tr>
                 <td><strong>Mechanical Losses</strong></td>
-                <td>Losses due to physical movement:<br>
-                    - Friction Loss<br>
+                <td>Losses due to physical movement: 
+                    - Friction Loss 
                     - Windage Loss</td>
             </tr>
             <tr>
                 <td><strong>Stray Load Losses</strong></td>
-                <td>Miscellaneous losses:<br>
-                    - Armature reaction effects<br>
+                <td>Miscellaneous losses: 
+                    - Armature reaction effects 
                     - Non-uniform current distribution</td>
             </tr>
         </table>
@@ -3988,6 +3989,8 @@ main.appendChild(diagramsSection);
 const displayEE204 = () => {
   const main = reset();
 
+  main.classList.add('danger');
+
    const titleSection = document.createElement("section");
    const titleHead = document.createElement("h1");
    titleHead.textContent = "VERIFICATION OF NETWORK THEOREMS";
@@ -4088,9 +4091,9 @@ const displayEE204 = () => {
    const theoryIntro = document.createElement("p");
    theoryIntro.innerHTML = `
      Without electrical circuits, modern technology would not exist. In fact, the whole pursuit of electrical engineering largely dies off, becoming almost a vacuum—to say the least, electrical circuits are all around us, and life as we know it is impossible without them. We have Ohm's Law (for relating the voltage and current of circuits, and therein uncovered the concept of resistance) and Kirchhoff's Laws at our disposal when we are about to construct a desired circuit or analyze a prototype, ascertaining whether it meets design/application requirements. However, as circuits become more intricate, complex, and advanced, using these basic laws alone introduces a lot more problems than it is able to solve. Using only Ohm's Law or Kirchhoff's Laws makes calculations more tedious and error-prone in multi-source or large-scale systems. There has to be another solution that builds on what is on the ground so that unnecessary complexity and inaccurate results can be avoided.
-     <br><br>
+       
      The additional set of principles used to navigate these major problems are called <strong>Network Theorems</strong>. <strong>Network theorems</strong>, a set of foundational principles in electrical engineering, are used for simplifying and analyzing such circuits, allowing engineers to break down complex systems into manageable components. Electric circuit theorems are always beneficial to help find voltage and currents in multi-loop circuits. These theorems use fundamental rules or formulas and basic equations of mathematics to analyze basic components of electrical or electronics parameters such as voltages, currents, resistance, and so on. These fundamental theorems include the basic theorems like Superposition theorem, Tellegen's theorem, Norton's theorem, Maximum power transfer theorem, and Thevenin's theorems. Another group of network theorems that are mostly used in the circuit analysis process includes the Compensation theorem, Substitution theorem, Reciprocity theorem, Millman's theorem, and Miller's theorem.
-     <br><br>
+       
      The central purpose of this investigation is to use a resistance circuit to verify some of these network theorems, namely Superposition and Thevenin's theorems. Exploring the practical applications and step-by-step methodologies of the <strong>Superposition Theorem</strong> and <strong>Thevenin's Theorem</strong>, this experiment aims to address the challenges of analyzing circuits with multiple independent sources and to simplify complex networks into equivalent circuits for easier computation. By mastering these theorems, one can efficiently solve for key circuit parameters, such as currents and voltages across components, in both theoretical and real-world scenarios.
    `;
    theorySection.appendChild(theoryIntro);
@@ -4102,17 +4105,17 @@ const displayEE204 = () => {
    const physicalText = document.createElement("p");
    physicalText.innerHTML = `
      The study of electrical circuits emanates from the foundational principles of electromagnetism and circuit theory. At its core, two key phenomena are explored in circuit analysis: the behavior of current and voltage in response to various sources and the interaction of circuit elements such as resistors, capacitors, and inductors. These are the interactions that predict how circuits will perform under different physical constraints; an in-depth & practical knowledge of which is indispensable to the engineering practice.
-     <br><br>
+       
      The <strong>Superposition Theorem</strong> states that in a linear circuit with multiple independent sources, the total current or voltage at any point in the circuit can be determined by summing the contributions from each of the other independent sources. This theorem <strong>relies on the linearity of the circuit components, which means that the response (current or voltage) is directly proportional to the input (source)</strong>.
-     <br><br>
+       
      The strategy used in the superposition theorem is to eliminate all but one source of power within a network at a time. Then, we use series and parallel circuit analysis techniques to determine voltage drops and currents within the modified network for each power source separately.
-     <br><br>
+       
      This process is then repeated sequentially by individually evaluating the circuit for every voltage and current source in the system. After each individual analysis has been completed, the voltage and current values are all "superimposed" on top of each other (added algebraically) to find the actual voltage drops and currents with all sources active.
-     <br><br>
+       
      <strong>Thevenin's Theorem</strong> is an analytical method used to change a complex circuit into a simple equivalent circuit consisting of a single resistance in series with a source voltage. This theorem is based on the idea that any linear bilateral network can be represented as an equivalent circuit; a good method when analyzing circuits with varying load conditions.
-     <br><br>
+       
      <strong>Thevenin's Theorem</strong> states that <em>"Any linear circuit containing several voltages and resistances can be replaced by just one single voltage in series with a single resistance connected across the load"</em>. In other words, it is possible to simplify any electrical circuit, no matter how complex, to an equivalent two-terminal circuit with just a single constant voltage source in series with a resistance (or impedance) connected to a load as shown below.
-     <br><br>
+       
      The limitations of Thevenin's theorem are similar to that of the Superposition Principle.
    `;
    theorySection.appendChild(physicalText);
@@ -4124,14 +4127,14 @@ const displayEE204 = () => {
    const equationsText = document.createElement("p");
    equationsText.innerHTML = `
      We can derive the governing equations for both the Superposition and Thevenin's Theorems to mathematically prove the analysis.
-     <br><br>
+       
      <strong>1. Superposition Theorem:</strong>
      <ul>
        <li>For a circuit with multiple sources, the total current Iₜ through a branch can be expressed as:</li>
        <li><strong>Iₜ = I₁ + I₂ + ... + Iₙ</strong></li>
        <li>Each I is calculated by activating one source at a time while deactivating all others (replacing voltage sources with short circuits and current sources with open circuits).</li>
      </ul>
-     <br>
+      
      <strong>2. Thevenin's Theorem:</strong>
      <ul>
        <li>The Thevenin equivalent voltage <strong>Vₜₕ</strong> is determined by calculating the open-circuit voltage across the terminals of interest:</li>
@@ -4139,7 +4142,7 @@ const displayEE204 = () => {
        <li>The Thevenin equivalent resistance <strong>Rₜₕ</strong> is found by deactivating all independent sources and calculating the equivalent resistance seen from the terminals:</li>
        <li><strong>Rₜₕ = Rₑₖ</strong></li>
      </ul>
-     <br>
+      
      These equations are derived under the assumption that the circuit is linear and bilateral, meaning that the relationships between voltage and current are a direct variation and the circuit behaves the same regardless of the direction of current flow.
    `;
    theorySection.appendChild(equationsText);
@@ -4151,11 +4154,11 @@ const displayEE204 = () => {
    const simulationText = document.createElement("p");
    simulationText.innerHTML = `
      To validate the theoretical analysis, numerical simulations can be employed using software tools such as SPICE or MATLAB. The governing equations can be implemented in these tools to model the circuit behavior under various conditions.
-     <br><br>
+       
      <strong>Initial and Boundary Conditions:</strong> For simulations, initial conditions may include setting all voltages and currents to zero before applying the sources. Boundary conditions will depend on the specific circuit configuration and the sources used.
-     <br><br>
+       
      <strong>Numerical Parameters:</strong> When integrating differential equations that may arise in circuit analysis (e.g., in RLC circuits), the step size for numerical integration should be chosen carefully to ensure stability and accuracy. A common approach is to use a small time step, such as <strong>Δt = 0.01</strong> seconds, to capture the transient behavior of the circuit accurately.
-     <br><br>
+       
      By connecting the theoretical equations to numerical simulations, engineers can predict circuit behavior under various scenarios, enhancing their understanding and ability to design effective electrical systems.
    `;
    theorySection.appendChild(simulationText);
@@ -4173,19 +4176,47 @@ const displayEE204 = () => {
    main.appendChild(theorySection);
  
    // Diagrams Section
-   const diagramsSection = document.createElement("section");
-   const diagramsHead = document.createElement("h2");
-   diagramsHead.textContent = "DIAGRAMS";
-   diagramsSection.appendChild(diagramsHead);
+  //  const diagramsSection = document.createElement("section");
+  //  const diagramsHead = document.createElement("h2");
+  //  diagramsHead.textContent = "DIAGRAMS";
+  //  diagramsSection.appendChild(diagramsHead);
  
-   const diagramImage = document.createElement("img");
-   diagramImage.src = ee2044;
-   diagramImage.alt = "Circuit Diagram for Experiment EE 204";
-   diagramImage.style.width = "100%";
-   diagramImage.style.maxWidth = "650px";
-   diagramsSection.appendChild(diagramImage);
+  //  const diagramImage = document.createElement("img");
+  //  diagramImage.src = ee2044;
+  //  diagramImage.alt = "Circuit Diagram for Experiment EE 204";
+  //  diagramImage.style.width = "100%";
+  //  diagramImage.style.maxWidth = "650px";
+  //  diagramsSection.appendChild(diagramImage);
  
-   main.appendChild(diagramsSection);
+  //  main.appendChild(diagramsSection);
+
+  const diagramsSection = document.createElement("section");
+diagramsSection.className = "diagrams-section";
+const diagramsHeading = document.createElement("h2");
+diagramsHeading.textContent = "DIAGRAMS";
+diagramsSection.appendChild(diagramsHeading);
+
+const diagrams = [{ cap: "Circuit Diagram for Experiment EE 204", image: ee2044 }];
+
+diagrams.forEach((diagram) => {
+  const diagramContainer = document.createElement("div");
+  diagramContainer.className = "diagram-container";
+
+  const diagramImage = document.createElement("img");
+  diagramImage.className = "diagram-image";
+  diagramImage.src = diagram.image;
+  diagramImage.alt = diagram.cap;
+
+  const diagramCaption = document.createElement("p");
+  diagramCaption.className = "diagram-caption";
+  diagramCaption.textContent = diagram.cap;
+
+  diagramContainer.appendChild(diagramImage);
+  diagramContainer.appendChild(diagramCaption);
+  diagramsSection.appendChild(diagramContainer);
+});
+
+main.appendChild(diagramsSection);
  
 
   // Procedure Section (204.A: Superposition Theorem)
@@ -4343,24 +4374,24 @@ const displayEE204 = () => {
   const concText = document.createElement("p");
   concText.innerHTML = `
     In this experiment, we applied and verified two fundamental network theorems—Superposition Theorem and Thevenin's Theorem—in the analysis of electrical circuits. By performing hands-on calculations, simulations, and measurements, we gained a deeper understanding of these theorems, their practical applications, and their importance in simplifying complex electrical networks.
-    <br><br>
+      
     <strong>Summary of Key Learning Outcomes:</strong>
     <ul>
       <li><strong>Superposition Theorem:</strong> It was demonstrated that in a linear circuit with multiple independent sources, the total response (voltage or current) can be determined by summing the effects of each individual source, with all other sources turned off (replaced by their internal impedance).</li>
       <li><strong>Thevenin's Theorem:</strong> It was learned how to simplify a complex linear circuit into an equivalent circuit consisting of a single voltage source (Thevenin voltage) and a single series resistance (Thevenin resistance), as seen from the load terminals.</li>
       <li><strong>Practical Circuit Analysis:</strong> The experiment reinforced the importance of these theorems in analyzing and simplifying circuits, particularly in situations where individual components, such as loads, need to be analyzed or replaced.</li>
     </ul>
-    <br>
+     
     <strong>Practical Skills Acquired:</strong>
     <ul>
       <li><strong>Circuit Analysis Techniques:</strong> Developed proficiency in applying systematic methods for network theorem calculations, including turning off sources for superposition and determining open-circuit voltage and equivalent resistance for Thevenin.</li>
       <li><strong>Measurement Techniques:</strong> Gained experience using tools such as multimeters and oscilloscopes to measure voltages and currents, and verify theoretical predictions.</li>
       <li><strong>Simulation and Validation:</strong> Used circuit simulation software (such as LTspice, Multisim, or equivalent) to validate experimental results and compare them with theoretical calculations.</li>
     </ul>
-    <br>
+     
     <strong>Future Applications:</strong>
     The Superposition and Thevenin theorems are integral in the design and analysis of electrical and electronic systems. These theorems are particularly useful in simplifying circuits for troubleshooting, designing power systems, and optimizing circuit performance. The practical understanding gained from this experiment will be crucial in addressing real-world challenges requiring such skillset, for example, designing efficient power delivery systems for residential areas.
-    <br><br>
+      
     In conclusion, this experiment provided hands-on experience in applying two cornerstone network theorems. By bridging theory and practice, this experiment has formed a strong foundation for more advanced studies in circuit theory and electrical engineering.
   `;
   conclusion.appendChild(concText);
