@@ -156,7 +156,7 @@ export const displayStarted = () => {
   // Introduction
   createSecHeader("Introduction", main);
   createPara(
-    "The CPE ELA (Computer Engineering Electrical Laboratory Analysis) report is an essential part of your practical coursework. It helps document your experiments, observations, and findings in a structured format. Writing a well-organized report ensures clarity and proper documentation of your practical work.",
+    "The CPE ELA (Computer Engineering Electrical Laboratory) report is an essential part of your practical coursework. It helps document your experiments, observations, and findings in a structured format. Writing a well-organized report ensures clarity and proper documentation of your practical work.",
     main
   );
 
@@ -331,7 +331,7 @@ export const displayComparators = function () {
 
   const apparatus = document.createElement("section");
   const apparatusHead = document.createElement("h2");
-  apparatusHead.textContent = "APPARATUS/TOOLS";
+  apparatusHead.textContent = "APPARATUS";
   apparatus.appendChild(apparatusHead);
   const apparatusList = document.createElement("ul");
   const tools = [
@@ -814,8 +814,6 @@ export const displayLogicGatesExperiment = function () {
   main.appendChild(hover);
   const download = createDownload("#");
   main.appendChild(download);
-
-  return main;
 };
 
 // Function to create a table with borders and proper structure
@@ -947,7 +945,7 @@ export const display3x8DecoderExperiment = function () {
   const createVideoSection = (link, parentElement) => {
     // Create a section header
     const secHeader = document.createElement("h3");
-    secHeader.textContent = "YouTube Link to the Practical Experiment";
+    secHeader.textContent = "YouTube Video to the Practical Experiment";
     parentElement.appendChild(secHeader);
 
     // Create an iframe for the YouTube video
@@ -964,15 +962,6 @@ export const display3x8DecoderExperiment = function () {
     iframe.allowFullscreen = true;
     iframe.title = "YouTube video player";
     parentElement.appendChild(iframe);
-
-    // Create a clickable link as a fallback
-    const youtubeLink = document.createElement("a");
-    youtubeLink.href = link;
-    youtubeLink.textContent = "Watch the Experiment on YouTube";
-    youtubeLink.target = "_blank"; // Open in a new tab
-    youtubeLink.style.display = "block"; // Make it a block element for better spacing
-    youtubeLink.style.marginTop = "10px"; // Add some margin for spacing
-    parentElement.appendChild(youtubeLink);
   };
 
   // Example usage
@@ -1086,7 +1075,7 @@ export const displaySequentialCircuits = function () {
 
   // Title
   const title = document.createElement("h1");
-  title.textContent = "Experiment: Sequential Circuits";
+  title.textContent = "Sequential Circuits";
   main.appendChild(title);
 
   // Aims/Objectives
@@ -1112,7 +1101,7 @@ export const displaySequentialCircuits = function () {
   // Apparatus/Components
   const apparatus = document.createElement("section");
   const apparatusHead = document.createElement("h2");
-  apparatusHead.textContent = "APPARATUS/COMPONENTS";
+  apparatusHead.textContent = "APPARATUS";
   apparatus.appendChild(apparatusHead);
   const apparatusList = document.createElement("ul");
   const components = [
@@ -1148,77 +1137,96 @@ export const displaySequentialCircuits = function () {
     theory.appendChild(paragraph);
   });
   main.appendChild(theory);
-
   // Diagrams
   const diagrams = document.createElement("section");
+  diagrams.style.textAlign = "left"; // Align all content to the left
+  diagrams.style.maxWidth = "100%"; // Ensure it doesn't overflow horizontally
+  diagrams.style.overflow = "hidden"; // Hide any potential overflow
+
   const diagramsHead = document.createElement("h2");
   diagramsHead.textContent = "DIAGRAMS";
   diagrams.appendChild(diagramsHead);
 
+  // Create a common style for diagram containers
+  const diagramContainerStyle = {
+    textAlign: "left",
+    margin: "20px 0",
+    maxWidth: "100%",
+    overflow: "hidden",
+  };
+
   // RS4040 Diagram with Caption
   const rs404Container = document.createElement("div");
-  rs404Container.style.textAlign = "center"; // Center the image and caption
+  Object.assign(rs404Container.style, diagramContainerStyle);
 
   const rs404 = document.createElement("img");
   rs404.src = RSFOR4040;
   rs404.className = "diagramSmallScreens";
+  rs404.style.height = "auto"; // Maintain aspect ratio
   rs404Container.appendChild(rs404);
 
   const rs404Caption = document.createElement("p");
   rs404Caption.textContent = "Figure 1: RS404 Diagram";
-  rs404Caption.style.marginTop = "10px"; // Add spacing between image and caption
-  rs404Caption.style.fontStyle = "italic"; // Italicize the caption
+  rs404Caption.style.marginTop = "10px";
+  rs404Caption.style.fontStyle = "italic";
   rs404Container.appendChild(rs404Caption);
 
   diagrams.appendChild(rs404Container);
 
   // Counter Diagram with Caption
   const counterDiagContainer = document.createElement("div");
-  counterDiagContainer.style.textAlign = "center"; // Center the image and caption
+  Object.assign(counterDiagContainer.style, diagramContainerStyle);
 
   const counterDiag = document.createElement("img");
   counterDiag.src = counters404;
   counterDiag.className = "diagramSmallScreens";
+  counterDiag.style.maxWidth = "100%";
+  counterDiag.style.height = "auto";
   counterDiagContainer.appendChild(counterDiag);
 
   const counterDiagCaption = document.createElement("p");
   counterDiagCaption.textContent = "Figure 2: Counter Diagram";
-  counterDiagCaption.style.marginTop = "10px"; // Add spacing between image and caption
-  counterDiagCaption.style.fontStyle = "italic"; // Italicize the caption
+  counterDiagCaption.style.marginTop = "10px";
+  counterDiagCaption.style.fontStyle = "italic";
   counterDiagContainer.appendChild(counterDiagCaption);
 
   diagrams.appendChild(counterDiagContainer);
 
+  // Repeat the same pattern for other diagrams...
   // Sequential Circuit Diagram with Caption
   const seqCirContainer = document.createElement("div");
-  seqCirContainer.style.textAlign = "center"; // Center the image and caption
+  Object.assign(seqCirContainer.style, diagramContainerStyle);
 
   const seqCir = document.createElement("img");
   seqCir.src = sequentialcir4040;
   seqCir.className = "diagramSmallScreens";
+  seqCir.style.maxWidth = "100%";
+  seqCir.style.height = "auto";
   seqCirContainer.appendChild(seqCir);
 
   const seqCirCaption = document.createElement("p");
   seqCirCaption.textContent = "Figure 3: Sequential Circuit Diagram";
-  seqCirCaption.style.marginTop = "10px"; // Add spacing between image and caption
-  seqCirCaption.style.fontStyle = "italic"; // Italicize the caption
+  seqCirCaption.style.marginTop = "10px";
+  seqCirCaption.style.fontStyle = "italic";
   seqCirContainer.appendChild(seqCirCaption);
 
   diagrams.appendChild(seqCirContainer);
 
   // JK Flip-Flop Diagram with Caption
   const jkflopContainer = document.createElement("div");
-  jkflopContainer.style.textAlign = "center"; // Center the image and caption
+  Object.assign(jkflopContainer.style, diagramContainerStyle);
 
   const jkflop = document.createElement("img");
   jkflop.src = JKflipflop;
   jkflop.className = "diagramSmallScreens";
+  jkflop.style.maxWidth = "100%";
+  jkflop.style.height = "auto";
   jkflopContainer.appendChild(jkflop);
 
   const jkflopCaption = document.createElement("p");
   jkflopCaption.textContent = "Figure 4: JK Flip-Flop Diagram";
-  jkflopCaption.style.marginTop = "10px"; // Add spacing between image and caption
-  jkflopCaption.style.fontStyle = "italic"; // Italicize the caption
+  jkflopCaption.style.marginTop = "10px";
+  jkflopCaption.style.fontStyle = "italic";
   jkflopContainer.appendChild(jkflopCaption);
 
   diagrams.appendChild(jkflopContainer);
@@ -1321,6 +1329,11 @@ export const displaySequentialCircuits = function () {
   });
   references.appendChild(refList);
   main.appendChild(references);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // ADDERS AND SUBTRACTORS EXPERIMENT
@@ -1328,16 +1341,15 @@ export const displayAddersAndSubtractors = function () {
   const main = reset();
 
   const head = document.createElement("h1");
-  head.textContent = "Experiment: Adders and Subtractors";
+  head.textContent = "Adders and Subtractors";
   main.appendChild(head);
 
-  const topic = document.createElement("h2");
-  topic.textContent =
-    "TO EXAMINE HALF AND FULL ADDERS, AND 4-BIT ADDER/SUBTRACTOR";
+  const topic = document.createElement("h3");
+  topic.textContent = "TO EXAMINE HALF, FULL ADDERS & 4-BIT ADDER/SUBTRACTOR";
   main.appendChild(topic);
 
   const objective = document.createElement("section");
-  createSecHeader("AIMS/OBJECTIVES", objective);
+  createSecHeader("AIMS", objective);
   createList(
     [
       "To examine the concept of half and full adders",
@@ -1349,7 +1361,7 @@ export const displayAddersAndSubtractors = function () {
 
   // Apparatus
   const apparatus = document.createElement("section");
-  createSecHeader("APPARATUS/TOOLS", apparatus);
+  createSecHeader("APPARATUS", apparatus);
   createList(
     [
       "Breadboard",
@@ -1423,43 +1435,43 @@ export const displayAddersAndSubtractors = function () {
 
   // Diagrams
   const diagrams = document.createElement("section");
-  createSecHeader("Adder and Subtractor Circuit", diagrams);
+  createSecHeader("Adder and Subtractor", diagrams);
   const adderSubCir = document.createElement("img");
   adderSubCir.src = adderAndSubCir;
   adderSubCir.className = "diagramSmallScreens";
   diagrams.appendChild(adderSubCir);
 
-  createSecHeader("4-Bit Adder and Subtractor Circuit", diagrams);
+  createSecHeader("4-Bit Adder and Subtractor", diagrams);
   const fourBitAdderSubCir = document.createElement("img");
   fourBitAdderSubCir.src = fourBitAdderSub;
   fourBitAdderSubCir.className = "diagramSmallScreens";
   diagrams.appendChild(fourBitAdderSubCir);
 
-  createSecHeader("IC 7486 Diagram", diagrams);
+  createSecHeader("IC 7486", diagrams);
   const ic7486Img = document.createElement("img");
   ic7486Img.src = ic7486;
   ic7486Img.className = "diagramSmallScreens";
   diagrams.appendChild(ic7486Img);
 
-  createSecHeader("IC 7483 Diagram", diagrams);
+  createSecHeader("IC 7483 ", diagrams);
   const ic7483Img = document.createElement("img");
   ic7483Img.src = ic7483;
   ic7483Img.className = "diagramSmallScreens";
   diagrams.appendChild(ic7483Img);
 
-  createSecHeader("IC 7400 Diagram", diagrams);
+  createSecHeader("IC 7400 ", diagrams);
   const ic7400Img = document.createElement("img");
   ic7400Img.src = ic7400;
   ic7400Img.className = "diagramSmallScreens";
   diagrams.appendChild(ic7400Img);
 
-  createSecHeader("Half Subtractor Circuit", diagrams);
+  createSecHeader("Half Subtractor", diagrams);
   const halfSubImg = document.createElement("img");
   halfSubImg.src = halfSub;
   halfSubImg.className = "diagramSmallScreens";
   diagrams.appendChild(halfSubImg);
 
-  createSecHeader("Full Subtractor Circuit", diagrams);
+  createSecHeader("Full Subtractor ", diagrams);
   const fullSubImg = document.createElement("img");
   fullSubImg.src = fullSub;
   fullSubImg.className = "diagramSmallScreens";
@@ -1498,7 +1510,7 @@ export const displayAddersAndSubtractors = function () {
 
   // Add the Adder and Subtractor Table
   const adderSubtractorTableSection = document.createElement("section");
-  createSecHeader("Adder and Subtractor Table", adderSubtractorTableSection);
+  createSecHeader("Adder & Subtractor Table", adderSubtractorTableSection);
 
   // Data for the table
   const adderSubtractorTableData = [
@@ -1633,6 +1645,11 @@ export const displayAddersAndSubtractors = function () {
     references
   );
   main.appendChild(references);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 // SEVEN SEGMENT DISPLAY DECODER EXPERIMENT
 
@@ -1641,27 +1658,29 @@ export const displaySevenSegmentDecoder = function () {
 
   // Title
   const head = document.createElement("h1");
-  head.textContent = "Experiment: Seven Segment Display Decoder";
+  head.textContent = "7 Segment Display Decoder";
   main.appendChild(head);
 
   // Aim
   const topic = document.createElement("h2");
   topic.textContent =
-    "TO CONSTRUCT A CIRCUIT THAT TAKES A 3-BIT BINARY INTEGER AND PRODUCES THE CORRESPONDING SEVEN-SEGMENT CODE";
+    "Design a circuit to convert 3-bit binary input to 7-segment display output.";
+
   main.appendChild(topic);
 
   // Objective
   const objective = document.createElement("section");
-  createSecHeader("AIMS/OBJECTIVES", objective);
+  createSecHeader("AIMS", objective);
   createPara(
-    "To construct a circuit that takes a 3-bit binary integer with a decimal value between 0 and 7 and produces the corresponding seven-segment code.",
+    "Design a circuit to convert a 3-bit binary input (0-7) to a seven-segment display output.",
+
     objective
   );
   main.appendChild(objective);
 
   // Apparatus
   const apparatus = document.createElement("section");
-  createSecHeader("APPARATUS/TOOLS", apparatus);
+  createSecHeader("APPARATUS", apparatus);
   createList(
     [
       "Breadboard",
@@ -1792,7 +1811,7 @@ export const displaySevenSegmentDecoder = function () {
 
   // Add the table to the Observations section
   const tableSection = document.createElement("section");
-  createSecHeader("Truth Table for Seven Segment", tableSection);
+  createSecHeader("Truth Table - 7 Seg", tableSection);
 
   // Data for the table
   const tableData = [
@@ -1868,17 +1887,13 @@ export const displaySevenSegmentDecoder = function () {
     // Create the table header
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
-    const headers = [
-      "Dec",
-      "Inputs (IC 7400, IC 7410)",
-      "Output (7-Segment Display)",
-    ];
+    const headers = ["Dec", "Inputs (IC7400, 7410)", "Output "];
 
     headers.forEach((headerText) => {
       const th = document.createElement("th");
       th.textContent = headerText;
       th.style.border = "1px solid black";
-      th.style.padding = "8px";
+      th.style.padding = "6px";
       headerRow.appendChild(th);
     });
 
@@ -1895,14 +1910,14 @@ export const displaySevenSegmentDecoder = function () {
       const decCell = document.createElement("td");
       decCell.textContent = rowData.Dec;
       decCell.style.border = "1px solid black";
-      decCell.style.padding = "8px";
+      decCell.style.padding = "6px";
       row.appendChild(decCell);
 
       // Add Inputs column
       const inputsCell = document.createElement("td");
       inputsCell.textContent = `IC 7400: ${rowData.IC7400}\nIC 7410: ${rowData.IC7410}`;
       inputsCell.style.border = "1px solid black";
-      inputsCell.style.padding = "8px";
+      inputsCell.style.padding = "6px";
       inputsCell.style.whiteSpace = "pre-line"; // Preserve line breaks
       row.appendChild(inputsCell);
 
@@ -1910,7 +1925,7 @@ export const displaySevenSegmentDecoder = function () {
       const outputCell = document.createElement("td");
       outputCell.textContent = rowData.Output;
       outputCell.style.border = "1px solid black";
-      outputCell.style.padding = "8px";
+      outputCell.style.padding = "6px";
       row.appendChild(outputCell);
 
       tbody.appendChild(row);
@@ -1970,6 +1985,11 @@ export const displaySevenSegmentDecoder = function () {
     references
   );
   main.appendChild(references);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // DECODER AND MULTIPLEXER EXPERIMENT
@@ -2190,6 +2210,11 @@ export const displayDecoderAndMultiplexerExperiment = function () {
     conclusion
   );
   main.appendChild(conclusion);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // 555 TIMER AND SHIFT REGISTER EXPERIMENT
@@ -2459,6 +2484,11 @@ export const display555TimerAndShiftRegisterExperiment = function () {
     references
   );
   main.appendChild(references);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // JK FLIP FLOP EXPERIMENT
@@ -2669,6 +2699,11 @@ export const displayJKFlipFlopExperiment = function () {
     references
   );
   main.appendChild(references);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };
 
 // BLOCK TRANSFER EXPERIMENT
@@ -2678,8 +2713,7 @@ export const displayBlockTransferExperiment = function () {
 
   // Title
   const head = document.createElement("h1");
-  head.textContent =
-    "Experiment Code Number: CPE413 - 8085 and Z80 Block Transfer Programs";
+  head.textContent = "8085 and Z80 Block Transfer Programs";
   main.appendChild(head);
 
   // Aim
@@ -2804,6 +2838,21 @@ export const displayBlockTransferExperiment = function () {
     procedures
   );
 
+  // Common style for code blocks
+  const codeBlockStyle = {
+    fontSize: "12px", // Reduced from default 16px
+    lineHeight: "1.3", // Tighter line spacing
+    whiteSpace: "pre-wrap", // Allows text to wrap
+    wordWrap: "break-word", // Breaks long lines
+    overflowX: "auto", // Adds horizontal scroll if needed
+    backgroundColor: "#f5f5f5", // Light gray background
+    padding: "10px",
+    borderRadius: "4px",
+    border: "1px solid #ddd",
+    maxWidth: "100%", // Ensures it doesn't overflow container
+    fontFamily: "monospace", // Maintains monospace font
+  };
+
   // Z80 Program 1
   createSecHeader("Z80 PROGRAM 1 (Block Transfer Using Loop)", procedures);
   const z80Program1 = document.createElement("pre");
@@ -2819,6 +2868,7 @@ DEC H             ; Decrement counter
 JR NZ, LOOP       ; Jump back to LOOP if counter is not zero
 HALT              ; Stop execution
 `;
+  Object.assign(z80Program1.style, codeBlockStyle);
   procedures.appendChild(z80Program1);
 
   // Z80 Program 2
@@ -2831,7 +2881,9 @@ LD BC, 10H        ; Load byte count (16 bytes) into BC register pair
 LDIR              ; Perform block transfer and repeat until BC = 0
 HALT              ; Stop execution
 `;
+  Object.assign(z80Program2.style, codeBlockStyle);
   procedures.appendChild(z80Program2);
+
   main.appendChild(procedures);
 
   // Observations
@@ -2878,4 +2930,9 @@ HALT              ; Stop execution
     references
   );
   main.appendChild(references);
+
+  const hover = createHover("#");
+  main.appendChild(hover);
+  const download = createDownload("#");
+  main.appendChild(download);
 };

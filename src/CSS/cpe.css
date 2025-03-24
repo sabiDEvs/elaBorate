@@ -283,7 +283,7 @@ aside ul li.menu-item.active:hover {
   color: #14213d;
 }
 .diagramSmallScreens {
-  width: 90vw;
+  width: 80vw;
 }
 @media only screen and (min-width: 768px) {
   .menu-item,
