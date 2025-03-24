@@ -68,7 +68,7 @@ const createGemini = (body) => {
     body.appendChild(gemini);
 };
 const createChatGpt = (body) => {
-    const chatGPT = createAiBox("https://www.chatbase.co/chatbot-iframe/MAsS7vd8yhlz4-rkhASBL", 'chatGPT', 'chatgpt');
+    const chatGPT = createAiBox("https://sabidevs.github.io/ela-mistral/", 'chatGPT', 'chatgpt');
     body.appendChild(chatGPT);
 };
 export{createGemini, createChatGpt, displayAI};
