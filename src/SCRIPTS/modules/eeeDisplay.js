@@ -119,6 +119,9 @@ const reset = () => {
   window.scrollTo(0, 0);
   const main = document.querySelector("main");
   main.innerHTML = "";
+  if(window.innerWidth < 800) {
+    document.querySelector('aside').style.display = 'none';
+};
   main.classList.add('danger');
   return main;
 };
