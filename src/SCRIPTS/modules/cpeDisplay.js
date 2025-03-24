@@ -23,7 +23,6 @@ import mux4x1 from "../../RESOURCES/images/4 X 1 MUX.jpg";
 import decoder3x8 from "../../RESOURCES/images/3 to 8 Decoder.png";
 import fourBitShiftRegister from "../../RESOURCES/images/4-bit-shift-register.gif";
 import mux8x1 from "../../RESOURCES/images/8 X 1 MUX.png";
-// import timer555 from "../../RESOURCES/images/555-Timer-Pin-Diagram.webp";
 import arch8085 from "../../RESOURCES/images/8085 ARCHITECTURE.png";
 import pinDia8085 from "../../RESOURCES/images/8085 PIN DIAGRAM.png";
 import counters404 from "../../RESOURCES/images/counters 404.png";
@@ -43,6 +42,7 @@ import z80MicroprocessorDiagram from "../../RESOURCES/images/z80 Microprocessor 
 import TTABLEFORMULTIPLEXER from "../../RESOURCES/images/T TABLE FOR MULTIPLEXER.png";
 import TRUTHTABLEFORDECODER from "../../RESOURCES/images/TRUTH TABLE FOR DECODER.png";
 import Cpe406observation from "../../RESOURCES/images/Cpe406 observation.png";
+import threebyeightobs from "../../RESOURCES/images/threeXeightDecoderObs.png";
 import gees from "../../RESOURCES/images/gees.jpg";
 
 import { add } from "lodash";
@@ -944,12 +944,42 @@ export const display3x8DecoderExperiment = function () {
     theory
   );
 
-  // YouTube Link
-  createSecHeader("YouTube Link to the Practical Experiment", theory);
-  const youtubeLink = document.createElement("a");
-  youtubeLink.href = "https://youtu.be/RS-OkGxuUpU?si=w46MQYUU0PBP5cSS";
-  youtubeLink.textContent = "Watch the Experiment on YouTube";
-  theory.appendChild(youtubeLink);
+  const createVideoSection = (link, parentElement) => {
+    // Create a section header
+    const secHeader = document.createElement("h3");
+    secHeader.textContent = "YouTube Link to the Practical Experiment";
+    parentElement.appendChild(secHeader);
+
+    // Create an iframe for the YouTube video
+    const iframe = document.createElement("iframe");
+    iframe.src = link.replace(
+      "https://youtu.be/",
+      "https://www.youtube.com/embed/"
+    ); // Convert YouTube link to embed format
+    iframe.width = "100%";
+    iframe.height = "315";
+    iframe.frameBorder = "0";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    iframe.title = "YouTube video player";
+    parentElement.appendChild(iframe);
+
+    // Create a clickable link as a fallback
+    const youtubeLink = document.createElement("a");
+    youtubeLink.href = link;
+    youtubeLink.textContent = "Watch the Experiment on YouTube";
+    youtubeLink.target = "_blank"; // Open in a new tab
+    youtubeLink.style.display = "block"; // Make it a block element for better spacing
+    youtubeLink.style.marginTop = "10px"; // Add some margin for spacing
+    parentElement.appendChild(youtubeLink);
+  };
+
+  // Example usage
+  createVideoSection(
+    "https://youtu.be/RS-OkGxuUpU?si=w46MQYUU0PBP5cSS",
+    theory
+  );
   main.appendChild(theory);
 
   // Diagrams
@@ -958,7 +988,7 @@ export const display3x8DecoderExperiment = function () {
 
   // 3x8 Decoder Diagram
   const decoderDiagram = document.createElement("img");
-  decoderDiagram.src = "path/to/3x8_decoder_diagram.png";
+  decoderDiagram.src = decoder3x8;
   decoderDiagram.className = "diagramSmallScreens";
   diagrams.appendChild(decoderDiagram);
 
@@ -991,6 +1021,11 @@ export const display3x8DecoderExperiment = function () {
     "From the results obtained above, it is observed that for each combination of the three input pins (A2, A1, and A0), exactly one output pin is active (high) at a time. This active output represents the binary equivalent of the input combination in octal form.",
     observations
   );
+
+  const decoderDiagramObs = document.createElement("img");
+  decoderDiagramObs.src = threebyeightobs;
+  decoderDiagramObs.className = "diagramSmallScreens";
+  observations.appendChild(decoderDiagramObs);
   main.appendChild(observations);
 
   // Precautions

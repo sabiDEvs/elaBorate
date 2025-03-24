@@ -1,8 +1,7 @@
-import "../CSS/cpe.css";
-import "../CSS/ai.css";
-
 import { renderHeader } from "./modules/header";
 import { renderFooter } from "./modules/footer";
+import "../CSS/cpe.css";
+import "../CSS/ai.css";
 import {
   displayStarted,
   displayComparators,
