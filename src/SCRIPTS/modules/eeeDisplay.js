@@ -41,6 +41,10 @@ import ee2073 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/207/3.png";
 import ee2074 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/207/4.png";
 
 import ee2075 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/207/5.png";
+import ee2076 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/207/fig1.png";
+import ee2077 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/207/fig2.png";
+import ee2078 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/207/fig3.png";
+import ee2079 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/207/fig4.png";
 import ee2021 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/1.png";
 
 import ee2022 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/202/2.png";
@@ -58,7 +62,8 @@ import ee2084 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig4.png";
 import ee2085 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig5.png";
 import ee2086 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig6.png";
 import ee2087 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/fig7.png";
-
+import ee2088 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/1.png";
+import ee2089 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/208/2.png";
 import ee2011 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/1.png";
 import ee2013 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/2.png";
 import ee2014 from "../../RESOURCES/images/ELECTRICAL/200L IMAGES/201/3.png";
@@ -798,20 +803,46 @@ const displayEE208 = () => {
   `;
   main.appendChild(objectivesSection);
 
-  const apparatusSection = document.createElement("section");
-  apparatusSection.innerHTML = `
-    <h2>APPARATUS/COMPONENTS/EQUIPMENT</h2>
-    <blockquote>
-      <p>The experimental setup featured the following components:</p>
-      <ol type="a">
-        <li><strong>Electrical Machine Tutor (Model EMT-180)</strong>: Main machine assembly for testing</li>
-        <li><strong>Power Supply Panel with Meters</strong>: Supplies DC voltage and measures current/voltage</li>
-        <li><strong>Rheostat (9–200 Ω, 3 A)</strong>: For varying resistance and controlling voltage/current</li>
-        <li><strong>Hand Tachometer</strong>: Measures rotational speed in RPM</li>
-      </ol>
-    </blockquote>
-  `;
-  main.appendChild(apparatusSection);
+  const appHead = document.createElement("h2");
+  appHead.textContent = "Apparatus";
+  main.appendChild(appHead);
+  const section = document.createElement("section");
+  section.classList.add("appBox");
+
+  const apparatus = [
+    {
+      cap: "Electrical Machine Tutor (Model EMT-180)",
+      image: ee2083,
+    },
+    {
+      cap: "Power supply panel with meters",
+      image: ee2072,
+    },
+    {
+      cap: "Rheostat (9–200 Ω, 3 A)",
+      image: ee2073,
+    },
+    {
+      cap: "Hand Tachometer",
+      image: ee2074,
+    }
+  ];
+  let appBox = [];
+  let appImage = [];
+  let appCaption = [];
+  for (let i = 0; i < apparatus.length; i++) {
+    appBox[i] = document.createElement("div");
+    appImage[i] = document.createElement("img");
+    appCaption[i] = document.createElement("p");
+    appImage[i].src = apparatus[i].image;
+    appCaption[i].textContent = apparatus[i].cap;
+    appBox[i].appendChild(appImage[i]);
+    appBox[i].appendChild(appCaption[i]);
+    section.appendChild(appBox[i]);
+  }
+  main.appendChild(section);
+
+
 
   const theorySection = document.createElement("section");
   theorySection.innerHTML = `
@@ -898,39 +929,57 @@ The approach used throughout the experiment simple and straightforward -
   main.appendChild(theorySection);
 
   const images = [ee2081, ee2082, ee2083, ee2084, ee2085, ee2086, ee2087];
-
   const diagramsSection = document.createElement("section");
-  diagramsSection.innerHTML = `
-     <h2>DIAGRAMS</h2>
-  <div class="diagram-grid">
-    ${images
-      .map(
-        (img, i) => `
-      <div class="diagram-item">
-        <img src="${img}" 
-             alt="Figure ${i + 1}" 
-             style="width: ${
-               i === 0 ? "4.166in" : i === 4 ? "5.333in" : "6.5in"
-             };">
-        <p>Fig ${i + 1}: ${
-          [
-            "DC Shunt Motor",
-            "DC Shunt Motor Schematics",
-            "Electric Machine Trainer",
-            "DC Power Supply",
-            "Variable Resistor",
-            "Analog Hand Tachometer",
-            "Hand Tachometer",
-            "Additional Diagram",
-          ][i]
-        }</p>
-        </div>
-      `
-      )
-      .join("")}
-    </div>
-  `;
+  diagramsSection.className = "diagrams-section"; // Add styling class
+
+  const diagramHead = document.createElement("h2");
+  diagramHead.innerText = "DIAGRAMS";
+  diagramsSection.appendChild(diagramHead);
+
+  const diagrams = [
+      {
+        cap: "CIRCUIT DIAGRAM D.C SHUNT MOTOR",
+        image: ee2088,
+      },
+      {
+        cap: "WORKING DIAGRAM",
+        image: ee2089,
+      },
+
+      {
+        cap: "DC Shunt Motor Schematics",
+        image: ee2082,
+      },
+    
+
+
+  
+      
+    ];
+  let diagramBox = [];
+  let diagramImage = [];
+  let diagramCaption = [];
+  for (let i = 0; i < diagrams.length; i++) {
+    diagramBox[i] = document.createElement("div");
+    diagramBox[i].className = "diagram-container"; // Add container class
+
+    diagramImage[i] = document.createElement("img");
+    diagramImage[i].className = "diagram-image"; // Add image class
+    diagramImage[i].src = diagrams[i].image;
+    diagramImage[i].alt = diagrams[i].cap; // Add accessibility attribute
+
+    diagramCaption[i] = document.createElement("p");
+    diagramCaption[i].className = "diagram-caption"; // Add caption class
+    diagramCaption[i].textContent = diagrams[i].cap;
+
+    diagramBox[i].appendChild(diagramImage[i]);
+    diagramBox[i].appendChild(diagramCaption[i]);
+    diagramsSection.appendChild(diagramBox[i]);
+  }
+
   main.appendChild(diagramsSection);
+
+
   const procedureSection = document.createElement("section");
   procedureSection.innerHTML = `
     <h2>PROCEDURE</h2>
@@ -961,30 +1010,72 @@ The approach used throughout the experiment simple and straightforward -
   `;
   main.appendChild(procedureSection);
 
+  // Results Section
   const resultsSection = document.createElement("section");
-  resultsSection.innerHTML = `
-    <h2>RESULTS/TABLE OF VALUES</h2>
-    <p class="table-disclaimer">Note: These are placeholder or test values not the actual values used during the experiment. This is just to show an example of what to expect. Take down the readings and parameters obtained from the experiment and record them as your table of values</p>
-    <table class="results-table">
-      <tr>
-        <th rowspan="2">Parameter</th>
-        <th colspan="6">Measurements</th>
-      </tr>
-      <tr>
-        <th>0.6A</th><th>0.8A</th><th>1.0A</th>
-        <th>1.2A</th><th>1.4A</th><th>1.6A</th>
-      </tr>
-      <tr><td>N<sub>a</sub> (RPM)</td> <td>104</td><td>100</td><td>92</td><td>84</td><td>80</td><td>75</td></tr>
-      <tr><td>Torque (Nm)</td> <td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td><td>0.5</td><td>0.6</td></tr>
-      <tr><td>W<sub>in</sub> (W)</td> <td colspan="6">Calculated values...</td></tr>
-      <tr><td>W<sub>out</sub> (W)</td> <td colspan="6">Calculated values...</td></tr>
-      <tr><td>Efficiency (%)</td> <td colspan="6">Calculated values...</td></tr>
-    </table>
-    <p><em>Experimental parameters:</em> V = 40V, R<sub>a</sub> = 0.2Ω</p>
-  `;
+  const resultsHead = document.createElement("h2");
+  resultsHead.textContent = "RESULTS/TABLE OF VALUES";
+  resultsSection.appendChild(resultsHead);
+
+  const disclaimer = document.createElement("p");
+  disclaimer.textContent = "Note: These are placeholder or test values, not the actual values used during the experiment. This is just to show an example of what to expect. Take down the readings and parameters obtained from the experiment and record them as your table of values.";
+  disclaimer.classList.add("table-disclaimer");
+  resultsSection.appendChild(disclaimer);
+
+  // Create Table
+  const table = document.createElement("table");
+  table.style.borderCollapse = "collapse";
+  table.style.width = "100%";
+
+  // Create Table Header
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+
+  const headers = ["Load Current (I)", "Terminal Voltage (V)", "Generated Voltage (E)"];
+  headers.forEach((text) => {
+    const th = document.createElement("th");
+    th.textContent = text;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow.appendChild(th);
+  });
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create Table Body
+  const tbody = document.createElement("tbody");
+  const tableData = [
+    ["0.1 A", "120 V", "122 V"],
+    ["0.2 A", "118 V", "120 V"],
+    ["0.3 A", "115 V", "117 V"],
+    ["0.4 A", "112 V", "114 V"],
+    ["0.5 A", "110 V", "112 V"],
+    ["0.6 A", "108 V", "110 V"],
+  ];
+
+  tableData.forEach((row) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+
+  table.appendChild(tbody);
+  resultsSection.appendChild(table);
+
+  // Experimental Parameters
+  const experimentalParams = document.createElement("p");
+  experimentalParams.innerHTML = `<em>Experimental parameters:</em> V = 40V, R<sub>a</sub> = 0.2Ω`;
+  resultsSection.appendChild(experimentalParams);
+
   main.appendChild(resultsSection);
 
-  // ======================== QUESTIONS SECTION ========================
+
   const questionsSection = document.createElement("section");
   questionsSection.innerHTML = `
     <h2>QUESTIONS</h2>
@@ -1208,55 +1299,6 @@ The approach used throughout the experiment simple and straightforward -
   `;
   main.appendChild(referencesSection);
 
-  const style = document.createElement("style");
-  style.textContent = `
-    .theory-table, .results-table, .losses-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-    th, td {
-      border: 1px solid #000;
-      padding: 8px;
-      text-align: center;
-    }
-    .table-disclaimer {
-      font-style: italic;
-      margin: 10px 0;
-      color: #ff0000;}
-
-       .question {
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .answer {
-            margin-left: 20px;
-        }
-        .subsection {
-            margin-left: 40px;
-        }
-    .diagram-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .diagram-item img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-    }
-    .equation {
-      background: #f8f9fa;
-      padding: 15px;
-      margin: 10px 0;
-      border-left: 3px solid #36c;
-    }
-    blockquote {
-      margin: 15px 30px;
-      padding: 10px 20px;
-    }
-  `;
-  main.appendChild(style);
   const hover = createHover("#");
   main.appendChild(hover);
   const download = createDownload("#");
@@ -1422,41 +1464,86 @@ const displayEE206 = () => {
 
   main.appendChild(theory);
 
+  
   const diagramsSection = document.createElement("section");
+  diagramsSection.className = "diagrams-section"; // Add styling class
+
   const diagramHead = document.createElement("h2");
   diagramHead.innerText = "DIAGRAMS";
-
   diagramsSection.appendChild(diagramHead);
 
   const diagrams = [
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER RATIO TEST",
-      image: pic9,
-    },
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER NO – LOAD TEST",
-      image: pic10,
-    },
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER LOAD TEST",
-      image: pic11,
-    },
-  ];
+      {
+        cap: "WORKING DIAGRAM SHOWING TRANSFORMER RATIO TEST",
+        image: pic9,
+      },
+      {
+        cap: "WORKING DIAGRAM SHOWING TRANSFORMER NO – LOAD TEST",
+        image: pic10,
+      },
+      {
+        cap: "WORKING DIAGRAM SHOWING TRANSFORMER LOAD TEST",
+        image: pic11,
+      },
+    ];
   let diagramBox = [];
   let diagramImage = [];
   let diagramCaption = [];
   for (let i = 0; i < diagrams.length; i++) {
     diagramBox[i] = document.createElement("div");
+    diagramBox[i].className = "diagram-container"; // Add container class
+
     diagramImage[i] = document.createElement("img");
-    diagramCaption[i] = document.createElement("p");
+    diagramImage[i].className = "diagram-image"; // Add image class
     diagramImage[i].src = diagrams[i].image;
+    diagramImage[i].alt = diagrams[i].cap; // Add accessibility attribute
+
+    diagramCaption[i] = document.createElement("p");
+    diagramCaption[i].className = "diagram-caption"; // Add caption class
     diagramCaption[i].textContent = diagrams[i].cap;
+
     diagramBox[i].appendChild(diagramImage[i]);
     diagramBox[i].appendChild(diagramCaption[i]);
     diagramsSection.appendChild(diagramBox[i]);
   }
 
   main.appendChild(diagramsSection);
+
+  // const diagramsSection = document.createElement("section");
+  // const diagramHead = document.createElement("h2");
+  // diagramHead.innerText = "DIAGRAMS";
+
+  // diagramsSection.appendChild(diagramHead);
+
+  // const diagrams = [
+  //   {
+  //     cap: "WORKING DIAGRAM SHOWING TRANSFORMER RATIO TEST",
+  //     image: pic9,
+  //   },
+  //   {
+  //     cap: "WORKING DIAGRAM SHOWING TRANSFORMER NO – LOAD TEST",
+  //     image: pic10,
+  //   },
+  //   {
+  //     cap: "WORKING DIAGRAM SHOWING TRANSFORMER LOAD TEST",
+  //     image: pic11,
+  //   },
+  // ];
+  // let diagramBox = [];
+  // let diagramImage = [];
+  // let diagramCaption = [];
+  // for (let i = 0; i < diagrams.length; i++) {
+  //   diagramBox[i] = document.createElement("div");
+  //   diagramImage[i] = document.createElement("img");
+  //   diagramCaption[i] = document.createElement("p");
+  //   diagramImage[i].src = diagrams[i].image;
+  //   diagramCaption[i].textContent = diagrams[i].cap;
+  //   diagramBox[i].appendChild(diagramImage[i]);
+  //   diagramBox[i].appendChild(diagramCaption[i]);
+  //   diagramsSection.appendChild(diagramBox[i]);
+  // }
+
+  // main.appendChild(diagramsSection);
   const practicals = document.createElement("section");
   const step1 = document.createElement("h2");
   step1.textContent = "PROCEDURE";
@@ -2321,285 +2408,446 @@ const displayEE207 = () => {
   };
 
   const theory = document.createElement("section");
-  const theoHead = document.createElement("h2");
-  theoHead.textContent = "THEORY";
-  theory.appendChild(theoHead);
+const theoHead = document.createElement("h2");
+theoHead.textContent = "THEORY";
+theory.appendChild(theoHead);
 
-  const explain = document.createElement("div");
-  explain.textContent =
-    "A DC generator is a device that converts mechanical energy into direct current (DC) electrical energy. It operates based on the principle of electromagnetic induction, where a change in magnetic flux through a circuit induces an electromotive force (EMF) or voltage in the circuit.";
-  theory.appendChild(explain);
+const explain = document.createElement("div");
+explain.textContent =
+  "A DC generator is a crucial electrical machine that plays a fundamental role in converting mechanical energy into direct current (DC) electrical energy. It operates based on the principle of electromagnetic induction, discovered by Michael Faraday. This principle states that a change in magnetic flux through a conductor induces an electromotive force (EMF), which in turn generates an electric current. DC generators are widely used in various applications such as power generation, battery charging, and providing backup power in industries and commercial settings.";
+theory.appendChild(explain);
 
-  const partsTitle = document.createElement("h3");
-  partsTitle.textContent = "Key Parts of a DC Generator:";
-  theory.appendChild(partsTitle);
+const partsTitle = document.createElement("h3");
+partsTitle.textContent = "Key Parts of a DC Generator:";
+theory.appendChild(partsTitle);
 
-  const parts = [
-    {
-      title: "Stator:",
-      text: "The stationary portion of the generator that holds the magnetic field. Its components are field windings, which produce the magnetic field, a steel frame, and a stator core composed of laminated steel sheets to reduce eddy current losses.",
-    },
-    {
-      title: "Rotor (Armature):",
-      text: "The rotating part of the generator that consists of an armature core made of laminated steel sheets, armature windings (conductors that carry the induced current), a commutator, and a shaft.",
-    },
-    {
-      title: "Commutator:",
-      text: "A rotating electrical switch that consists of wedge-shaped copper segments separated by mica insulation. It functions to convert the alternating current (AC) generated in the armature windings into a unidirectional DC output.",
-    },
-    {
-      title: "Brushes:",
-      text: "Sliding contacts that make electrical contact with the commutator to collect the generated current.",
-    },
-  ];
-  parts.forEach((part) => {
-    theory.appendChild(missingFunction(part));
-  });
+const parts = [
+  {
+    title: "Stator:",
+    text: "The stator is the stationary part of the DC generator responsible for providing the necessary magnetic field. It consists of field windings that generate a steady magnetic field when current flows through them. The stator also includes a steel frame for mechanical support and a laminated core to minimize energy losses due to eddy currents.",
+  },
+  {
+    title: "Rotor (Armature):",
+    text: "The rotor, also known as the armature, is the rotating component of the generator. It houses the armature windings, which are conductors placed in slots within the laminated core. As the rotor spins within the magnetic field, it cuts through the magnetic lines of force, inducing an electromotive force (EMF). The armature is mounted on a shaft that transfers mechanical energy to electrical energy efficiently.",
+  },
+  {
+    title: "Commutator:",
+    text: "A crucial part of the DC generator, the commutator is a cylindrical structure made of segmented copper plates insulated from each other by mica. It plays a vital role in converting the alternating current (AC) generated in the armature windings into a unidirectional DC output by periodically reversing the current direction.",
+  },
+  {
+    title: "Brushes:",
+    text: "Brushes are made of carbon or graphite and are designed to maintain continuous electrical contact between the rotating commutator and the external circuit. These brushes ensure efficient current collection and smooth operation of the generator.",
+  },
+];
+parts.forEach((part) => {
+  theory.appendChild(missingFunction(part));
+});
 
-  const principleTitle = document.createElement("h3");
-  principleTitle.textContent =
-    "Working Principle of a Direct Current (D.C) Generator:";
-  theory.appendChild(principleTitle);
+const principleTitle = document.createElement("h3");
+principleTitle.textContent = "Working Principle of a Direct Current (D.C) Generator:";
+theory.appendChild(principleTitle);
 
-  const principles = [
-    {
-      title: "Electromagnetic Induction:",
-      text: "An electromagnetic field (EMF) is created in the conductors when the armature rotates within the magnetic field, cutting through magnetic lines of force.",
-    },
-    {
-      title: "Current Flow:",
-      text: "Current passes through the armature windings as a result of the produced EMF.",
-    },
-    {
-      title: "Commutation:",
-      text: "To guarantee that the output current flows in a single direction (DC), the commutator and brushes cooperate to reverse the direction of the current in the armature windings.",
-    },
-  ];
-  principles.forEach((principle) => {
-    theory.appendChild(missingFunction(principle));
-  });
+const principles = [
+  {
+    title: "Electromagnetic Induction:",
+    text: "The working of a DC generator is based on the principle of electromagnetic induction. When the armature rotates within a magnetic field, it cuts through magnetic flux lines, inducing an electromotive force (EMF) in the conductors. This EMF drives the current through the circuit.",
+  },
+  {
+    title: "Current Flow:",
+    text: "As the generated EMF induces current in the armature windings, this current is collected and directed to an external load for useful work. The magnitude of the current depends on factors such as speed of rotation, strength of the magnetic field, and the number of conductors.",
+  },
+  {
+    title: "Commutation:",
+    text: "Since the nature of induced current in the armature is alternating, the commutator ensures that the output remains unidirectional (DC). It reverses the connections at the right moment to maintain a steady flow of current in one direction.",
+  },
+];
+principles.forEach((principle) => {
+  theory.appendChild(missingFunction(principle));
+});
 
-  const typesTitle = document.createElement("h3");
-  typesTitle.textContent = "Types of D.C Generators:";
-  theory.appendChild(typesTitle);
+const typesTitle = document.createElement("h3");
+typesTitle.textContent = "Types of D.C Generators:";
+theory.appendChild(typesTitle);
 
-  const types = [
-    {
-      title: "Separately Excited DC Generator:",
-      text: "An external DC source powers the field windings.",
-    },
-    {
-      title: "Self-Excited DC Generator:",
-      text: "The generator itself provides the energy to the field windings. These are divided further into:",
-    },
-    {
-      title: "  - Series-Wound DC Generator:",
-      text: "The armature and field windings are connected in series.",
-    },
-    {
-      title: "  - Shunt-Wound DC Generator:",
-      text: "The armature and field windings of a shunt-wound DC generator are linked in parallel.",
-    },
-    {
-      title: "  - Compound-Wound DC Generator:",
-      text: "It features field windings that are both shunt and series.",
-    },
-  ];
-  types.forEach((type) => {
-    theory.appendChild(missingFunction(type));
-  });
+const types = [
+  {
+    title: "Separately Excited DC Generator:",
+    text: "This type of generator requires an external DC source to energize the field windings, making it highly stable and suitable for laboratory applications and industrial purposes requiring precise voltage control.",
+  },
+  {
+    title: "Self-Excited DC Generator:",
+    text: "The field windings are powered by the generator itself, eliminating the need for an external power source. These are further categorized into different types based on winding connections:",
+  },
+  {
+    title: "  - Series-Wound DC Generator:",
+    text: "The field windings are connected in series with the armature. It provides high output voltage at high loads but has poor voltage regulation.",
+  },
+  {
+    title: "  - Shunt-Wound DC Generator:",
+    text: "In this type, the field windings are connected parallel to the armature, offering better voltage regulation and stability. It is widely used in battery charging and lighting applications.",
+  },
+  {
+    title: "  - Compound-Wound DC Generator:",
+    text: "Combines features of both series and shunt-wound generators. It offers better voltage regulation and is used in industrial applications where load variations are significant.",
+  },
+];
+types.forEach((type) => {
+  theory.appendChild(missingFunction(type));
+});
 
-  const applicationsTitle = document.createElement("h3");
-  applicationsTitle.textContent = "Applications of D.C Generators:";
-  theory.appendChild(applicationsTitle);
+const applicationsTitle = document.createElement("h3");
+applicationsTitle.textContent = "Applications of D.C Generators:";
+theory.appendChild(applicationsTitle);
 
-  const applications = [
-    { title: "Charging of Batteries:", text: "" },
-    { title: "Providing Power for D.C Motors:", text: "" },
-    { title: "Welding:", text: "" },
-    { title: "Electroplating:", text: "" },
-    {
-      title: "Compact Power Supply Units:",
-      text: "For small power supply systems.",
-    },
-  ];
-  applications.forEach((application) => {
-    theory.appendChild(missingFunction(application));
-  });
+const applications = [
+  { title: "Charging of Batteries:", text: "DC generators are extensively used in charging batteries in vehicles, emergency backup systems, and remote power stations." },
+  { title: "Providing Power for D.C Motors:", text: "Used in industrial applications where DC motors are required for precise speed control and heavy machinery." },
+  { title: "Welding:", text: "DC generators are employed in arc welding applications, providing smooth and stable power output for high-quality welding." },
+  { title: "Electroplating:", text: "Used in electrochemical processes where a consistent DC supply is required to deposit metal coatings on surfaces." },
+  { title: "Compact Power Supply Units:", text: "DC generators serve as power sources for small-scale power supply systems in remote and off-grid locations." },
+];
+applications.forEach((application) => {
+  theory.appendChild(missingFunction(application));
+});
 
-  const utubeDiv = document.createElement("div");
-  const utube = document.createElement("p");
-  utube.textContent =
-    "Watch the video below to learn more about D.C generators and their applications:";
+const utubeDiv = document.createElement("div");
+const utube = document.createElement("p");
+utube.textContent = "Watch the video below to learn more about D.C generators and their applications:";
 
-  const uvideo = document.createElement("div");
-  uvideo.innerHTML =
-    '<iframe width="590" height="332" src="https://www.youtube.com/embed/specific_video_link" title="DC Generator: Working Principle and Applications" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+const uvideo = document.createElement("div");
+uvideo.innerHTML = '<iframe width="413" height="232" src="https://www.youtube.com/embed/zaOGMpimJLs" title="DC Generators" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
 
-  utubeDiv.appendChild(utube);
-  utubeDiv.appendChild(uvideo);
+utubeDiv.appendChild(utube);
+utubeDiv.appendChild(uvideo);
 
-  theory.appendChild(utubeDiv);
+theory.appendChild(utubeDiv);
 
-  main.appendChild(theory);
+main.appendChild(theory);
+
 
   const diagramsSection = document.createElement("section");
+  diagramsSection.className = "diagrams-section"; // Add styling class
+
   const diagramHead = document.createElement("h2");
   diagramHead.innerText = "DIAGRAMS";
-
   diagramsSection.appendChild(diagramHead);
 
   const diagrams = [
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER RATIO TEST",
-      image: pic9,
-    },
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER NO – LOAD TEST",
-      image: pic10,
-    },
-    {
-      cap: "WORKING DIAGRAM SHOWING TRANSFORMER LOAD TEST",
-      image: pic11,
-    },
-  ];
+      {
+        cap: "DC SEPERATELY EXCITED GENERATOR CIRCUIT",
+        image: ee2076,
+      },
+      {
+        cap: "FIGURE 2",
+        image: ee2077,
+      },
+      {
+        cap: "DC SEPERATELY EXCITED GENERATOR CIRCUIT",
+        image: ee2078,
+      },
+      {
+        cap: "DC SHUNT GENERATOR CIRCUIT",
+        image: ee2079,
+      }
+      
+    ];
   let diagramBox = [];
   let diagramImage = [];
   let diagramCaption = [];
   for (let i = 0; i < diagrams.length; i++) {
     diagramBox[i] = document.createElement("div");
+    diagramBox[i].className = "diagram-container"; // Add container class
+
     diagramImage[i] = document.createElement("img");
-    diagramCaption[i] = document.createElement("p");
+    diagramImage[i].className = "diagram-image"; // Add image class
     diagramImage[i].src = diagrams[i].image;
+    diagramImage[i].alt = diagrams[i].cap; // Add accessibility attribute
+
+    diagramCaption[i] = document.createElement("p");
+    diagramCaption[i].className = "diagram-caption"; // Add caption class
     diagramCaption[i].textContent = diagrams[i].cap;
+
     diagramBox[i].appendChild(diagramImage[i]);
     diagramBox[i].appendChild(diagramCaption[i]);
     diagramsSection.appendChild(diagramBox[i]);
   }
 
   main.appendChild(diagramsSection);
-  const practicals = document.createElement("section");
-  const step1 = document.createElement("h2");
-  step1.textContent = "PROCEDURE";
 
-  practicals.appendChild(step1);
-  const step4 = document.createElement("h3");
-  step4.textContent = "TRANSFER RATIO TEST";
-  practicals.appendChild(step4);
-  const stepList2 = document.createElement("ul");
-  stepList2.classList.add("stepboxlist");
-  const steps2 = [
-    "Set Variac control dial to zero (0) position",
-    "Connect up the variac, the voltmeter V₁ (0-220), the amimeter (0-1A), and the transformer. as in the working diagram fig 22-1-1",
-    "Connect the voltmeter V₂ (0-100V) across the secondary terminals a₁-a₂.",
-    "(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.",
-    "Record on table 206-1 the values of V₁, V₂ and the primary and secondary turns (as marked on transformer).",
-    "Connect voltmeter V₂ in turn across terminals (a₁-a₂) (a₁-a₃) (a₁-a₄) (a₁-a₅) and repeat (5)",
-    "Fill-up table 206-1.",
-  ];
-  let stepBox2 = [];
-  for (let i = 0; i < steps2.length; i++) {
-    stepBox2[i] = document.createElement("li");
+// Procedure Section
+const procedure = document.createElement("section");
+const procHead = document.createElement("h2");
+procHead.textContent = "PROCEDURE";
+procedure.appendChild(procHead);
 
-    stepBox2[i].textContent = steps2[i];
-    stepList2.appendChild(stepBox2[i]);
-  }
-  practicals.appendChild(stepList2);
+const openCircuit = document.createElement("h3");
+openCircuit.textContent = "1. OPEN CIRCUIT CHARACTERISTICS:";
+procedure.appendChild(openCircuit);
 
-  const step3 = document.createElement("h3");
-  step3.textContent = "NO-LOAD TEST";
-  practicals.appendChild(step3);
-  const stepList1 = document.createElement("ul");
-  stepList1.classList.add("stepboxlist");
-  const steps1 = [
-    "Reduce variac output to zero (0) and switch-OFF mains",
-    "(i) Connect up the circuit of Fig. 22-1-2 leaving the secondary terminals open circuit. Use the wattmeter (0-12W). \n (ii) Get the supervisor to check the circuit (you may also need the help of a supervisor to connect up the wattmeter).",
-    "Switch-ON mains to variac and turn variac control to obtain 40V on voltmeter V₁.",
-    "(i) Connect the variac to mains supply and switch-ON \n (ii) Turn variac dial to obtain 220V on V₁.",
-    "Take ammeter and wattmeter readings and record on table 206-2 as I₁ and W₁, respectively.",
-    " Vary variac control to obtain 80, 120, 160, 200, and 220V in turn on voltmeter V₁, and repeat (11) at each setting. \n(i) Fill up table 206-2. \n(ii) Plot graph of primary voltage (V₁) vs loss (W).",
-  ];
-  let stepBox1 = [];
-  for (let i = 0; i < steps1.length; i++) {
-    stepBox1[i] = document.createElement("li");
-    stepBox1[i].textContent = steps1[i];
-    stepList1.appendChild(stepBox1[i]);
-  }
-  practicals.appendChild(stepList1);
+const openCircuitSteps = [
+  "Make the connections as shown in Figure 207-1-1.1b (DC separately excited generator laboratory interconnection).",
+  "Ensure the field winding is separately excited.",
+  "Gradually increase the field current and record the generated voltage (E) at each step.",
+  "Plot the open-circuit characteristics (E vs. If) to determine the relationship between the generated voltage and field current.",
+];
 
-  const step5 = document.createElement("h3");
-  step5.textContent = "LOAD TEST";
-  practicals.appendChild(step5);
-  const stepList3 = document.createElement("ul");
-  stepList3.classList.add("stepboxlist");
-  const steps4 = [
-    'Turn variac dial to "0" position, and switch-OFF mains from the variac.',
-    "Connect up the circuit of Load test ",
-    "Connect mains to load bank and switch ON fan. (Do not use load bank itif fan is not working)",
-    "Switch ON mains to variac and vary dial to obtain 220V in voltmeter V₁.",
-    "Switch one of load bank dials to position 400 and use its associated TRIMMER control to set the current on A₂ to 2A.",
-    "Record the readings of V₂, V₂, A₁, A₂, and wattmeter on table 206-4.",
-    "Use the load bank dial switches and trimmers, set the reading of A₁ to 4, 6, 8, and 10A respectively, and repeat (19) at each setting.",
-    'Turn variac dial to "0" position and switch-OFF mains to variac.',
-    "Fill-up table 206-3",
-  ];
-  let stepBox3 = [];
-  for (let i = 0; i < steps4.length; i++) {
-    stepBox3[i] = document.createElement("li");
-    stepBox3[i].textContent = steps4[i];
-    stepList3.appendChild(stepBox3[i]);
-  }
-  practicals.appendChild(stepList3);
+const openCircuitList = document.createElement("ol");
+openCircuitSteps.forEach((step) => {
+  const li = document.createElement("li");
+  li.textContent = step;
+  openCircuitList.appendChild(li);
+});
+procedure.appendChild(openCircuitList);
 
-  // i am supposed to implemetnresults and tables her but e npo make sense
+const loadCharacteristicsSeparatelyExcited = document.createElement("h3");
+loadCharacteristicsSeparatelyExcited.textContent = "2. LOAD CHARACTERISTICS OF SEPARATELY EXCITED DC GENERATOR:";
+procedure.appendChild(loadCharacteristicsSeparatelyExcited);
 
-  main.appendChild(practicals);
-  const precaution = document.createElement("section");
-  const cautionHead = document.createElement("h3");
-  cautionHead.textContent = "PRECAUTIONS";
-  precaution.appendChild(cautionHead);
-  const cautionList = document.createElement("ul");
-  const precautions = [
-    "I avoided error due to parallax when taking the readings ",
-    "I ensured all measuring instruments (voltmeters, ammeters etc) were calibrated and were in good working condition for accurate measurements",
-    "I ensured that I didn’t  touch live circuits to avoid getting electrocuted",
-  ];
-  let cautionBox = [];
-  for (let i = 0; i < precautions.length; i++) {
-    cautionBox[i] = document.createElement("li");
-    cautionBox[i].textContent = precautions[i];
-    cautionList.appendChild(cautionBox[i]);
-  }
-  precaution.appendChild(cautionList);
-  main.appendChild(precaution);
-  const conclusion = document.createElement("section");
-  const concHead = document.createElement("h3");
-  concHead.textContent = "CONCLUSION:";
-  conclusion.appendChild(concHead);
-  const concText = document.createElement("p");
-  concText.textContent =
-    "At the end of this experiment, we were able to verify that the voltage ratio between the primary voltage and secondary voltage and secondary voltage of a transformer is equal to the turns winding ratio and also able to understand the characteristics of a transformer on No-load and on load and also draw the graphs required";
-  conclusion.appendChild(concText);
-  main.appendChild(conclusion);
-  const references = document.createElement("section");
-  const refHead = document.createElement("h3");
-  refHead.textContent = "REFERENCES";
-  references.appendChild(refHead);
-  const refList = document.createElement("ul");
-  refList.classList.add("stepboxlist");
-  const reference = [
-    "Electric Machinery Fundamentals by Stephen J. Chapman",
-    "Electrical Engineering Laboratory Manual by the Department of Electrical Engineering, University of Benin.",
-    "Fundamentals of Electric Circuits by Charles K. Alexander & Matthew N. O. Sadiku",
-  ];
-  let refBox = [];
-  for (let i = 0; i < reference.length; i++) {
-    refBox[i] = document.createElement("li");
-    refBox[i].textContent = reference[i];
-    refList.appendChild(refBox[i]);
-  }
-  references.appendChild(refList);
-  main.appendChild(references);
+const loadStepsSeparatelyExcited = [
+  "Make the connections as shown in Figure 207-1.",
+  "Connect a load resistor to the output of the generator (see Figure 207-2-2).",
+  "Switch ON the drive motor and raise the shaft speed to 1200 rev/min.",
+  "Maintain a constant field current of 1.2 A throughout the test.",
+  "Vary the load resistor in steps from 500 Ω to approximately 15 Ω, taking readings of load current (I) and terminal voltage (V) at each step until the load current reaches 1.0 A.",
+  "Record the values in Table 207.",
+];
+
+const loadListSeparatelyExcited = document.createElement("ol");
+loadStepsSeparatelyExcited.forEach((step) => {
+  const li = document.createElement("li");
+  li.textContent = step;
+  loadListSeparatelyExcited.appendChild(li);
+});
+procedure.appendChild(loadListSeparatelyExcited);
+
+const loadCharacteristicsShunt = document.createElement("h3");
+loadCharacteristicsShunt.textContent = "3. LOAD CHARACTERISTICS OF DC SHUNT GENERATOR:";
+procedure.appendChild(loadCharacteristicsShunt);
+
+const loadStepsShunt = [
+  "Make the connections as shown in Figure 207-2-3 (DC Shunt Generator).",
+  "Repeat the procedure as in the separately excited generator, but note that the shunt generator is self-excited.",
+  "Record the terminal voltage (V), load current (I), and generated voltage (E) at each step.",
+  "Plot the load characteristics (V vs. I) for the shunt generator.",
+];
+
+const loadListShunt = document.createElement("ol");
+loadStepsShunt.forEach((step) => {
+  const li = document.createElement("li");
+  li.textContent = step;
+  loadListShunt.appendChild(li);
+});
+procedure.appendChild(loadListShunt);
+
+main.appendChild(procedure);
+
+// Tables Section
+const tables = document.createElement("section");
+const tablesHead = document.createElement("h2");
+tablesHead.textContent = "TABLES";
+tables.appendChild(tablesHead);
+
+const table207 = document.createElement("h3");
+table207.textContent = "Table 207.2.1: Load Characteristics of Separately Excited DC Generator";
+tables.appendChild(table207);
+
+const table = document.createElement("table");
+table.style.borderCollapse = "collapse";
+table.style.width = "100%";
+
+const thead = document.createElement("thead");
+const headerRow = document.createElement("tr");
+
+const headers = ["Load Current (I)", "Terminal Voltage (V)", "Generated Voltage (E)"];
+headers.forEach((text) => {
+  const th = document.createElement("th");
+  th.textContent = text;
+  th.style.border = "1px solid black";
+  th.style.padding = "8px";
+  headerRow.appendChild(th);
+});
+
+thead.appendChild(headerRow);
+table.appendChild(thead);
+
+const tbody = document.createElement("tbody");
+const tableData = [
+  ["0.1 A", "120 V", "122 V"],
+  ["0.2 A", "118 V", "120 V"],
+  ["0.3 A", "115 V", "117 V"],
+  // Add more rows as needed
+];
+
+tableData.forEach((row) => {
+  const tr = document.createElement("tr");
+  row.forEach((cell) => {
+    const td = document.createElement("td");
+    td.textContent = cell;
+    td.style.border = "1px solid black";
+    td.style.padding = "8px";
+    tr.appendChild(td);
+  });
+  tbody.appendChild(tr);
+});
+
+table.appendChild(tbody);
+tables.appendChild(table);
+
+main.appendChild(tables);
+
+// Graphs Section
+const graphs = document.createElement("section");
+const graphsHead = document.createElement("h2");
+graphsHead.textContent = "GRAPHS";
+graphs.appendChild(graphsHead);
+
+const graph1 = document.createElement("h3");
+graph1.textContent = "1. Open-Circuit Characteristics:";
+graphs.appendChild(graph1);
+
+const graph1Desc = document.createElement("p");
+graph1Desc.textContent = "Plot E (generated voltage) vs. If (field current) with If on the horizontal axis. Determine the critical field resistance from the graph.";
+graphs.appendChild(graph1Desc);
+
+const graph2 = document.createElement("h3");
+graph2.textContent = "2. Separately Excited Generator:";
+graphs.appendChild(graph2);
+
+const graph2Desc = document.createElement("p");
+graph2Desc.textContent = "Plot V (terminal voltage), I (load current), and E (generated voltage) on the same sheet with I on the horizontal axis.";
+graphs.appendChild(graph2Desc);
+
+const graph3 = document.createElement("h3");
+graph3.textContent = "3. Shunt Generator:";
+graphs.appendChild(graph3);
+
+const graph3Desc = document.createElement("p");
+graph3Desc.textContent = "Plot V (terminal voltage), I (load current), and E (generated voltage) on the same sheet with I on the horizontal axis.";
+graphs.appendChild(graph3Desc);
+
+main.appendChild(graphs);
+
+// Questions Section
+const questions = document.createElement("section");
+const questionsHead = document.createElement("h2");
+questionsHead.textContent = "QUESTIONS";
+questions.appendChild(questionsHead);
+
+const question1 = document.createElement("h3");
+question1.textContent = "1. Explain the conditions necessary for satisfactory self-excitation of a DC shunt generator.";
+questions.appendChild(question1);
+
+const answer1 = document.createElement("p");
+answer1.innerHTML = `
+  <strong>Answer:</strong>
+  For satisfactory self-excitation of a DC shunt generator, the following conditions must be met:
+  <ul>
+    <li><strong>Residual Magnetism:</strong> The generator must have some residual magnetism in its magnetic circuit. This residual magnetism is essential to initiate the generation of a small voltage when the generator starts rotating.</li>
+    <li><strong>Field Circuit Connection:</strong> The field winding must be correctly connected in parallel with the armature (shunt connection). If the field winding is connected in reverse, the generator will not self-excite.</li>
+    <li><strong>Critical Field Resistance:</strong> The total resistance in the field circuit (including the field winding resistance and any external rheostat) must be less than the <strong>critical field resistance</strong>. If the field resistance is too high, the generator will fail to build up voltage.</li>
+    <li><strong>Speed of Rotation:</strong> The generator must rotate at or above a certain minimum speed. If the speed is too low, the generated voltage may not be sufficient to sustain self-excitation.</li>
+    <li><strong>Load Conditions:</strong> Initially, the generator should be operated under no-load or light-load conditions to allow the voltage to build up gradually.</li>
+  </ul>
+  If any of these conditions are not met, the generator will fail to self-excite, and no voltage will be generated.
+`;
+questions.appendChild(answer1);
+
+const question2 = document.createElement("h3");
+question2.textContent = "2. Compare the external characteristics of the separately excited and shunt generators and explain the differences.";
+questions.appendChild(question2);
+
+const answer2 = document.createElement("p");
+answer2.innerHTML = `
+  <strong>Answer:</strong>
+  The external characteristics of a separately excited DC generator and a shunt (self-excited) DC generator differ in the following ways:
+  <ul>
+    <li><strong>Voltage Regulation:</strong>
+      <ul>
+        <li><strong>Separately Excited Generator:</strong> The terminal voltage (V) decreases gradually as the load current (I) increases. This is due to the voltage drop across the armature resistance (IaRa) and the effect of armature reaction. However, the field current is independent of the load current, so the voltage drop is relatively linear.</li>
+        <li><strong>Shunt Generator:</strong> The terminal voltage drops more significantly as the load current increases compared to the separately excited generator. This is because, in a shunt generator, the field current depends on the terminal voltage. As the load current increases, the terminal voltage drops, which in turn reduces the field current, causing a further drop in voltage. This creates a positive feedback effect, leading to a steeper voltage drop.</li>
+      </ul>
+    </li>
+    <li><strong>Load Current:</strong>
+      <ul>
+        <li><strong>Separately Excited Generator:</strong> The load current can be increased until the armature current reaches its maximum allowable value. The field current remains constant, so the generator can deliver higher currents without a significant drop in voltage.</li>
+        <li><strong>Shunt Generator:</strong> The load current is limited by the point where the terminal voltage drops to zero. This occurs because the reduction in terminal voltage reduces the field current, which further reduces the generated voltage. This limits the maximum load current that can be drawn from a shunt generator.</li>
+      </ul>
+    </li>
+    <li><strong>Field Control:</strong>
+      <ul>
+        <li><strong>Separately Excited Generator:</strong> The field current is controlled independently of the load current, allowing for precise control of the output voltage. This makes it suitable for applications requiring stable voltage under varying loads.</li>
+        <li><strong>Shunt Generator:</strong> The field current depends on the terminal voltage, which varies with the load. This makes the shunt generator less stable under varying load conditions compared to the separately excited generator.</li>
+      </ul>
+    </li>
+    <li><strong>Applications:</strong>
+      <ul>
+        <li><strong>Separately Excited Generator:</strong> Used in applications where precise voltage control is required, such as in automatic control systems and laboratory setups.</li>
+        <li><strong>Shunt Generator:</strong> Commonly used in applications where a relatively constant voltage is required, but precise control is not critical, such as in battery charging and small power supplies.</li>
+      </ul>
+    </li>
+  </ul>
+`;
+questions.appendChild(answer2);
+
+main.appendChild(questions);
+
+// Precautions Section
+const precautions = document.createElement("section");
+const precHead = document.createElement("h2");
+precHead.textContent = "PRECAUTIONS";
+precautions.appendChild(precHead);
+
+const precList = document.createElement("ul");
+const precItems = [
+  "Ensure all connections are secure and free from corrosion or oxidation.",
+  "Calibrate all measuring instruments (voltmeters, ammeters, etc.) before use.",
+  "Avoid parallax errors when taking readings.",
+  "Keep detailed records of all measurements.",
+];
+
+precItems.forEach((item) => {
+  const li = document.createElement("li");
+  li.textContent = item;
+  precList.appendChild(li);
+});
+precautions.appendChild(precList);
+
+main.appendChild(precautions);
+
+// Conclusion Section
+const conclusion = document.createElement("section");
+const concHead = document.createElement("h2");
+concHead.textContent = "CONCLUSION";
+conclusion.appendChild(concHead);
+
+const concText = document.createElement("p");
+concText.textContent = `
+  The experiment successfully demonstrated the open-circuit and load characteristics of both separately excited and shunt DC generators. The results obtained from the separately excited and shunt generators were compared, and the differences in their external characteristics were analyzed.
+`;
+conclusion.appendChild(concText);
+
+main.appendChild(conclusion);
+
+// References Section
+const references = document.createElement("section");
+const refHead = document.createElement("h2");
+refHead.textContent = "REFERENCES";
+references.appendChild(refHead);
+
+const refList = document.createElement("ul");
+const refItems = [
+  "Principles of Electrical Technology: M. Clytton.",
+  "Electrical Engineering Laboratory Manual.",
+];
+
+refItems.forEach((item) => {
+  const li = document.createElement("li");
+  li.textContent = item;
+  refList.appendChild(li);
+});
+references.appendChild(refList);
+
+main.appendChild(references);
   const hover = createHover("#");
   main.appendChild(hover);
   const download = createDownload("#");

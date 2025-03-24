@@ -46,11 +46,11 @@ let reports = [
         func: displayEE206
     },
     {
-        title: 'D.C Generator {EE 205}',
+        title: 'D.C Generator {EE 207}',
         func: displayEE207
     },
     {
-        title: 'D.C Generator {EE 208}',
+        title: 'D.C Motor {EE 208}',
         func: displayEE208
     },
 
