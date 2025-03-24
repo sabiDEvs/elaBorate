@@ -19,6 +19,31 @@ import truthTabSevSeg from "../../RESOURCES/images/Truth Table seven seg.jpeg";
 import obsAddSub from "../../RESOURCES/images/obserAdderSub.jpg";
 import pic112 from "../../RESOURCES/images/download-icon.png";
 import pic113 from "../../RESOURCES/images/download.png";
+import mux4x1 from "../../RESOURCES/images/4 X 1 MUX.jpg";
+import decoder3x8 from "../../RESOURCES/images/3 to 8 Decoder.png";
+import fourBitShiftRegister from "../../RESOURCES/images/4-bit-shift-register.gif";
+import mux8x1 from "../../RESOURCES/images/8 X 1 MUX.png";
+// import timer555 from "../../RESOURCES/images/555-Timer-Pin-Diagram.webp";
+import arch8085 from "../../RESOURCES/images/8085 ARCHITECTURE.png";
+import pinDia8085 from "../../RESOURCES/images/8085 PIN DIAGRAM.png";
+import counters404 from "../../RESOURCES/images/counters 404.png";
+import fig1initConfig from "../../RESOURCES/images/fig 1-Initial Configuration.png";
+import fig2 from "../../RESOURCES/images/fig 2=74LS76.png";
+import fig3 from "../../RESOURCES/images/fig 3 -Hex inverter.png";
+import fig4 from "../../RESOURCES/images/fig 4_ 555 timer.png";
+import ic555internal from "../../RESOURCES/images/IC-555-internal-block-diagram.png";
+import IC74LS76 from "../../RESOURCES/images/IC74LS76.png";
+import IC74138 from "../../RESOURCES/images/IC74138.png";
+import IC74151 from "../../RESOURCES/images/IC74151.png";
+import JKflipflop from "../../RESOURCES/images/JK flip flop.png";
+import NtwoCODER from "../../RESOURCES/images/N-2N DECODER.png";
+import RSFOR4040 from "../../RESOURCES/images/RS FOR 404.jpg";
+import sequentialcir4040 from "../../RESOURCES/images/sequential cir 404.png";
+import z80MicroprocessorDiagram from "../../RESOURCES/images/z80 Microprocessor Diagram.png";
+import TTABLEFORMULTIPLEXER from "../../RESOURCES/images/T TABLE FOR MULTIPLEXER.png";
+import TRUTHTABLEFORDECODER from "../../RESOURCES/images/TRUTH TABLE FOR DECODER.png";
+import Cpe406observation from "../../RESOURCES/images/Cpe406 observation.png";
+import gees from "../../RESOURCES/images/gees.jpg";
 
 import { add } from "lodash";
 
@@ -26,6 +51,9 @@ const reset = () => {
   window.scrollTo(0, 0);
   const main = document.querySelector("main");
   main.innerHTML = "";
+  if (window.innerWidth < 800) {
+    document.querySelector("aside").style.display = "none";
+  }
   return main;
 };
 
@@ -108,8 +136,22 @@ const createList = function (arr, element) {
 export const displayStarted = () => {
   const main = reset();
 
+  const divImgAchieve = document.createElement("div");
+  divImgAchieve.classList.add("div-img-achieve");
+
+  const imgAchieve = document.createElement("img");
+  divImgAchieve.appendChild(imgAchieve);
+  imgAchieve.src = gees;
+  imgAchieve.classList.add("startImg");
+  imgAchieve.id = "getStartImg";
+
   // Title
-  createPriHeader("Getting Started with CPE ELA", main);
+
+  const startingHeader = document.createElement("h2");
+  startingHeader.textContent = "GETTING STARTED WITH COMPUTER ELA";
+  startingHeader.id = "getStartHead";
+  divImgAchieve.appendChild(startingHeader);
+  main.appendChild(divImgAchieve);
 
   // Introduction
   createSecHeader("Introduction", main);
@@ -465,9 +507,7 @@ export const displayComparators = function () {
   const download = createDownload("#");
   main.appendChild(download);
 };
-
 // LOGIC GATES EXPERIMENT
-
 export const displayLogicGatesExperiment = function () {
   const main = reset();
 
@@ -543,6 +583,18 @@ export const displayLogicGatesExperiment = function () {
     proceduresSection
   );
 
+  // Add the AND Gate Truth Table
+  const andTableSection = document.createElement("section");
+  createSecHeader("AND Gate Truth Table", andTableSection);
+  const andTableData = [
+    { A: 0, B: 0, X: 0 },
+    { A: 0, B: 1, X: 0 },
+    { A: 1, B: 0, X: 0 },
+    { A: 1, B: 1, X: 1 },
+  ];
+  andTableSection.appendChild(createTable(andTableData, "X = A · B"));
+  proceduresSection.appendChild(andTableSection);
+
   // OR Gate Procedure
   createTertHeader("OR Gate", proceduresSection);
   createPara(
@@ -561,6 +613,18 @@ export const displayLogicGatesExperiment = function () {
     proceduresSection
   );
 
+  // Add the OR Gate Truth Table
+  const orTableSection = document.createElement("section");
+  createSecHeader("OR Gate Truth Table", orTableSection);
+  const orTableData = [
+    { A: 0, B: 0, X: 0 },
+    { A: 0, B: 1, X: 1 },
+    { A: 1, B: 0, X: 1 },
+    { A: 1, B: 1, X: 1 },
+  ];
+  orTableSection.appendChild(createTable(orTableData, "X = A + B"));
+  proceduresSection.appendChild(orTableSection);
+
   // NOT Gate Procedure
   createTertHeader("NOT Gate", proceduresSection);
   createPara(
@@ -577,6 +641,16 @@ export const displayLogicGatesExperiment = function () {
     ],
     proceduresSection
   );
+
+  // Add the NOT Gate Truth Table
+  const notTableSection = document.createElement("section");
+  createSecHeader("NOT Gate Truth Table", notTableSection);
+  const notTableData = [
+    { A: 0, X: 1 },
+    { A: 1, X: 0 },
+  ];
+  notTableSection.appendChild(createTable(notTableData, "X = ¬A"));
+  proceduresSection.appendChild(notTableSection);
 
   // XOR Gate Procedure
   createTertHeader("XOR Gate", proceduresSection);
@@ -596,6 +670,18 @@ export const displayLogicGatesExperiment = function () {
     proceduresSection
   );
 
+  // Add the XOR Gate Truth Table
+  const xorTableSection = document.createElement("section");
+  createSecHeader("XOR Gate Truth Table", xorTableSection);
+  const xorTableData = [
+    { A: 0, B: 0, X: 0 },
+    { A: 0, B: 1, X: 1 },
+    { A: 1, B: 0, X: 1 },
+    { A: 1, B: 1, X: 0 },
+  ];
+  xorTableSection.appendChild(createTable(xorTableData, "X = A ⊕ B"));
+  proceduresSection.appendChild(xorTableSection);
+
   // NAND Gate Procedure
   createTertHeader("NAND Gate", proceduresSection);
   createPara(
@@ -613,6 +699,18 @@ export const displayLogicGatesExperiment = function () {
     ],
     proceduresSection
   );
+
+  // Add the NAND Gate Truth Table
+  const nandTableSection = document.createElement("section");
+  createSecHeader("NAND Gate Truth Table", nandTableSection);
+  const nandTableData = [
+    { A: 0, B: 0, X: 1 },
+    { A: 0, B: 1, X: 1 },
+    { A: 1, B: 0, X: 1 },
+    { A: 1, B: 1, X: 0 },
+  ];
+  nandTableSection.appendChild(createTable(nandTableData, "X = ¬(A · B)"));
+  proceduresSection.appendChild(nandTableSection);
 
   // NOR Gate Procedure
   createTertHeader("NOR Gate", proceduresSection);
@@ -632,6 +730,18 @@ export const displayLogicGatesExperiment = function () {
     proceduresSection
   );
 
+  // Add the NOR Gate Truth Table
+  const norTableSection = document.createElement("section");
+  createSecHeader("NOR Gate Truth Table", norTableSection);
+  const norTableData = [
+    { A: 0, B: 0, X: 1 },
+    { A: 0, B: 1, X: 0 },
+    { A: 1, B: 0, X: 0 },
+    { A: 1, B: 1, X: 0 },
+  ];
+  norTableSection.appendChild(createTable(norTableData, "X = ¬(A + B)"));
+  proceduresSection.appendChild(norTableSection);
+
   // XNOR Gate Procedure
   createTertHeader("XNOR Gate", proceduresSection);
   createPara(
@@ -649,6 +759,18 @@ export const displayLogicGatesExperiment = function () {
     ],
     proceduresSection
   );
+
+  // Add the XNOR Gate Truth Table
+  const xnorTableSection = document.createElement("section");
+  createSecHeader("XNOR Gate Truth Table", xnorTableSection);
+  const xnorTableData = [
+    { A: 0, B: 0, X: 1 },
+    { A: 0, B: 1, X: 0 },
+    { A: 1, B: 0, X: 0 },
+    { A: 1, B: 1, X: 1 },
+  ];
+  xnorTableSection.appendChild(createTable(xnorTableData, "X = A ⊙ B"));
+  proceduresSection.appendChild(xnorTableSection);
 
   main.appendChild(proceduresSection);
 
@@ -696,6 +818,57 @@ export const displayLogicGatesExperiment = function () {
   return main;
 };
 
+// Function to create a table with borders and proper structure
+function createTable(data, outputExpression) {
+  const table = document.createElement("table");
+  table.style.borderCollapse = "collapse";
+  table.style.width = "100%";
+  table.style.border = "1px solid black";
+
+  // Create the table header
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  const headers = Object.keys(data[0]);
+
+  headers.forEach((headerText) => {
+    const th = document.createElement("th");
+    th.textContent = headerText;
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    headerRow.appendChild(th);
+  });
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create the table body
+  const tbody = document.createElement("tbody");
+
+  data.forEach((rowData) => {
+    const row = document.createElement("tr");
+
+    Object.values(rowData).forEach((cellData) => {
+      const td = document.createElement("td");
+      td.textContent = cellData;
+      td.style.border = "1px solid black";
+      td.style.padding = "8px";
+      row.appendChild(td);
+    });
+
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+
+  // Add a caption for the output expression
+  const caption = document.createElement("caption");
+  caption.textContent = `Output Expression: ${outputExpression}`;
+  caption.style.captionSide = "bottom";
+  caption.style.marginTop = "10px";
+  table.appendChild(caption);
+
+  return table;
+}
 // 3 by 8 DECODER EXPERIMENT
 
 export const display3x8DecoderExperiment = function () {
@@ -946,9 +1119,76 @@ export const displaySequentialCircuits = function () {
   const diagramsHead = document.createElement("h2");
   diagramsHead.textContent = "DIAGRAMS";
   diagrams.appendChild(diagramsHead);
-  const placeholderText = document.createElement("p");
-  placeholderText.textContent = "Diagrams to be added here.";
-  diagrams.appendChild(placeholderText);
+
+  // RS4040 Diagram with Caption
+  const rs404Container = document.createElement("div");
+  rs404Container.style.textAlign = "center"; // Center the image and caption
+
+  const rs404 = document.createElement("img");
+  rs404.src = RSFOR4040;
+  rs404.className = "diagramSmallScreens";
+  rs404Container.appendChild(rs404);
+
+  const rs404Caption = document.createElement("p");
+  rs404Caption.textContent = "Figure 1: RS404 Diagram";
+  rs404Caption.style.marginTop = "10px"; // Add spacing between image and caption
+  rs404Caption.style.fontStyle = "italic"; // Italicize the caption
+  rs404Container.appendChild(rs404Caption);
+
+  diagrams.appendChild(rs404Container);
+
+  // Counter Diagram with Caption
+  const counterDiagContainer = document.createElement("div");
+  counterDiagContainer.style.textAlign = "center"; // Center the image and caption
+
+  const counterDiag = document.createElement("img");
+  counterDiag.src = counters404;
+  counterDiag.className = "diagramSmallScreens";
+  counterDiagContainer.appendChild(counterDiag);
+
+  const counterDiagCaption = document.createElement("p");
+  counterDiagCaption.textContent = "Figure 2: Counter Diagram";
+  counterDiagCaption.style.marginTop = "10px"; // Add spacing between image and caption
+  counterDiagCaption.style.fontStyle = "italic"; // Italicize the caption
+  counterDiagContainer.appendChild(counterDiagCaption);
+
+  diagrams.appendChild(counterDiagContainer);
+
+  // Sequential Circuit Diagram with Caption
+  const seqCirContainer = document.createElement("div");
+  seqCirContainer.style.textAlign = "center"; // Center the image and caption
+
+  const seqCir = document.createElement("img");
+  seqCir.src = sequentialcir4040;
+  seqCir.className = "diagramSmallScreens";
+  seqCirContainer.appendChild(seqCir);
+
+  const seqCirCaption = document.createElement("p");
+  seqCirCaption.textContent = "Figure 3: Sequential Circuit Diagram";
+  seqCirCaption.style.marginTop = "10px"; // Add spacing between image and caption
+  seqCirCaption.style.fontStyle = "italic"; // Italicize the caption
+  seqCirContainer.appendChild(seqCirCaption);
+
+  diagrams.appendChild(seqCirContainer);
+
+  // JK Flip-Flop Diagram with Caption
+  const jkflopContainer = document.createElement("div");
+  jkflopContainer.style.textAlign = "center"; // Center the image and caption
+
+  const jkflop = document.createElement("img");
+  jkflop.src = JKflipflop;
+  jkflop.className = "diagramSmallScreens";
+  jkflopContainer.appendChild(jkflop);
+
+  const jkflopCaption = document.createElement("p");
+  jkflopCaption.textContent = "Figure 4: JK Flip-Flop Diagram";
+  jkflopCaption.style.marginTop = "10px"; // Add spacing between image and caption
+  jkflopCaption.style.fontStyle = "italic"; // Italicize the caption
+  jkflopContainer.appendChild(jkflopCaption);
+
+  diagrams.appendChild(jkflopContainer);
+
+  // Append the diagrams section to the main element
   main.appendChild(diagrams);
 
   // Procedures
@@ -1049,7 +1289,6 @@ export const displaySequentialCircuits = function () {
 };
 
 // ADDERS AND SUBTRACTORS EXPERIMENT
-
 export const displayAddersAndSubtractors = function () {
   const main = reset();
 
@@ -1074,7 +1313,6 @@ export const displayAddersAndSubtractors = function () {
   main.appendChild(objective);
 
   // Apparatus
-
   const apparatus = document.createElement("section");
   createSecHeader("APPARATUS/TOOLS", apparatus);
   createList(
@@ -1094,7 +1332,6 @@ export const displayAddersAndSubtractors = function () {
   main.appendChild(apparatus);
 
   // Theory
-
   const theory = document.createElement("section");
   createSecHeader("THEORY", theory);
   createPara(
@@ -1150,7 +1387,6 @@ export const displayAddersAndSubtractors = function () {
   main.appendChild(theory);
 
   // Diagrams
-
   const diagrams = document.createElement("section");
   createSecHeader("Adder and Subtractor Circuit", diagrams);
   const adderSubCir = document.createElement("img");
@@ -1218,7 +1454,6 @@ export const displayAddersAndSubtractors = function () {
   main.appendChild(procedures);
 
   // Observations
-
   const observations = document.createElement("section");
   createSecHeader("OBSERVATIONS", observations);
   createPara(
@@ -1226,14 +1461,110 @@ export const displayAddersAndSubtractors = function () {
     observations
   );
 
-  createSecHeader("Observations of Adder and Subtractor", observations);
-  const obsAddSubImg = document.createElement("img");
-  obsAddSubImg.src = obsAddSub;
-  obsAddSubImg.className = "diagramSmallScreens";
-  observations.appendChild(obsAddSubImg);
+  // Add the Adder and Subtractor Table
+  const adderSubtractorTableSection = document.createElement("section");
+  createSecHeader("Adder and Subtractor Table", adderSubtractorTableSection);
+
+  // Data for the table
+  const adderSubtractorTableData = [
+    {
+      A: "1 0 0 0",
+      B: "0 0 1 1",
+      Addition: "0 1 0 0 1",
+      Subtraction: "0 0 1 0 1",
+    },
+    {
+      A: "1 0 0 0",
+      B: "0 1 0 0",
+      Addition: "0 1 0 1 0",
+      Subtraction: "0 0 1 1 0",
+    },
+    {
+      A: "1 0 0 0",
+      B: "0 1 0 1",
+      Addition: "0 1 0 1 1",
+      Subtraction: "0 0 1 1 1",
+    },
+    {
+      A: "1 0 0 0",
+      B: "1 0 0 0",
+      Addition: "0 1 1 0 0",
+      Subtraction: "0 0 0 0 0",
+    },
+    {
+      A: "1 0 0 0",
+      B: "1 0 0 1",
+      Addition: "0 1 1 0 1",
+      Subtraction: "0 0 0 0 1",
+    },
+    {
+      A: "1 0 0 0",
+      B: "1 0 1 0",
+      Addition: "0 1 1 1 0",
+      Subtraction: "0 0 0 1 0",
+    },
+    {
+      A: "1 0 0 0",
+      B: "1 1 0 0",
+      Addition: "0 1 1 1 1",
+      Subtraction: "0 0 0 1 1",
+    },
+  ];
+
+  // Function to create the table
+  function createTable(data) {
+    const table = document.createElement("table");
+    table.style.borderCollapse = "collapse";
+    table.style.width = "100%";
+    table.style.border = "1px solid black";
+
+    // Create the table header
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = ["Input Data A", "Input Data B", "Addition", "Subtraction"];
+
+    headers.forEach((headerText) => {
+      const th = document.createElement("th");
+      th.textContent = headerText;
+      th.style.border = "1px solid black";
+      th.style.padding = "8px";
+      headerRow.appendChild(th);
+    });
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create the table body
+    const tbody = document.createElement("tbody");
+
+    data.forEach((rowData) => {
+      const row = document.createElement("tr");
+
+      Object.values(rowData).forEach((cellData) => {
+        const td = document.createElement("td");
+        td.textContent = cellData;
+        td.style.border = "1px solid black";
+        td.style.padding = "8px";
+        row.appendChild(td);
+      });
+
+      tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+
+    return table;
+  }
+
+  // Append the table to the observations section
+  adderSubtractorTableSection.appendChild(
+    createTable(adderSubtractorTableData)
+  );
+  observations.appendChild(adderSubtractorTableSection);
 
   main.appendChild(observations);
 
+  // Precautions
   const precautions = document.createElement("section");
   createSecHeader("PRECAUTIONS", precautions);
   createList(
@@ -1246,6 +1577,7 @@ export const displayAddersAndSubtractors = function () {
   );
   main.appendChild(precautions);
 
+  // Conclusions
   const conclusions = document.createElement("section");
   createSecHeader("CONCLUSIONS", conclusions);
   createPara(
@@ -1254,6 +1586,7 @@ export const displayAddersAndSubtractors = function () {
   );
   main.appendChild(conclusions);
 
+  // References
   const references = document.createElement("section");
   createSecHeader("REFERENCES", references);
   createList(
@@ -1266,7 +1599,6 @@ export const displayAddersAndSubtractors = function () {
   );
   main.appendChild(references);
 };
-
 // SEVEN SEGMENT DISPLAY DECODER EXPERIMENT
 
 export const displaySevenSegmentDecoder = function () {
@@ -1423,18 +1755,149 @@ export const displaySevenSegmentDecoder = function () {
   // Observations
   const observations = document.createElement("section");
 
-  // Truth Table for Seven Segment Diagram
-  createSecHeader("Truth Table for Seven Segment", observations);
-  const truthTabSevSegDiag = document.createElement("img");
-  truthTabSevSegDiag.src = truthTabSevSeg;
-  truthTabSevSegDiag.className = "diagramSmallScreens";
-  observations.appendChild(truthTabSevSegDiag);
+  // Add the table to the Observations section
+  const tableSection = document.createElement("section");
+  createSecHeader("Truth Table for Seven Segment", tableSection);
 
+  // Data for the table
+  const tableData = [
+    {
+      Dec: 0,
+      IC7400: "1 1 1 1",
+      IC7410: "1 1 0",
+      Output: "1 1 1 1 1 1 0",
+    },
+    {
+      Dec: 1,
+      IC7400: "0 1 1 0",
+      IC7410: "1 1 0",
+      Output: "0 1 1 0 0 0 0",
+    },
+    {
+      Dec: 2,
+      IC7400: "1 1 0 0",
+      IC7410: "1 0 1",
+      Output: "1 1 0 1 1 0 1",
+    },
+    {
+      Dec: 3,
+      IC7400: "1 1 1 1",
+      IC7410: "0 0 1",
+      Output: "1 1 1 1 0 0 1",
+    },
+    {
+      Dec: 4,
+      IC7400: "0 1 1 0",
+      IC7410: "0 1 1",
+      Output: "0 1 1 0 0 1 1",
+    },
+    {
+      Dec: 5,
+      IC7400: "1 0 1 1",
+      IC7410: "0 1 1",
+      Output: "1 0 1 1 0 1 1",
+    },
+    {
+      Dec: 6,
+      IC7400: "1 0 1 1",
+      IC7410: "1 1 1",
+      Output: "1 0 1 1 1 1 1",
+    },
+    {
+      Dec: 7,
+      IC7400: "1 1 1 0",
+      IC7410: "0 0 0",
+      Output: "1 1 1 0 0 0 0",
+    },
+    {
+      Dec: 8,
+      IC7400: "1 1 1 1",
+      IC7410: "1 1 1",
+      Output: "1 1 1 1 1 1 1",
+    },
+    {
+      Dec: 9,
+      IC7400: "1 1 1 1",
+      IC7410: "0 1 1",
+      Output: "1 1 1 1 0 1 1",
+    },
+  ];
+
+  // Function to create the table
+  function createTable(data) {
+    const table = document.createElement("table");
+    table.style.borderCollapse = "collapse";
+    table.style.width = "100%";
+    table.style.border = "1px solid black";
+
+    // Create the table header
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = [
+      "Dec",
+      "Inputs (IC 7400, IC 7410)",
+      "Output (7-Segment Display)",
+    ];
+
+    headers.forEach((headerText) => {
+      const th = document.createElement("th");
+      th.textContent = headerText;
+      th.style.border = "1px solid black";
+      th.style.padding = "8px";
+      headerRow.appendChild(th);
+    });
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create the table body
+    const tbody = document.createElement("tbody");
+
+    data.forEach((rowData) => {
+      const row = document.createElement("tr");
+
+      // Add Dec column
+      const decCell = document.createElement("td");
+      decCell.textContent = rowData.Dec;
+      decCell.style.border = "1px solid black";
+      decCell.style.padding = "8px";
+      row.appendChild(decCell);
+
+      // Add Inputs column
+      const inputsCell = document.createElement("td");
+      inputsCell.textContent = `IC 7400: ${rowData.IC7400}\nIC 7410: ${rowData.IC7410}`;
+      inputsCell.style.border = "1px solid black";
+      inputsCell.style.padding = "8px";
+      inputsCell.style.whiteSpace = "pre-line"; // Preserve line breaks
+      row.appendChild(inputsCell);
+
+      // Add Output column
+      const outputCell = document.createElement("td");
+      outputCell.textContent = rowData.Output;
+      outputCell.style.border = "1px solid black";
+      outputCell.style.padding = "8px";
+      row.appendChild(outputCell);
+
+      tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+
+    return table;
+  }
+
+  // Append the table to the table section
+  tableSection.appendChild(createTable(tableData));
+  observations.appendChild(tableSection);
+
+  // Add observations text
   createSecHeader("OBSERVATIONS", observations);
   createPara(
     "The seven-segment display illuminated the correct segments corresponding to the binary input. Errors in connections resulted in partial or no segment illumination.",
     observations
   );
+
+  // Append the observations section to the main element
   main.appendChild(observations);
 
   // Precautions
@@ -1573,15 +2036,36 @@ export const displayDecoderAndMultiplexerExperiment = function () {
 
   // Decoder Diagram
   const decoderDiagram = document.createElement("img");
-  decoderDiagram.src = "path/to/decoder_diagram.png";
+  decoderDiagram.src = decoder3x8;
   decoderDiagram.className = "diagramSmallScreens";
   diagrams.appendChild(decoderDiagram);
 
+  const decoderDiagram2 = document.createElement("img");
+  decoderDiagram2.src = NtwoCODER;
+  decoderDiagram2.className = "diagramSmallScreens";
+  diagrams.appendChild(decoderDiagram2);
+
   // Multiplexer Diagram
+  const multiplexerDiagram2 = document.createElement("img");
+  multiplexerDiagram2.src = mux8x1;
+  multiplexerDiagram2.className = "diagramSmallScreens";
+  diagrams.appendChild(multiplexerDiagram2);
+
   const multiplexerDiagram = document.createElement("img");
-  multiplexerDiagram.src = "path/to/multiplexer_diagram.png";
+  multiplexerDiagram.src = mux4x1;
   multiplexerDiagram.className = "diagramSmallScreens";
   diagrams.appendChild(multiplexerDiagram);
+
+  // ICs Diagram
+  const ic74138 = document.createElement("img");
+  ic74138.src = IC74138;
+  ic74138.className = "diagramSmallScreens";
+  diagrams.appendChild(ic74138);
+
+  const i74151 = document.createElement("img");
+  i74151.src = IC74151;
+  i74151.className = "diagramSmallScreens";
+  diagrams.appendChild(i74151);
 
   main.appendChild(diagrams);
 
@@ -1637,14 +2121,14 @@ export const displayDecoderAndMultiplexerExperiment = function () {
   // Truth Table for Multiplexer
   createSecHeader("Truth Table for Multiplexer", observations);
   const multiplexerTruthTable = document.createElement("img");
-  multiplexerTruthTable.src = "path/to/multiplexer_truth_table.png";
+  multiplexerTruthTable.src = TTABLEFORMULTIPLEXER;
   multiplexerTruthTable.className = "diagramSmallScreens";
   observations.appendChild(multiplexerTruthTable);
 
   // Truth Table for Decoder
   createSecHeader("Truth Table for Decoder", observations);
   const decoderTruthTable = document.createElement("img");
-  decoderTruthTable.src = "path/to/decoder_truth_table.png";
+  decoderTruthTable.src = TRUTHTABLEFORDECODER;
   decoderTruthTable.className = "diagramSmallScreens";
   observations.appendChild(decoderTruthTable);
 
@@ -1764,15 +2248,35 @@ export const display555TimerAndShiftRegisterExperiment = function () {
 
   // 555 Timer Diagram
   const timerDiagram = document.createElement("img");
-  timerDiagram.src = "path/to/555_timer_diagram.png";
+  timerDiagram.src = ic555internal;
   timerDiagram.className = "diagramSmallScreens";
   diagrams.appendChild(timerDiagram);
 
-  // 4-Bit Shift Register Diagram
+  // ic 74ls76
+  const ic74ls76 = document.createElement("img");
+  ic74ls76.src = fig2;
+  ic74ls76.className = "diagramSmallScreens";
+  diagrams.appendChild(ic74ls76);
+
+  // 4-Bit Shift Register Diagram with Caption
+  const shiftRegisterContainer = document.createElement("div");
+  shiftRegisterContainer.style.textAlign = "center"; // Center the image and caption
+
+  // Create the image element
   const shiftRegisterDiagram = document.createElement("img");
-  shiftRegisterDiagram.src = "path/to/shift_register_diagram.png";
+  shiftRegisterDiagram.src = fourBitShiftRegister;
   shiftRegisterDiagram.className = "diagramSmallScreens";
-  diagrams.appendChild(shiftRegisterDiagram);
+  shiftRegisterContainer.appendChild(shiftRegisterDiagram);
+
+  // Create the caption element
+  const shiftRegisterCaption = document.createElement("p");
+  shiftRegisterCaption.textContent = "4-Bit Shift Register Diagram";
+  shiftRegisterCaption.style.marginTop = "10px"; // Add some spacing between the image and caption
+  shiftRegisterCaption.style.fontStyle = "italic"; // Italicize the caption
+  shiftRegisterContainer.appendChild(shiftRegisterCaption);
+
+  // Append the container to the diagrams section
+  diagrams.appendChild(shiftRegisterContainer);
 
   main.appendChild(diagrams);
 
@@ -1821,8 +2325,70 @@ export const display555TimerAndShiftRegisterExperiment = function () {
     "The 555 Timer generated stable clock pulses, which were successfully used to drive the 4-bit shift register. The shift register correctly shifted the input data through its flip-flops, and the parallel outputs matched the expected results.",
     observations
   );
-  main.appendChild(observations);
 
+  // Add the table to the Observations section
+  const tableSection = document.createElement("section");
+  createSecHeader("Shift Register Output States", tableSection);
+
+  // Data for the table
+  const tableData = [
+    { Step: 1, Qa: 1, Qb: 0, Qc: 0, Qd: 0 },
+    { Step: 2, Qa: 0, Qb: 1, Qc: 0, Qd: 0 },
+    { Step: 3, Qa: 0, Qb: 0, Qc: 1, Qd: 0 },
+    { Step: 4, Qa: 0, Qb: 0, Qc: 0, Qd: 1 },
+  ];
+
+  // Function to create the table
+  function createTable(data) {
+    const table = document.createElement("table");
+    table.style.borderCollapse = "collapse";
+    table.style.width = "100%";
+    table.style.border = "1px solid black";
+
+    // Create the table header
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = Object.keys(data[0]);
+
+    headers.forEach((headerText) => {
+      const th = document.createElement("th");
+      th.textContent = headerText;
+      th.style.border = "1px solid black";
+      th.style.padding = "8px";
+      headerRow.appendChild(th);
+    });
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create the table body
+    const tbody = document.createElement("tbody");
+
+    data.forEach((rowData) => {
+      const row = document.createElement("tr");
+
+      Object.values(rowData).forEach((cellData) => {
+        const td = document.createElement("td");
+        td.textContent = cellData;
+        td.style.border = "1px solid black";
+        td.style.padding = "8px";
+        row.appendChild(td);
+      });
+
+      tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+
+    return table;
+  }
+
+  // Append the table to the table section
+  tableSection.appendChild(createTable(tableData));
+  observations.appendChild(tableSection);
+
+  // Append the observations section to the main element
+  main.appendChild(observations);
   // Precautions
   const precautions = document.createElement("section");
   createSecHeader("PRECAUTIONS", precautions);
@@ -1967,15 +2533,20 @@ export const displayJKFlipFlopExperiment = function () {
   const diagrams = document.createElement("section");
   createSecHeader("DIAGRAMS", diagrams);
 
-  // JK Flip Flop Diagram
+  // JK Flip Flop Diagrams
+  const hexInv = document.createElement("img");
+  hexInv.src = fig3;
+  hexInv.className = "diagramSmallScreens";
+  diagrams.appendChild(hexInv);
+
   const jkFlipFlopDiagram = document.createElement("img");
-  jkFlipFlopDiagram.src = "path/to/jk_flip_flop_diagram.png";
+  jkFlipFlopDiagram.src = fig2;
   jkFlipFlopDiagram.className = "diagramSmallScreens";
   diagrams.appendChild(jkFlipFlopDiagram);
 
   // 555 Timer Diagram
   const timerDiagram = document.createElement("img");
-  timerDiagram.src = "path/to/555_timer_diagram.png";
+  timerDiagram.src = fig4;
   timerDiagram.className = "diagramSmallScreens";
   diagrams.appendChild(timerDiagram);
 
@@ -2020,6 +2591,11 @@ export const displayJKFlipFlopExperiment = function () {
     "The J-K Negative Edge Triggered Flip-Flop transitioned correctly based on its characteristic table at the negative edge of the clock pulse. Outputs remained stable between clock pulses and changed at the negative edge, confirming the edge-triggered behavior.",
     observations
   );
+
+  const observationJK = document.createElement("img");
+  observationJK.src = Cpe406observation;
+  observationJK.className = "diagramSmallScreens";
+  observations.appendChild(observationJK);
   main.appendChild(observations);
 
   // Precautions
@@ -2159,13 +2735,18 @@ export const displayBlockTransferExperiment = function () {
 
   // 8085 Block Transfer Diagram
   const blockTransfer8085Diagram = document.createElement("img");
-  blockTransfer8085Diagram.src = "path/to/8085_block_transfer_diagram.png";
+  blockTransfer8085Diagram.src = arch8085;
   blockTransfer8085Diagram.className = "diagramSmallScreens";
   diagrams.appendChild(blockTransfer8085Diagram);
 
+  const pin8085 = document.createElement("img");
+  pin8085.src = pinDia8085;
+  pin8085.className = "diagramSmallScreens";
+  diagrams.appendChild(pin8085);
+
   // Z80 Block Transfer Diagram
   const blockTransferZ80Diagram = document.createElement("img");
-  blockTransferZ80Diagram.src = "path/to/z80_block_transfer_diagram.png";
+  blockTransferZ80Diagram.src = z80MicroprocessorDiagram;
   blockTransferZ80Diagram.className = "diagramSmallScreens";
   diagrams.appendChild(blockTransferZ80Diagram);
 
